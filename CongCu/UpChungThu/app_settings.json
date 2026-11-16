@@ -1,0 +1,36 @@
+{
+    "time_rules": {
+        "t1": "09:00",
+        "t2": "16:00",
+        "x1": 0,
+        "x2": 1,
+        "x3": 2
+    },
+    "word_settings": {
+        "run_date_update": true,
+        "run_conversion": true,
+        "add_bg_var": true,
+        "use_time_rules": false,
+        "use_manual_date": false,
+        "manual_date_str": "21/04/2026"
+    },
+    "excel_settings": {
+        "add_bg_var": true
+    },
+    "mapping_paths": [
+        "Z:\\9.NV2 - MOI TRUONG\\1.Ho So Moi Truong\\2026",
+        "Z:\\9.NV2 - MOI TRUONG\\1.Ho So Moi Truong\\2026\\0.1.Tân Hiệp",
+        "Z:\\9.NV2 - MOI TRUONG\\1.Ho So Moi Truong\\2026\\0.VIMCERTS078",
+        "Z:\\9.NV2 - MOI TRUONG\\1.Ho So Moi Truong\\1.Môi trường lao động\\2026"
+    ],
+    "signer_settings": {
+        "inspector": [
+            "Phạm Quốc Nghĩa",
+            "Nguyễn Xuân Nam"
+        ],
+        "boss": [
+            "Lê Đăng Huyền"
+        ]
+    },
+    "dark_mode": true
+}

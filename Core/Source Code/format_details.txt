@@ -1,0 +1,704 @@
+====================================================================================================
+FOLDER: New From 2026
+====================================================================================================
+
+### FILE: TBKQ - en - 1 - phong sach - Q326D108033.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P01 [style=Normal, numId=['10'], ilvl=['1']]: 'P'(b=True,i=None,u=None,sz=13.0,fn=None) + 'erformance'(b=True,i=None,u=None,sz=13.0,fn=None) + ' content'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P02 [style=Normal, numId=[], ilvl=[]]: 'Measur'(b=None,i=None,u=None,sz=13.0,fn=None) + 'ement'(b=None,i=None,u=None,sz=13.0,fn=None) + ' area '(b=None,i=None,u=None,sz=13.0,fn=None) + 'was indicated by '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P03 [style=Normal, numId=[], ilvl=[]]: '“'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Manufacturing '(b=None,i=None,u=None,sz=13.0,fn=None) + 'room'(b=None,i=None,u=None,sz=13.0,fn=None) + '”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P04 [style=Normal, numId=[], ilvl=[]]: 'Cleanroom o'(b=None,i=None,u=None,sz=13.0,fn=None) + 'ccupancy state: '(b=None,i=None,u=None,sz=13.0,fn=None) + '“Operational”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: 'Photos of the measurement process'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P07 [style=Normal, numId=[], ilvl=[]]: 'Layout of '(b=None,i=None,u=None,sz=13.0,fn=None) + 'monitoring '(b=None,i=None,u=None,sz=13.0,fn=None) + 'points:'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P10 [style=Normal, numId=['10'], ilvl=['1']]: 'Measu'(b=True,i=None,u=None,sz=13.0,fn=None) + 'rement'(b=True,i=None,u=None,sz=13.0,fn=None) + ' result of particle concentration'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P12 [style=Body Text Indent, numId=[], ilvl=[]]: 'Assessment:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P13 [style=Normal, numId=[], ilvl=[]]: 'The measurement result of airborne particle concentration in'(b=None,i=None,u=None,sz=12.5,fn=None) + ' “Manufacturing room” '(b=None,i=None,u=None,sz=12.5,fn=None) + 'complied with'(b=True,i=True,u=None,sz=12.5,fn=None) + ' the specified limit for '(b=None,i=None,u=None,sz=12.5,fn=None)
+  P18 [style=Body Text Indent, numId=[], ilvl=[]]: 'Assessment:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P19 [style=Normal, numId=[], ilvl=[]]: 'The measurement result of airborne particle concentration in'(b=None,i=None,u=None,sz=12.5,fn=None) + ' “Air lock”, “Gowning room” '(b=None,i=None,u=None,sz=12.5,fn=None) + 'complied with'(b=True,i=True,u=None,sz=12.5,fn=None) + ' the specified limit for '(b=None,i=None,u=None,sz=12.5,fn=None)
+  T00 (14x8) borders=[]
+    Row 0: cell0='' (no-run)
+    Row 1: cell0='Client' (b=None,i=None,sz=13.0)
+    Row 13: cell0='INSPECTOR  Nguyen Xuan Nam' (no-run)
+  T01 (4x4) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement location' (b=None,i=None,sz=12.5)
+    Row 1: cell0='Manufacturing room' (b=None,i=None,sz=12.5)
+    Row 3: cell0='Gowning room' (b=None,i=None,sz=12.5)
+  T02 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T03 (1x2) borders=[]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+  T04 (1x1) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='' (b=None,i=True,sz=13.0)
+    Row 0: cell0='' (b=None,i=True,sz=13.0)
+  T05 (24x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=12.5)
+    Row 1: cell0='Measurement room' (b=None,i=None,sz=12.5)
+    Row 23: cell0='The maximum permissible limit for ISO Cl' (b=None,i=None,sz=12.5)
+  T06 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T07 (13x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=12.5)
+    Row 1: cell0='Measurement room' (b=None,i=None,sz=12.5)
+    Row 12: cell0='The maximum permissible limit for ISO Cl' (b=None,i=None,sz=12.5)
+  T08 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+
+### FILE: TBKQ - en - 2 - khi nen - Q326D108033.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P01 [style=Normal, numId=['10'], ilvl=['1']]: 'P'(b=True,i=None,u=None,sz=13.0,fn=None) + 'erformance'(b=True,i=None,u=None,sz=13.0,fn=None) + ' content'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P02 [style=Normal, numId=[], ilvl=[]]: 'The number of performance location was indicated by '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Nextern Vietnam'(b=None,i=None,u=None,sz=13.0,fn=None) + ' L'(b=None,i=None,u=None,sz=13.0,fn=None) + 'imited'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P03 [style=Normal, numId=[], ilvl=[]]: 'Status of compressed air system'(b=None,i=None,u=None,sz=13.0,fn=None) + '	: In operation'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P04 [style=Normal, numId=[], ilvl=[]]: 'Status of the factory'(b=None,i=None,u=None,sz=13.0,fn=None) + '	: In operation'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P05 [style=Normal, numId=[], ilvl=[]]: 'Description of compressed air system at the performance time:'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: 'Tecbell air compressor TW-15A/8EPM → Air receiver → Tecbell filter TB-007G-III (C) → Tecbell air dryer TB-026AH → Tecbell filter TB-007G-III (H) → Tecbell filter '(b=None,i=True,u=None,sz=13.0,fn=None) + 'TB-007G-III (TR) → '(b=None,i=True,u=None,sz=13.0,fn=None) + 'Tecbell air dryer '(b=None,i=True,u=None,sz=13.0,fn=None) + 'J-2509041'(b=None,i=True,u=None,sz=inh,fn=None)
+  P08 [style=Normal, numId=[], ilvl=[]]: 'Photo of '(b=None,i=None,u=None,sz=13.0,fn=None) + 'performance'(b=None,i=None,u=None,sz=13.0,fn=None) + ' location'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P15 [style=Normal, numId=['10'], ilvl=['1']]: 'Inspection result'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P16 [style=Normal, numId=[], ilvl=[]]: '9'(b=True,i=None,u=None,sz=13.0,fn=None) + '.2.1 '(b=True,i=None,u=None,sz=13.0,fn=None) + 'Total oil content'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P18 [style=Normal, numId=[], ilvl=[]]: 'Assessment:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P19 [style=Normal, numId=[], ilvl=[]]: 'The'(b=None,i=None,u=None,sz=13.0,fn=None) + 'test'(b=None,i=None,u=None,sz=13.0,fn=None) + ' result'(b=None,i=None,u=None,sz=13.0,fn=None) + ' of total oil content in compressed air'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P21 [style=Normal, numId=[], ilvl=[]]: '9'(b=True,i=None,u=None,sz=13.0,fn=None) + '.2.2'(b=True,i=None,u=None,sz=13.0,fn=None) + 'Pressure dew'(b=True,i=None,u=None,sz=13.0,fn=None) + 'point'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P23 [style=Normal, numId=[], ilvl=[]]: 'Assessment:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P24 [style=Normal, numId=[], ilvl=[]]: 'The'(b=None,i=None,u=None,sz=13.0,fn=None) + 'test'(b=None,i=None,u=None,sz=13.0,fn=None) + ' result'(b=None,i=None,u=None,sz=13.0,fn=None) + ' of water content in compressed air'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P27 [style=Normal, numId=[], ilvl=[]]: '9'(b=True,i=None,u=None,sz=13.0,fn=None) + '.2.'(b=True,i=None,u=None,sz=13.0,fn=None) + '3 '(b=True,i=None,u=None,sz=13.0,fn=None) + 'Concentration of particles'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P31 [style=Normal, numId=[], ilvl=[]]: 'Assessment:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P32 [style=Normal, numId=[], ilvl=[]]: 'The'(b=None,i=None,u=None,sz=13.0,fn=None) + 'measurement'(b=None,i=None,u=None,sz=13.0,fn=None) + ' result'(b=None,i=None,u=None,sz=13.0,fn=None) + ' of concentration of particle size '(b=None,i=None,u=None,sz=13.0,fn=None)
+  T00 (16x8) borders=[]
+    Row 0: cell0='' (no-run)
+    Row 1: cell0='Client' (b=None,i=None,sz=13.0)
+    Row 15: cell0='INSPECTOR  Nguyen Xuan Nam' (no-run)
+  T01 (2x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Performance location/ Description' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Pneumatic pipeline in manufacturing room' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Pneumatic pipeline in manufacturing room' (b=None,i=None,sz=13.0)
+  T02 (1x2) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T03 (3x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Location' (b=None,i=None,sz=13.0)
+    Row 1: cell0='KN' (b=None,i=None,sz=13.0)
+    Row 2: cell0='Requirement (2)' (b=None,i=None,sz=13.0)
+  T04 (5x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 1: cell0='(1) …' (b=None,i=True,sz=11.0)
+    Row 4: cell0='●' (b=None,i=True,sz=11.0)
+  T05 (4x7) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Location  (Measurement time)' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Location  (Measurement time)' (b=None,i=None,sz=13.0)
+    Row 3: cell0='Requirement (2)' (b=None,i=None,sz=13.0)
+  T06 (6x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 1: cell0='(1) …' (b=None,i=True,sz=11.0)
+    Row 5: cell0='●' (b=None,i=True,sz=11.0)
+  T07 (4x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Location' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Location' (b=None,i=None,sz=13.0)
+    Row 3: cell0='KN' (b=None,i=None,sz=inh)
+  T08 (5x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 1: cell0='(1) ...' (b=None,i=True,sz=11.0)
+    Row 4: cell0='●' (b=None,i=True,sz=11.0)
+  T09 (3x2) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Location' (b=None,i=None,sz=13.0)
+    Row 1: cell0='KN' (b=None,i=None,sz=13.0)
+    Row 2: cell0='Requirement (3)' (b=None,i=None,sz=13.0)
+  T10 (4x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 1: cell0='(2) …' (b=None,i=True,sz=11.0)
+    Row 3: cell0='●' (b=None,i=True,sz=11.0)
+
+### FILE: TBKQ - viet - 1 - phong sach - Q326D108033.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P01 [style=Normal, numId=['10'], ilvl=['1']]: 'Nội dung thực hiện'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P02 [style=Normal, numId=[], ilvl=[]]: 'Khu vực'(b=None,i=None,u=None,sz=13.0,fn=None) + ' thực hiện theo sự chỉ định của '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Công ty '(b=None,i=None,u=None,sz=13.0,fn=None) + 'TNHH '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P03 [style=Normal, numId=[], ilvl=[]]: '“Phòng sản xuất”; “Air'(b=None,i=None,u=None,sz=13.0,fn=None) + 'lock”; “Phòng thay đồ”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P04 [style=Normal, numId=[], ilvl=[]]: 'Trạng thái '(b=None,i=None,u=None,sz=13.0,fn=None) + 'phòng sạch'(b=None,i=None,u=None,sz=13.0,fn=None) + ': “Trạng thái hoạt động”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: 'Hình ảnh quá trình thực hiện'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P07 [style=Normal, numId=[], ilvl=[]]: 'Sơ đồ các vị trí '(b=None,i=None,u=None,sz=13.0,fn=None) + 'quan trắc:'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P10 [style=Normal, numId=['27'], ilvl=['1']]: 'Kết quả '(b=True,i=None,u=None,sz=13.0,fn=None) + 'đo'(b=True,i=None,u=None,sz=13.0,fn=None) + ' nồng độ hạt bụi'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P12 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P13 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'nồng độ hạt bụi trong không khí tại'(b=None,i=None,u=None,sz=13.0,fn=None) + '“'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Phòng'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P17 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P18 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'nồng độ hạt bụi trong không '(b=None,i=None,u=None,sz=13.0,fn=None) + 'khí tại “Air lock”; “Phòng thay đồ” '(b=None,i=None,u=None,sz=13.0,fn=None) + 'phù'(b=True,i=True,u=None,sz=13.0,fn=None)
+  T00 (14x8) borders=[]
+    Row 0: cell0='' (no-run)
+    Row 1: cell0='Đơn vị yêu cầu giám định' (b=None,i=None,sz=13.0)
+    Row 13: cell0='GIÁM ĐỊNH VIÊN   Nguyễn Xuân Nam' (no-run)
+  T01 (4x4) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực thực hiện' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Phòng sản xuất' (b=None,i=None,sz=13.0)
+    Row 3: cell0='Phòng thay đồ' (b=None,i=None,sz=13.0)
+  T02 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T03 (1x2) borders=[]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+  T04 (1x1) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='' (b=None,i=True,sz=inh)
+    Row 0: cell0='' (b=None,i=True,sz=inh)
+  T05 (24x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 23: cell0='Giới hạn tối đa cho phép đối với phòng s' (b=None,i=None,sz=13.0)
+  T06 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T07 (13x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 12: cell0='Giới hạn tối đa cho phép đối với phòng s' (b=None,i=None,sz=13.0)
+  T08 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+
+### FILE: TBKQ - vn - 2 - khi nen - Q326D108033.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P01 [style=Normal, numId=['10'], ilvl=['1']]: 'Nội dung thực hiện'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P02 [style=Normal, numId=[], ilvl=[]]: 'Số lượng vị trí thực hiện theo chỉ định của '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Công ty '(b=None,i=None,u=None,sz=13.0,fn=None) + 'TNHH N'(b=None,i=None,u=None,sz=13.0,fn=None) + 'extern'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P03 [style=Normal, numId=[], ilvl=[]]: 'Trạng thái hệ thống khí nén'(b=None,i=None,u=None,sz=13.0,fn=None) + '	: Đang hoạt động '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P04 [style=Normal, numId=[], ilvl=[]]: 'Trạng thái nhà xưởng'(b=None,i=None,u=None,sz=13.0,fn=None) + '	: '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Đang'(b=None,i=None,u=None,sz=13.0,fn=None) + ' hoạt động'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P05 [style=Normal, numId=[], ilvl=[]]: 'Mô tả hệ thống khí nén tại thời điểm thực hiện:'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: 'Máy nén khí Tecbell TW-15A/8EPM '(b=None,i=True,u=None,sz=13.0,fn=None) + ' Bình chứa '(b=None,i=True,u=None,sz=13.0,fn=None) + ' Lọc Tecbell TB-007G-III (C)               '(b=None,i=True,u=None,sz=13.0,fn=None) + ' Máy sấy khí Tecbell TB-026AH '(b=None,i=True,u=None,sz=13.0,fn=None)
+  P08 [style=Normal, numId=[], ilvl=[]]: 'Hình ảnh vị trí thực hiện'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P16 [style=Normal, numId=['10'], ilvl=['1']]: 'Kết quả'(b=True,i=None,u=None,sz=13.0,fn=None) + ' giám định'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P17 [style=List Paragraph, numId=['27'], ilvl=['2']]: 'Hàm lượng tổng dầu'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P19 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P20 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'hàm lượng '(b=None,i=None,u=None,sz=13.0,fn=None) + 'tổng dầu'(b=None,i=None,u=None,sz=13.0,fn=None) + ' trong khí nén tại vị trí nêu trên '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P22 [style=List Paragraph, numId=['27'], ilvl=['2']]: 'Nhiệt độ điểm sương'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P24 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P25 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'h'(b=None,i=None,u=None,sz=13.0,fn=None) + 'àm lượng nước trong khí nén tại vị trí nêu trên '(b=None,i=None,u=None,sz=13.0,fn=None) + 'phù'(b=True,i=True,u=None,sz=13.0,fn=None)
+  P33 [style=List Paragraph, numId=['27'], ilvl=['2']]: 'Nồng độ hạt bụi'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P37 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P38 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'nồng độ '(b=None,i=None,u=None,sz=13.0,fn=None) + 'hạt bụi'(b=None,i=None,u=None,sz=13.0,fn=None) + ' có kích thước '(b=None,i=None,u=None,sz=13.0,fn=None)
+  T00 (16x8) borders=[]
+    Row 0: cell0='' (no-run)
+    Row 1: cell0='Đơn vị yêu cầu giám định' (b=None,i=None,sz=13.0)
+    Row 15: cell0='GIÁM ĐỊNH VIÊN   Nguyễn Xuân Nam' (no-run)
+  T01 (2x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Tên gọi vị trí thực hiện/ Mô tả' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Đường ống khí nén tại phòng sản xuất' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Đường ống khí nén tại phòng sản xuất' (b=None,i=None,sz=13.0)
+  T02 (1x2) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T03 (3x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Vị trí thực hiện' (b=None,i=None,sz=13.0)
+    Row 1: cell0='KN' (b=None,i=None,sz=13.0)
+    Row 2: cell0='Mức yêu cầu (2)' (b=None,i=None,sz=13.0)
+  T04 (5x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 1: cell0='(1) …' (b=None,i=True,sz=11.0)
+    Row 4: cell0='●' (b=None,i=True,sz=11.0)
+  T05 (4x7) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Vị trí thực hiện  (Thời gian đo)' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Vị trí thực hiện  (Thời gian đo)' (b=None,i=None,sz=13.0)
+    Row 3: cell0='Mức yêu cầu (2)' (b=None,i=None,sz=13.0)
+  T06 (6x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 1: cell0='(1) …' (b=None,i=True,sz=11.0)
+    Row 5: cell0='●' (b=None,i=True,sz=11.0)
+  T07 (4x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Vị trí thực hiện' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Vị trí thực hiện' (b=None,i=None,sz=13.0)
+    Row 3: cell0='KN' (b=None,i=None,sz=inh)
+  T08 (5x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=10.5)
+    Row 1: cell0='(1) ...' (b=None,i=True,sz=10.5)
+    Row 4: cell0='●' (b=None,i=True,sz=10.5)
+  T09 (3x2) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Vị trí thực hiện' (b=None,i=None,sz=13.0)
+    Row 1: cell0='KN' (b=None,i=None,sz=13.0)
+    Row 2: cell0='Mức yêu cầu (2)' (b=None,i=None,sz=13.0)
+  T10 (4x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=10.5)
+    Row 1: cell0='(2) ...' (b=None,i=True,sz=10.5)
+    Row 3: cell0='●' (b=None,i=True,sz=10.5)
+====================================================================================================
+FOLDER: Old Form 2025
+====================================================================================================
+
+### FILE: 985 - TBKQ - eng - 1 - phong sach - đợt 1.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P04 [style=Normal, numId=['10'], ilvl=['1']]: 'Performance content'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P05 [style=Normal, numId=[], ilvl=[]]: 'Measur'(b=None,i=None,u=None,sz=13.0,fn=None) + 'ement'(b=None,i=None,u=None,sz=13.0,fn=None) + ' area was indicated by '(b=None,i=None,u=None,sz=13.0,fn=None) + 'INTECH Saigon Engineering Joint Stock Company'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: '" '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Manufacturing'(b=None,i=None,u=None,sz=13.0,fn=None) + 'room; '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Air'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P07 [style=Normal, numId=[], ilvl=[]]: 'Occupancy state: '(b=None,i=None,u=None,sz=13.0,fn=None) + '“'(b=None,i=None,u=None,sz=13.0,fn=None) + 'At rest'(b=None,i=None,u=None,sz=13.0,fn=None) + '”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P08 [style=Normal, numId=[], ilvl=[]]: 'The room area'(b=None,i=None,u=None,sz=13.0,fn=None) + 's'(b=None,i=None,u=None,sz=13.0,fn=None) + ' w'(b=None,i=None,u=None,sz=13.0,fn=None) + 'ere'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P10 [style=Normal, numId=[], ilvl=[]]: 'Photos of '(b=None,i=None,u=None,sz=13.0,fn=None) + 'the '(b=None,i=None,u=None,sz=13.0,fn=None) + 'measurement'(b=None,i=None,u=None,sz=13.0,fn=None) + ' process'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P12 [style=Normal, numId=[], ilvl=[]]: 'Layout of measuring points'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P14 [style=Normal, numId=['10'], ilvl=['1']]: 'Measuring result of particle concentration'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P16 [style=Body Text Indent, numId=[], ilvl=[]]: 'Assessment:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P17 [style=Normal, numId=[], ilvl=[]]: 'The measurement result of airborne particle concentration in'(b=None,i=None,u=None,sz=13.0,fn=None) + ' “'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Manufacturing room'(b=None,i=None,u=None,sz=13.0,fn=None) + '” '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P19 [style=Body Text Indent, numId=[], ilvl=[]]: 'Assessment:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P20 [style=Normal, numId=[], ilvl=[]]: 'The measurement result of airborne particle concentration in'(b=None,i=None,u=None,sz=13.0,fn=None) + ' “Airlock”'(b=None,i=None,u=None,sz=13.0,fn=None) + ','(b=None,i=None,u=None,sz=13.0,fn=None) + ' “Gowning room” '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P21 [style=List Paragraph, numId=['10'], ilvl=['1']]: 'Measur'(b=True,i=None,u=None,sz=13.0,fn=None) + 'ement'(b=True,i=None,u=None,sz=13.0,fn=None) + ' result of '(b=True,i=None,u=None,sz=13.0,fn=None) + 'HEPA filter leakage'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P23 [style=Normal, numId=[], ilvl=[]]: 'Assessment: '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P24 [style=Normal, numId=[], ilvl=[]]: 'The measurement result'(b=None,i=None,u=None,sz=13.0,fn=None) + ' of'(b=None,i=None,u=None,sz=13.0,fn=None) + 'HEPA filter '(b=None,i=None,u=None,sz=13.0,fn=None) + 'leakage '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P28 [style=Normal, numId=[], ilvl=[]]: 'Assessment: '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P29 [style=Normal, numId=[], ilvl=[]]: 'The measurement result'(b=None,i=None,u=None,sz=13.0,fn=None) + ' of'(b=None,i=None,u=None,sz=13.0,fn=None) + 'HEPA filter '(b=None,i=None,u=None,sz=13.0,fn=None) + 'leakage'(b=None,i=None,u=None,sz=13.0,fn=None)
+  T00 (18x10) borders=[]
+    Row 0: cell0='TECHNICAL INSPECTION REPORT' (b=True,i=None,sz=16.0)
+    Row 1: cell0='' (no-run)
+    Row 17: cell0='INSPECTOR  Nguyen Xuan Nam' (no-run)
+  T01 (4x4) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement location' (b=None,i=None,sz=12.5)
+    Row 1: cell0='Manufacturing room' (b=None,i=None,sz=12.5)
+    Row 3: cell0='Gowning room' (b=None,i=None,sz=12.5)
+  T02 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T03 (1x2) borders=[]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+  T04 (2x2) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 1: cell0='Particle-concentration measuring point' (b=None,i=True,sz=13.0)
+    Row 1: cell0='Particle-concentration measuring point' (b=None,i=True,sz=13.0)
+  T05 (24x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 23: cell0='The maximum permissible limit for cleanr' (b=None,i=None,sz=13.0)
+  T06 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T07 (13x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 12: cell0='The maximum permissible limit for cleanr' (b=None,i=None,sz=13.0)
+  T08 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T09 (5x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Gowning room' (b=None,i=None,sz=13.0)
+    Row 4: cell0='Permissible limit specified in ISO 14644' (b=None,i=None,sz=12.5)
+  T10 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T11 (14x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Manufacturing room' (b=None,i=None,sz=13.0)
+    Row 13: cell0='Permissible limit specified in ISO 14644' (b=None,i=None,sz=12.5)
+  T12 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+
+### FILE: 985 - TBKQ - eng - 2 - phong sach - đợt 2.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P03 [style=Normal, numId=['10'], ilvl=['1']]: 'Performance content'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P04 [style=Normal, numId=[], ilvl=[]]: 'Measur'(b=None,i=None,u=None,sz=13.0,fn=None) + 'ement'(b=None,i=None,u=None,sz=13.0,fn=None) + ' area was indicated by '(b=None,i=None,u=None,sz=13.0,fn=None) + 'INTECH Saigon Engineering Joint Stock Company'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P05 [style=Normal, numId=[], ilvl=[]]: '" '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Manufacturing'(b=None,i=None,u=None,sz=13.0,fn=None) + 'room; '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Air'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: 'Occupancy state: '(b=None,i=None,u=None,sz=13.0,fn=None) + '“'(b=None,i=None,u=None,sz=13.0,fn=None) + 'At rest'(b=None,i=None,u=None,sz=13.0,fn=None) + '”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P07 [style=Normal, numId=[], ilvl=[]]: 'The room area'(b=None,i=None,u=None,sz=13.0,fn=None) + 's'(b=None,i=None,u=None,sz=13.0,fn=None) + ' w'(b=None,i=None,u=None,sz=13.0,fn=None) + 'ere'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P09 [style=Normal, numId=[], ilvl=[]]: 'Photos of '(b=None,i=None,u=None,sz=13.0,fn=None) + 'the '(b=None,i=None,u=None,sz=13.0,fn=None) + 'measurement'(b=None,i=None,u=None,sz=13.0,fn=None) + ' process'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P11 [style=Normal, numId=[], ilvl=[]]: 'Layout of measuring points'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P13 [style=Normal, numId=['10'], ilvl=['1']]: 'Measuring result of particle concentration'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P15 [style=Body Text Indent, numId=[], ilvl=[]]: 'Assessment:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P16 [style=Normal, numId=[], ilvl=[]]: 'The measurement result of airborne particle concentration in'(b=None,i=None,u=None,sz=13.0,fn=None) + ' “'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Manufacturing room'(b=None,i=None,u=None,sz=13.0,fn=None) + '” '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P18 [style=Body Text Indent, numId=[], ilvl=[]]: 'Assessment:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P19 [style=Normal, numId=[], ilvl=[]]: 'The measurement result of airborne particle concentration in'(b=None,i=None,u=None,sz=13.0,fn=None) + '“Airlock”; “Gowning room” '(b=None,i=None,u=None,sz=13.0,fn=None) + 'complied with'(b=True,i=True,u=None,sz=13.0,fn=None) + ' the specification for'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P20 [style=List Paragraph, numId=['10'], ilvl=['1']]: 'Measur'(b=True,i=None,u=None,sz=13.0,fn=None) + 'ement'(b=True,i=None,u=None,sz=13.0,fn=None) + ' result of '(b=True,i=None,u=None,sz=13.0,fn=None) + 'temperature – humidity'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P22 [style=Normal, numId=[], ilvl=[]]: 'Assessment: '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P23 [style=Normal, numId=[], ilvl=[]]: 'The measurement results of '(b=None,i=None,u=None,sz=13.0,fn=None) + 'temperature - humidity'(b=None,i=None,u=None,sz=13.0,fn=None) + 'in'(b=None,i=None,u=None,sz=13.0,fn=None) + '“Manufacturing room”, '(b=None,i=None,u=None,sz=13.0,fn=None)
+  T00 (18x10) borders=[]
+    Row 0: cell0='TECHNICAL INSPECTION REPORT' (b=True,i=None,sz=16.0)
+    Row 1: cell0='' (no-run)
+    Row 17: cell0='INSPECTOR  Nguyen Xuan Nam' (no-run)
+  T01 (4x4) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement location' (b=None,i=None,sz=12.5)
+    Row 1: cell0='Manufacturing room' (b=None,i=None,sz=12.5)
+    Row 3: cell0='Gowning room' (b=None,i=None,sz=12.5)
+  T02 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T03 (1x2) borders=[]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+  T04 (2x2) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 1: cell0='Particle-concentration measuring point' (b=None,i=True,sz=13.0)
+    Row 1: cell0='Particle-concentration measuring point' (b=None,i=True,sz=13.0)
+  T05 (24x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 23: cell0='The maximum permissible limit for cleanr' (b=None,i=None,sz=13.0)
+  T06 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T07 (13x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 12: cell0='The maximum permissible limit for cleanr' (b=None,i=None,sz=13.0)
+  T08 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T09 (5x4) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Manufacturing room' (b=None,i=None,sz=12.5)
+    Row 4: cell0='Permissible limit provided by INTECH Sai' (b=None,i=None,sz=12.5)
+  T10 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+
+### FILE: 985 - TBKQ - eng - 3 - phong sach - đợt 3.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P03 [style=Normal, numId=['10'], ilvl=['1']]: 'Performance content'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P04 [style=Normal, numId=[], ilvl=[]]: 'Measur'(b=None,i=None,u=None,sz=13.0,fn=None) + 'ement'(b=None,i=None,u=None,sz=13.0,fn=None) + ' area was indicated by '(b=None,i=None,u=None,sz=13.0,fn=None) + 'INTECH Saigon Engineering Joint Stock Company'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P05 [style=Normal, numId=[], ilvl=[]]: '" '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Manufacturing'(b=None,i=None,u=None,sz=13.0,fn=None) + 'room; '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Air'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: 'Occupancy state: '(b=None,i=None,u=None,sz=13.0,fn=None) + '“'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Operational'(b=None,i=None,u=None,sz=13.0,fn=None) + '”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P07 [style=Normal, numId=[], ilvl=[]]: 'The room area'(b=None,i=None,u=None,sz=13.0,fn=None) + 's'(b=None,i=None,u=None,sz=13.0,fn=None) + ' w'(b=None,i=None,u=None,sz=13.0,fn=None) + 'ere'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P09 [style=Normal, numId=[], ilvl=[]]: 'Photos of '(b=None,i=None,u=None,sz=13.0,fn=None) + 'the '(b=None,i=None,u=None,sz=13.0,fn=None) + 'measurement'(b=None,i=None,u=None,sz=13.0,fn=None) + ' process'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P11 [style=Normal, numId=[], ilvl=[]]: 'Layout of measuring points'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P13 [style=Normal, numId=['10'], ilvl=['1']]: 'Measuring result of particle concentration'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P15 [style=Body Text Indent, numId=[], ilvl=[]]: 'Assessment:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P16 [style=Normal, numId=[], ilvl=[]]: 'The measurement result of airborne particle concentration '(b=None,i=None,u=None,sz=13.0,fn=None) + 'in'(b=None,i=None,u=None,sz=13.0,fn=None) + ' “'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Manufacturing room'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P18 [style=Body Text Indent, numId=[], ilvl=[]]: 'Assessment:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P19 [style=Normal, numId=[], ilvl=[]]: 'The measurement result of airborne particle concentration in'(b=None,i=None,u=None,sz=13.0,fn=None) + ' “Airlock”; “Gowning room” '(b=None,i=None,u=None,sz=13.0,fn=None) + 'complied with'(b=True,i=True,u=None,sz=13.0,fn=None) + ' the specification for '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P20 [style=List Paragraph, numId=['10'], ilvl=['1']]: 'Measur'(b=True,i=None,u=None,sz=13.0,fn=None) + 'ement'(b=True,i=None,u=None,sz=13.0,fn=None) + ' result of pressure differential'(b=True,i=None,u=None,sz=13.0,fn=None) + 's'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P22 [style=Normal, numId=[], ilvl=[]]: 'Assessment: '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P23 [style=Normal, numId=[], ilvl=[]]: 'The measurement result of '(b=None,i=None,u=None,sz=13.0,fn=None) + 'pressure differential'(b=None,i=None,u=None,sz=13.0,fn=None) + 's in'(b=None,i=None,u=None,sz=13.0,fn=None) + ' the '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P25 [style=List Paragraph, numId=['10'], ilvl=['1']]: 'Measur'(b=True,i=None,u=None,sz=13.0,fn=None) + 'ement'(b=True,i=None,u=None,sz=13.0,fn=None) + ' result of '(b=True,i=None,u=None,sz=13.0,fn=None) + 'airflow '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P30 [style=Normal, numId=[], ilvl=[]]: 'Assessment'(b=True,i=None,u=None,sz=13.0,fn=None) + ':'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P31 [style=Normal, numId=[], ilvl=[]]: '- '(b=None,i=None,u=None,sz=13.0,fn=None) + 'The calculation result of air changes per hour in '(b=None,i=None,u=None,sz=13.0,fn=None) + '“'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Manufacturing room”, “Airlock”,'(b=None,i=None,u=None,sz=13.0,fn=None)
+  T00 (18x10) borders=[]
+    Row 0: cell0='TECHNICAL INSPECTION REPORT' (b=True,i=None,sz=16.0)
+    Row 1: cell0='' (no-run)
+    Row 17: cell0='INSPECTOR  Nguyen Xuan Nam' (no-run)
+  T01 (4x4) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement location' (b=None,i=None,sz=12.5)
+    Row 1: cell0='Manufacturing room' (b=None,i=None,sz=12.5)
+    Row 3: cell0='Gowning room' (b=None,i=None,sz=12.5)
+  T02 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T03 (2x2) borders=[]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 1: cell0='' (b=None,i=None,sz=inh)
+    Row 1: cell0='' (b=None,i=None,sz=inh)
+  T04 (2x3) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 1: cell0='Particle-concentration measuring point' (b=None,i=True,sz=13.0)
+    Row 1: cell0='Particle-concentration measuring point' (b=None,i=True,sz=13.0)
+  T05 (24x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 23: cell0='The maximum permissible limit for cleanr' (b=None,i=None,sz=13.0)
+  T06 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T07 (13x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 12: cell0='The maximum permissible limit for cleanr' (b=None,i=None,sz=13.0)
+  T08 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T09 (5x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Area 1' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Manufacturing room' (b=None,i=None,sz=13.0)
+    Row 4: cell0='Permissible limit provided by INTECH Sai' (b=None,i=None,sz=13.0)
+  T10 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T11 (17x6) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measurement room' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Manufacturing room' (b=None,i=None,sz=12.5)
+    Row 16: cell0='Permissible limit provided by INTECH Sai' (b=None,i=None,sz=13.0)
+  T12 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+
+### FILE: 985 - TBKQ - eng - 4 - khi nen.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P00 [style=Normal, numId=['10'], ilvl=['1']]: 'Performance content'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P01 [style=Normal, numId=[], ilvl=[]]: 'The number and location of measuring points were indicated by '(b=None,i=None,u=None,sz=13.0,fn=None) + 'INTECH Saigon Engineering Joint Stock Company'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P02 [style=Normal, numId=[], ilvl=[]]: '+ Number of sampling/ measuring location'(b=None,i=None,u=None,sz=13.0,fn=None) + '	: 0'(b=None,i=None,u=None,sz=13.0,fn=None) + '2'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P03 [style=Normal, numId=[], ilvl=[]]: '+ Status of compressed air system'(b=None,i=None,u=None,sz=13.0,fn=None) + '	: In operation'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P04 [style=Normal, numId=[], ilvl=[]]: '+ Status of the factory'(b=None,i=None,u=None,sz=13.0,fn=None) + '	: '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Not in'(b=None,i=None,u=None,sz=13.0,fn=None) + ' operation'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P05 [style=Normal, numId=[], ilvl=[]]: 'Description of compressed air '(b=None,i=None,u=None,sz=13.0,fn=None) + 'system'(b=None,i=None,u=None,sz=13.0,fn=None) + ' at sampling time:'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: 'Tecbell air compressor TW-15A/8EPM → Air receiver → Tecbell filter TB-007G-III (C) → Tecbell air dryer TB-026AH → Tecbell filter TB-007G-III (H) → Tecbell filter '(b=None,i=True,u=None,sz=13.0,fn=None) + 'TB-007G-III (TR) → '(b=None,i=True,u=None,sz=13.0,fn=None) + 'Tecbell air dryer '(b=None,i=True,u=None,sz=13.0,fn=None) + 'J-2509041'(b=None,i=True,u=None,sz=inh,fn=None)
+  P08 [style=Normal, numId=[], ilvl=[]]: 'Photo of sampling/ measuring location'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P14 [style=Normal, numId=['10'], ilvl=['1']]: 'Inspection result'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P15 [style=Normal, numId=['10'], ilvl=['2']]: 'Total oil content'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P17 [style=Normal, numId=['10'], ilvl=['2']]: 'Pressure dewpoint'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P19 [style=Normal, numId=['10'], ilvl=['2']]: 'Concentration of particles'(b=True,i=None,u=None,sz=13.0,fn=None)
+  T00 (17x9) borders=[]
+    Row 0: cell0='TECHNICAL INSPECTION REPORT' (b=True,i=None,sz=16.0)
+    Row 1: cell0='' (no-run)
+    Row 16: cell0='INSPECTOR     Nguyen Xuan Nam' (no-run)
+  T01 (3x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Measuring/ sampling points/ Description' (b=True,i=None,sz=13.0)
+    Row 1: cell0='Pneumatic pipeline at the source point o' (b=None,i=None,sz=13.0)
+    Row 2: cell0='Pneumatic pipeline in manufacturing room' (b=None,i=None,sz=13.0)
+  T02 (1x2) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='Note :' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note :' (b=None,i=True,sz=11.0)
+  T03 (1x2) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+  T04 (3x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Location' (b=True,i=None,sz=inh)
+    Row 1: cell0='KN1' (b=None,i=None,sz=inh)
+    Row 2: cell0='KN2' (b=None,i=None,sz=inh)
+  T05 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T06 (4x6) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Location (Measuring time)' (b=True,i=None,sz=inh)
+    Row 1: cell0='Location (Measuring time)' (b=True,i=None,sz=inh)
+    Row 3: cell0='KN2 (From 00:40 pm to 01:30 pm)' (b=None,i=None,sz=inh)
+  T07 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Note:' (b=None,i=True,sz=11.0)
+  T08 (6x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Location' (b=True,i=None,sz=inh)
+    Row 1: cell0='Location' (b=True,i=None,sz=inh)
+    Row 5: cell0='KN2' (b=None,i=None,sz=inh)
+  T09 (1x2) borders=[]
+    Row 0: cell0='Note:' (b=None,i=True,sz=10.5)
+    Row 0: cell0='Note:' (b=None,i=True,sz=10.5)
+
+### FILE: 985 - TBKQ - viet - 1 - phong sach - đợt 1.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P03 [style=Normal, numId=['10'], ilvl=['1']]: 'Nội dung thực hiện   '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P04 [style=Normal, numId=[], ilvl=[]]: 'Khu vực đo được thực hiện theo sự chỉ định của Công ty C'(b=None,i=None,u=None,sz=13.0,fn=None) + 'P'(b=None,i=None,u=None,sz=13.0,fn=None) + ' Kỹ thuật INTECH Sài Gòn: '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P05 [style=Normal, numId=[], ilvl=[]]: '“Phòng sản xuất; Air'(b=None,i=None,u=None,sz=13.0,fn=None) + 'l'(b=None,i=None,u=None,sz=13.0,fn=None) + 'ock; Phòng thay đồ”;'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: 'Trạng thái nhà xưởng: “'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Trạng thái '(b=None,i=None,u=None,sz=13.0,fn=None) + 'nghỉ'(b=None,i=None,u=None,sz=13.0,fn=None) + '”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P07 [style=Normal, numId=[], ilvl=[]]: 'Diện tích các phòng sạch do đại diện Công ty CP Kỹ thuật INTECH Sài Gòn cung cấp. Số lượng vị trí đo được xác định theo hướng dẫn tại Bảng A1 của ISO 14644-1: 2015, cụ thể như sau:'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P09 [style=Normal, numId=[], ilvl=[]]: 'Hình ảnh quá trình thực hiện'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P11 [style=Normal, numId=[], ilvl=[]]: 'Sơ đồ '(b=None,i=None,u=None,sz=13.0,fn=None) + 'các '(b=None,i=None,u=None,sz=13.0,fn=None) + 'vị trí đo'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P14 [style=Normal, numId=['10'], ilvl=['1']]: 'Kết quả '(b=True,i=None,u=None,sz=13.0,fn=None) + 'đo'(b=True,i=None,u=None,sz=13.0,fn=None) + ' nồng độ hạt bụi'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P16 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P17 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'nồng độ hạt bụi trong không khí tại “'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Phòng sản xuất'(b=None,i=None,u=None,sz=13.0,fn=None) + '”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P19 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P20 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'nồng độ hạt bụi trong không khí tại “Airlock”, “Phòng thay đồ” '(b=None,i=None,u=None,sz=13.0,fn=None) + 'phù hợp'(b=True,i=True,u=None,sz=13.0,fn=None) + ' với mức quy định đối với '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P21 [style=Normal, numId=['10'], ilvl=['1']]: 'Kết quả đo '(b=True,i=None,u=None,sz=13.0,fn=None) + 'độ '(b=True,i=None,u=None,sz=13.0,fn=None) + 'rò rỉ lọc HEPA'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P24 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá: '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P25 [style=Normal, numId=[], ilvl=[]]: 'Kết quả '(b=None,i=None,u=None,sz=13.0,fn=None) + 'đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'độ rò rỉ'(b=None,i=None,u=None,sz=13.0,fn=None) + 'lọc HEPA'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P30 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá: '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P31 [style=Normal, numId=[], ilvl=[]]: 'Kết quả '(b=None,i=None,u=None,sz=13.0,fn=None) + 'đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'độ'(b=None,i=None,u=None,sz=13.0,fn=None) + ' rò rỉ'(b=None,i=None,u=None,sz=13.0,fn=None)
+  T00 (18x10) borders=[]
+    Row 0: cell0='CHỨNG THƯ  GIÁM ĐỊNH' (b=True,i=None,sz=16.0)
+    Row 1: cell0='' (no-run)
+    Row 17: cell0='GIÁM ĐỊNH VIÊN  Nguyễn Xuân Nam' (no-run)
+  T01 (4x4) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực thực hiện' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Phòng sản xuất' (b=None,i=None,sz=13.0)
+    Row 3: cell0='Phòng thay đồ' (b=None,i=None,sz=13.0)
+  T02 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T03 (1x2) borders=[]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+  T04 (2x2) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='' (b=None,i=True,sz=13.0)
+    Row 1: cell0='Vị trí đo nồng độ hạt bụi' (b=None,i=True,sz=13.0)
+    Row 1: cell0='Vị trí đo nồng độ hạt bụi' (b=None,i=True,sz=13.0)
+  T05 (24x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 23: cell0='Giới hạn tối đa cho phép đối với phòng s' (b=None,i=None,sz=13.0)
+  T06 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T07 (13x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 12: cell0='Giới hạn tối đa cho phép đối với phòng s' (b=None,i=None,sz=13.0)
+  T08 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T09 (5x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Phòng thay đồ' (b=None,i=None,sz=13.0)
+    Row 4: cell0='Mức quy định nêu tại ISO 14644-3:2019' (b=None,i=None,sz=13.0)
+  T10 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T11 (14x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Phòng sản xuất' (b=None,i=None,sz=13.0)
+    Row 13: cell0='Mức quy định nêu tại ISO 14644-3:2019' (b=None,i=None,sz=13.0)
+  T12 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+
+### FILE: 985 - TBKQ - viet - 2 - phong sach - đợt 2.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P03 [style=Normal, numId=['10'], ilvl=['1']]: 'Nội dung thực hiện   '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P04 [style=Normal, numId=[], ilvl=[]]: 'Khu vực đo được thực hiện theo sự chỉ định của Công ty C'(b=None,i=None,u=None,sz=13.0,fn=None) + 'P'(b=None,i=None,u=None,sz=13.0,fn=None) + ' Kỹ thuật INTECH Sài Gòn: '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P05 [style=Normal, numId=[], ilvl=[]]: '“Phòng sản xuất; Air'(b=None,i=None,u=None,sz=13.0,fn=None) + 'l'(b=None,i=None,u=None,sz=13.0,fn=None) + 'ock; Phòng thay đồ”;'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: 'Trạng thái nhà xưởng'(b=None,i=None,u=None,sz=13.0,fn=None) + ': “'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Trạng thái '(b=None,i=None,u=None,sz=13.0,fn=None) + 'nghỉ'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P07 [style=Normal, numId=[], ilvl=[]]: 'Diện tích các phòng sạch do đại diện Công ty CP Kỹ thuật INTECH Sài Gòn cung cấp. Số lượng vị trí đo được xác định theo hướng dẫn tại Bảng A1 của ISO 14644-1: 2015, cụ thể như sau:'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P09 [style=Normal, numId=[], ilvl=[]]: 'Hình ảnh quá trình thực hiện'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P11 [style=Normal, numId=[], ilvl=[]]: 'Sơ đồ '(b=None,i=None,u=None,sz=13.0,fn=None) + 'các '(b=None,i=None,u=None,sz=13.0,fn=None) + 'vị trí đo'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P14 [style=Normal, numId=['10'], ilvl=['1']]: 'Kết quả '(b=True,i=None,u=None,sz=13.0,fn=None) + 'đo'(b=True,i=None,u=None,sz=13.0,fn=None) + ' nồng độ hạt bụi'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P16 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P17 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'nồng độ hạt bụi trong không khí tại “'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Phòng sản xuất'(b=None,i=None,u=None,sz=13.0,fn=None) + '”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P19 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P20 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'nồng độ hạt bụi trong không khí tại “Airlock”, “Phòng thay đồ” '(b=None,i=None,u=None,sz=13.0,fn=None) + 'phù hợp'(b=True,i=True,u=None,sz=13.0,fn=None) + ' với mức quy định đối với '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P21 [style=Normal, numId=['10'], ilvl=['1']]: 'Kết quả đo '(b=True,i=None,u=None,sz=13.0,fn=None) + 'nhiệt độ - độ ẩm'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P24 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá: '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P25 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'nhiệt'(b=None,i=None,u=None,sz=13.0,fn=None) + ' độ'(b=None,i=None,u=None,sz=13.0,fn=None) + ','(b=None,i=None,u=None,sz=13.0,fn=None)
+  T00 (18x10) borders=[]
+    Row 0: cell0='CHỨNG THƯ  GIÁM ĐỊNH' (b=True,i=None,sz=16.0)
+    Row 1: cell0='' (no-run)
+    Row 17: cell0='GIÁM ĐỊNH VIÊN  Nguyễn Xuân Nam' (no-run)
+  T01 (4x4) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực thực hiện' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Phòng sản xuất' (b=None,i=None,sz=13.0)
+    Row 3: cell0='Phòng thay đồ' (b=None,i=None,sz=13.0)
+  T02 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T03 (1x2) borders=[]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+  T04 (2x2) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='' (b=None,i=True,sz=13.0)
+    Row 1: cell0='Vị trí đo nồng độ hạt bụi' (b=None,i=True,sz=13.0)
+    Row 1: cell0='Vị trí đo nồng độ hạt bụi' (b=None,i=True,sz=13.0)
+  T05 (24x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 23: cell0='Giới hạn tối đa cho phép đối với phòng s' (b=None,i=None,sz=13.0)
+  T06 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T07 (13x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 12: cell0='Giới hạn tối đa cho phép đối với phòng s' (b=None,i=None,sz=13.0)
+  T08 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T09 (5x4) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Phòng sản xuất' (b=None,i=None,sz=12.5)
+    Row 4: cell0='Mức quy định cung cấp bởi Công ty Cổ phầ' (b=None,i=None,sz=13.0)
+  T10 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+
+### FILE: 985 - TBKQ - viet - 3 - phong sach - đợt 3.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P03 [style=Normal, numId=['10'], ilvl=['1']]: 'Nội dung thực hiện   '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P04 [style=Normal, numId=[], ilvl=[]]: 'Khu vực đo được thực hiện theo sự chỉ định của Công ty C'(b=None,i=None,u=None,sz=13.0,fn=None) + 'P'(b=None,i=None,u=None,sz=13.0,fn=None) + ' Kỹ thuật INTECH Sài Gòn: '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P05 [style=Normal, numId=[], ilvl=[]]: '“Phòng sản xuất; Air'(b=None,i=None,u=None,sz=13.0,fn=None) + 'l'(b=None,i=None,u=None,sz=13.0,fn=None) + 'ock; Phòng thay đồ”;'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: 'Trạng thái nhà xưởng'(b=None,i=None,u=None,sz=13.0,fn=None) + ': “'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Trạng thái hoạt động'(b=None,i=None,u=None,sz=13.0,fn=None) + '”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P07 [style=Normal, numId=[], ilvl=[]]: 'Diện tích các phòng sạch do đại diện Công ty CP Kỹ thuật INTECH Sài Gòn cung cấp. Số lượng vị trí đo được xác định theo hướng dẫn tại Bảng A1 của ISO 14644-1: 2015, cụ thể như sau:'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P09 [style=Normal, numId=[], ilvl=[]]: 'Hình ảnh quá trình thực hiện'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P11 [style=Normal, numId=[], ilvl=[]]: 'Sơ đồ '(b=None,i=None,u=None,sz=13.0,fn=None) + 'các '(b=None,i=None,u=None,sz=13.0,fn=None) + 'vị trí đo'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P14 [style=Normal, numId=['10'], ilvl=['1']]: 'Kết quả '(b=True,i=None,u=None,sz=13.0,fn=None) + 'đo'(b=True,i=None,u=None,sz=13.0,fn=None) + ' nồng độ hạt bụi'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P16 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P17 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'nồng độ hạt bụi trong không khí tại “'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Phòng sản xuất'(b=None,i=None,u=None,sz=13.0,fn=None) + '”'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P19 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P20 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'nồng độ hạt bụi trong không khí tại “Airlock”, “Phòng thay đồ” '(b=None,i=None,u=None,sz=13.0,fn=None) + 'phù hợp'(b=True,i=True,u=None,sz=13.0,fn=None) + ' với mức quy định'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P21 [style=Normal, numId=['10'], ilvl=['1']]: 'Kết quả đo '(b=True,i=None,u=None,sz=13.0,fn=None) + 'chênh lệch áp suất '(b=True,i=None,u=None,sz=13.0,fn=None) + 'giữa hai'(b=True,i=None,u=None,sz=13.0,fn=None) + ' khu vực'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P24 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá: '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P25 [style=Normal, numId=[], ilvl=[]]: 'Kết quả đo'(b=None,i=None,u=None,sz=13.0,fn=None) + 'chênh lệch áp suất tại '(b=None,i=None,u=None,sz=13.0,fn=None) + '“'(b=None,i=None,u=None,sz=13.0,fn=None) + 'Phòng sản xuất'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P26 [style=Normal, numId=['10'], ilvl=['1']]: 'Kết quả đo lưu lượng khí cấp qua lọc HEPA'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P28 [style=Normal, numId=[], ilvl=[]]: 'Đánh giá:'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P29 [style=Normal, numId=[], ilvl=[]]: '- '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Kết quả '(b=None,i=None,u=None,sz=13.0,fn=None) + 'tính toán số lần trao đổi khí '(b=None,i=None,u=None,sz=13.0,fn=None) + 'tại '(b=None,i=None,u=None,sz=13.0,fn=None)
+  T00 (18x10) borders=[]
+    Row 0: cell0='CHỨNG THƯ  GIÁM ĐỊNH' (b=True,i=None,sz=16.0)
+    Row 1: cell0='' (no-run)
+    Row 17: cell0='GIÁM ĐỊNH VIÊN  Nguyễn Xuân Nam' (no-run)
+  T01 (4x4) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực thực hiện' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Phòng sản xuất' (b=None,i=None,sz=13.0)
+    Row 3: cell0='Phòng thay đồ' (b=None,i=None,sz=13.0)
+  T02 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T03 (2x2) borders=[]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 1: cell0='' (b=None,i=None,sz=inh)
+    Row 1: cell0='' (b=None,i=None,sz=inh)
+  T04 (2x3) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='' (b=None,i=True,sz=13.0)
+    Row 1: cell0='Vị trí đo nồng độ hạt bụi' (b=None,i=True,sz=13.0)
+    Row 1: cell0='Vị trí đo nồng độ hạt bụi' (b=None,i=True,sz=13.0)
+  T05 (24x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 23: cell0='Giới hạn tối đa cho phép đối với phòng s' (b=None,i=None,sz=13.0)
+  T06 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T07 (13x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Khu vực đo' (b=None,i=None,sz=13.0)
+    Row 12: cell0='Giới hạn tối đa cho phép đối với phòng s' (b=None,i=None,sz=13.0)
+  T08 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T09 (5x5) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực 1' (b=None,i=None,sz=13.0)
+    Row 1: cell0='Phòng sản xuất' (b=None,i=None,sz=13.0)
+    Row 4: cell0='Mức quy định cung cấp bởi công ty Cổ phầ' (b=None,i=None,sz=13.0)
+  T10 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T11 (17x6) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Khu vực đo' (b=None,i=None,sz=12.5)
+    Row 1: cell0='Phòng sản xuất' (b=None,i=None,sz=13.0)
+    Row 16: cell0='Mức quy định cung cấp bởi công ty Cổ phầ' (b=None,i=None,sz=13.0)
+  T12 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+
+### FILE: 985 - TBKQ - viet - 4 - khi nen.docx ###
+Normal style font: name=Times New Roman, size=12.0
+  P04 [style=Normal, numId=['10'], ilvl=['1']]: 'Nội dung thực hiện'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P05 [style=Normal, numId=[], ilvl=[]]: 'Số lượng và vị trí thực hiện theo yêu cầu/ chỉ định của '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Công ty Cổ phần Kỹ thuật INTECH Sài Gòn'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P06 [style=Normal, numId=[], ilvl=[]]: '+ Số lượng vị trí lấy mẫu/ đo đạc'(b=None,i=None,u=None,sz=13.0,fn=None) + '	: 0'(b=None,i=None,u=None,sz=13.0,fn=None) + '2'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P07 [style=Normal, numId=[], ilvl=[]]: '+ Trạng thái hệ thống khí nén'(b=None,i=None,u=None,sz=13.0,fn=None) + '	: Đang hoạt động '(b=None,i=None,u=None,sz=13.0,fn=None)
+  P08 [style=Normal, numId=[], ilvl=[]]: '+ Trạng thái nhà xưởng'(b=None,i=None,u=None,sz=13.0,fn=None) + '	: '(b=None,i=None,u=None,sz=13.0,fn=None) + 'Không hoạt động'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P09 [style=Normal, numId=[], ilvl=[]]: 'Mô tả hệ thống khí nén tại thời điểm thực hiện:'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P10 [style=Normal, numId=[], ilvl=[]]: 'Máy nén khí Tecbell TW-15A/8EPM '(b=None,i=True,u=None,sz=13.0,fn=None) + ' Bình chứa '(b=None,i=True,u=None,sz=13.0,fn=None) + ' Lọc Tecbell TB-007G-III (C)              '(b=None,i=True,u=None,sz=13.0,fn=None) + ' Máy sấy khí Tecbell TB-026AH '(b=None,i=True,u=None,sz=13.0,fn=None)
+  P12 [style=Normal, numId=[], ilvl=[]]: 'Hình ảnh vị trí lấy mẫu/ đo '(b=None,i=None,u=None,sz=13.0,fn=None) + 'đạc'(b=None,i=None,u=None,sz=13.0,fn=None) + ':'(b=None,i=None,u=None,sz=13.0,fn=None)
+  P18 [style=Normal, numId=['10'], ilvl=['1']]: 'Kết quả giám định '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P19 [style=Normal, numId=['10'], ilvl=['2']]: 'Hàm lượng tổng dầu'(b=True,i=None,u=None,sz=13.0,fn=None)
+  P21 [style=Normal, numId=['10'], ilvl=['2']]: 'Nhiệt độ điểm sương '(b=True,i=None,u=None,sz=13.0,fn=None)
+  P23 [style=Normal, numId=['10'], ilvl=['2']]: 'Nồng độ hạt bụi'(b=True,i=None,u=None,sz=13.0,fn=None)
+  T00 (17x10) borders=[]
+    Row 0: cell0='CHỨNG THƯ GIÁM ĐỊNH' (b=True,i=None,sz=16.0)
+    Row 1: cell0='' (no-run)
+    Row 16: cell0='GIÁM ĐỊNH VIÊN  Nguyễn Xuân Nam' (no-run)
+  T01 (3x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Tên gọi vị trí đo/lấy mẫu/ Mô tả' (b=True,i=None,sz=13.0)
+    Row 1: cell0='Đường ống khí nén tại điểm nguồn của hệ ' (b=None,i=None,sz=13.0)
+    Row 2: cell0='Đường ống khí nén tại phòng sản xuất' (b=None,i=None,sz=13.0)
+  T02 (1x2) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T03 (1x2) borders=[top:none, left:none, bottom:none, right:none, insideH:none, insideV:none]
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+    Row 0: cell0='' (b=None,i=None,sz=inh)
+  T04 (3x3) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Vị trí thực hiện' (b=True,i=None,sz=13.0)
+    Row 1: cell0='KN1' (b=None,i=None,sz=13.0)
+    Row 2: cell0='KN2' (b=None,i=None,sz=13.0)
+  T05 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T06 (4x6) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Vị trí thực hiện (Thời gian đo)' (b=True,i=None,sz=12.5)
+    Row 1: cell0='Vị trí thực hiện (Thời gian đo)' (b=True,i=None,sz=12.5)
+    Row 3: cell0='KN2 (Từ 12:40 đến 13:30)' (b=None,i=None,sz=13.0)
+  T07 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+  T08 (6x6) borders=[top:single, left:single, bottom:single, right:single, insideH:single, insideV:single]
+    Row 0: cell0='Vị trí  thực hiện' (b=True,i=None,sz=13.0)
+    Row 1: cell0='Vị trí  thực hiện' (b=True,i=None,sz=13.0)
+    Row 5: cell0='KN2' (b=None,i=None,sz=13.0)
+  T09 (1x2) borders=[]
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)
+    Row 0: cell0='Ghi chú:' (b=None,i=True,sz=11.0)

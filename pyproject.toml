@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quatest3-core"
+version = "1.0.0"
+description = "QUATEST 3 Environmental & Cleanroom Monitoring Framework"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "python-docx>=1.0.0",
+    "openpyxl>=3.1.0",
+    "PyMuPDF>=1.24.0",
+    "lxml>=5.0.0",
+    "matplotlib>=3.8.0",
+    "pillow>=10.0.0",
+    "pywin32>=306",
+    "xlrd>=2.0.1",
+    "PyPDF2>=3.0.0",
+    "markitdown>=0.0.1",
+]
+
+[project.scripts]
+quatest3 = "Core.run:main"
+lamkq = "Core.run:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["Core*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.docx", "*.xlsx", "*.png", "*.jpg", "*.jpeg", "*.json", "*.md", "*.txt", "*.ps1", "*.exe"]

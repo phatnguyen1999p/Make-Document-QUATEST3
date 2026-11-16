@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(Z:\\9.NV2 - MOI TRUONG\\1.Ho So Moi Truong\\2026\\.claude\\skills\\thuc-hien-chung-thu\\SKILL.md)",
+      "Write(Z:\\9.NV2 - MOI TRUONG\\1.Ho So Moi Truong\\2026\\.claude\\skills\\thuc-hien-chung-thu\\SKILL.md)",
+      "Edit(Z:\\9.NV2 - MOI TRUONG\\1.Ho So Moi Truong\\2026\\.claude\\QUY-TRINH-XU-LY-HO-SO.md)",
+      "Write(Z:\\9.NV2 - MOI TRUONG\\1.Ho So Moi Truong\\2026\\.claude\\QUY-TRINH-XU-LY-HO-SO.md)",
+      "Edit(Z:\\9.NV2 - MOI TRUONG\\1.Ho So Moi Truong\\2026\\.claude\\CONG-CU-VA-WORKFLOW.md)",
+      "Write(Z:\\9.NV2 - MOI TRUONG\\1.Ho So Moi Truong\\2026\\.claude\\CONG-CU-VA-WORKFLOW.md)",
+      "Read",
+      "Glob",
+      "Grep",
+      "Write(E:\\HoSo\\_claude\\_optimize-log.txt)"
+    ]
+  }
+}

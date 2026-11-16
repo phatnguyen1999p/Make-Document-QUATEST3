@@ -1,0 +1,318 @@
+==========================================================================================
+FILE: TEMPLATE - en - 1 - phong sach - 2026.docx (Tables: 20, Paragraphs: 46)
+==========================================================================================
+  [TABLE #00 (16x8) KN_rows=[]]:
+    R0   :  |  |  |  |  | 
+    RLast: INSPECTOR  Nguyen Xuan Na | INSPECTOR  Nguyen Xuan Na | INSPECTOR  Nguyen Xuan Na | INSPECTOR  Nguyen Xuan Na |  | FOR DIRECTOR VICE DIRECTO
+  P03 [NUM 10:1] [KN] [KL]: Performance content PPerformanceerformance content content
+  P04 [KN] [KL]: Measurement area was indicated by Nextern Vietnam Limited Liability Company: MeasurMeasure
+  P05: “Manufacturing room”; “Air lock”; “Gowning room"““Manufacturing Manufacturing roomroom””; 
+  P07: Cleanroom occupancy state: “Operational”Cleanroom oCleanroom occupancy state: ccupancy sta
+  [TABLE #01 (4x4) KN_rows=[0, 1, 2, 3]]:
+    R0   : Measurement location | Area (1) | Class (1) | Number of monitoring poin
+    RLast: Gowning room | 27.6 m2 | ISO 8 | Particle concentration	: 
+  [TABLE #02 (1x2) KN_rows=[]]:
+    R0   : Note: | (1) … The cleanroom speci
+  P13 [KN] [KL]: Photos of the measurement process:Photos of the measurement processPhotos of the measureme
+  [TABLE #03 (1x2) KN_rows=[]]:
+    R0   :  | 
+  P15 [KN] [KL]: Layout of monitoring points:Layout of Layout of monitoring monitoring points:points:
+  [TABLE #04 (1x1) KN_rows=[]]:
+    R0   : 
+  P17 [KN] [KL]: [Template Option B - Multi-parameter layout diagram table (extracted from 2025 Form)]:[Tem
+  [TABLE #05 (2x3) KN_rows=[]]:
+    R0   : [Insert layout diagram] | [Insert layout diagram] | [Insert layout diagram]
+    RLast: Particle-concentration me | Pressure differential mea | Airflow-rate measuring po
+  P22 [NUM 10:1] [KN] [KL]: Measurement result of particle concentrationMeasuMeasurementrement result of particle conc
+  [TABLE #06 (24x5) KN_rows=[22, 23]]:
+    R0   : Measurement room | Measurement point (2) | Airborne particle concent | Airborne particle concent | Airborne particle concent
+    RLast: The maximum permissible l | The maximum permissible l | 3 520 000 | 832 000 | 29 300
+  [TABLE #07 (1x2) KN_rows=[0]]:
+    R0   : Note: | (2) … See measuring point
+  P26 [KN] [KL]: Assessment:Assessment:Assessment:
+  P27 [KL]: The measurement result of airborne particle concentration in “Manufacturing room” complied
+  [TABLE #08 (13x5) KN_rows=[11, 12]]:
+    R0   : Measurement room | Measurement point (2) | Airborne particle concent | Airborne particle concent | Airborne particle concent
+    RLast: The maximum permissible l | The maximum permissible l | 3 520 000 | 832 000 | 29 300
+  [TABLE #09 (1x2) KN_rows=[0]]:
+    R0   : Note: | (2) … See measuring point
+  P34 [KN] [KL]: Assessment:Assessment:Assessment:
+  P35 [KL]: The measurement result of airborne particle concentration in “Air lock”, “Gowning room” co
+  P36 [NUM 10:1] [KN] [KL]: Measurement result of HEPA filter leakageMeasurMeasurementement result of  result of HEPA 
+  [TABLE #10 (5x3) KN_rows=[3, 4]]:
+    R0   : Measurement room | Measurement point (2) | HEPA filter leakage, %
+    RLast: Permissible limit specifi | Permissible limit specifi | ≤ 0.01
+  [TABLE #11 (1x2) KN_rows=[0]]:
+    R0   : Note: | (2)… See measuring points
+  P40 [KN] [KL]: Assessment: Assessment: Assessment:
+  P41 [KL]: The measurement result of HEPA filter leakage in “Gowning room”, “Airlock” complied with t
+  [TABLE #12 (14x3) KN_rows=[12, 13]]:
+    R0   : Measurement room | Measurement point (2) | HEPA filter leakage, %
+    RLast: Permissible limit specifi | Permissible limit specifi | ≤ 0.01
+  [TABLE #13 (1x2) KN_rows=[0]]:
+    R0   : Note: | (2)… See measuring points
+  P47 [KN] [KL]: Assessment: Assessment: Assessment:
+  P48 [KL]: The measurement result of HEPA filter leakage in “Manufacturing room” complied with the co
+  P49 [NUM 10:1] [KN] [KL]: Measurement result of temperature – humidityMeasurMeasurementement result of  result of te
+  [TABLE #14 (5x4) KN_rows=[3, 4]]:
+    R0   : Measurement room | Measurement point (2) | Temperature, oC | Humidity, %RH
+    RLast: Permissible limit provide | Permissible limit provide | 19 - 29 | ≤ 70
+  [TABLE #15 (1x2) KN_rows=[0]]:
+    R0   : Note: | (2)… See measuring points
+  P53 [KN] [KL]: Assessment: Assessment: Assessment:
+  P54 [KL]: The measurement results of temperature - humidity in “Manufacturing room”,        “Airlock
+  P55 [NUM 10:1] [KN] [KL]: Measurement result of pressure differentials between areasMeasurMeasurementement result of
+  [TABLE #16 (5x5) KN_rows=[3, 4]]:
+    R0   : Area 1 |  | Area 2 | Measuring point (2) | Pressure differential, Pa
+    RLast: Permissible limit provide | Permissible limit provide | Permissible limit provide | Permissible limit provide | 20 – 25
+  [TABLE #17 (1x2) KN_rows=[0]]:
+    R0   : Note: | (2)… See measuring points
+  P59 [KN] [KL]: Assessment: Assessment: Assessment:
+  P60 [KL]: The measurement result of pressure differentials in the “Manufacturing room”,       “Airlo
+  P62 [NUM 10:1] [KN] [KL]: Measurement result of airflow rate supply through HEPA filterMeasurMeasurementement result
+  [TABLE #18 (17x6) KN_rows=[15, 16]]:
+    R0   : Measurement room | Measurement point (2) | Airflow rate, m3/h | Total airflow, m3/h | Room volume (3), m3 | Air changes per hour, ACH
+    RLast: Permissible limit provide | Permissible limit provide | Permissible limit provide | Permissible limit provide | Permissible limit provide | ≥ 25
+  [TABLE #19 (1x2) KN_rows=[0]]:
+    R0   : Note: | (2)… See measurement poin
+  P69 [KN] [KL]: Assessment: AssessmentAssessment::
+  P70 [DRAW:2] [KL]: - The calculation result of air changes per hour in “Manufacturing room”, “Airlock”, and “
+==========================================================================================
+FILE: TEMPLATE - en - 2 - khi nen - 2026.docx (Tables: 20, Paragraphs: 38)
+==========================================================================================
+  [TABLE #00 (16x8) KN_rows=[]]:
+    R0   :  |  |  |  |  | 
+    RLast: INSPECTOR  Nguyen Xuan Na | INSPECTOR  Nguyen Xuan Na | INSPECTOR  Nguyen Xuan Na | INSPECTOR  Nguyen Xuan Na |  | FOR DIRECTOR VICE DIRECTO
+  P03 [NUM 10:1] [KN] [KL]: Performance content PPerformanceerformance content content
+  P04: The number of performance location was indicated by Nextern Vietnam Limited Liability Comp
+  P05: Status of compressed air system	: In operationStatus of compressed air systemStatus of com
+  P06: Status of the factory	: In operationStatus of the factoryStatus of the factory	: In operat
+  P07 [KN] [KL]: Description of compressed air system at the performance time:Description of compressed air
+  P08: Tecbell air compressor TW-15A/8EPM → Air receiver → Tecbell filter TB-007G-III (C) → Tecbe
+  [TABLE #01 (2x3) KN_rows=[0, 1]]:
+    R0   : Performance location/ Des | Code of location | Parameter
+    RLast: Pneumatic pipeline in man | KN | Total oil content; Pressu
+  [TABLE #02 (1x2) KN_rows=[]]:
+    R0   : Note: | Name, description of meas
+  P12 [KN] [KL]: [Template Option B - Multi-location sampling table & photo grid (extracted from 2025 Form)
+  [TABLE #03 (3x3) KN_rows=[0, 1, 2]]:
+    R0   : Measuring/ sampling point | Code of location | Parameter
+    RLast: Pneumatic pipeline in man | KN2 | Total oil content; Dew po
+  [TABLE #04 (1x2) KN_rows=[]]:
+    R0   : Note : | Name, description of samp
+  [TABLE #05 (1x2) KN_rows=[]]:
+    R0   : [Insert photo of sampling | [Insert photo of sampling
+  P16 [KN] [KL]: Photo of performance location:Photo of Photo of performanceperformance location location::
+  P17 [DRAW:1]: 
+  P23 [NUM 10:1] [KN] [KL]: Inspection resultInspection resultInspection result
+  P24 [KN] [KL]: 9.2.1 Total oil content99.2.1 .2.1 Total oil contentTotal oil content
+  [TABLE #06 (3x3) KN_rows=[0, 1, 2]]:
+    R0   : Location | Total oil content, mg/m3 | Purity class (1)
+    RLast: Requirement (2) | < 1 | Class 3
+  [TABLE #07 (5x2) KN_rows=[0, 1, 2, 3, 4]]:
+    R0   : Note: | 
+    RLast: ● | The performance field is 
+  P28 [KN] [KL]: Assessment: Assessment:Assessment:
+  P29 [KL]: The test result of total oil content in compressed air at the location mentioned above com
+  P30 [KN] [KL]: [Template Option B - Total oil content table for multi-location / ISO 8573-1 classificatio
+  [TABLE #08 (3x3) KN_rows=[0, 1, 2]]:
+    R0   : Location | Total oil content, mg/m3 | Purity class (1)
+    RLast: KN2 | < 0.01 | Class 1
+  [TABLE #09 (1x2) KN_rows=[]]:
+    R0   : Note: | Total oil content includi
+  P34 [KN] [KL]: 9.2.2 Pressure dew point99.2.2.2.2  Pressure dewPressure dew  pointpoint
+  [TABLE #10 (4x7) KN_rows=[0, 1, 2, 3]]:
+    R0   : Location  (Measurement ti | Measurement condition | Measurement condition | Result | Result | Result
+    RLast: Requirement (2) | - | - | - | - | < 1 200
+  [TABLE #11 (6x2) KN_rows=[0, 1, 2, 3, 4, 5]]:
+    R0   : Note: | 
+    RLast: ● | The performance field is 
+  P38 [KN] [KL]: Assessment: Assessment:Assessment:
+  P39 [KL]: The test result of water content in compressed air at the location mentioned above complie
+  P40 [KN] [KL]: [Template Option B - Pressure dewpoint 6-column table for multi-location / ISO 8573-1 clas
+  [TABLE #12 (4x6) KN_rows=[0, 1, 2, 3]]:
+    R0   : Location (Measuring time) | Measuring condition | Measuring condition | Result | Result | Result
+    RLast: KN2 (From 00:40 pm to 01: | 22.4 | 7.3 | - 41.5 | - 41.8  Class 2 (1) | 9.7
+  [TABLE #13 (1x2) KN_rows=[]]:
+    R0   : Note: | (1) … Purity class of com
+  P45 [KN] [KL]: 9.2.3 Concentration of particles99.2..2.3 3 Concentration of particlesConcentration of par
+  [TABLE #14 (4x5) KN_rows=[0, 1, 2, 3]]:
+    R0   : Location | Concentration of particle | Concentration of particle | Concentration of particle | Purity class (1)
+    RLast: KN | Concentration of particle | Concentration of particle | Concentration of particle | Not classified (3)
+  [TABLE #15 (5x2) KN_rows=[]]:
+    R0   : Note: | 
+    RLast: ● | The performance field is 
+  [TABLE #16 (3x2) KN_rows=[0, 1, 2]]:
+    R0   : Location | Concentration of particle
+    RLast: Requirement (3) | < 27 615
+  [TABLE #17 (4x2) KN_rows=[0, 1, 2, 3]]:
+    R0   : Note: | 
+    RLast: ● | The performance field is 
+  P53 [KN] [KL]: Assessment:Assessment:Assessment:
+  P54 [KL]: The measurement result of concentration of particle size d > 0.5 µm in compressed air at t
+  P55 [KN] [KL]: [Template Option B - Particle concentration table for multi-location KN1, KN2 (extracted f
+  [TABLE #18 (6x5) KN_rows=[4, 5]]:
+    R0   : Location | Concentration of particle | Concentration of particle | Concentration of particle | Purity class (1)
+    RLast: KN2 | Concentration of particle | Concentration of particle | Concentration of particle | Class 2
+  [TABLE #19 (1x2) KN_rows=[]]:
+    R0   : Note: | Particle concentration in
+  P58 [DRAW:2]: 79666163817500
+==========================================================================================
+FILE: TEMPLATE - viet - 1 - phong sach - 2026.docx (Tables: 20, Paragraphs: 46)
+==========================================================================================
+  [TABLE #00 (16x8) KN_rows=[]]:
+    R0   :  |  |  |  |  | 
+    RLast: GIÁM ĐỊNH VIÊN   Nguyễn X | GIÁM ĐỊNH VIÊN   Nguyễn X | GIÁM ĐỊNH VIÊN   Nguyễn X | GIÁM ĐỊNH VIÊN   Nguyễn X |  | KT. GIÁM ĐỐC PHÓ GIÁM ĐỐC
+  P03 [NUM 10:1] [KN] [KL]: Nội dung thực hiệnNội dung thực hiệnNội dung thực hiện
+  P04 [KN] [KL]: Khu vực thực hiện theo sự chỉ định của Công ty TNHH Nextern Việt Nam: Khu vựcKhu vực thực 
+  P05: “Phòng sản xuất”; “Air lock”; “Phòng thay đồ”“Phòng sản xuất”; “Air“Phòng sản xuất”; “Air 
+  P06: Trạng thái phòng sạch	: “Trạng thái hoạt động”Trạng thái Trạng thái phòng sạchphòng sạch	:
+  [TABLE #01 (4x4) KN_rows=[0, 1, 2, 3]]:
+    R0   : Khu vực thực hiện | Diện tích (1) | Cấp sạch (1) | Số lượng vị trí quan trắc
+    RLast: Phòng thay đồ | 27,6 m2 | ISO 8 | Nồng độ hạt bụi	: 08 vị t
+  [TABLE #02 (1x2) KN_rows=[]]:
+    R0   : Ghi chú: | (1) …	Thông số kỹ thuật p
+  P11 [KN] [KL]: Hình ảnh quá trình thực hiện:Hình ảnh quá trình thực hiệnHình ảnh quá trình thực hiện::
+  [TABLE #03 (1x2) KN_rows=[]]:
+    R0   :  | 
+  P13 [KN] [KL]: Sơ đồ các vị trí quan trắc:Sơ đồ các vị trí Sơ đồ các vị trí quan trắc:quan trắc:
+  [TABLE #04 (1x1) KN_rows=[]]:
+    R0   : 
+  P15 [KN] [KL]: [Mẫu B - Bảng sơ đồ vị trí đo nhiều chỉ tiêu (trích xuất Form 2025)]:[Mẫu B - Bảng sơ đồ v
+  [TABLE #05 (2x3) KN_rows=[]]:
+    R0   : [Chèn sơ đồ vị trí đo] | [Chèn sơ đồ vị trí đo] | [Chèn sơ đồ vị trí đo]
+    RLast: Vị trí đo nồng độ hạt bụi | Vị trí đo chênh lệnh áp s | Vị trí đo lưu lượng gió
+  P20 [NUM 10:1] [KN] [KL]: Kết quả đo nồng độ hạt bụiKết quả Kết quả đođo nồng độ hạt bụi nồng độ hạt bụi
+  [TABLE #06 (24x5) KN_rows=[22, 23]]:
+    R0   : Khu vực đo | Vị trí đo (2) | Nồng độ hạt bụi trong khô | Nồng độ hạt bụi trong khô | Nồng độ hạt bụi trong khô
+    RLast: Giới hạn tối đa cho phép  | Giới hạn tối đa cho phép  | 3 520 000 | 832 000 | 29 300
+  [TABLE #07 (1x2) KN_rows=[0]]:
+    R0   : Ghi chú: | (2) … Vị trí đo xem sơ đồ
+  P24 [KN] [KL]: Đánh giá:Đánh giá:Đánh giá:
+  P25 [KL]: Kết quả đo nồng độ hạt bụi trong không khí tại “Phòng sản xuất” phù hợp với mức quy định đ
+  [TABLE #08 (13x5) KN_rows=[11, 12]]:
+    R0   : Khu vực đo | Vị trí đo (2) | Nồng độ hạt bụi trong khô | Nồng độ hạt bụi trong khô | Nồng độ hạt bụi trong khô
+    RLast: Giới hạn tối đa cho phép  | Giới hạn tối đa cho phép  | 3 520 000 | 832 000 | 29 300
+  [TABLE #09 (1x2) KN_rows=[0]]:
+    R0   : Ghi chú: | (2) … Vị trí đo xem sơ đồ
+  P31 [KN] [KL]: Đánh giá:Đánh giá:Đánh giá:
+  P32 [KL]: Kết quả đo nồng độ hạt bụi trong không khí tại “Air lock”; “Phòng thay đồ” phù hợp với mức
+  P34 [NUM 10:1] [KN] [KL]: Kết quả đo độ rò rỉ lọc HEPA Kết quả đo Kết quả đo độ độ rò rỉ lọc HEPArò rỉ lọc HEPA
+  [TABLE #10 (5x3) KN_rows=[3, 4]]:
+    R0   : Khu vực đo | Vị trí đo (2) | Độ rò rỉ lọc HEPA, %
+    RLast: Mức quy định nêu tại ISO  | Mức quy định nêu tại ISO  | ≤ 0,01
+  [TABLE #11 (1x2) KN_rows=[0]]:
+    R0   : Ghi chú: | (2) … Vị trí đo xem sơ đồ
+  P39 [KN] [KL]: Đánh giá: Đánh giá: Đánh giá:
+  P40 [KL]: Kết quả đo độ rò rỉ lọc HEPA tại “Phòng thay đồ”, “Airlock” phù hợp với mức quy định tương
+  [TABLE #12 (14x3) KN_rows=[12, 13]]:
+    R0   : Khu vực đo | Vị trí đo (2) | Độ rò rỉ lọc HEPA, %
+    RLast: Mức quy định nêu tại ISO  | Mức quy định nêu tại ISO  | ≤ 0,01
+  [TABLE #13 (1x2) KN_rows=[0]]:
+    R0   : Ghi chú: | (2) … Vị trí đo xem sơ đồ
+  P47 [KN] [KL]: Đánh giá: Đánh giá: Đánh giá:
+  P48 [KL]: Kết quả đo độ rò rỉ lọc HEPA tại “Phòng sản xuất” phù hợp với mức quy định tương ứng nêu t
+  P49 [NUM 10:1] [KN] [KL]: Kết quả đo nhiệt độ - độ ẩm Kết quả đo Kết quả đo nhiệt độ - độ ẩmnhiệt độ - độ ẩm
+  [TABLE #14 (5x4) KN_rows=[3, 4]]:
+    R0   : Khu vực đo | Vị trí đo (2) | Nhiệt độ, oC | Độ ẩm, %RH
+    RLast: Mức quy định cung cấp bởi | Mức quy định cung cấp bởi | 19 - 29 | ≤ 70
+  [TABLE #15 (1x2) KN_rows=[0]]:
+    R0   : Ghi chú: | (2) … Vị trí đo xem sơ đồ
+  P54 [KN] [KL]: Đánh giá: Đánh giá: Đánh giá:
+  P56 [KL]: Kết quả đo nhiệt độ, độ ẩm tại “Phòng sản xuất”, “Airlock”, “Phòng thay đồ” phù hợp với mứ
+  P57 [NUM 10:1] [KN] [KL]: Kết quả đo chênh lệch áp suất giữa hai khu vựcKết quả đo Kết quả đo chênh lệch áp suất chê
+  [TABLE #16 (5x5) KN_rows=[3, 4]]:
+    R0   : Khu vực 1 |  | Khu vực 2 | Vị trí đo (2) | Mức chênh áp, Pa
+    RLast: Mức quy định cung cấp bởi | Mức quy định cung cấp bởi | Mức quy định cung cấp bởi | Mức quy định cung cấp bởi | 20 – 25
+  [TABLE #17 (1x2) KN_rows=[0]]:
+    R0   : Ghi chú: | (2) … Vị trí đo xem sơ đồ
+  P62 [KN] [KL]: Đánh giá: Đánh giá: Đánh giá:
+  P63 [KL]: Kết quả đo chênh lệch áp suất tại “Phòng sản xuất”, “Airlock”, “Phòng thay đồ” so với môi 
+  P64 [NUM 10:1] [KN] [KL]: Kết quả đo lưu lượng khí cấp qua lọc HEPAKết quả đo lưu lượng khí cấp qua lọc HEPAKết quả 
+  [TABLE #18 (17x6) KN_rows=[15, 16]]:
+    R0   : Khu vực đo | Vị trí đo (2) | Lưu lượng gió, m3/h | Tổng lưu lượng, m3/h | Thể tích phòng (3), m3 | Số lần trao  đổi khí, ACH
+    RLast: Mức quy định cung cấp bởi | Mức quy định cung cấp bởi | Mức quy định cung cấp bởi | Mức quy định cung cấp bởi | Mức quy định cung cấp bởi | ≥ 25
+  [TABLE #19 (1x2) KN_rows=[0]]:
+    R0   : Ghi chú: | (2) … Vị trí đo xem sơ đồ
+  P68 [KN] [KL]: Đánh giá: Đánh giá:Đánh giá:
+  P69 [DRAW:2] [KL]: - Kết quả tính toán số lần trao đổi khí tại “Phòng sản xuất”, “Phòng Air Lock” và “Phòng t
+==========================================================================================
+FILE: TEMPLATE - vn - 2 - khi nen - 2026.docx (Tables: 20, Paragraphs: 44)
+==========================================================================================
+  [TABLE #00 (16x8) KN_rows=[]]:
+    R0   :  |  |  |  |  | 
+    RLast: GIÁM ĐỊNH VIÊN   Nguyễn X | GIÁM ĐỊNH VIÊN   Nguyễn X | GIÁM ĐỊNH VIÊN   Nguyễn X | GIÁM ĐỊNH VIÊN   Nguyễn X |  | KT. GIÁM ĐỐC PHÓ GIÁM ĐỐC
+  P03 [NUM 10:1] [KN] [KL]: Nội dung thực hiện Nội dung thực hiệnNội dung thực hiện
+  P04: Số lượng vị trí thực hiện theo chỉ định của Công ty TNHH Nextern Việt Nam: 01 vị tríSố lượ
+  P05: Trạng thái hệ thống khí nén	: Đang hoạt động Trạng thái hệ thống khí nénTrạng thái hệ thốn
+  P06: Trạng thái nhà xưởng	: Đang hoạt độngTrạng thái nhà xưởngTrạng thái nhà xưởng	: : ĐangĐang
+  P08 [KN] [KL]: Mô tả hệ thống khí nén tại thời điểm thực hiện:Mô tả hệ thống khí nén tại thời điểm thực h
+  P09: Máy nén khí Tecbell TW-15A/8EPM  Bình chứa  Lọc Tecbell TB-007G-III (C)                Máy
+  [TABLE #01 (2x3) KN_rows=[0, 1]]:
+    R0   : Tên gọi vị trí thực hiện/ | Ký hiệu vị trí | Chỉ tiêu thực hiện
+    RLast: Đường ống khí nén tại phò | KN | Hàm lượng tổng dầu; Nhiệt
+  [TABLE #02 (1x2) KN_rows=[]]:
+    R0   : Ghi chú: | Tên gọi vị trí thực hiện/
+  P13 [KN] [KL]: [Mẫu B - Bảng vị trí & khung ảnh trường hợp nhiều vị trí đo (trích xuất Form 2025)]:[Mẫu B
+  [TABLE #03 (3x3) KN_rows=[0, 1, 2]]:
+    R0   : Tên gọi vị trí đo/lấy mẫu | Ký hiệu vị trí | Chỉ tiêu thực hiện
+    RLast: Đường ống khí nén tại phò | KN2 | Hàm lượng tổng dầu;  Nhiệ
+  [TABLE #04 (1x2) KN_rows=[]]:
+    R0   : Ghi chú: | Tên gọi vị trí lấy mẫu/ m
+  [TABLE #05 (1x2) KN_rows=[]]:
+    R0   : [Chèn ảnh vị trí lấy mẫu/ | [Chèn ảnh vị trí lấy mẫu/
+  P18 [KN] [KL]: Hình ảnh vị trí thực hiện:Hình ảnh vị trí thực hiệnHình ảnh vị trí thực hiện::
+  P19 [DRAW:1]: 
+  P26 [NUM 10:1] [KN] [KL]: Kết quả giám địnhKết quảKết quả giám định giám định
+  P27 [NUM 10:2] [KN] [KL]: Hàm lượng tổng dầuHàm lượng tổng dầuHàm lượng tổng dầu
+  [TABLE #06 (3x3) KN_rows=[0, 1, 2]]:
+    R0   : Vị trí thực hiện | Hàm lượng tổng dầu, mg/m3 | Phân loại chất lượng (1)
+    RLast: Mức yêu cầu (2) | < 1 | Class 3
+  [TABLE #07 (5x2) KN_rows=[0, 1, 2, 3, 4]]:
+    R0   : Ghi chú: | 
+    RLast: ● | Lĩnh vực thực hiện được c
+  P31 [KN] [KL]: Đánh giá:Đánh giá:Đánh giá:
+  P32 [KL]: Kết quả đo hàm lượng tổng dầu trong khí nén tại vị trí nêu trên phù hợp với mức yêu cầu tư
+  P33 [KN] [KL]: [Mẫu B - Bảng Hàm lượng tổng dầu trường hợp nhiều vị trí / chỉ phân loại ISO 8573-1 (trích
+  [TABLE #08 (3x3) KN_rows=[0, 1, 2]]:
+    R0   : Vị trí thực hiện | Hàm lượng tổng dầu, mg/m3 | Phân loại chất lượng (1)
+    RLast: KN2 | < 0,01 | Class 1
+  [TABLE #09 (1x2) KN_rows=[]]:
+    R0   : Ghi chú: | Hàm lượng tổng dầu bao gồ
+  P37 [NUM 10:2] [KN] [KL]: Nhiệt độ điểm sươngNhiệt độ điểm sươngNhiệt độ điểm sương
+  [TABLE #10 (4x7) KN_rows=[0, 1, 2, 3]]:
+    R0   : Vị trí thực hiện  (Thời g | Điều kiện đo | Điều kiện đo | Kết quả đo | Kết quả đo | Kết quả đo
+    RLast: Mức yêu cầu (2) | - | - | - | - | < 1 200
+  [TABLE #11 (6x2) KN_rows=[0, 1, 2, 3, 4, 5]]:
+    R0   : Ghi chú: | 
+    RLast: ● | Lĩnh vực thực hiện được c
+  P41 [KN] [KL]: Đánh giá:Đánh giá:Đánh giá:
+  P42 [KL]: Kết quả đo hàm lượng nước trong khí nén tại vị trí nêu trên phù hợp với mức yêu cầu tương 
+  P43 [KN] [KL]: [Mẫu B - Bảng Nhiệt độ điểm sương 6 cột trường hợp nhiều vị trí / chỉ phân loại ISO 8573-1
+  [TABLE #12 (4x6) KN_rows=[0, 1, 2, 3]]:
+    R0   : Vị trí thực hiện (Thời gi | Điều kiện đo | Điều kiện đo | Kết quả đo | Kết quả đo | Kết quả đo
+    RLast: KN2 (Từ 12:40 đến 13:30) | 22,4 | 7,3 | - 41,5 | - 41,8  Class 2 (1) | 9,7
+  [TABLE #13 (1x2) KN_rows=[]]:
+    R0   : Ghi chú: | (1) … Phân loại chất lượn
+  P53 [NUM 10:2] [KN] [KL]: Nồng độ hạt bụiNồng độ hạt bụiNồng độ hạt bụi
+  [TABLE #14 (4x5) KN_rows=[0, 1, 2, 3]]:
+    R0   : Vị trí thực hiện | Nồng độ hạt trong khí nén | Nồng độ hạt trong khí nén | Nồng độ hạt trong khí nén | Phân loại  chất lượng (1)
+    RLast: KN | Nồng độ hạt bụi có kích t | Nồng độ hạt bụi có kích t | Nồng độ hạt bụi có kích t | Không phân loại (3)
+  [TABLE #15 (5x2) KN_rows=[]]:
+    R0   : Ghi chú: | 
+    RLast: ● | Lĩnh vực thực hiện được c
+  [TABLE #16 (3x2) KN_rows=[0, 1, 2]]:
+    R0   : Vị trí thực hiện | Nồng độ hạt bụi có kích t
+    RLast: Mức yêu cầu (2) | < 27 615
+  [TABLE #17 (4x2) KN_rows=[0, 1, 2, 3]]:
+    R0   : Ghi chú: | 
+    RLast: ● | Lĩnh vực thực hiện được c
+  P61 [KN] [KL]: Đánh giá:Đánh giá:Đánh giá:
+  P62 [KL]: Kết quả đo nồng độ hạt bụi có kích thước d > 0,5 µm trong khí nén tại vị trí nêu trên phù 
+  P63 [KN] [KL]: [Mẫu B - Bảng Nồng độ hạt bụi trường hợp nhiều vị trí KN1, KN2 (trích xuất Form 2025)]:[Mẫ
+  [TABLE #18 (6x6) KN_rows=[4, 5]]:
+    R0   : Vị trí  thực hiện | Nồng độ hạt trong khí nén | Nồng độ hạt trong khí nén | Nồng độ hạt trong khí nén | Nồng độ hạt trong khí nén | Phân loại  chất lượng (1)
+    RLast: KN2 | Nồng độ hạt bụi có kích t | Nồng độ hạt bụi có kích t | Nồng độ hạt bụi có kích t | Nồng độ hạt bụi có kích t | Class 2
+  [TABLE #19 (1x2) KN_rows=[]]:
+    R0   : Ghi chú: | Nồng độ hạt trong khí nén
+  P66 [DRAW:2]: 76296644069000

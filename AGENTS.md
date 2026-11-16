@@ -1,0 +1,582 @@
+# AGENTS.md — Quy tắc bất biến "Làm Kết quả" (Antigravity + Claude)
+
+> **Phiên bản 15/11/2026 10:30** (Claude Code — mục 14: **lấy mẫu tổng dầu khí nén ghi `Giấy lọc thủy tinh Pall life Sciences, ống than hoạt tính ORBO®`** (EN `Glass fiber filter Pall life Sciences, carbon activated tube ORBO®`), thay `Dụng cụ lấy mẫu tổng dầu (Regulator, Charcoal tube, Cassette)` — mã `oil_kit`; người dùng chốt 15/11/2026, hồ sơ 096547). Lịch sử phiên bản trước: `ContextLuuTru/AGENTS-LichSuPhienBan.md`.
+> Bản trên máy (`C:\Users\phat.nt\Desktop\Source\Làm KQ\AGENTS.md`) và bản trong Project (`AGENTS.md` ở **gốc** Project, không nằm trong thư mục `claude/` — từ 05/11/2026) phải **giống hệt**; lệch thì **bản có ngày + giờ phiên bản mới hơn là chuẩn**, nhưng trước khi chép đè phải đọc phần khác nhau — bản cũ có thể chứa quy tắc mới chưa gộp (lỗi đã xảy ra 30/10).
+> **BẮT BUỘC cho mọi AI:** đầu phiên chạy `python Core/Tools/context.py dau-phien` (in hồ sơ đang mở, lỗi / việc đang mở, điểm cần người dùng quyết, nhãn phiên; tự lưu trữ phần đã xong) — **không** cần đọc `PROJECT_CONTEXT.md` (chỉ còn bản đồ mã nguồn), **không** đọc `ContextLuuTru/`. Làm hồ sơ nào thì **khóa hồ sơ đó trước** và chỉ đọc / ghi `Context/HoSo/<6 số>.md` của nó (mục 16). File này chỉ chứa quy tắc bất biến, không ghi tiến độ.
+> **Giữ nguyên số mục 0–14** (PROJECT_CONTEXT, `QUY-TRINH-NGUONG-DANH-GIA.md` và code đang viện dẫn theo số mục). Mục mới đánh số từ 15.
+
+## 0. Quy tắc nền (ưu tiên cao nhất, áp dụng mọi hồ sơ)
+
+- **Ổ mạng `Z:` — được lưu hồ sơ lên Z** (người dùng chốt 30/10/2026, thay quy tắc cấm cũ):
+  - Làm việc trong `Input\<6 số>\` của workspace; xong hồ sơ (DOCX/XLSX/PDF đã dựng, QA xong) thì chép 3 thư mục `ThucHien\`, `TBKQ\` (gồm `Edoc\`, `_diagrams\`), `pdf\` lên thư mục hồ sơ trên Z cùng tên thư mục con.
+  - Hồ sơ người dùng giao "trên Z" → trước tiên chép **đầu vào** (scan, ảnh, `Data Do`, KQTN, ảnh GCN…) từ thư mục hồ sơ trên Z về `Input\<6 số>\`; các file này chỉ đọc.
+  - Lệnh (PowerShell): `robocopy "Input\<6 số>\<ThucHien|TBKQ|pdf>" "<thư mục hồ sơ trên Z>\<cùng tên>" /E /XD _checkpoint _optimized /XF ~$* /R:1 /W:2` (exit 0–3 là thành công). **Không dùng `/MIR`, `/PURGE`**, không xóa gì trên Z. Không chép `_checkpoint\`, `_optimized\`, `~$*`, scan/ảnh đầu vào.
+  - **File do AI/code tạo → được ghi đè:** BCKQ, TBKQ VN/EN, tem tủ, phiếu `<mã> - …TinhToan….xlsx` sinh ra, PDF xuất ra, PDF tách tự động (`BBLM.pdf`, `Ghi Chep.pdf`, `Khac.pdf`), sơ đồ tự sinh.
+  - **Sổ file do AI tạo — ghi đè được cả ở phiên khác** (người dùng chốt 09/11/2026: "các file được ghi là do Claude tạo thì được phép ghi đè", kể cả khi quay lại project bằng session khác): `Core/Tools/ai_files.py` ghi băm SHA-256 mọi bản AI đã tạo vào `Input\<6 số>\ThucHien\_checkpoint\ai_files.json`. Chép lên Z bằng `python Core/Tools/ai_files.py chep <6 số> --ghi` (chạy thử khi bỏ `--ghi`; xem tình trạng `liet-ke <6 số>`): bản Z **có trong sổ** (bản AI của bất kỳ phiên nào) → ghi đè thẳng, **không** coi là "người dùng sửa" chỉ vì mới hơn lần chạy của phiên này; bản Z **không có trong sổ** → có người sửa sau AI → `[Z EDITED]`, không ghi đè, xử lý như dòng dưới. File không thuộc mẫu tên AI (BBLM đợt sau, PDF người dùng tự xuất…) không bao giờ bị chép. Dựng xong mà chép bằng robocopy thì chạy `ai_files.py ghi <6 số>` để vào sổ. **Không bao giờ chép vào thư mục mới kiểu `… (1)`** khi thư mục hồ sơ đã có (09/11/2026 có 4 thư mục trùng `(1)` được tạo — 133266, 136247, 136839, 137035; `ai_files` bỏ qua thư mục đuôi ` (n)` và cảnh báo `[Z Duplicate]`).
+  - **File không do AI tạo → chỉ đọc** (không ghi đè, không đổi tên, không di chuyển, không xóa): scan gốc, ảnh hiện trường, Excel `Data Do`, phiếu KQTN, PYC, file người dùng làm tay, file mẫu của hồ sơ cũ.
+  - **Trước khi chép lên Z — so thời gian sửa:** file trên Z mới hơn lần chạy gần nhất của AI (người dùng đã sửa tay trên Z) → **không ghi đè**: chép file đó về `Input\<6 số>\` trước (hoặc hỏi người dùng), chạy lại, rồi mới chép lên. Bài học 132115 phiên 18: robocopy ghi đè phiếu Excel người dùng vừa sửa trên Z. Hồ sơ đã sửa trực tiếp trên Z (132115 TBKQ phiên 19) → **không chép thư mục đó từ Input lên Z nữa** cho tới khi đồng bộ ngược.
+  - Người dùng **sửa tay trên Z** (BCKQ, TBKQ, Excel) → ngoài việc chép về Input, phải **đưa chỉnh sửa đó vào script hồ sơ** (lần dựng sau không mất), dựng lại rồi so chữ bản mới với bản Z — chỉ được khác ở chỗ người dùng vừa yêu cầu (138143: `_bckq_client_note` làm lại đúng bản người dùng sửa).
+  - Tìm thư mục hồ sơ trên Z bằng wildcard 6 số: `Z:\9.NV2 - MOI TRUONG\1.Ho So Moi Truong\2026\*<6 số>*` (dạng `Q326D<6 số> - <tên khách> - <loại>`); không thấy thì `2026\0.VIMCERTS078\*<6 số>*`, rồi `2026\0.1.Tân Hiệp\*<6 số>*`. Không thấy hoặc trùng nhiều thư mục → dừng, hỏi người dùng; **không tự tạo thư mục hồ sơ mới trên Z**.
+  - Code Core **không** tự đồng bộ Z (nhánh `network_dir` cũ không khớp cấu trúc Z, người dùng chốt 30/10/2026: không sửa code — E21): khi build luôn để `network_dir=""`, đặt `QUATEST3_NETWORK_ROOT` vào thư mục không tồn tại, rồi chép bằng robocopy như trên. Chạy mẫu/thử (`--sample-*`, mã `Q326D9999xx`) → không chép lên Z.
+- **Không in / xuất PDF qua máy in tem có tên `HPL`** (cả `HPRT`, `ZPL`): `pdf_exporter.avoid_label_printer()` tạm đổi sang "Microsoft Print to PDF" rồi trả lại. Máy in tem làm Excel dàn trang theo khổ nhãn (132115 từng ra 965 trang) hoặc xuất PDF trắng.
+- **Sai lệch thông tin khách hàng** (tên, địa chỉ, mã/ngày phiếu yêu cầu, thiết bị, serial…) giữa Phiếu yêu cầu, BBLM, phiếu ghi chép, GCN ĐKDN, PO và dữ liệu đo → **không tự sửa, báo người dùng quyết**, ghi vào dòng `Cần người dùng quyết` của `Context/HoSo/<6 số>.md` (mục 16). Ví dụ 132488: BBLM ghi ngày phiếu yêu cầu `19/10/2025`, phiếu ghi chép ghi `19/10/2026`.
+  - **Không tự áp tiền lệ** (người dùng chốt 06/11/2026): hồ sơ trước người dùng chọn theo BBLM (138143), theo PYC (137058) hay theo GCN (132809) là quyết định riêng của hồ sơ đó — mỗi lần có xung đột đều hỏi lại, nêu rõ từng nguồn ghi gì.
+- **Xóa file:** người dùng cho phép AI xóa file **do AI tạo** trong workspace khi đã liệt kê và người dùng đồng ý trong phiên; không bao giờ tự xóa file người dùng / file đầu vào; trên Z không xóa gì.
+- **Dữ liệu gốc là chuẩn:** mọi con số truy ngược được về scan / phiếu ghi chép / Excel `Data Do` / phiếu tính toán người dùng sửa. Chữ viết tay không chắc → không đoán, báo "đọc được là X nhưng chưa chắc".
+- **Mỗi hồ sơ một AI — khóa trước khi làm** (người dùng yêu cầu 12/11/2026, thay quy tắc "không chạy hai AI cùng lúc trên cùng thư mục"): `python Core/Tools/context.py khoa <6 số> --ai <nhãn phiên>`; in `[KHÓA BẬN]` → phiên khác đang làm hồ sơ đó: **dừng, báo người dùng**, không dựng, không chép Z. Xong thì `tra`. Nhiều phiên được chạy song song trên các hồ sơ **khác nhau**. Code chung (`Core/`, template, `AGENTS.md`): kiểm tra giờ sửa file trước khi sửa, sửa từng chỗ, không ghi đè cả file (mục 16).
+- **Báo cáo cuối mỗi hồ sơ:** file đã tạo/sửa (đã lên Z chưa), ô còn để trống, điểm cần người dùng xác nhận.
+
+## 1. Cấu trúc Thư mục Hồ sơ và Nguyên tắc Lưu trữ Kết quả
+
+Áp dụng cho mọi hồ sơ trong `Input\<tên hồ sơ>` (thực tế: `043915` tủ hút, `131638` và `132918` BSC, `132115` phòng sạch, `132488` tủ cấy + 3 tủ hút):
+
+| Thư mục | Chứa |
+|---|---|
+| `ThucHien\` (Bước 2) | BCKQ nội bộ BM3030.03 `BCKQ - <stt> - <loại> - <mã>.docx` (**không tiền tố `2. `**); phiếu tính toán `<mã> - TinhToan….xlsx` (vd `Q326D132918 - TinhToanBSC.xlsx`) |
+| `TBKQ\` (Bước 3) | `TBKQ - viet - … - <mã>.docx`, `TBKQ - en - … - <mã>.docx`, tem tủ, sơ đồ layout (`layout_downflow.png`, `_diagrams\`) |
+| `TBKQ\Edoc\` | PDF tách từ scan: `<6 số> - BBLM.pdf`, `<6 số> - Ghi Chep.pdf`, `<6 số> - Khac.pdf` (tên thư mục `Edoc` viết liền, mục 8A) |
+| `pdf\` | **Mọi** PDF xuất từ DOCX/XLSX (BCKQ, TBKQ VN/EN, tem tủ, `<mã> - TinhToan….pdf`). Không để PDF rải rác trong `ThucHien\`/`TBKQ\` |
+| gốc `Input\<hồ sơ>\` | Chỉ tài liệu đầu vào (scan gốc, `Photo\`/`Photos\`, `<6 số> - Data Do\`, `Layout\`). **Không lưu file kết quả ở đây** |
+
+- Thư mục con chưa có → code tự tạo (`os.makedirs`).
+- Không ghi vào `Output\` ở gốc workspace, cũng không vào `Input\TBKQ\`, `Input\ThucHien\`, `Input\pdf\` ở gốc `Input` — **dấu vết cũ** (122266, 126588, 133266, mã thử `Q326D9999xx`), không dùng làm mẫu. Đồng bộ Z theo mục 0.
+- **`ThucHien\_checkpoint\` (ngoại lệ được phép):** `manifest.json` (tiến độ), `ocr.json` + `ocr.xlsx` (OCR theo trang), `header_ocr.json`, `metadata.json`.
+  - OCR scan chỉ chạy **một lần**; chạy lại đọc `ocr.json`. Cache tự bỏ khi scan đổi (SHA-256) hoặc chạy `--force-ocr`.
+  - Không phải file kết quả: không đưa vào PDF, không đưa lên Z, không gửi khách. Muốn đọc scan → đọc `ocr.json`/`ocr.xlsx` trước.
+  - Sửa OCR sai: sửa cột "Văn bản OCR" trong `ocr.xlsx`; lần chạy sau tự nạp ("Đã sửa tay"). Không sửa tay `ocr.json`.
+  - Xem tiến độ: `python Core/run.py --status "Input\<tên hồ sơ>"`; chi tiết giai đoạn: `PROJECT_CONTEXT.md` mục 5B.
+- **Đầu vào khác (chỉ đọc):** ảnh `Photo\` (hoặc `photo\`, `Photos\`) — code tạo ảnh nén trong `<thư mục ảnh>\_optimized\` (ngoại lệ được phép); ảnh dọc tự xoay 90° khi chèn (mục 3). Dữ liệu đo người dùng nhập: `<6 số> - Data Do\` (vd `132115 - Data Do\Q326D132115 - TinhToanPhongSach.xlsx`, CSV testo 420, file tổng hợp) — script chỉ đọc, phiếu chính thức sinh vào `ThucHien\` (mục 11). Người dùng sửa số liệu trên phiếu `ThucHien\` (hoặc trên Z) thì phiếu đó thành nguồn (mục 8C phòng sạch).
+- **Ảnh chèn chứng thư (hồ sơ 1 báo cáo):** có thư mục `Photo\Use\` (hoặc `USE`, `Photos-…\Use`) do người dùng chọn → **chỉ** dùng ảnh trong đó; không có thì dùng cả thư mục ảnh. Vi sinh bề mặt: ảnh `n.jpg` = mẫu ký hiệu n.
+- **Scan gộp nhiều loại giấy:** docstring script hồ sơ liệt kê nội dung từng trang (PKSCV, PYC, báo giá, PO, BBLM, đề cương, mặt bằng, ghi chép, phiếu in, trang trắng). Trang lạ không thuộc hồ sơ (vd hóa đơn YIWU trong scan 136247) → không đưa vào Edoc, nêu trong báo cáo cuối.
+- **Nhãn tủ trong ảnh** (model, serial, năm sản xuất, "Cabinet Airflow Setpoints", hệ số k): đọc và đối chiếu với phiếu ghi chép / BBLM trước khi dựng; lệch → mục 0.
+- **Hồ sơ lặp lại của cùng khách** (Nextern, Cường Thịnh…): được lấy TBKQ cũ cùng khách trên Z làm mẫu cho diện tích, cấp sạch, sơ đồ vị trí, sơ đồ hệ thống khí nén — ghi rõ là **suy luận**, đưa vào danh sách hỏi người dùng (mục 15); **không** lấy số liệu đo, ảnh, ngày từ hồ sơ cũ.
+- **Hồ sơ nhiều báo cáo** (vd 132488 — 4 tủ, 4 chứng thư):
+  - Scan phiếu ghi chép từng báo cáo: `Input\<hồ sơ>\<n>\<6 số> - <n>.pdf`, kèm phiếu in nhiệt (HEPA, đếm hạt) nếu có.
+  - Ảnh từng báo cáo: `Photos\<n>\`; ảnh chọn chèn vào chứng thư: `Photos\<n>\Use\` (132488 tủ 1 dùng `Used\` — thống nhất về `Use\`).
+  - BBLM chung một file `TBKQ\Edoc\<6 số> - BBLM.pdf`; `Ghi Chep.pdf` ghép phiếu 1 → n rồi đến phiếu in nhiệt.
+- **Quy ước tên file:**
+
+  | Loại | Hồ sơ 1 báo cáo | Hồ sơ nhiều báo cáo (n = 1, 2, …) |
+  |---|---|---|
+  | BCKQ (`ThucHien\`) | `BCKQ - 1 - <loại> - <mã>.docx` (vd `BCKQ - 1 - bsc - Q326D132918.docx`) | **Hồ sơ nhiều tủ** (BSC/LAF, tủ cấy, tủ hút): mặc định gộp 1 file `BCKQ - tu - <mã>.docx`, số Bảng 0 = mã trần (người dùng chốt 30/10/2026, mục 7). Loại khác / tách riêng: `BCKQ - <n> - <loại> - <mã>.docx` |
+  | Phiếu tính toán (`ThucHien\`) | `<mã> - TinhToan<Loại>.xlsx` | `<mã> - <n> - TinhToan<Loại>.xlsx` (vd `Q326D132488 - 1 - TinhToanTuCay.xlsx`); khí nén theo vị trí: `<mã> - KN1 - TinhToanKhiNen.xlsx` |
+  | TBKQ (`TBKQ\`) | `TBKQ - viet - <Loại> - <mã>.docx`, `TBKQ - en - <Loại> - <mã>.docx` | `TBKQ - viet - <n> - <Loại>[ - KhongDanhGia] - <mã>.docx` |
+  | Tem tủ (`TBKQ\`) | BSC/LAF: `<6 số> - tem tu.docx`; tủ hút: `tem tu - FumeHood - <mã>.docx` | Gom mọi tủ 1 file `<6 số> - tem tu.docx` (tem lẻ sinh trong lần chạy tự xóa) |
+  | PDF (`pdf\`) | cùng tên file nguồn, đuôi `.pdf` | như cột trái |
+
+  `<loại>` BCKQ viết thường (`bsc`, `fumehood`, `tu cay`, `phong sach`, `khi nen`); `<Loại>` TBKQ: `BSC`, `FumeHood`, `Tu cay`, `phong sach`, `khi nen`. Tủ hút form không đánh giá thêm `- KhongDanhGia`. **Chưa thống nhất:** phòng sạch 132115 (1 báo cáo) có `- 1 -` trong tên TBKQ — giữ như bảng cho đến khi người dùng chốt.
+
+## 2. Mã hồ sơ, Số chứng thư, Ngày ban hành, Thời gian giám định
+
+- **Cấu trúc mã hồ sơ:** `Q3` + 2 số năm (`26`) + 1 chữ phân loại (`A`–`D`) + 6 số (vd `Q326D108033`). Người dùng thường chỉ đưa 6 số cuối. Kiểm tra bằng regex `Q3\d{2}[A-D]\d{6}(?!\d)` (bắt lỗi ghép thành 7 số).
+- **Số chứng thư:** 1 báo cáo → mã trần (`Q326D122266`); nhiều báo cáo → `/1`, `/2`…; bản tiếng Anh thêm `/E` (`Q326D122266/1/E`). Không dùng dạng `/3.1`, `/3.2` của mẫu cũ.
+- **Tự động đánh số phụ (từ 27/10/2026):** từ 2 báo cáo trở lên, code tự thêm `/1`, `/2`… theo thứ tự: dựng danh sách `Dossier` cùng mã rồi gọi `assign_cert_numbers([...])` (Core/Models) hoặc `DossierRunner.run_batch([...])`; 1 báo cáo tự về mã trần. Số phụ áp đồng bộ cho: header TBKQ VN/EN (`/n`, `/n/E`), số BCKQ lẻ (`Số: <mã>/n`; BCKQ gộp dùng mã trần), viện dẫn phiếu tính toán trong BCKQ, header + ô "Số phụ" của Excel tính toán, số tem tủ, tên file. `Dossier.cert_no_vn/en` tính theo `sub_no`; `is_multi_cert=False` thì bỏ `sub_no`. Không gõ tay `sub_no`.
+- **Đồng bộ header:** mọi header trong một tài liệu (Section 0 trang đầu và Section 1 phụ lục) cùng một Số chứng thư.
+- **Số hồ sơ trong thân văn bản** (Table 0 dòng 4, đoạn văn): **mã trần**, không đuôi `/1`, `/2`, `/E`; **không in đậm**; giữ nguyên nhãn ô (`Giấy yêu cầu và nhận giám định số:` / `Inspection application no. :`). Mã và ngày liền trên một ô, cách 1 dấu cách:
+  - VN: `Q326D132918 ngày 20/10/2026`; EN: `Q326D132918 dated on 20/10/2026`. Không để ngày tách sang cột xa.
+  - Đuôi `/1`, `/2`, `/E` chỉ dùng cho Số chứng thư ở header và tiêu đề chứng thư.
+- **Ngày ban hành TBKQ:** `dd/mm/yyyy`. VN `Số: <Số chứng thư> - Ngày dd/mm/yyyy`; EN `No: <Số chứng thư> – Date: dd/mm/yyyy`.
+  - Cập nhật đồng bộ ở **mọi header** (trang đầu + phụ lục), VN và EN, và dòng số/ngày trang bìa; **gỡ hết `………` và tô vàng**.
+  - Hồ sơ có KQTN → ngày ban hành = ngày trên phiếu KQTN (nhiều phiếu → ngày muộn nhất). Chưa có phiếu KQTN → `………` tô vàng, báo người dùng.
+  - Hồ sơ **không có KQTN** → ngày ban hành = **ngày hiện tại** (ngày AI dựng hồ sơ), không để `………`, **không hỏi lại** (người dùng chốt 04/11/2026). **Tự cập nhật mỗi lần dựng, kể cả dựng lại hồ sơ đã ban hành** (người dùng chốt 06/11/2026): `build_<6 số>.py` đặt `CERT_DATE = date.today()`, không gõ cứng ngày.
+- **Ngôn ngữ chứng thư theo PYC mục 15:** chỉ chọn Tiếng Việt → chỉ dựng TBKQ VN (136247); chỉ Tiếng Anh → chỉ TBKQ EN (137058, script có cờ `--vn` dựng thêm bản VN khi người dùng cần); Việt - Anh → cả hai. BCKQ và Excel tính toán luôn tiếng Việt. Quy tắc VN = EN (mục 6, 9) chỉ áp khi có cả hai bản; tem tủ vẫn dựng như thường.
+- **Ngày hiệu lực biểu mẫu (`HL:…`)** trên header là ngày cố định của form (`HL:01/8/2025`), không đổi theo ngày làm việc.
+- **Thời gian giám định trong Table 0** (người dùng chốt 30/10/2026):
+  - **TBKQ:** chỉ ngày, **không ghi giờ** — VN `Từ ngày 22/10/2026`; EN `From 22/10/2026`.
+  - **Nhiều ngày đi hiện trường** (người dùng chốt 07/11/2026, mọi hồ sơ): TBKQ **liệt kê từng ngày**, không ghi khoảng "đến ngày": 2 ngày VN `Từ ngày 29/10/2026 và 04/11/2026`, EN `From 29/10/2026 and 04/11/2026`; từ 3 ngày VN `Từ ngày <d1>, <d2>, và <d3>`, EN `From <d1>, <d2>, and <d3>`. Code: khai `Dossier.inspection_dates=[d1, d2, …]` → `dates_phrase()` (`Core/Models/dossier.py`), dùng ở `tag_context.inspection_date` và `elements`; 1 ngày thì để trống. BCKQ vẫn ghi từng ngày kèm giờ (mục 15).
+  - **BCKQ:** ghi ngày + khung giờ đo thực tế — `Ngày 06/10/2026 từ 08:00 đến 17:00` (mục 7).
+
+## 3. Định dạng Bảng, Font, Ảnh và Đánh giá (TBKQ; BCKQ xem thêm mục 7)
+
+- **Font Times New Roman:**
+  - **13pt:** toàn bộ thân văn bản — đoạn văn, tiêu đề mục (1, 2, 2.1…), câu `Đánh giá:` / `Assessment:`, nội dung Table 0.
+  - **13pt in nghiêng:** chú thích ngoài bảng kết quả — `Sơ đồ 1: …` (ảnh hiện trường không chú thích, xem dưới).
+  - **11pt in nghiêng:** **toàn bộ** bảng `Ghi chú:` / `Note:` nằm ngay dưới bảng kết quả — nhãn, câu công nhận ISO 17020 - VIAS 004, các ghi chú ⁽ⁿ⁾ (người dùng chốt 09/11/2026, thay 10pt). Code: `tag_context.style_note_tables(doc)` gọi ở bước cuối mọi handler TBKQ (phòng sạch, khí nén, BSC, LAF, tủ hút) và sau hậu xử lý của script hồ sơ (`finish_tbkq` / `finish_docx`). Dòng ghi chú in sẵn trên trang bìa (form giấy tiêu đề) không thuộc quy tắc này.
+- **In đậm:** không in đậm thông tin điền mới (tên KH, địa chỉ, thiết bị, số liệu đạt…). **Giá trị Không đạt → in đậm** (TBKQ và BCKQ); mẫu cũ in đậm sẵn mà hồ sơ mới đạt → gỡ đậm.
+- **Cụm từ đánh giá → in đậm + nghiêng** (`bold=True, italic=True`), phần còn lại của câu in thường: VN ***phù hợp***, ***không phù hợp***; EN ***comply***, ***complied***, ***did not comply***.
+- **Ảnh — quy tắc chung (mọi loại hồ sơ, VN/EN, TBKQ/BCKQ, ảnh hiện trường lẫn sơ đồ):**
+  - **Không crop:** chỉ đặt `width` (`r.add_picture(path, width=Cm(7.5))`), không đặt `height`; xóa `<a:srcRect>` (`sr.attrib.clear()`); không crop trong PIL.
+  - Ảnh dọc (sau xoay EXIF) → **xoay 90°** để nằm ngang, vẫn giữ tỉ lệ.
+  - Bảng ảnh: căn giữa trang (`WD_TABLE_ALIGNMENT.CENTER`), không viền, AutoFit to Window (`set_table_autofit_window`), hàng chống tách trang (`add_cant_split(row)`), ảnh căn giữa ô.
+  - **Ảnh hiện trường không chú thích** (người dùng chốt 06/11/2026, mọi hồ sơ, TBKQ VN/EN và BCKQ): không ghi `Hình 1: …` / `Đo nồng độ hạt bụi` dưới ảnh. **Sơ đồ** vị trí đo vẫn giữ chú thích (`Sơ đồ 1: …`, 13pt nghiêng; sơ đồ người dùng vẽ sẵn thì không chú thích — mục 8C). Ảnh chỉ để định danh vị trí/mẫu (khí nén `Vị trí lấy mẫu KN1`, vi sinh bề mặt `C1`…) giữ nhãn ký hiệu (mục 6; người dùng xác nhận 06/11/2026). Hồ sơ vi sinh có ảnh gom theo loại mẫu: xem cách chú thích nhóm ở mục 8C. Code: `photo_grid(..., captions=False)` (`tag_context`), handler BSC/LAF/tủ hút vốn không chú thích.
+  - **Grid 2 cột** (2 ảnh/hàng): rộng **7 – 8 cm** (chuẩn `Cm(7.5)`), mỗi ô 50 % (2500 pct).
+  - **Grid 3 cột** (từ 5 ảnh trở lên, vd BSC, LAF, tủ hút): rộng **4 – 5 cm** (chuẩn `Cm(4.8)` / `PHOTO_WIDTH_3COL`), mỗi ô ~33,3 % (1666 pct).
+  - Số ảnh/sơ đồ **theo thực tế hồ sơ** (thêm/bớt ô), không giữ ảnh hồ sơ cũ, không để khung trống thừa.
+  - **Khách hàng yêu cầu không đưa ảnh:** BCKQ bỏ khung ảnh, ghi ngay sau đầu mục ảnh "Khách hàng yêu cầu không chụp/đưa hình ảnh vị trí lấy mẫu."; TBKQ xóa hẳn đầu mục ảnh cùng bảng ảnh, không ghi chú thay.
+- **Bảng chứa ảnh/layout:** AutoFit to Window (`table.AutoFitBehavior(2)` / OpenXML `<w:tblW w:w="5000" w:type="pct"/>`, `<w:tblLayout w:type="autofit"/>`), không viền, ô chia đều theo %.
+- **Bảng kết quả:**
+  - Chiều cao dòng tối thiểu **0,6 cm**, ưu tiên **0,7 – 0,8 cm** (`w:hRule="atLeast"`, 400 – 455 twips, vd 440); đồng bộ VN/EN theo mục 9.
+  - Lặp dòng tiêu đề khi sang trang (`<w:tblHeader/>`).
+  - Chỉ tiêu nhiều dòng con (độ ồn, rò rỉ HEPA, hình thái dòng khí, nồng độ hạt…): ô STT **merge dọc** (`<w:vMerge>`) hết các dòng con, căn giữa ngang + dọc.
+  - Chỉ tiêu không thực hiện → xóa hẳn mục + bảng + bảng ghi chú, không để bảng trống.
+- **Ghi chú:**
+  - **Câu công nhận bắt buộc** (người dùng chốt 30/10/2026): bảng `Ghi chú:` / `Note:` dưới **mỗi** bảng kết quả TBKQ có dòng đầu `Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.` (EN `The performance field is accredited to ISO 17020 - VIAS 004.`), các ghi chú `(1)`, `(2)`… ở dòng sau. Không dùng câu cũ "… ISO/IEC 17025:2017 (VILAS 029)". `qa_check final-check` báo `[Missing Accreditation Note]` khi thiếu. Hồ sơ vi sinh không khí / bề mặt: câu này vẫn bắt buộc nhưng **đứng cuối** bảng Ghi chú (thứ tự riêng — mục 8C).
+  - Ký hiệu `(1)` … `(9)` (tiêu đề cột, đầu dòng `Ghi chú:`/`Note:`, đoạn văn) in **chỉ số trên** (`<w:vertAlign w:val="superscript"/>`, giữ font/đậm/nghiêng) — gọi `superscript_note_markers(doc)` trước khi lưu.
+  - Nhiều ghi chú trong một bảng `Ghi chú:` → mỗi ghi chú một dòng riêng (`\n`), căn trái.
+- **Mức quy định & Đánh giá:**
+  - Chỉ tiêu **không có mức** (KH không cung cấp, Excel ghi `N/A`/trống/không có cột mức) → bỏ hẳn dòng "Mức quy định cung cấp bởi …" (không ghi "Không quy định") **và** bỏ hẳn đoạn `Đánh giá:`/`Assessment:` dưới bảng (VN, EN); không viết câu "Không đánh giá … do không có mức quy định". Mục `Đánh giá:` của BCKQ phòng sạch cũng không liệt kê chỉ tiêu đó (BCKQ tủ xếp vào "Chỉ tiêu không đánh giá", mục 7).
+  - **Nhiều mức đánh giá → tách bảng theo nhóm mức** (người dùng chốt 30/10/2026): các khu vực/phòng của cùng chỉ tiêu có mức khác nhau → **mỗi nhóm cùng mức một bảng riêng**: bảng → **dòng cuối (footer) ghi mức của nhóm** (`Mức quy định cung cấp bởi …`) → bảng `Ghi chú:` → câu `Đánh giá:` của riêng nhóm. Khu vực **không có mức** gom một bảng đặt cuối, **không dòng mức, không Đánh giá** (vẫn có Ghi chú với câu công nhận). Mã điểm đo (`NA…`) giữ số theo sơ đồ khi đổi thứ tự phòng. Code mẫu: `generate_all_reports.py` (`fill_trh_table`, `trh_spec_groups`).
+  - Chỉ một số khu vực không có mức → câu đánh giá chỉ nêu khu vực phù hợp / không phù hợp.
+  - Code: `assess_*` trả danh sách rỗng khi không có khu vực được đánh giá; `set_assessment_paras(p, [])` xóa đoạn Đánh giá.
+- **Ngắt trang (không để khoảng trắng lớn):**
+  - **Không ép ngắt trang cứng** (`page_break_before`, `<w:br w:type="page"/>`) trước mỗi mục/ảnh/sơ đồ trong phụ lục; chỉ giữ ngắt section giữa trang bìa và phụ lục.
+  - Tiêu đề mục `keep_with_next`; tiêu đề + dòng tiêu đề bảng + 3–4 dòng dữ liệu đầu đi liền nhau.
+  - 2 dòng cuối bảng + bảng `Ghi chú` + câu `Đánh giá` cùng trang (`keep_tail_together`; `keepNext` cho dòng cuối, bảng Ghi chú, dòng `Đánh giá:`; `keepLines` cho câu kết luận; `cantSplit` cho dòng bảng). Câu kết luận không được rớt lẻ sang trang mới. **Bảng Ghi chú không có câu Đánh giá theo sau → không đặt `keepNext`** ở dòng cuối bảng Ghi chú (nếu không chuỗi keepNext kéo cả mục sau sang trang mới — E32; `keep_tail_together` tự kiểm tra đoạn ngay sau bảng).
+  - Đoạn dẫn "Hình ảnh quá trình thực hiện:" / "Sơ đồ các vị trí đo:" đi liền ảnh/sơ đồ ngay sau — Core tự đặt `keepNext` cho đoạn dẫn (không cho bảng ảnh): `tag_context.keep_intros_with_next`, gọi trong `CleanroomHandler`, `CompressedAirHandler` (132809: dòng "Sơ đồ…" từng rớt lẻ cuối trang).
+  - Đổi bố cục xong → cập nhật tổng số trang phụ lục (footer `Trang X/Y`) theo PDF thực tế, kiểm tra VN/EN cùng số trang (mục 9).
+  - **Xóa mục khỏi template** (vi sinh, HEPA, scan…) → xóa luôn **đoạn trống đi kèm**: giữa câu Đánh giá và tiêu đề mục kế không còn đoạn trống, tiêu đề `space_before` 6pt (138143: khoảng trắng lớn 9.4 → 9.5). Đoạn trống giữa bảng kết quả và bảng Ghi chú vẫn giữ (mục 15). Code mẫu `_drop_section_gaps` (`build_138143.py`).
+  - **Không để đoạn trống ngay trước đường kết thúc** → tránh trang cuối chỉ có đường kết thúc (138143, 134792). Code mẫu `_drop_trailing_empty`.
+  - **Bỏ trang thừa / lấp trang bằng kích thước ảnh, sơ đồ** (phòng sạch, khí nén qua template TAG: `results_data["photo_width_cm"]` — lưới 2 cột kẹp 7–8 cm, 3 cột 4–5 cm; `results_data["layout_width_cm"]` — sơ đồ, mặc định 13 cm; 132809: 7,0 / 12 cm cho VN = EN 5 trang) trong khung cho phép (lưới 3 cột 4 – 5 cm, 2 cột 7 – 8 cm; sơ đồ khoảng 6,5 – 16 cm), **không rút chữ**: 136247 ảnh 4,8 → 4,2 cm bỏ trang 3 trống; 138143 sơ đồ 13 → 15,8 cm, ảnh 5,0 cm cho 9.4 về trang 3.
+  - Tên cột / ô bản EN dài hơn làm thêm dòng → nới độ rộng cột (138143 `Post-Anesthesia Care Unit (PACU)` về 1 dòng) hoặc rút gọn câu ghi chú EN cho cùng số dòng với VN, để VN = EN ngắt cùng chỗ (mục 9).
+- **Ô giá trị Table 0 thẳng cột** (người dùng báo 137035, 09/11/2026): mọi hàng `nhãn | : | giá trị` có dòng đầu ô giá trị cùng một cột — không thụt treo / thụt trái riêng (template khí nén từng có `hanging=136` làm `From …`, `Từ ngày …` lùi trái). Code: `tag_context.align_table0_values` (gọi trong `render`). Nhãn `Ghi chú` / `Note` của bảng Ghi chú **gạch chân đủ cả nhãn**, dấu `:` không gạch (template khí nén VN từng chỉ gạch `Ghi`) — `tag_context.fix_note_label` (trong `style_note_tables`); form không gạch nhãn (BSC, tủ hút) giữ nguyên.
+- **Chữ ký Table 0:**
+  - Bên phải 2 dòng chức danh (`KT. GIÁM ĐỐC` / `PHÓ GIÁM ĐỐC`, `FOR DIRECTOR` / `VICE DIRECTOR`) → `GIÁM ĐỊNH VIÊN` / `INSPECTOR` bên trái nằm **dòng 2**, ngang hàng `PHÓ GIÁM ĐỐC` / `VICE DIRECTOR` (dòng 1 bên trái để trống).
+  - Đoạn họ tên người ký `space_before = Cm(3.0)` (`Pt(85.05)`, ~1701 twips); họ tên hai bên thẳng hàng.
+
+## 4. Kiểm tra chất lượng (QA)
+
+- **Trước khi chạy hồ sơ, đóng mọi `.docx`/`.pdf`/`.xlsx` của hồ sơ** (Word, Excel, PDFgear, khung Preview của File Explorer). PDF đang mở → Word không ghi đè (`Command failed`), UpChungThu không chèn được giấy tiêu đề (`Access is denied`); DOCX đang mở → PDF có thể xuất từ bản cũ; robocopy báo ERROR 32. Dấu hiệu file đang mở: có `~$<tên>` cùng thư mục. Excel mở file đang mở ở chỗ khác sẽ tự read-only và `Save()` không báo lỗi mà không lưu gì.
+- `python Core\Tools\qa_check.py final-check <path> [--code <mã>]` — phải ra `[CLEAN]`. Kiểm tra:
+  - Số chứng thư đồng bộ mọi header; số hồ sơ thân văn bản là mã trần; không sót mã lạ/cũ của file mẫu (tem tủ và BCKQ được phép `<mã>/<n>` theo số chứng thư; `/E` vẫn là lỗi).
+  - 0 placeholder, 0 highlight vàng sót; nhãn ô Table 0 nguyên vẹn.
+  - Bảng có `<w:tblHeader/>`; ô STT chỉ tiêu nhiều dòng con merge dọc, căn giữa.
+  - Chức danh chữ ký ngang hàng (dòng 2); khoảng ký 3 cm.
+  - Ảnh grid 2 cột rộng 7 – 8 cm, không crop.
+  - Câu công nhận ISO 17020 - VIAS 004 trong mọi bảng Ghi chú TBKQ (mục 3).
+  - Có đúng 1 đường kết thúc `thinThick` căn giữa ở cuối TBKQ, 0 connector mồ côi, không đoạn trống ngay trước nó — `[Ending Gap]` (mục 5).
+  - **Cỡ chữ hiệu lực** (run → style → docDefaults): TBKQ đoạn văn, Table 0, bảng kết quả/thông tin 13pt, bảng Ghi chú 11pt in nghiêng (lỗi `[Note Style]` khi chưa nghiêng); BCKQ mọi chữ 13pt → lỗi `[Font Size]`. Cảnh báo `[Row Too Tall]` (hàng 1 dòng > 760 twips), `[Note Gap]` (bảng Ghi chú chưa sát bảng kết quả). Chi tiết mục 15.
+  - **Table 0 / nhãn Ghi chú** (mục 3) — lỗi `[Table0 Align]` (dòng đầu ô giá trị lệch nhau > 20 twips), `[Note Label]` (nhãn `Ghi chú`/`Note` gạch chân một phần).
+  - **Không ghi gọn** (mục 15) — lỗi `[Abbreviation]`: ô Đơn vị / Địa chỉ / Địa điểm của Table 0 tiếng Việt (TBKQ VN, BCKQ) còn viết tắt (NGK, Cty, CP, CN, PTN, QLCL, KCN, KCX, CCN, KDC, BV, TP.HCM, HCM, VN); lỗi `[Location Short]`: Địa điểm giám định (VN/EN) không nêu tên đơn vị nào → đối chiếu BBLM mục 5, ghi đủ.
+  - **Cách gọi vị trí** (mục 6) — lỗi `[Point Term]`: TBKQ VN / BCKQ còn `điểm đo`, `16 điểm`, `Số điểm`, hoặc `Cường độ sáng: 9 …` kèm số lượng.
+  - **Tên máy** (mục 14) — lỗi `[Equipment Name]`: dòng thiết bị Table 0 gọi một máy trong danh mục bằng tên khác tên chuẩn → dựng lại hồ sơ (code mới tự ra tên chuẩn).
+  - **Sơ đồ draw.io** (mục 8C) — cảnh báo `[Layout Stale]`: `.drawio` lưu sau lần xuất PNG (kéo điểm chưa chạy lại), hoặc PNG hiện tại (`_vn` cho TBKQ VN/BCKQ, `_en` cho TBKQ EN, so bằng SHA-256) không có trong DOCX (chưa dựng lại DOCX) → chạy lại script hồ sơ trước khi xuất PDF/chép Z.
+- **Soát PDF bằng mắt** sau mỗi lần dựng (mục 15): chữ tràn viền ô / gãy từ, bảng bị chẻ, VN – EN ngắt trang khác chỗ, trang bìa 1 trang.
+- `python Core\Tools\qa_check.py test-open <file.docx>` — mở qua Word COM, xác nhận số trang.
+- **PDF phải xuất lại sau mỗi lần dựng lại DOCX/XLSX:** file trong `pdf\` phải mới hơn file nguồn; mở PDF đối chiếu số chứng thư/số BCKQ. Sau khi chạy, log mọi PDF phải có `[OK]` và TBKQ có `BG ... applied successfully`. (132488: BCKQ DOCX đã thêm `/1..4` nhưng PDF còn bản cũ ghi mã trần.)
+- **Footer phụ lục TBKQ `Trang X/Y` cùng một cỡ chữ** (10pt như chữ `Trang`): trường tổng trang `{= {NUMPAGES} - 1}` phải mang cùng định dạng chữ ở mọi run — Word lấy định dạng ký tự đầu mã trường cho kết quả (132809 từng ra số tổng to hơn, người dùng báo 09/11/2026). Code: `tag_context.appendix_total_field(doc)` (script gọi qua `_appendix_total_from_numpages`).
+- **Header BCKQ `Trang X/Y`:** chỉ **một** trường `NUMPAGES` (lỗi E20 đã sửa 30/10/2026). Dò text PDF `Trang \d+/\d+` khớp số trang thật. Footer phụ lục TBKQ đánh số riêng phần phụ lục: tổng = tổng trang − 1.
+- **Dò lỗi chữ trên PDF:** không có `- - ` (gạch đôi ở danh sách thiết bị/căn cứ), viết đúng `QUATEST 3 3030:2025` (có dấu cách), không còn `………` / TAG sót.
+- **Tem tủ:** "Nội dung kiểm tra" chỉ liệt kê chỉ tiêu **đã thực hiện** (mục 8C); số tem = số chứng thư.
+- **UpChungThu (`Core\Services\upchungthu_bridge.py`)** — phần mềm tại `C:\Users\phat.nt\Desktop\Source\Source Code\UpChungThu\UpChungThu`:
+  - Chèn giấy tiêu đề vào **trang 1 TBKQ**: VN `GIAY TIEU DE.pdf`, EN `GIAY TIEU DE - E.pdf`; tự nhận diện nền có sẵn để không chèn trùng. **Không** chèn vào BCKQ và Excel `TinhToan…`.
+  - Kiểm tra: `verify_signers` (GĐV và Boss theo thư viện người ký LAN/Local, có dấu/không dấu); `verify_document_number` (định dạng `Q3\d{2}[A-D]\d{6}`, mã gốc đồng nhất, header EN có `/E`, VN không `/E`, mã trần ở thân trang 1); `verify_page_numbers` (`i/total` trang phụ lục); `verify_pdf_dates` (ngày đồng bộ mọi trang).
+  - Lệnh: `python Core\Tools\qa_check.py check-pdf <path|thư_mục_pdf> [--date dd/mm/yyyy] [--add-bg]`; hàng loạt `python -m Core.run --upchungthu [all | <mã>]`; tích hợp sẵn trong `PDFExporter.export_files`.
+- Bẫy kỹ thuật Word/Excel COM đã gặp (header/footer, ảnh bị nén, xuất PDF treo, tắt nhầm tiến trình…): `THAM-KHAO-QUY-TRINH-CU.md` (Project `claude/`; trên máy đọc bản gốc `MarkDown\CONG-CU-VA-WORKFLOW.md`).
+
+## 5. Đường kết thúc văn bản (Ending Line)
+
+- Mọi TBKQ **bắt buộc** có đường kết thúc đôi (`thinThick` compound line, 4.5pt strokeweight, màu đen) ở cuối văn bản, căn giữa trang (`wp:align center` theo lề `margin`).
+- **Vị trí:** sát dòng chữ cuối (~6 pt), nằm ngang tuyệt đối (`cy="0"`), **không đè/chắn lên chữ** của câu kết luận, không làm phát sinh trang mới.
+  - Chuẩn chốt trong chat 30/10/2026 (bản Project): **neo vào đoạn văn bản cuối** (run `<w:r>` chứa đường kẻ nằm trong đoạn cuối, `wp:posOffset` dọc ~580000 EMU khi đoạn 2 dòng, ~750000 EMU khi 3 dòng), **không tạo đoạn trống riêng**.
+  - Code hiện tại (`Core/Styling/elements.py::add_document_ending_line`, phiên 18): **đoạn trống riêng** ngay dưới dòng cuối, `space_before = 0`, `posOffset` 76200 EMU (6 pt); đoạn này cao exact 1pt (không tự rớt sang trang mới). Hai cách đang lệch → **chờ người dùng chốt (E33)**; trong lúc chờ giữ code như cũ, kiểm tra bằng PDF rằng không phát sinh trang trắng.
+- **Không còn đoạn trống nào giữa câu kết luận cuối và đường kết thúc** (người dùng báo 10/11/2026, 127215 / 120423: template phòng sạch để 6 đoạn trống → đường kẻ cách xa 3–4 dòng). `add_document_ending_line` tự gọi `drop_trailing_empty_paragraphs`; `final-check` báo `[Ending Gap]`. Nhận đoạn trống bằng `is_blank_paragraph` (`Core/Styling/elements.py`) — **không** xét chuỗi `p.xml` ("drawing" có sẵn trong namespace `drawingml` của mọi đoạn, E54). Đoạn trống sót giữa câu Đánh giá và tiêu đề mục kế: `drop_section_gaps` (handler phòng sạch, khí nén; mục 3).
+- Gán lại nội dung đoạn cuối bằng code (`p.text = ""`, xóa run) dễ làm mất `<mc:AlternateContent>` chứa đường kết thúc → giữ lại run này khi sửa đoạn.
+- Không để sót connector mồ côi ở các đoạn giữa văn bản.
+- **Không** thêm Ending Line vào BCKQ.
+- `qa_check.py` kiểm tra có đường `thinThick` căn giữa ở cuối và không có connector mồ côi.
+
+## 6. Đồng bộ Tên vị trí, Thiết bị và Số liệu (VN & EN)
+
+- **Tên vị trí** thực hiện/đo/lấy mẫu giữa VN và EN tương ứng 100%: cùng số lượng, thứ tự, mô tả theo bản dịch chuẩn.
+- **Gọi là "vị trí đo" hoặc "vị trí", không dùng "điểm đo"** (người dùng chốt 11/11/2026, hồ sơ 067460 — mọi hồ sơ, TBKQ, BCKQ, Excel, sơ đồ): `16 vị trí` (không `16 điểm`), cột `Vị trí đo` (không `Điểm đo` / `Số điểm đo`), `Sơ đồ các vị trí đo`; EN `location(s)`, không `point(s)`. Thuật ngữ khác giữ nguyên (`điểm sương`, `Địa điểm`, `thời điểm`, `điểm tù`, `điểm biên`, `điểm hiệu chuẩn`).
+  - **Độ sáng trong danh sách chỉ tiêu** (bảng 9.1 phòng sạch "Chỉ tiêu và số lượng vị trí quan trắc"…) ghi `Cường độ sáng trung bình`, **không ghi số lượng** (EN `Average light intensity`); bảng kết quả độ sáng cột vị trí ghi nơi đo (vd `Bên trong buồng`), không ghi số vị trí.
+  - Code: `Core/Tools/wording.py` (`normalize_points_vn/en`, `find_point_terms`); `MonitoringLocation.points_summary_vn/en` tự chuẩn hóa khi khai (`16 điểm` → `16 vị trí` có cách không ngắt để ô hẹp không tách "vị / trí"); chữ khác do script hồ sơ tự viết (tiêu đề cột, chú thích sơ đồ) phải viết đúng — `final-check` báo `[Point Term]`.
+- **Danh mục thiết bị** VN và EN giống nhau (chủng loại, số lượng, quy cách) — quy tắc trình bày ở mục 14.
+- **Số liệu đo** giữa bảng VN và EN giống hệt giá trị.
+- **Dấu thập phân:** VN dấu phẩy (`23,5`), EN dấu chấm (`23.5`).
+- **Ký hiệu vị trí đánh số** (`KN1`, `KN2`, `VT1`…): vị trí đầu ghi `KN1`/`VT1`, không ghi `KN`/`VT`. Nhất quán 100% giữa: ký hiệu trên ảnh, chú thích ảnh (`Vị trí lấy mẫu KN1`), Table 1 TBKQ & BCKQ, các bảng kết quả chi tiết, bảng tổng hợp KQTT BCKQ (Table 3), Excel tính toán (`Q326D… - KN1 - TinhToanKhiNen.xlsx` ô H3 = `KN1`).
+- **"Không đo" (`-`) khác "kết quả bằng 0":**
+  - `-` / `- - - -` **chỉ dùng khi chỉ tiêu không thực hiện** (hoặc ô Đánh giá của chỉ tiêu không có mức, vd UVC — mục 8C).
+  - Có đo mà ra 0 (vd đếm hạt trong tủ `0 0 0 0`) → ghi `0` / `0 hạt/m³` / `0 particles/m³`, đánh giá `Đạt` / `Pass`; **không** ghi `-`. Áp dụng mọi hồ sơ và mọi tài liệu (Excel, BCKQ, TBKQ VN/EN).
+- **Tên chỉ tiêu trong bảng kết quả tiếng Việt** (TBKQ VN, BCKQ, Excel): chỉ tên tiếng Việt, **bỏ phụ đề tiếng Anh trong ngoặc**. Vd `Tốc độ trung bình dòng khí qua cửa làm việc` (bỏ `(average inflow velocity)`), `Tốc độ trung bình dòng khí cấp qua lọc HEPA`, `Cường độ sáng trung bình bên trong tủ`, `Đo độ ồn`, `Mức rò rỉ của các lọc HEPA`, `Lọc khí cấp`, `Lọc khí thải`, `Kiểm tra hình thái dòng khí`, `Cường độ tia UV dải C`, `Nồng độ hạt bụi trong tủ`.
+
+## 7. Báo cáo kết quả giám định nội bộ (BCKQ — BM3030.03)
+
+- Biểu mẫu `BM3030.03` (hiệu lực `01/8/2025`). Tên file `BCKQ - <stt> - <loại> - <mã>.docx` (vd `BCKQ - 1 - phong sach - Q326D122266.docx`, `BCKQ - 2 - khi nen - Q326D122266.docx`) hoặc file gộp tủ `BCKQ - tu - <mã>.docx`; **không tiền tố `2. `**.
+- **Lưu:** DOCX `Input\<hồ sơ>\ThucHien\`, PDF `Input\<hồ sơ>\pdf\`; lên Z theo mục 0; không vào `Output\`.
+- **Font:** toàn bộ BCKQ (thân văn bản, mọi bảng Table 0 – 5, phần Báo cáo của GĐV) Times New Roman **13pt**; không sót đoạn/bảng 10, 11, 12pt.
+- **Table 0** (mọi form BCKQ: phòng sạch, khí nén, BSC, LAF, tủ hút…): mọi ô **Align Top** (`<w:vAlign w:val="top"/>`); mọi đoạn trong ô `space_before = Pt(3)`, `space_after = Pt(3)` (`w:before="60"`, `w:after="60"`), `line_spacing = 1.0`.
+- **Người thực hiện:** theo BBLM, chỉ ghi tên cuối, nhiều người nối ` + ` (vd "Nguyễn Văn Phát, Trần Minh" → `Phát + Minh`); không giữ tên mẫu cũ, không thêm "Nam".
+- **Người báo cáo:** luôn thêm `+ Minh` (không lặp nếu đã có Minh). Toàn/Nghĩa → `<tên> + Minh`; còn lại → `<tên> + Minh + Nam` (vd `Phát + Minh + Nam`).
+  - Dòng `Ngày báo cáo:` và `Người báo cáo:` mỗi dòng nằm trọn **1 dòng**; dùng 7 tab (6 tab nếu danh sách người báo cáo > 18 ký tự) cho cả hai dòng; `right_indent = Pt(0)`.
+- **Đồng bộ với TBKQ:**
+  - Số báo cáo = số chứng thư (`Q326D…/1`, `/2`…); BCKQ gộp tủ = mã trần.
+  - **Thời gian thực hiện: ngày + khung giờ đo thực tế** (`Ngày 06/10/2026 từ 08:00 đến 17:00`) — khác TBKQ chỉ ghi ngày (mục 2).
+  - Thiết bị sử dụng đồng nhất 100% với TBKQ.
+  - Khu vực/vị trí: đủ phòng/điểm đo, diện tích, cấp sạch, chỉ tiêu thực hiện.
+  - Ảnh lấy từ thư mục ảnh của hồ sơ (mục 1), bản nén `_optimized` (~600×450 – 800×600 px); sơ đồ đúng vị trí và bố cục hồ sơ.
+- **Tham chiếu kết quả (mục 4.6 hoặc tương ứng):**
+  - **Không viện dẫn TBKQ / Chứng thư giám định trong BCKQ** — BCKQ lập và trình duyệt **trước** TBKQ. Chỉ viện dẫn phiếu tính toán / phiếu ghi chép.
+  - Khí nén (Table 3, cột KQTT theo từng vị trí): `Xem tại phiếu Kết quả tính toán số <mã> - <ký hiệu> ngày dd/mm/yyyy` (vd `… số Q326D133266 - KN1 ngày 20/10/2026`).
+  - Nồng độ hạt bụi: `Xem tại phiếu Tính toán kết quả nồng độ hạt bụi số <mã> ngày dd/mm/yyyy`.
+  - Điểm sương: `Xem tại phiếu Tính toán kết quả nhiệt độ điểm sương số <mã> ngày dd/mm/yyyy`.
+  - BSC, tủ hút, LAF: `Xem chi tiết tại phiếu Tính toán các thông số tủ số <mã> ngày dd/mm/yyyy.` (không kèm `; TBKQ số…`).
+  - Phòng sạch: theo từng chỉ tiêu, **số phiếu tính toán = mã + đuôi chỉ tiêu** (người dùng chốt 05/11/2026; đuôi có dấu, viết hoa chữ đầu): nồng độ bụi `Xem tại phiếu Tính toán kết quả nồng độ hạt bụi số <mã>/Bụi ngày …`; nhiệt độ - độ ẩm `… phiếu Tính toán kết quả nhiệt độ, độ ẩm số <mã>/Nhiệt độ, độ ẩm ngày …`; độ ồn `… phiếu Tính toán kết quả độ ồn số <mã>/Độ ồn ngày …` (nhiệt ẩm và độ ồn tách 2 phiếu từ 07/11/2026); chênh áp `… phiếu Kết quả đo chênh lệch áp suất số <mã>/Chênh áp ngày …`; lưu lượng/HEPA/ACH `… phiếu Tính toán vận tốc gió và lưu lượng qua lọc HEPA số <mã>/Lưu lượng ngày …`; rò rỉ lọc HEPA `… phiếu Tính toán kết quả rò rỉ lọc HEPA số <mã>/Scan lọc ngày …`; vi sinh không khí `… phiếu Tính toán kết quả vi sinh vật trong không khí số <mã>/Vi sinh ngày …`. Hồ sơ nhiều chứng thư đã ban hành giữ số cũ (133266/1: `<mã>/1`). Header trái mỗi sheet Excel `TinhToanPhongSach.xlsx` ghi đúng số đó (`Số: <mã>/Bụi`…), tiêu đề giữa sheet trùng tên phiếu viện dẫn. Chỉ tiêu không có sheet tính toán (đọc thẳng) mới viện dẫn `phiếu Ghi chép giám định tại hiện trường số <mã>`.
+  - **Phiếu đo riêng từ máy (độ ồn…)** — không ghi cụt `xem tại phiếu Kết quả đo độ ồn…`; ghi: `Phiếu kết quả đo độ ồn ở các vị trí <VT1, VT2… hoặc tên vị trí> (thuộc hồ sơ số <mã> ngày dd/mm/yyyy) được in kèm theo hồ sơ.` Vị trí khớp 100% BBLM, sơ đồ, ảnh; bản in phiếu kẹp kèm hồ sơ giấy.
+- **Đánh giá:** khớp kết luận TBKQ, dùng chung hàm đánh giá với TBKQ (không viết tay); ghi căn cứ (tiêu chuẩn ISO, mức KH, mức NSX).
+  - Phòng sạch: phân định từng phòng/vị trí đạt và không đạt (vd phòng đạt bụi, HEPA, chênh áp nhưng không đạt ACH).
+  - **BCKQ tủ (BSC/LAF, tủ cấy, tủ hút) — người dùng chốt 30/10/2026:** `- Đánh giá:` tách 3 phần, mỗi chỉ tiêu ghi kết quả + mức (+ căn cứ): `+ Chỉ tiêu phù hợp: …`; `+ Chỉ tiêu không phù hợp: …` (không có thì `Không.`); `+ Chỉ tiêu không đánh giá: …` (không có mức, hoặc form tủ hút không đánh giá → ghi mức khuyến nghị). Lấy từ bảng kết quả TBKQ (`BSCHandler.result_rows`, tủ hút theo `results_data`); ghi đè khi cần bằng `assessment["phu_hop_vn" / "khong_phu_hop_vn" / "khong_danh_gia_vn"]`. Code: `Core/Builders/bckq_builder.py` (`cabinet_assessment`, `assessment_block`).
+  - **Gộp BCKQ nhiều tủ cùng hồ sơ (mặc định):** 1 file `ThucHien\BCKQ - tu - <mã>.docx` — Bảng 0 chung (số = mã trần, nội dung yêu cầu dạng `Giám định 01 tủ cấy, 03 tủ hút` (mục 8C), thiết bị = hợp các tủ), bảng thiết bị 1 dòng/tủ, viện dẫn phiếu tính toán từng tủ (`/1`, `/2`…), Đánh giá chia theo tủ (`1) <tủ> - số <mã>/n:` rồi 3 phần). `BCKQBuilder.build_merged([...])`; `DossierRunner.run_batch` gộp mặc định (`merge_bckq=False` để tách); script riêng: `build_132488.py --bckq-rieng`.
+  - **Bảng "Thông tin thiết bị | Chỉ tiêu thực hiện"** trong BCKQ tủ: căn trái (căn đều + ngắt dòng làm Word dãn chữ `"Tủ      cấy"`), mỗi dòng một đoạn, chỉ tiêu đánh số `1.`, `2.`… bằng chữ (không dùng danh sách tự động). Code: `tidy_cabinet_table`.
+- **Theo dõi KQTN & Báo cáo GĐV:** mã phiếu KQTN (MTTN…, HDTN…), ngày gửi mẫu, ngày yêu cầu cấp, ngày nhận KQTN (quy ước ngày ở mục 13); **ngày kết thúc hồ sơ thực tế & ngày báo cáo = ngày hiện tại** (ngày dựng BCKQ, tự cập nhật mỗi lần dựng kể cả dựng lại và hồ sơ có KQTN — người dùng chốt 09/11/2026; code `tag_context` khóa `ngay_kt`, `ngay_bc`), khác ngày ban hành TBKQ (mục 2); trễ hạn, bất thường: `không` (hoặc nêu rõ).
+
+## 8A. Tự động tách file scan PDF đầu vào (Edoc)
+
+- Scan gốc (BBLM, ghi chép, phiếu đo, máy đếm hạt, kèm giấy tờ PYC/báo giá…) tự tách theo header trang thành **3 PDF** (người dùng chốt 06/11/2026 — **BBLM tách trước**):
+  1. `<6 số> - BBLM.pdf`: **Biên bản giám định hiện trường** (`BM3030.02`, tiêu đề `BIÊN BẢN GIÁM ĐỊNH HIỆN TRƯỜNG`).
+  2. `<6 số> - Ghi Chep.pdf`: **Ghi chép giám định tại hiện trường** (`BM3030.01`, `GHI CHÉP GIÁM ĐỊNH TẠI HIỆN TRƯỜNG`), phiếu ghi thông số, và trang không có header rõ (phiếu in nhiệt đếm hạt, rò rỉ HEPA, độ ồn, mặt bằng đánh dấu vị trí…).
+  3. `<6 số> - Khac.pdf`: giấy tờ khác — phiếu kiểm soát công việc, PYC, điều kiện chung, báo giá, PO / đơn hàng, đề cương khách hàng, hóa đơn, GCN ĐKDN (nhận theo header / giấy tiêu đề QUATEST 3: `KHAC_KEYWORDS` trong `scan_splitter.py`). Không có trang nào thì không tạo file.
+  - **Trang trắng bỏ hẳn**, không vào file nào (`is_blank_page`: không có điểm ảnh nào đậm).
+  - **Tự xoay đúng hướng văn bản** (người dùng yêu cầu 11/11/2026, mọi hồ sơ): mọi trang trong 3 file Edoc phải đứng thẳng, đọc được ngay — trang scan lộn ngược (180°) hoặc nằm ngang (90°/270°) được đặt lại `/Rotate` của trang (không render lại, không giảm chất lượng ảnh scan; scan gốc không đổi).
+    - Code: `Core/Tools/pdf_orient.py` — trang có chữ gốc theo hướng dòng chữ; trang scan OCR (Windows.Media.Ocr) cả trang ở 4 hướng, chọn hướng đọc được nhiều ký tự nhất (lượt 2 ở 300 dpi cho trang ít chữ). Chỉ xoay khi chắc (≥ 60 ký tự và ≥ 1,3 lần hướng hiện tại; trang ít chữ ≥ 25 ký tự và ≥ 2 lần); không chắc thì giữ nguyên và in `[Orient] chưa chắc hướng …` → soát trang đó bằng mắt. Kết quả lưu `ThucHien\_checkpoint\page_orient.json`, lần sau không OCR lại.
+    - `scan_splitter.split_dossier_scans` xác định hướng **trước** khi OCR header (trang ngược thì header nằm ở đáy → phân loại sai); `write_edoc` tự bỏ trang trắng và xoay. Script hồ sơ tự ghép Edoc bằng `insert_pdf` phải gọi `finish_edoc(doc, INPUT_DIR, tên)` (`scan_splitter` — bỏ trang trắng + xoay) ngay trước `save` (đã thêm vào `split_edoc` của 120423, 127215, 131671, 132809, 133266, 134792, 137035, 137058, 138143 — 137035 từng ghép nguyên file AeroTrak kèm 3 trang trắng). Sửa file Edoc đã có: `python Core/Tools/pdf_orient.py "Input\<hồ sơ>\TBKQ\Edoc" [--ghi]`.
+    - Thử 11/11/2026 trên 64 trang (16 trang thật × 4 hướng giả lập: BBLM, ghi chép, PKSCV, phiếu in nhiệt AeroTrak/Lasair/ATI, bảng 6ChannelFixed): không trang nào bị xoay sai; 5 trang (phiếu in nhiệt mờ, trang trắng) không chắc → giữ nguyên.
+  - **Phân loại theo tiêu đề đứng trước** (11/11/2026): trong ~120 ký tự đầu của OCR header, tiêu đề / mã form BBLM (`Biên bản giám định…`, `BM3030.02`) hay Ghi chép (`Ghi chép giám định…`, `BM3030.01`) xuất hiện trước thì quyết định — chữ "ghi chép" trong bảng của trang 2 BBLM không còn kéo trang đó sang Ghi Chep (139329). Mẫu chịu được OCR đọc méo (`bion ban giam`, `gi ii chep`). Từ khóa giấy tờ khác khớp **nguyên từ** (132115: "báo giá" trong ghi chú bản vẽ từng khớp nhầm). Đo trên 173 trang Edoc đã giao: đúng 169 (trước 163); 4 trang còn mơ hồ (bản vẽ khách có chữ "báo giá", giấy tiêu đề OCR méo nặng) → vẫn soát danh sách phân loại.
+  - Trang khác không có header (vd trang 2 phiếu kiểm soát công việc, trang nội dung đề cương) vẫn có thể rơi vào `Ghi Chep.pdf` → soát danh sách phân loại trang in ra console; chia sai thì tách tay trong script hồ sơ.
+- Lưu **duy nhất** vào `Input\<hồ sơ>\TBKQ\Edoc\` (vd `Input\132918\TBKQ\Edoc\132918 - BBLM.pdf`); không lưu trùng ở gốc hồ sơ. Đây là file AI tạo → được đưa lên Z (mục 0). Edoc chỉ chứa file của chính hồ sơ này.
+- Hồ sơ nhiều báo cáo: scan theo thư mục `<n>\` (mục 1); `Ghi Chep.pdf` ghép phiếu 1 → n rồi phiếu in nhiệt (HEPA ATI 2i, AeroTrak…). Script riêng có thể ghép sẵn (như 132488) thay `scan_splitter`, theo cùng cách chia 3 file.
+- Edoc của hồ sơ dựng trước 06/11/2026 (chỉ `BBLM` + `Ghi Chep`) giữ nguyên, không tách lại trừ khi người dùng yêu cầu.
+- Chạy tự động trong `DossierRunner` (Step 0), hoặc: `python Core/run.py --split-scan "Input\<hồ sơ>"`, `python Core/run.py --split-all-scans`, `python Core/Tools/scan_splitter.py "Input\<hồ sơ>"`.
+
+## 8B. Tủ an toàn sinh học (BSC), rò rỉ màng lọc HEPA và Excel tính toán tủ
+
+- **Rò rỉ HEPA quét ra 0** (`0,0000%`, `0`, `0.0`, `0%`, lọc cấp hoặc thải): VN ghi `< 0,0001%` (TBKQ VN, BCKQ, Excel), EN `< 0.0001%`; đánh giá `Đạt` / `Pass`.
+  - Kết quả > 0 (≥ 0,0001 %): giá trị thực, 4 chữ số thập phân (`0,0006 %`, `0,2578 %`), dấu thập phân theo mục 6.
+  - Cột mức quy định TBKQ: VN `≤ 0,01% ⁽¹⁾`, EN `≤ 0.01% ⁽¹⁾`.
+- **Excel `TinhToanBSC.xlsx` — giữ khung phương pháp không dùng:** dùng Phương pháp 1 (DIM TSI) thì phần Phương pháp 2 (Kanomax Climomaster 6501) **vẫn giữ khung `C21:J25`** và tiêu đề `Phương pháp 2:…`, `Vị trí đo`, `Mép trên cửa kính`; không ghi số, ô gạch chéo. Dùng Phương pháp 2 thì Phương pháp 1 giữ nguyên cấu trúc dòng, ghi `-` ở ô lưu lượng. Không xóa bảng.
+- **Chỉ tiêu không đo trong Excel tính toán tủ (BSC, LAF, tủ cấy, tủ hút) — người dùng chốt 30/10/2026:** khung lưới đo giữ nguyên vị trí theo form gốc, **gộp ô, xóa số, viền ngoài mảnh và gạch chéo** (như khung Phương pháp 2); ô kết quả/đánh giá ghi `-`. Ví dụ: UVC không đo → `C114:I118` (TinhToanBSC); tủ hút khoảng mở 50 % / 25 % không đo → `C35:I39` / `C50:I54`; lux tủ hút không đo → `C66:I70`. Code: `strike_box(ws, "<vùng>")` (`Core/Tools/excel_borders.py`). Hồ sơ đã chọn ẩn dòng chỉ tiêu không đo (vd tủ hút 132488) thì vẫn ẩn.
+  - **Trước `strike_box`:** gỡ gộp, xóa giá trị và viền **cả các hàng** của vùng (vd C..M hàng 37 – 41), không chỉ vùng gạch chéo — tránh sót số liệu mẫu nằm cạnh khung (E48, 134804/1). Đã làm trong `bsc_calc`; bộ dựng Excel mới làm theo.
+- **TẠM TẮT hiệu chỉnh theo giấy hiệu chuẩn** (người dùng chốt 09/11/2026: "Tạm thời không tính hiệu chuẩn, nhưng vẫn giữ khung chương trình sẵn sàng để áp hiệu chuẩn" — không xóa code, chỉ tắt): công tắc chung `AP_HIEU_CHINH = False` (`Core/Tools/cleanroom_calc.py`, bật bằng `True` hoặc biến môi trường `LAMKQ_HIEU_CHINH=1`) → `CalTable.from_library` trả `None` → phiếu tủ **1 phần** (không chèn phần b)), phiếu phòng sạch cột "sau hiệu chính" = ô đọc, số TBKQ/BCKQ = số đọc. Các quy tắc hiệu chỉnh dưới đây (phiếu 2 phần, FORECAST, sheet ẩn `HieuChuan`, 8C phòng sạch) **giữ nguyên làm khung**, chỉ có hiệu lực khi bật lại. Script hồ sơ không tự đặt cờ riêng — dùng `from Core.Tools.cleanroom_calc import AP_HIEU_CHINH` (mẫu `build_136247.py`, `build_136839.py`). Hồ sơ đã ban hành có hiệu chỉnh (132809, 138143) dựng lại khi tắt sẽ ra số đọc → hỏi người dùng trước khi dựng lại.
+- **Phiếu tủ (TinhToanBSC — BSC, tủ cấy/LAF): mỗi phép đo 2 phần** (người dùng chốt 07/11/2026, **chỉ hồ sơ mới**, hồ sơ đã ban hành giữ nguyên):
+  - `a) Kết quả đọc (chưa hiệu chỉnh)` = lưới số đọc của form (giữ vị trí); `b) Kết quả sau hiệu chỉnh theo giấy hiệu chuẩn <số giấy>` = lưới công thức **ngay dưới** lưới đọc (`= đọc − FORECAST(đọc, sai số, chỉ thị)`, ngoài khoảng trừ sai số điểm biên). Ô kết quả (trung bình, lớn nhất/nhỏ nhất downflow, TB/k/Vtb Kanomax, vận tốc DIM) trỏ sang phần b); sheet TBKQ-VN/ENG Excel tự trỏ theo.
+  - Áp cho phép đo có thiết bị đã có bảng hiệu chuẩn trong `HieuChuan/`: inflow DIM (TSI 8380 — MT03), inflow / downflow Kanomax 6501 (MT01-1, MT01-2), độ sáng Testo 440 (MT38-1), UVC Extech (MT25). Chưa có bảng (độ ồn Rion, rò rỉ HEPA ATI 2i, đếm hạt) → **1 phần** như cũ.
+  - Code: `CalTable.from_library(<mã MT>, <đại lượng>, <ngày đo>)` cho từng phép đo → `build_bsc_calculation_workbook(data, out, cals={"inflow_dim"|"inflow_kanomax"|"downflow"|"lux"|"uvc": CalTable})`. Script còn hậu xử lý ô theo **địa chỉ form gốc** (F29, F46, A79…) thì truyền `finalize=False`, hậu xử lý xong mới gọi `finalize_bsc_workbook(out, cals)` (chèn dòng bằng Excel COM — sau bước này địa chỉ ô dời). Số trên TBKQ/BCKQ tính bằng `corrected_values(readings, cal)` để khớp phần b). Bảng hiệu chuẩn ở sheet ẩn `HieuChuan` (mục 11). Mã máy MT đã dùng lấy theo phiếu ghi chép / BBLM; không rõ → hỏi người dùng.
+  - Lưu ý: hiệu chỉnh có thể đổi đáng kể kết quả (vd Kanomax MT01-1 dưới 0,48 m/s trừ sai số −0,08 → downflow 0,33 thành 0,41 m/s) — nêu trong báo cáo cuối.
+  - `parse_bsc_excel` dò dòng theo nhãn cột A (`_BscRows`: "Độ mở cửa", "- Vận tốc gió trung bình", "Khi tủ không vận hành", "Lọc khí cấp"…) nên đọc được cả phiếu cũ lẫn phiếu có phần b): số đọc lấy ở lưới a), trung bình / vận tốc lấy ở ô kết quả (= sau hiệu chỉnh). Thêm nhãn mới vào form → giữ đúng chữ các nhãn này.
+- **Ô tính ra trong mọi phiếu tính toán là công thức, hạn chế dấu vết thao tác AI** (người dùng chốt 07/11/2026): không ghi số do code tính sẵn vào ô kết quả (trung bình, hiệu chỉnh, đánh giá…). Hiệu chỉnh ồn nền: `noise_correction_formula("<ô ồn nền>", "<ô ồn vận hành>")` (`Core/Tools/noise_corr.py`, BSC `I70`, tủ hút `I83`) thay số tĩnh; không ghi chú kiểu "số liệu lấy từ file…", "do code tính"; bảng phụ (hiệu chuẩn) để sheet ẩn.
+- **Viền trong mọi Excel tính toán (`TinhToan….xlsx`, mọi sheet) — người dùng chốt 30/10/2026:** chỉ dùng **Outside Borders mảnh (`thin`)**, **không Thick / Medium**. Gọi `thin_outside_borders(wb)` (`Core/Tools/excel_borders.py`) ngay trước khi lưu ở `bsc_calc`, `fumehood_calc`, `khinen_calc` và mọi bộ dựng Excel mới.
+
+## 8C. Quy tắc theo loại đối tượng (rút ra từ các hồ sơ đã làm)
+
+| Đối tượng | Handler / script | Quy trình thực hiện | Căn cứ / mức | Ghi chú |
+|---|---|---|---|---|
+| Tủ an toàn sinh học cấp II (BSC) — 131638, 132918, 134804/2 | `BSCHandler`, `bsc_calc` | `QUATEST 3 3030:2025, N2.TC.BSC.02` | `EN 12469:2000; ISO 14644-1:2015` | Inflow (DIM TSI 8380 hoặc Kanomax; phương pháp lưu lượng **mặc định TSI 8380** — `eq("tsi_8380")`, Excel A10 `DIM - TSI 8380`; TSI 8375 chỉ khi người dùng xác nhận — người dùng chốt 11/11/2026, 139329), downflow, HEPA cấp/thải, khói, lux, ồn, đếm hạt, UVC |
+| Tủ an toàn sinh học cấp I — 134804/1 (ESCO AC1-6A1) | `BSCHandler` với `downflow.skip`, `hepa.skip_downflow`, `inflow.limit_range=(0.70, 1.00)` | `QUATEST 3 3030:2025, N2.TC.BSC.01` | `EN 12469:2000` — inflow tủ cấp I **0,7 – 1,0 m/s** | Không có dòng khí cấp, chỉ lọc khí thải. Inflow lấy theo Kanomax đo trực tiếp tại cửa (k = 1), không dùng DIM (người dùng chốt 02/11/2026). Excel: khung downflow `C37:I41` gạch chéo, lọc cấp `-` |
+| Tủ cấy / tủ LAF (clean bench) — 132488/1 | `BSCHandler` với `inflow.skip`, `hepa.skip_exhaust`; TBKQ LAF `LAFBSCHandler` dùng chung `BSCHandler.result_rows` | `QUATEST 3 3030:2025, N2.TC.LAF.01` (theo BBLM) | `EN 12469:2000; ISO 14644-1:2015` + tài liệu NSX nếu có | Không đo inflow, không có lọc thải. Có catalogue NSX → đánh giá theo NSX (dưới); không có mức → `no_eval` |
+| Tủ hút khí độc có đánh giá — 043915 | `FumeHoodHandler` (form có đánh giá) | theo BBLM (043915 làm 04/2026 còn ghi `ASHRAE 110, SEFA 1-2010`) | `SEFA 1-2010, ASHRAE 110` | |
+| Tủ hút khí độc không đánh giá — 132488/2–4 | `FumeHoodHandler`, `has_assessment=False`, tên file `- KhongDanhGia` | `QUATEST 3 3030:2025, N2.TC.T.01` | Mức khuyến nghị `SEFA 1-2010`: inflow 0,35 – 0,51 m/s; lux ≥ 861; ồn ≤ 85 dBA | Chỉ tiêu không đo thì `lux.skip` / `airflow_pattern.skip`; STT tự đánh lại |
+| Phòng sạch — 132115 | script riêng `build_cleanroom_132115.py` + `generate_all_reports.py` (chưa qua `DossierRunner`, E5) | `QUATEST 3 3030:2025, N2.TC.PS.01` | `ISO 14644-1:2015` + mức khách hàng (từ Excel) | Xem dưới |
+| Tủ cấy / tủ ATSH **không thể hiện đánh giá** theo yêu cầu KH (BBLM ghi) — 134792 | `BSCHandler`, `Dossier.has_assessment=False` | theo BBLM | — | Bảng kết quả 3 cột STT / Chỉ tiêu / Kết quả (bỏ cột mức + đánh giá), Ghi chú chỉ câu công nhận (người dùng chốt 03/11/2026) |
+| Khí nén — 133266/2, 122266 | `CompressedAirHandler`, `khinen_calc` (mẫu `build_133266.py`) | `QUATEST 3 3030:2025, N2.TC.KN.01` | `ISO 8573-1:2010` + ngưỡng KH / **ngưỡng nội bộ nhà máy ghi trên phiếu ghi chép** | Điểm sương theo ảnh màn hình CS DP510 đầu/cuối (`KQDo\KNn\Use`); hạt theo thể tích / thời gian mẫu KH yêu cầu (nhãn ghi tay trên phiếu in); dầu theo KQTN, KPH → `< LOD` (mục 13); mục Đánh giá chỉ có khi có mức |
+| Vi sinh bề mặt (swab) — 137058 | bìa qua `CleanroomHandler` + phụ lục dựng riêng (mẫu `build_137058.py`) | `QUATEST 3 3030:2025, N2.TC.09` | mức KH nếu có | **Không** hiệu chỉnh Feller, **không** phiếu tính toán Excel; kết quả CFU/100 cm² ghi như KQTN; tổng số VSV hiếu khí, **nấm men, nấm mốc tách cột riêng** (người dùng chốt 05/11/2026); mã mẫu theo bảng vị trí KH (mục 13); lưới ảnh 3 cột giữ nhãn mã mẫu; khuôn phụ lục TBKQ: xem ngay dưới bảng |
+
+- **Vi sinh không khí / vi sinh bề mặt (swab) — khuôn phụ lục TBKQ theo mẫu Q326D124796 (K Pack)** (người dùng yêu cầu 14/11/2026: "cập nhật nguyên tắc chung cho các hồ sơ sau này"; đã duyệt trên 137058). Mẫu code: `build_137058.py` (swab, tiếng Anh), `build_134179.py` / `build_135843.py` (không khí + bề mặt: `location_table`, `photo_groups`, `unit_header`, `unshade`).
+  - **Bìa mục 3:** từ 2 nội dung thì mỗi nội dung một dòng `- …;`, dòng cuối `.` — VN `- Lấy mẫu và xác định mức nhiễm bẩn vi sinh vật trong không khí;` / `- Lấy mẫu và xác định mức nhiễm bẩn vi sinh vật trên bề mặt.`; EN `- Sampling and determining microbial contamination in workplace air;` / `- Sampling and determining microbial contamination on surface.` Một nội dung thì không gạch đầu dòng. Mục 8 Căn cứ ghi `-` khi không có mức.
+  - **9.1 Nội dung thực hiện:** đúng 3 dòng dẫn rồi tới bảng — VN `- Khu vực lấy mẫu theo chỉ định của <tên KH>.` / `- Trạng thái nhà xưởng: hoạt động sản xuất.` (hoặc `không hoạt động sản xuất.`, theo phiếu ghi chép) / `- Nội dung thực hiện và ký hiệu vị trí:`; EN `- Sampling location was indicated by <tên KH>.` / `- Status of factory: In operation.` (`Not in operation.`) / `- Performance content and code of location:`. TBKQ **không** ghi các dòng chỉ tiêu, số lượng mẫu, diện tích quét (BCKQ vẫn ghi).
+  - **Bảng vị trí** 3 cột `Vị trí | Ký hiệu vị trí | Nội dung thực hiện` (EN `Sampling location | Code of location | Performance content`); ô nội dung **gộp dọc theo nhóm cùng chỉ tiêu**: `Lấy mẫu và xác định <các chỉ tiêu> trong không khí` / `… trên bề mặt thiết bị` / `… trên tay công nhân` (EN `Sampling and determining <…> in workplace air` / `… on surface of equipment` / `… on worker hands`). Khách hàng chia nhiều khu vực / dây chuyền → thêm cột đầu `Khu vực lấy mẫu` / `Sampling area`, gộp dọc (137058).
+  - **Ảnh:** đoạn dẫn `- Hình ảnh quá trình lấy mẫu:` / `- Photo of sampling process:`. Ảnh chụp theo từng mẫu (`n.jpg`) → lưới 3 cột, mỗi ảnh một nhãn `Vị trí lấy mẫu C1` / `Sampling location C1` (137058, đã duyệt). Ảnh đại diện theo loại mẫu → gom theo nhóm, mỗi nhóm một lưới ảnh + **một dòng chú thích nhóm** 13pt nghiêng căn giữa (`Lấy mẫu vi sinh không khí`, `Lấy mẫu vi sinh trên bề mặt thiết bị`, `Lấy mẫu vi sinh trên tay công nhân`; EN `Microbial sampling in workplace air` / `… on equipment surface` / `… on worker hands`); nhóm 3 ảnh hoặc từ 5 ảnh dùng lưới 3 cột, còn lại lưới 2 cột (cỡ ảnh theo mục 3). Chú thích nhóm là ngoại lệ của "ảnh hiện trường không chú thích" (mục 3), lấy theo bản K Pack — **chưa có hồ sơ nào được duyệt với cách này** (134179/2, 135843/2 người dùng "để lại", 14/11/2026) → dựng xong đưa vào danh sách hỏi (mục 15).
+  - **9.2 Kết quả giám định:** mỗi loại mẫu một mục `9.2.n Độ nhiễm bẩn vi sinh trong không khí` / `… trên bề mặt thiết bị` / `… trên tay công nhân` (EN `Microbiological contamination in workplace air` / `… on equipment surface` / `… on worker hands`); chỉ một loại mẫu thì ghi tên mục in đậm, không đánh số. Bảng kết quả **chỉ ghi ký hiệu vị trí** ở cột đầu `Vị trí lấy mẫu` / `Sampling location` (tên vị trí đã nằm ở bảng 9.1); tiêu đề dòng 1 `Số khuẩn lạc có trong không khí, CFU/m³` / `Số khuẩn lạc có trên bề mặt, CFU/ 100 cm²` (EN `Colony-forming units in air, CFU/m³` / `Colony-forming units on surface, CFU/ 100 cm²`; đơn vị in nghiêng), tiêu đề dòng 2 là tên từng chỉ tiêu in nghiêng, không nền xám.
+  - **Ghi chú** dưới mỗi bảng kết quả, đánh dấu `●`, đúng thứ tự: (1) `Kết quả được biểu thị “< 10 CFU/m³” khi không phát hiện vi sinh vật mục tiêu trên thể tích không khí được lấy mẫu.` / `Kết quả được biểu thị “< 10 CFU/ 100 cm²” khi không phát hiện vi sinh vật mục tiêu trên diện tích bề mặt được lấy mẫu.` (EN `The result is expressed as “< 10 CFU/m³” when no target organism is detected in the sampled air volume.` / `… “< 10 CFU/ 100 cm²” … in the sampled surface area.`) — ghi cả khi bảng không có kết quả `< 10`; số ngưỡng theo LOD của KQTN và thể tích / diện tích lấy mẫu; (2) `Phương pháp thử nghiệm được công nhận ISO 17025 - VILAS 004.` / `The test method is accredited to ISO 17025 - VILAS 004.`; (3) câu công nhận ISO 17020 - VIAS 004 **đứng cuối** (ngoại lệ của "dòng đầu" ở mục 3, chỉ áp cho hồ sơ vi sinh).
+  - **Không chép theo bản K Pack** những chỗ đã có quy tắc chung: tên máy chuẩn (mục 14), `QUATEST 3 3030:2025, N2.TC.09` (có dấu cách, dấu phẩy), kết quả ghi như KQTN (mục 13 — K Pack ghi `50`, `660`), cỡ chữ và chiều cao hàng (mục 3, 9), ngôn ngữ chứng thư theo PYC (mục 2).
+  - Mẫu bề mặt cùng chỉ tiêu, ký hiệu đánh số liền qua cả thiết bị lẫn tay / đồng phục nhân viên (134179 `BM1…BM14`): để một nhóm `trên bề mặt` hay tách thiết bị / tay công nhân như K Pack → **hỏi người dùng** (chưa chốt, 14/11/2026).
+  - **BCKQ:** bảng vị trí và ảnh theo cùng khuôn (thêm tên nhân viên được lấy mẫu, cột `Ký hiệu mẫu (BBLM)` khi ký hiệu TBKQ khác BBLM); mục 4.6.1 / 4.6.2 và "Gửi mẫu thử nghiệm" như cũ (mục 7, 13).
+
+- **Máy đếm hạt — đọc cột vi phân hay cộng dồn** (người dùng chốt 11/11/2026, mọi hồ sơ):
+  - **Khí nén** (ISO 8573-1 xếp cấp theo **dải** 0,1–0,5 / 0,5–1 / 1–5 µm) → số **vi phân**: Lasair III cột **Δ (N/m³)**, AeroTrak 9350 cột **Diff**. Phiếu in có cả hai cột — không lấy nhầm cột Σ / Cumul.
+  - **Phòng sạch, tủ** (ISO 14644-1, giới hạn **d ≥** cỡ hạt) → số **cộng dồn**: Lasair III 110 cột **Σ (N/m³)** (database `Counts n` là vi phân → cộng từ kênh đó trở lên), AeroTrak 9350 cột **Cumul**.
+  - **File xuất từ 9350** (`6ChannelFixed.xlsx`): đầu file ghi `Count Mode: Σ | Δ` và `Units: # / m³ | #` — **phải kiểm trước khi dùng**. Phòng sạch chép nguyên số máy nên file phải là Σ, # / m³: `read_aerotrak` tự kiểm và **dừng** khi khác (và cảnh báo `[Particle Mode]` khi số "cộng dồn" không giảm dần theo cỡ hạt). Cần chế độ khác thì đọc bằng `particle_mode.aerotrak_values(path, mẫu, want=DIFF | CUMUL)` (tự đổi Σ ↔ Δ, # → #/m³ theo `Vol. (L)`). Xem nhanh: `python Core/Tools/particle_mode.py <file> [số mẫu]`.
+  - Script khí nén khai `point_data["dust"]["mode"] = "diff"` (đã đọc cột Δ / Diff) hoặc `"cumul"` (code tự đổi sang Δ); không khai → `khinen_calc` in `[WARNING] [Particle Mode]`.
+  - Đã rà 11/11/2026: 133266/2 (Lasair Δ), 137035/2 (9350 Diff) đúng cột; mọi `6ChannelFixed.xlsx` phòng sạch (120423, 127215, 131671, 132115, 137035/1, 138143) là Σ, # / m³; 132809, 133266/1 cộng dồn từ `Counts`.
+- **Khí nén — hiệu chỉnh theo giấy hiệu chuẩn (khung sẵn, đang TẮT theo `AP_HIEU_CHINH`, mục 8B)** (người dùng yêu cầu 09/11/2026): chỉ máy đo điểm sương **CS DP510** (MT10-1/2/3) có bảng sai số — **điểm sương °Ctd** và **áp suất bar**; máy đếm hạt (AeroTrak MT32, Lasair MT11) chỉ có kết quả Đạt theo hiệu suất đếm → không hiệu chỉnh. Script khai `point_data["cals"] = khinen_cals("<mã MT10-x>", SAMPLE_DATE)` (`Core/Tools/khinen_calc.py`; công tắc tắt → `{}` → phiếu như cũ). Bật: phiếu `TinhToanKhiNen` thêm dòng `a) Kết quả đọc (chưa hiệu chỉnh)` trên bảng điểm sương và `b) Kết quả sau hiệu chỉnh theo giấy hiệu chuẩn <số giấy>` dưới (dòng điểm sương / áp suất sau hiệu chỉnh = công thức FORECAST trỏ sheet ẩn `HieuChuan`, 2 số lẻ), chèn bằng Excel COM (`finalize_khinen_workbook`, ảnh DP510 / CS dời theo); điểm sương quy đổi 7 bar, hàm lượng nước, ảnh kết quả CS tính từ số **sau hiệu chỉnh**; TBKQ/BCKQ đọc phần b) (`iso8573_cal.dew_rows` dò dòng theo nhãn cột B — giữ đúng chữ nhãn `Nhiệt độ điểm sương T1 …`, `Nhiệt độ khí`, `Áp suất …`, `… sau hiệu chỉnh`). Nhiệt độ khí không hiệu chỉnh (giấy DP510 không có bảng). Mã máy: phiếu ghi `Máy n (DP 510)` → MT10-n là suy luận, xác nhận với người dùng khi bật. Thử trên 133266 KN1 (bật): T1 −47,44 → −47,78 °C, quy đổi 7 bar −42,73 → −43,15 °C, vẫn Class 2.
+- **Mục 3 "Nội dung yêu cầu giám định" — form tủ (BSC, tủ hút khí độc, tủ cấy / clean bench)** (người dùng chốt 01/11/2026): VN `Giám định tủ <tên tủ>` (vd `Giám định tủ hút khí độc`, `Giám định tủ an toàn sinh học cấp 2`, `Giám định tủ cấy`), **không** ghi `Đo/ kiểm tra "Tủ hút khí độc"`; bỏ ngoặc kép, chữ "tủ" viết thường. EN `Inspection of <cabinet name>` (vd `Inspection of Fume hood`), không ghi `Measuring/ validating "…"`. Áp cho TBKQ VN/EN, BCKQ (cả bản gộp `Giám định 01 tủ cấy, 03 tủ hút`) và Excel tính toán. Code tự chuẩn hóa khi dựng (`inspection_scope()` trong `Core/Models/dossier.py`, gọi từ `tag_context.scope_text`, `tag_excel`, `bckq_builder`, `elements`) nên `scope_vn` cũ kiểu `Đo/ kiểm tra …` vẫn ra đúng.
+- **Quy trình thực hiện ghi đúng theo BBLM** (mục 8 của BBLM), viết `QUATEST 3 3030:2025` có dấu cách, ngăn cách bằng dấu phẩy. BBLM ghi khác loại đối tượng (vd tủ cấy ghi `N2.TC.LAF.01`) thì theo BBLM.
+  - **Chỉ ghi quy trình, không ghi tiêu chuẩn** (người dùng chốt 02/11/2026, mọi hồ sơ): `QUATEST 3 3030:2025` + các mã `N2.TC.*`; tiêu chuẩn BBLM có ghi (vd `EN 12469:2000`) bỏ khỏi dòng này (đã nằm ở Căn cứ). **Tủ ATSH chỉ ghi 1 mã theo cấp tủ** (người dùng chốt 06/11/2026, thay quy tắc 02/11 ghi cả hai): cấp I `QUATEST 3 3030:2025, N2.TC.BSC.01`, cấp II `QUATEST 3 3030:2025, N2.TC.BSC.02` — BBLM ghi cả hai mã cũng chỉ giữ mã đúng cấp. Cấp tủ: `results_data["cabinet"]["bsc_class"]` (1/2), không khai thì `downflow.skip` → cấp I, còn lại cấp II (`bsc_class_of`). BCKQ gộp nhiều tủ khác cấp liệt kê mã của từng tủ. Code tự chuẩn hóa khi dựng: `inspection_procedure(text, bsc_class)` (`Core/Models/dossier.py`, gọi từ `tag_context` và `elements`); mặc định trong `DEFAULT_PROCEDURE`.
+- **Thiết bị:** chỉ ghi thiết bị của chỉ tiêu thực sự đo (tủ hút /2 132488 không đo lux → bỏ Testo 440); VN/EN giống nhau (mục 6, 14).
+- **TBKQ tủ — đánh giá theo số liệu**, không ghi cứng `Đạt` (người dùng yêu cầu 30/10/2026): mặc định inflow ≥ 0,40 m/s, downflow 0,25 – 0,50 m/s, lux ≥ 750, ồn ≤ 65 dBA, rò rỉ HEPA ≤ 0,01 %; tùy chọn `skip` / `no_eval` / nồng độ hạt bụi (ghi chú ⁽²⁾) như BSC.
+- **Hệ số k inflow (Kanomax, Phương pháp 2)** lấy theo **nhãn NSX trên tủ** (ESCO: "Multiply the SM average with correction factor of 0.457" — 134804/2; 136247 k = 0,435); số trung bình ghi tay trên phiếu chỉ để đối chiếu (134804 phiếu 0,41 → dùng 1,075 × 0,457 = 0,49). Không có nhãn → hỏi người dùng.
+- **Rò rỉ HEPA — ATI 2i quét nhiều lần:** mỗi lọc lấy lần quét **lớn nhất** (khớp phiếu ghi chép); phân lọc cấp / thải theo giờ quét + phiếu ghi chép (136839). Phiếu in `Alarm Exceeded: Yes` là dấu hiệu Không đạt → đối chiếu lại số (136247 lọc thải 7,4149 %).
+- **Vi sinh tủ cấy** (134792): STT riêng `Thử khả năng lọc vô trùng của tủ`, dòng con `Tổng số vi sinh vật hiếu khí`, VT1 – VTn theo sơ đồ trên phiếu ghi chép, sơ đồ đặt sau bảng Ghi chú; kết quả chờ KQTN để `………` tô vàng (`results_data["microbial"]`).
+- **Nội dung yêu cầu** (mục 3 Table 0) theo **PYC / báo giá** khi BBLM, phiếu ghi chép in sẵn loại tủ khác (134792: PYC "tủ cấy", BBLM in sẵn "tủ an toàn sinh học").
+- **Kết quả sát ngưỡng** (vd inflow 434,6 / 0,300 / 3600 = 0,402 → in 0,40, ngưỡng ≥ 0,40): đánh giá theo giá trị **in trên chứng thư** (đã làm tròn), nêu trong báo cáo cuối để người dùng biết.
+- **Mức công bố của nhà sản xuất (tủ sạch / tủ cấy / BSC)** — người dùng chốt 30/10/2026 (132488/1 ESCO Airstream AVC-4D_): có catalogue NSX thì downflow = vận tốc công bố **± 20 %** (ESCO 0,45 m/s → 0,36 – 0,54 m/s), độ sáng **≥ cường độ đèn công bố** (ESCO 1 110 lux). Độ ồn NSX đo trong buồng tiêu âm → không dùng, giữ ≤ 65 dBA. BSC có nhãn "Cabinet Airflow Setpoints" của NSX trên tủ (ESCO) và người dùng chọn mức NSX (136247, chốt 06/11/2026): inflow = khoảng trên nhãn (0,45 ± 0,025 → 0,425 – 0,475 m/s, ghi đủ 3 số lẻ), downflow = khoảng trên nhãn (0,27 – 0,36 m/s), Căn cứ thêm "Tài liệu kỹ thuật của nhà sản xuất ESCO"; mặc định (chưa chọn) vẫn theo EN 12469. Code: `results_data["inflow"]["limit_range"]` + `limit_source="nsx"` (từ 06/11/2026), `results_data["downflow"]["limit_range"]`, `results_data["lux"]["limit_min"]`, `limit_source="nsx"`, `results_data["nsx"]["basis_vn/en"]` → ghi chú ⁽²⁾ (⁽³⁾ nếu có đo bụi) và dòng "Mức công bố của nhà sản xuất: …" dưới bảng; Căn cứ (Table 0) thêm "Tài liệu kỹ thuật của nhà sản xuất <hãng>". Excel: F46/H46, F62 là mức NSX, J46/J62 là công thức.
+- **Cường độ tia UV dải C (UVC):** không có mức quy định → cột Đánh giá ghi **`-`** (không ghi `Đạt`) ở TBKQ VN/EN và Excel (`J122`); BCKQ xếp vào **Chỉ tiêu không đánh giá** (người dùng chốt 30/10/2026).
+- **Hình thái dòng khí tủ cấy / clean bench** (người dùng chốt 02/11/2026, mẫu TBKQ tủ cấy Q326D045837/2, áp cho 132488/1): 2 vị trí — `Bên trong không gian tủ` (3 gạch con như BSC, mục 9) kết quả/mức `- Dòng khói hướng xuống, không có điểm tù;` `- Dòng khói thoát ra khỏi mặt thao tác.`; `- Khu vực dọc theo chu vi phía bên ngoài của vùng mở cửa tủ` kết quả/mức `- Dòng khói hướng ra phía trước tủ.`. Mức **tham chiếu CAG-003:2022**, ghi chú riêng `⁽ⁿ⁾ Mức quy định tham chiếu tại CAG-003:2022.` (EN `The threshold referenced in CAG-003:2022.`), số ⁽ⁿ⁾ kế tiếp sau EN 12469 / bụi / NSX (132488/1: ⁽⁴⁾); Căn cứ Table 0 TBKQ **thêm** `CAG-003:2022 - Certification Guide for Sterile Compounding Facilities` (người dùng chốt 02/11/2026), BCKQ ghi trong căn cứ đánh giá. Code: `results_data["airflow_pattern"]["basis_vn/en"]` + `rows` ghi `{ref}` chỗ đặt ký hiệu → `BSCHandler.airflow_mark()`, `extra_notes()`.
+- **Độ ồn — hiệu chỉnh ồn nền** (người dùng chốt 30/10/2026, theo bảng trong N2.TC.BSC.01/.02, LAF.01; code chung `Core/Tools/noise_corr.py`, dùng cho BSC, LAF, tủ cấy, tủ hút). Số ồn trên phiếu ghi chép là số đo **chưa hiệu chỉnh** (ô HC trên phiếu trống/0 không có nghĩa đã chốt không hiệu chỉnh). Chỉ hiệu chỉnh khi ồn nền > 55 dBA; ΔN = ồn vận hành − ồn nền, **làm tròn nửa lên về số nguyên** rồi tra: ΔN ≤ 2 → **không hiệu chỉnh**, in `[WARNING] [Noise]` "phải giảm ồn nền" và báo người dùng; 3 → trừ 3; 4 – 5 → trừ 2; 6 – 10 → trừ 1; > 10 → 0 (vd 2,6 → 3 → trừ 3; 5,4 → trừ 2; 5,5 → trừ 1). Không viết lại bảng chỗ khác, gọi `background_noise_correction()` / `noise_correction_value()`. (Tủ hút: T.01 không có bảng này — Q7 còn mở.)
+- **Downflow — độ đồng đều:** mức chấp nhận quy trình là mọi điểm trong Vtb **± 20 %**; **thông thường không xét** (người dùng chốt 30/10/2026). Code luôn tính sẵn (Excel `E43` = 20, `H48/H49`), chỉ đánh giá khi `results_data["downflow"]["eval_uniformity"] = True` (Excel `J48` thành công thức, mặc định `-`). Tốc độ trung bình 0,25 – 0,50 m/s tính cả hai biên (`J46` là công thức).
+- **Tủ hút — vận tốc mặt:** `≥ 0,5 m/s (*)` là **mức công bố của một nhà sản xuất** (hồ sơ mẫu), chỉ dùng khi NSX tủ đang làm công bố mức đó. Không có mức NSX → SEFA 1-2010 0,35 – 0,51 m/s (`limit_type="sefa_range"`, ký hiệu `(**)` ở form có đánh giá, `(*)` ở form không đánh giá). (`parse_fumehood_excel` vẫn mặc định `gte_05` — kiểm tra lại mức khi đọc từ Excel.)
+- **Rò rỉ HEPA:** BSC/LAF/tủ cấy tạm thời **≤ 0,01 %** cho mọi cách scan (chưa áp 0,005 % khi scan qua mặt nạ). Phòng sạch: mặc định **≤ 0,01 %**, lọc **H13 → ≤ 0,1 %** (ISO 14644-3:2019) — `results_data["hepa"][i]["cap_loc"] = "H13"` hoặc `"muc"`; template TBKQ phòng sạch dùng TAG `{{ g.muc }}`.
+- **Ngưỡng theo quy trình N2.TC:** `QUY-TRINH-NGUONG-DANH-GIA.md` (máy: thư mục gốc; Project: `claude/`) — danh mục mã quy trình, ngưỡng từng chỉ tiêu, bảng ISO 14644-1 / GMP / QCVN 05 / ISO 8573-1, các điểm lệch còn mở.
+- **Tủ hút — khoảng mở cửa:** lấy theo phiếu; phiếu trống thì hỏi người dùng (132488 tủ 4: người dùng chốt 450 mm).
+- **Tem tủ** (người dùng chốt 30/10/2026): **tủ có chỉ tiêu không đạt vẫn cấp tem** như thường (người dùng chốt 07/11/2026, 136247); số tem = số chứng thư; ngày kiểm tra tiếp theo = +1 năm; **1 tủ 2 tem**, mọi tủ của hồ sơ gom 1 file (≤ 3 tủ / 1 trang, bảng tem cùng kích thước); "Nội dung kiểm tra" **khớp chỉ tiêu đã làm** (bỏ `Inflow` với tủ cấy, bỏ `Lighting level`/`Airflow pattern` với tủ hút không đo; thêm `-UVC intensity`, `-Particle count` khi có đo); căn cứ BSC/LAF `EN 12469:2000;` + `ISO 14644-1:2015` khi có đo bụi, tủ hút `ASHRAE 110, SEFA 1` (không viết `ASHREA`); cỡ chữ giá trị và căn cứ 8pt, nhãn 6pt; SN/ID ghi `<serial>/ <mã thiết bị>` (serial `N/A` mà có mã thiết bị → chỉ ghi mã thiết bị, `tag_context.seal_serial`). Tên thiết bị trên tem khớp TBKQ (132918: “Tủ cấy BIOCYT” — truyền `seal_item_name` khi chạy lại).
+- **Phòng sạch (132115):**
+  - Số liệu và **mức yêu cầu** đọc từ Excel người dùng trong `<6 số> - Data Do\` (mục 11); **từ 30/10/2026 người dùng sửa số liệu trực tiếp trên phiếu `ThucHien\<mã> - TinhToanPhongSach.xlsx`** → script đọc từ phiếu đó; `fill_excel_132115.py` chỉ chuẩn hóa định dạng (dựng lại từ `Data Do` khi chạy `--tao-lai`). `N/A`/trống = không đánh giá → bỏ dòng "Mức quy định" và đoạn "Đánh giá" (mục 3).
+  - Chênh áp, lưu lượng: từ CSV testo 420 (tổng hợp `TongHop_ChenhAp.xlsx`, `TongHop_LuuLuong.xlsx`); ký hiệu điểm theo phiếu ghi chép.
+  - Nhiệt độ/độ ẩm: mỗi điểm 1 dòng (`NA1…`), giá trị = trung bình các lần đo **sau hiệu chính** theo giấy hiệu chuẩn của đúng máy đã dùng. **Sai số nội suy tuyến tính giữa 2 điểm hiệu chuẩn kẹp hai bên** (người dùng chốt 04/11/2026, 138143); ngoài khoảng → sai số điểm biên, không ngoại suy (mục 15). Excel: dòng đọc + dòng sau hiệu chính (`=B-FORECAST(...)`), bảng hiệu chuẩn ở sheet ẩn `HieuChuan` (mục 11); BCKQ viện dẫn phiếu tương ứng. (132115 cũ dùng hằng số −0,1 °C / −1,9 %RH.)
+  - **Giấy hiệu chuẩn:** lấy bảng từ thư viện `HieuChuan/` (`Core/Tools/calib_library.py`: `cal_table()`, `valid_cert()`), không gõ tay; kiểm giấy **còn hiệu lực và đạt ở ngày đo** cho mọi thiết bị ghi trong Table 0 — hết hạn / không đạt (vd Testo 440 MT38-1 không đạt kiểm định 17/04/2026) → báo người dùng trước khi dựng. Chưa nối vào build → AI tự kiểm bằng `valid_cert()`. **Đánh giá theo trung bình cả phòng** (người dùng chốt 30/10/2026): mỗi phòng thêm dòng `Trung bình` / `Average` (in nghiêng; in đậm giá trị nếu không đạt), so với mức của phòng; sheet `Nhiệt Ẩm` có cột `Trung bình phòng` (`=AVERAGE(...)`). Bảng tách theo nhóm mức (mục 3).
+  - Nồng độ bụi: đúng số mẫu trên phiếu ghi chép; mẫu bị gạch bỏ hoặc `Sample Volume` lệch hẳn chuẩn (mẫu lỗi) không dùng. Excel lệch phiếu → báo người dùng.
+  - BCKQ "Đánh giá" và bảng tóm tắt khu vực dùng chung hàm đánh giá với TBKQ (không ghi cứng "đạt").
+  - **Phiếu tính toán phòng sạch — form chung** (người dùng chốt 07/11/2026, theo form `1097 - TinhToanPhongSach.xlsx`, `078038 - TinhPhongSach.xlsx` của người dùng): dựng bằng `Core/Tools/cleanroom_calc.py` (`CleanroomCalcBook`), **không** tự vẽ bảng trong script hồ sơ. Mỗi sheet một số phiếu (mục 7), header `Số: <mã>/<đuôi>` – tiêu đề – `Ngày <ngày đo>`, chỉ bảng số liệu (mục 11):
+    - `Bụi 0,3` — nguyên bảng xuất AeroTrak 9350 (`read_aerotrak`, chế độ Σ, hạt/m³) + cột Phòng, Vị trí (`Zero`, 1…n); ẩn Location / Device Status / Flow Status; in đậm kênh có giới hạn; dòng `Giới hạn ISO n (ISO 14644-1:2015)` cuối mỗi phòng.
+    - `Bụi 0,1` — nguyên database Lasair III 110 (`read_lasair_csv` / `read_lasair_sheet`) + công thức hạt/m³ vi phân (`Counts/Sample Volume`) và cộng dồn (`ROUND(SUM(...),0)`); ẩn cột thô, hiện Data ID, ngày giờ, S/N, Location, thể tích, Phòng, Trạng thái, Vị trí, 8 cột cộng dồn.
+    - `Nhiệt Ẩm` — 3 lần đọc nhiệt độ, độ ẩm → sau hiệu chính → trung bình; phòng nhiều điểm thêm dòng `Trung bình phòng` (đánh giá theo đó).
+    - `Độ ồn` — **sheet riêng** (người dùng chốt 07/11/2026): LAeq từng lần → sau hiệu chính → trung bình.
+    - `Lưu lượng` — Phòng | HEPA | Phần | lần đọc | HC | trung bình phần → lưu lượng HEPA → tổng phòng, diện tích × chiều cao = thể tích, ACH.
+    - `Chênh áp` — Vị trí 1 → Vị trí 2, kí hiệu, 3 lần đo → HC → trung bình.
+    - `Scan lọc` — Media, Gasket → `Max pen %` (`< 0,0001` khi cả hai bằng 0).
+    - **Giữ cột `Mức quy định` + `Đánh giá`** (công thức IF; không có mức → `-`) — khác form gốc (người dùng chốt 07/11/2026).
+    - **Hiệu chỉnh theo giấy hiệu chuẩn** (người dùng chốt 07/11/2026; **tạm tắt từ 09/11/2026** — công tắc `AP_HIEU_CHINH`, mục 8B): mọi đại lượng có bảng hiệu chuẩn (nhiệt độ, độ ẩm, chênh áp, lưu lượng, độ ồn) — `CalTable.from_library(<mã MT>, <đại lượng>, <ngày đo>)` lấy giấy còn hiệu lực từ `HieuChuan/`; công thức sau hiệu chính = chỉ thị − sai số nội suy (FORECAST), ngoài khoảng trừ sai số điểm biên; bảng ở sheet ẩn `HieuChuan`. Lưu lượng có thể dùng hệ số nhân của giấy (`factor`, vd 0,981 ở form gốc). Thiết bị chưa có bảng trong thư viện (lưu lượng Testo 420, Rion NL-53, máy đếm hạt) → không hiệu chính, code in `[cleanroom_calc] … không hiệu chính` → nêu trong báo cáo cuối. Số trên TBKQ/BCKQ tính bằng **cùng bảng** (`apply_cal`) để khớp phiếu.
+    - Sheet riêng của hồ sơ (vd `Vi sinh` 131671): `book.extra_sheet(...)`, cũng chỉ bảng số liệu.
+    - Chỉ dựng lại phiếu hồ sơ đã ban hành: `python build_<6 số>.py --chi-excel [--pdf]` (giữ TBKQ, ngày ban hành; sửa dòng viện dẫn BCKQ bằng `replace_reference_lines` nếu số phiếu đổi). Mẫu: `build_138143.py` (AeroTrak, lưu lượng), `build_132809.py` (Lasair 2 trạng thái), `build_131671.py` (+ Vi sinh), `build_133266.py` (Lasair từ sheet người dùng).
+  - **ACH** = tổng lưu lượng HEPA / thể tích phòng; thể tích = diện tích × chiều cao theo giấy tính / BBLM (138143: 26 m² × 2,5 m = 65 m³, người dùng chốt); giấy tính tay ghi số tròn ("ACH: 20") → tính lại (21,2). Lưu lượng testo 420: một HEPA đo nhiều phần miệng cấp (ghi chú CSV `1-1 … 3-3`) → cộng lại.
+  - **File máy đếm hạt:** AeroTrak `6ChannelFixed.xlsx` (hạt/m³, cộng dồn Σ), Lasair `database*.csv` (Data ID = số thứ tự dòng). File **zero** đầu loạt không tính; vị trí ↔ số file theo phiếu ghi chép; file không có trên phiếu → không dùng (133266 file 1562; 132809 file bụi sáng 29/10); phiếu ghi thứ tự lạ → theo giờ đo (138143, người dùng chốt).
+  - **Chỉ tiêu có mức nhưng không đánh giá do điều kiện hiện trường** (KH xác nhận có nguồn ồn khác lúc đo — 138143, người dùng chốt 04/11/2026): TBKQ chỉ ghi số, ô mức `-`, ghi chú ⁽ⁿ⁾ nêu lý do; câu Đánh giá chỉ nêu chỉ tiêu còn lại; Căn cứ bỏ chỉ tiêu đó; BCKQ `Chỉ tiêu không đánh giá: … — <lý do>`; Excel mức / đánh giá `-`.
+  - **Mức từ đề cương / tài liệu KH trong scan** (vd đề cương BV Hoàn Mỹ 138143) dùng như mức trong Excel người dùng: dòng "Mức quy định cung cấp bởi khách hàng", ghi tên tài liệu ở docstring script.
+  - **Cấp sạch A / B / C / D là cấp GMP** (người dùng chốt 10/11/2026, 127215): ghi `GMP Grade C` (VN và EN, mọi tài liệu — bảng khu vực, dòng giới hạn, câu Đánh giá, BCKQ, Excel), không ghi `ISO C` / `cấp C` trần. Mức theo `WHO TRS 961 (2011) – Phụ lục 6` (EN `Annex 6`) khi KH dùng GMP: bụi chỉ 2 cỡ d ≥ 0,5 / 5 µm (trạng thái nghỉ C 352 000 / 2 900; D 3 520 000 / 29 000 hạt/m³) → bảng bụi bỏ cột 1 µm; vi sinh C ≤ 100, D ≤ 200 CFU/m³. Mẫu `build_127215.py` (`GMP()`, `_fix_dust_tables`).
+  - **Vi sinh không khí:** mức theo KH (131671 ≤ 200 CFU/m³ ghi trên phiếu), **không** ghi cứng `WHO TRS 961` (E44); có câu Đánh giá vi sinh khi có mức; blank ghi ở BCKQ (mục 13).
+  - **Chênh áp:** tên khu vực đối chiếu theo phiếu ghi chép (138143 `Hành lang`, không tự ghi `Bên ngoài`); giá trị = trung bình các lần đọc.
+  - **Định dạng sheet bụi** (mẫu `format_excel_132115.py`): số đếm `#,##0`, in đậm cỡ hạt có giới hạn theo cấp sạch, hiện mọi cột cỡ hạt, cố định dòng tiêu đề (freeze panes), lặp tiêu đề khi in.
+- **Hình vẽ/sơ đồ tự sinh** (`_diagrams/sash_diag_*.png`, `layout_downflow.png`, layout phòng sạch): chữ trong hình dùng **Times New Roman** (khôi phục theo `Context/Viec/E19.md`, cần người dùng xác nhận). Hồ sơ có sơ đồ người dùng vẽ sẵn (`Input\<hồ sơ>\Layout\`) → dùng sơ đồ đó, không chú thích dưới ảnh.
+- **Sơ đồ vị trí đo trên mặt bằng → dựng bằng draw.io** (người dùng yêu cầu 05/11/2026, để kéo thả lại điểm đo khi code đặt sai): `Core/Tools/drawio_layout.py::ensure_layout` (dùng công cụ AutoAddImage của người dùng `…\Source Code\DrawIO Tool\AutoAddImage` — `DrawIOBuilder`, `DrawIOExporter`; biến `DRAWIO_TOOL_DIR`). File `TBKQ\_diagrams\so_do_vi_tri.drawio` có 2 tab `so_do_vi_tri_vn` / `_en`, mỗi tab 3 lớp: mặt bằng (khóa, đã xóa chữ viết tay), **Vị trí đo** (ký hiệu kéo thả), Chú thích (tên phòng + chú thích theo ngôn ngữ). Người dùng **chỉ sửa tab `_vn`** → lần chạy sau code chép lớp Vị trí đo sang tab `_en` rồi xuất `so_do_vi_tri_vn/en.png` (draw.io CLI). File `.drawio` đã có → **không dựng lại** (là file người dùng có thể đã sửa); dựng lại từ tọa độ code chỉ khi chạy `--tao-lai-so-do`. Xem nhanh: `python build_<6 số>.py --chi-so-do`. Mẫu: `build_132809.py`, `build_138143.py`. Mỗi lần chạy `ensure_layout` in cảnh báo (không dừng build): `[Layout Labels]` (nhãn tab `_vn` khác danh sách điểm code mong đợi — xóa/nhân đôi nhầm; cố ý bỏ điểm thì truyền `expected_labels`), `[Layout Out Of Plan]` (tâm ký hiệu ngoài ảnh mặt bằng), `[CRITICAL WARNING] [Layout Z Newer]` (`.drawio` trên Z mới hơn bản Input → chép về Input trước, **không robocopy lên Z** vì robocopy mặc định chép đè cả file cũ hơn). Kiểm `[Layout Stale]` ở `final-check` (mục 4).
+
+---
+
+## 9. Đồng bộ Kích thước và Độ dài Bảng kết quả (VN & EN)
+
+- **Nguyên tắc:** câu chữ EN ngắn hơn VN; nếu chỉ để chiều cao mặc định (400 twips) bảng EN ngắn hơn 5 – 10 cm → ngắt trang lệch (một chỉ tiêu bị chẻ đôi ở EN trong khi VN nằm trọn trang sau) hoặc lệch tổng số trang (VN 4, EN 3). **Bắt buộc** độ dài bảng VN/EN tương tự, vị trí ngắt trang trùng nhau.
+- **Chiều cao dòng tối thiểu theo số dòng nội dung của hàng trong bản VN** (áp cho cả hai bản):
+  - Tiêu đề cột / hàng 1 dòng: **440 twips** (~0,78 cm).
+  - Hàng 2 dòng (lux, lọc khí cấp/thải, chu vi cửa mở, các cỡ hạt…): **560 – 580 twips** (~1,0 cm). Hàng "Giới hạn …" cuối bảng bụi / vi sinh phòng sạch 580 `atLeast` (template từng ép 1020 – 1247 twips → khối kết quả rớt trang, 127215; `LIMIT_ROW_TWIPS` trong `build_tag_templates.py`).
+  - Hàng 3 dòng (tốc độ dòng khí qua cửa làm việc, qua lọc HEPA…): **720 – 760 twips** (~1,3 cm).
+  - Hàng ≥ 4 dòng (vị trí kiểm tra hình thái dòng khí trong tủ): **960 – 1000 twips** (~1,7 cm).
+- **Không lược gạch đầu dòng con ở EN.** Vd hình thái dòng khí, EN đủ 3 gạch: `Inside cabinet workspace\n- Along center line, above work opening\n- Behind work sash\n- Along edge of work sash` (↔ VN `Bên trong không gian tủ\n- Dọc đường trung tâm, phía trên khoảng mở làm việc\n- Phía sau cửa mở làm việc\n- Dọc theo mép cửa mở làm việc`); chu vi cửa: `Area along the outer perimeter of the work opening` (↔ `Khu vực dọc theo chu vi phía bên ngoài của vùng mở cửa tủ`).
+- **Chống chia cắt chỉ tiêu qua trang:** dòng tiêu đề chỉ tiêu và dòng con đầu `keep_with_next = True` (vd chỉ tiêu 6 BSC, chỉ tiêu 4 tủ hút). VN/EN ngắt cùng hàng (BSC: cả hai ngắt sau mục 5, mục 6 – 7 nằm trọn trang phụ lục sau).
+- **Tổng số trang VN = EN** (BSC không đo bụi 3 trang, có đo bụi 4 trang, tủ hút 4 trang); footer `Trang X/Y` / `Page X/Y` khớp và đúng.
+- Áp dụng mọi loại hồ sơ (BSC, LAF, tủ hút, phòng sạch, khí nén…).
+
+---
+
+## 10. Kiến trúc Module Tái Sử Dụng (QUATEST 3 Framework)
+
+Code module hóa trong `Core/` để **tái sử dụng cho mọi hồ sơ mà không viết code xử lý Word mới**:
+
+```
+Core/
+├── Models/              # Dossier, ClientInfo, Equipment, PersonnelInfo, MonitoringLocation
+├── Styling/             # Typography, Table AutoFit, Row Height, tblHeader, Ending Line
+├── Builders/            # BCKQBuilder (build, build_merged), TBKQBuilder
+│   └── handlers/        # BSCHandler (BSC, tủ cấy), LAFBSCHandler, FumeHoodHandler, CleanroomHandler, CompressedAirHandler
+├── Exporters/           # PDFExporter (Word/Excel COM -> Input/<hồ sơ>/pdf/, tránh máy in tem HPL)
+├── Services/            # DossierRunner (run_all, run_batch), upchungthu_bridge, checkpoint (cache OCR)
+├── Templates/           # Template TAG (BCKQ phong sach/khi nen/bsc/fumehood, TBKQ VN/EN, tem tu)
+└── Tools/               # bsc_calc, fumehood_calc, khinen_calc, qa_check, calc_engine, iso8573_cal, noise_corr, excel_borders, docx_patcher, tag_engine...
+```
+
+### Template dạng TAG (từ 26/10/2026)
+
+- Template `Core/Templates/` là **form TAG** (`{{ ten }}`, `{%p if %}`, `{%tr for %}`), không chứa dữ liệu hồ sơ cũ. Danh mục TAG và cấu trúc `results_data`: `Core/Templates/TAGS.md`.
+- Điền bằng `Core/Tools/tag_engine.py` + context `Core/Builders/tag_context.py`; **không** ghi đè theo vị trí bảng/đoạn. Thêm trường = thêm TAG vào template + khóa vào context.
+- Bản gốc `Core/Templates/_goc_truoc_TAG/` (không sửa). Dựng lại bản TAG: `python -m Core.Tools.build_tag_templates`.
+- **Sửa template → sửa ở bộ dựng** `Core/Tools/build_tag_templates.py` (hoặc khi template đã có sửa tay không dựng lại được như khí nén — mục 15 — sửa thẳng và ghi chú lại trong file phiên `Context/Phien/`); không vá từng hồ sơ thay cho sửa template, không sửa tay file TAG rồi để bộ dựng ghi đè mất (E46c, E49).
+
+### Hồ sơ mới — khai báo `Dossier` và gọi `DossierRunner`
+
+```python
+from Core import Dossier, ClientInfo, Equipment, PersonnelInfo, MonitoringLocation, DossierRunner
+dossier = Dossier(
+    code="Q326Dxxxxxx",
+    cert_date="dd/mm/yyyy",
+    sample_date="dd/mm/yyyy",
+    dossier_type="fumehood",  # 'bsc', 'laf', 'fumehood', 'cleanroom', 'compressed_air'
+    client=ClientInfo(name_vn="...", address_vn="..."),
+    personnel=PersonnelInfo(executor="Phát"),  # tự tính GĐV ký và Người báo cáo (mục 7, 13)
+    equipments=[Equipment(name_vn="...")],
+    locations=[MonitoringLocation(name_vn="...")],
+    results_data={...}
+)
+# BCKQ + TBKQ VN/EN + Tem tủ + Excel tính toán + PDF + QA
+DossierRunner(dossier).run_all()          # nhiều báo cáo: DossierRunner.run_batch([...])
+```
+
+### CLI (`python Core/run.py …`)
+
+- BSC: `--sample-bsc` (mẫu), `--bsc-excel "path/to/TinhToanBSC.xlsx"`.
+- Tủ hút: `--sample-fumehood [--khong-danh-gia | --both-forms]`, `--fumehood-excel "path/to/TinhToanFumehood.xlsx" [--khong-danh-gia | --both-forms]`.
+- LAF: `--sample-laf`.
+- Khí nén: `--sample-khinen`, `--sample-khinen-133266` (Q326D133266 KN1 & KN2), `--khinen-excel "path/to/TinhToanKhiNen.xlsx"` hoặc `--khinen-excel "Input\<hồ sơ>\TBKQ"`.
+- JSON: `--profile profile.json`.
+- **Ổ Z:** `--sample-laf` có `network_dir` trỏ sẵn vào `Z:\…`, profile JSON có thể có khóa `network_dir` → luôn để `network_dir` trống và `QUATEST3_NETWORK_ROOT` trỏ vào thư mục không tồn tại; lên Z bằng robocopy (mục 0).
+
+### Hồ sơ đặc thù — script riêng theo mẫu 132488 (nhiều báo cáo hoặc dữ liệu đọc tay từ phiếu)
+
+- `build_<6 số>.py` ở gốc workspace: hằng số hồ sơ (`CODE`, `REG_DATE`, `SAMPLE_DATE`, `CERT_DATE`, giờ đo), khách hàng VN/EN, thiết bị, số liệu đọc từ phiếu; ghi chú quyết định của người dùng ở đầu file; dựng danh sách `Dossier` → `assign_cert_numbers(...)` → BCKQ (gộp mặc định), TBKQ VN/EN, tem tủ gom, Excel; `output_dir=""`, `network_dir=""`.
+  - Lệnh: `python build_<6 số>.py` (DOCX + XLSX), `--pdf` (thêm PDF + UpChungThu, chỉ Windows), `--only 1,3` (một số báo cáo), `--bckq-rieng` (BCKQ từng tủ).
+  - **Docstring đầu script theo khuôn 4 khối:** **Nguồn** (từng file + nội dung từng trang scan) → **Quyết định của người dùng (dd/mm/yyyy)** → **Suy luận của AI (cần người dùng xác nhận)** → **Chạy** (các cờ). Quyết định mới của người dùng ghi vào khối 2 ngay khi chốt.
+- `chay_<6 số>.ps1` + `.bat` (PowerShell **thuần ASCII**): chọn Python đủ thư viện (`LAMKQ_PYTHON` → Python cài theo user → PATH), sao lưu `Input\<hồ sơ>` vào `%TEMP%`, tắt nhánh đồng bộ Z của code, ghi/trả máy in mặc định, chạy build `--pdf` + `qa_check final-check` + `check-pdf`, ghi log `chay_<6 số>_log.txt` để AI đọc. Sau đó AI chép lên Z theo mục 0 (kiểm tra file trên Z trước).
+- Script riêng phòng sạch 132115 (`build_cleanroom_132115.py`, `fill_excel_132115.py`, `format_excel_132115.py`, `generate_all_reports.py`) điền theo vị trí bảng, dùng form gốc `_goc_truoc_TAG/`; chỉ tham khảo cho hồ sơ phòng sạch mới cho tới khi xong E5.
+
+## 11. Giữ nguyên Công thức Excel & Cảnh báo Lệch Số liệu Hiện trường
+
+- **Giữ 100 % công thức động** trong Excel tính toán (`TinhToanBSC.xlsx`, `TinhToanFumehood.xlsx`, `TinhToanKhiNen.xlsx`…): `=AVERAGE`, `=MAX`, `=MIN`, nhân hệ số k (`=L22*L23`), hiệu độ ồn (`=I69-I70`), diện tích/vận tốc (`=G12/A12/3600`), `=IF(...)` đánh giá — **không ghi đè bằng giá trị tĩnh**. Excel COM `excel.CalculateFull()` tính lại độc lập từ điểm đo.
+- **Ngưỡng sát biên:** kết quả bằng đúng ngưỡng mà công thức ra sai đánh giá → sửa **phép so sánh**, không chỉnh số đo.
+- **Số trên scan hiện trường chỉ để đối chiếu:** số trung bình/nhẩm tay của GĐV trên BM3030.01 là giá trị tham chiếu, không dùng ghi đè công thức.
+- **Cảnh báo lệch (Data Mismatch)** — code tính độc lập từ raw readings và so với scan:
+  - Vận tốc gió (inflow, downflow, face velocity): lệch > 0,01 m/s → `[WARNING] [Data Mismatch]`.
+  - Độ rọi: lệch > 1 lux; độ ồn: lệch > 0,1 dBA; UVC: lệch > 1 µW/cm² → `[WARNING] [Data Mismatch]`.
+  - Kết luận Đạt/Không đạt khác scan → `[CRITICAL WARNING] [Assessment Mismatch]`.
+  - In nổi bật trên console và ghi vào kết quả kiểm tra.
+- **Mức yêu cầu lấy từ Excel người dùng điền** (vd `Input\<hồ sơ>\<hồ sơ> - Data Do\<Mã> - TinhToanPhongSach.xlsx` hoặc phiếu `ThucHien\` người dùng đã sửa: `Cấp sạch yêu cầu`, `Mức đánh giá nhiệt`, `Mức đánh giá ẩm`, `Mức đánh giá` chênh áp) → toàn bộ đánh giá TBKQ/BCKQ dựa trên các cột đó, không dùng mức ghi cứng.
+  - Cú pháp: `≤ 25`, `≥ 5`, `20 - 25`; `N/A`/trống = **không đánh giá**; không có cột mức (vd ACH) = không đánh giá.
+  - File Excel nguồn của người dùng (`Data Do`) **không được ghi đè**; chỉ đọc, phiếu tính toán tạo trong `ThucHien\`.
+  - Số liệu Excel lệch phiếu ghi chép (vd mẫu bụi bị gạch bỏ, giá trị sửa sót như NA22 lần 2) → **báo người dùng** trước khi dùng.
+- **File tính toán mang tên hồ sơ hiện tại vẫn có thể là bản chép từ hồ sơ khác** (mtime trước ngày đo là dấu hiệu) → đối chiếu 2 – 3 số mốc với scan trước khi dùng; dùng thì thay **hết** vùng nhập liệu.
+- **Sửa Excel bằng openpyxl xong → tính lại bằng Excel COM** (`CalculateFull`) trước khi đọc giá trị hoặc xuất PDF: openpyxl lưu file làm mất giá trị đã tính của công thức (134804). openpyxl cũng làm mất ảnh kiểu "ảnh trong ô" (richData) → chèn ảnh nổi theo khung (E46a, `place_box_images`).
+- **Phiếu tính toán in ra chỉ gồm bảng số liệu** (người dùng chốt 07/11/2026, hồ sơ 132809 — áp dụng mọi hồ sơ, mọi `TinhToan….xlsx`):
+  - **Bỏ dòng ghi chú** (`Ghi chú: …`, mô tả cách bố trí điểm đo) và dòng `Thiết bị: …` đầu/cuối sheet — thiết bị đã nằm ở BCKQ/TBKQ. Bảng số liệu bắt đầu ngay sau header phiếu.
+  - **Bảng hiệu chính theo giấy hiệu chuẩn** (Testo 625…) **không in**, nhưng **không xóa** (công thức "sau hiệu chính" dựa vào nó — giữ công thức động, mục này): đặt ở **sheet ẩn `HieuChuan`** (`sheet_state="hidden"`, cuối workbook), công thức tham chiếu chéo `=C12-FORECAST(C12,HieuChuan!$C$a:$C$b,HieuChuan!$A$a:$A$b)` / ngoài khoảng `=C12-HieuChuan!$C$<điểm biên>` (mục 15). PDF xuất không gồm sheet ẩn. Mẫu: `build_132809.py::build_excel`.
+  - Chỉ dựng lại phiếu (giữ TBKQ/BCKQ đã giao, không đổi ngày ban hành): tùy chọn `--chi-excel [--pdf]` trong script hồ sơ (mẫu `build_132809.py`).
+  - **Form có sẵn chưa áp** (làm khi dựng hồ sơ loại đó lần tới, soát PDF sau khi bỏ): `TinhToanBSC_template.xlsx` sheet `Bảng tính` ô `A34`, `A51`; `TinhToanFumehood_template.xlsx` `A64` (ghi chú bố trí điểm đo downflow/lux); khí nén `Tinh_Toan_Khi_Co_Ap_V6` dòng `Thiết bị đo:` `B52`, `B61`. Sheet `TBKQ-VN`/`TBKQ AIO` trong các form này là bản nháp TBKQ, không thuộc quy tắc này.
+
+---
+
+## 12. Trạng thái dự án, bàn giao Antigravity ↔ Claude và hệ thống tài liệu
+
+Trạng thái, lỗi, nhật ký, ghi chú bàn giao nằm ở thư mục **`Context/`** (mỗi hồ sơ / phiên / lỗi một file — mục 16), không lặp lại ở đây.
+
+- Bắt đầu phiên: `python Core/Tools/context.py dau-phien`. Kết thúc task: cập nhật file hồ sơ `Context/HoSo/<6 số>.md` (3 dòng đầu + nhật ký) hoặc file phiên của mình, trả khóa (mục 16). Phần đã xong tự chuyển sang `ContextLuuTru/`.
+- Quy tắc mới/đổi → ghi vào file này (Antigravity tự đọc), tăng ngày + giờ phiên bản ở đầu file — **dòng phiên bản chỉ giữ bản mới nhất**, dòng cũ chép nguyên văn lên đầu `ContextLuuTru/AGENTS-LichSuPhienBan.md` (12/11/2026) — và **chép ngay cùng nội dung lên bản còn lại** (máy ↔ Project `AGENTS.md` ở gốc).
+- **Bản đồ tài liệu:**
+
+  | File | Máy (gốc workspace) | Project | Vai trò |
+  |---|---|---|---|
+  | `AGENTS.md` | ✓ | `AGENTS.md` (gốc) | Quy tắc bất biến (file này) |
+  | `PROJECT_CONTEXT.md` | ✓ | — | Phần tĩnh: cách dùng context, bản đồ mã nguồn, checkpoint, ghi nhớ nhanh — không ghi tiến độ vào đây |
+  | `Context/` | ✓ | — | Trạng thái động (mục 16): `HoSo/<6 số>.md` hồ sơ đang mở, `Viec/<ID>.md` lỗi `E<n>` / việc hệ thống `V<n>` đang mở, `Phien/<ngày-giờ>-<chủ đề>.md` nhật ký hệ thống từng phiên, `_khoa/` khóa |
+  | `ContextLuuTru/` | ✓ | — | Lưu trữ nguyên văn phần đã xong (mục 16): `HoSo/<6 số>.md`, `LoiDaSua.md`, `NhatKy/<yyyy-mm>.md`, `AGENTS-LichSuPhienBan.md`, `PROJECT_CONTEXT_truoc_khi_tach_20261112.md` |
+  | `QUY-TRINH-NGUONG-DANH-GIA.md` | ✓ | `claude/` | Ngưỡng theo quy trình N2.TC, điểm lệch Q1–Q9 |
+  | `THAM-KHAO-QUY-TRINH-CU.md` | — (nguồn: `MarkDown\*.md`) | `claude/` | Bẫy Word/Excel COM, công thức, mẫu Excel cũ — tham khảo |
+  | `Core/Templates/TAGS.md` | ✓ | — | Danh mục TAG, cấu trúc `results_data` |
+  | `CLAUDE.md` | — | ✓ | Hướng dẫn cho Claude Cowork (trỏ về các file trên) |
+  | `GEMINI.md` | — | ✓ | Quy tắc soạn BM3030.01/.02 (`generate_now.py`, project khác); mục 4 thiết bị, mục 8 địa chỉ được viện dẫn |
+
+- Tài liệu cũ `MarkDown\*.md`, `Core\Rule\*.md` (bản chép AGENTS cũ và quy trình PowerShell trên máy `n2-hangnln`, 2 thư mục trùng nhau) đã gộp vào `THAM-KHAO-QUY-TRINH-CU.md`; **lỗi thời** (vd còn ghi "không đồng bộ Z:"). Mâu thuẫn → **file này và mục 0 được ưu tiên**.
+
+## 13. Đọc hồ sơ hiện trường, KQTN và người ký (gộp từ quy trình cũ, 30/10/2026)
+
+- **Đọc BBLM trước tiên:** khách hàng, địa chỉ, ngày/giờ, số vị trí từng khu vực, ký hiệu mẫu, chỉ tiêu, người thực hiện, quy trình thực hiện (mục 8 BBLM). Đối chiếu với Phiếu yêu cầu và phiếu ghi chép; lệch → mục 0.
+- **Tên vị trí:** ưu tiên BBLM; BBLM không thể hiện hết (chỉ ghi gộp "10 mẫu", "1 → 10") → lấy từ phiếu Ghi chép (BM3030.01); Ghi chép cũng không có → **hỏi người dùng**, không suy từ tên ảnh hay hồ sơ mẫu.
+- **Ký hiệu mẫu:** ghi đúng theo BBLM (BBLM ghi N1…N15 → N1…N15); BBLM không ghi → theo Ghi chép, nêu trong báo cáo cuối. **Khách hàng cung cấp mã vị trí/mẫu riêng** (bảng vị trí của KH, vd 137058 `C1…C9`, `P1…P12`) → **tự dùng mã của KH** ở TBKQ VN/EN (bảng kết quả, nhãn ảnh), không cần hỏi (người dùng chốt 06/11/2026); BCKQ thêm cột "Ký hiệu mẫu (BBLM)" để đối chiếu số BBLM.
+- **Thiếu dữ liệu:** để `………` tô vàng, không bịa, không giữ số hồ sơ cũ; liệt kê trong báo cáo cuối. Bản hoàn tất phải sạch `………`/tô vàng (mục 4).
+- **KQTN** (khí nén tổng dầu, vi sinh…):
+  - Đếm số mẫu trên KQTN, đối chiếu BBLM/Ghi chép, **kể cả mẫu blank** (blank ghi ở dòng "KQTN của mẫu Blank" của BCKQ, không đưa vào bảng TBKQ).
+  - KQTN ghi **KPH** → cột kết quả TBKQ ghi `< LOD` (hoặc LOQ theo phiếu), vd VN `< 0,01`, EN `< 0.01`; không ghi chữ `KPH`.
+  - **Kết quả vi sinh ghi như KQTN** (`2,1 × 10²`, `1,3 × 10⁶`, `< 10`, `< 1`), không đổi sang số nguyên; EN chỉ đổi dấu thập phân. Phải quy đổi (VSKK CFU/đĩa → CFU/m³) thì theo file tính toán.
+  - Ngày: ngày ban hành TBKQ = ngày KQTN (muộn nhất, mục 2); BCKQ ghi số phiếu + ngày KQTN, ngày nhận KQTN; "Ngày yêu cầu cấp KQTN" = "Ngày dự kiến trả kết quả" trên PYC; "Ngày gửi mẫu" = "Ngày nhận mẫu" trên phiếu KQTN.
+  - PYC để trống "Ngày dự kiến trả kết quả" → "Ngày yêu cầu cấp KQTN" **tạm = ngày lấy mẫu + 8 ngày** (người dùng chốt tạm 02/11/2026, 133266); "KQTN có trễ hạn" tự tính như dòng dưới.
+  - **"KQTN có trễ hạn"** (người dùng chốt 12/11/2026: "Không đánh trễ kết quả thử nghiệm dưới 10 ngày làm việc", mọi hồ sơ): KQTN về trong **≤ 10 ngày làm việc** (thứ Hai – thứ Sáu, trừ lễ; đếm từ ngày sau ngày gửi mẫu đến hết ngày KQTN) → `[X] không`, kể cả khi ngày KQTN sau "Ngày yêu cầu cấp KQTN". Chỉ `[X] có` khi vừa sau ngày yêu cầu cấp vừa quá 10 ngày làm việc. Code: `Core/Tools/kqtn_late.py` (`tre_han_text`, `kqtn_late`; thêm ngày lễ vào `NGHI_LE`), không tự so ngày trong script hồ sơ. Ngoại lệ: 133266 đã giao giữ "có" (người dùng "Giữ nguyên", 12/11/2026).
+  - Phiếu KQTN chỉ đánh số mẫu (vd dầu hơi `MTTN….01`, `.02`, `.03`) → ghép mẫu ↔ vị trí (KN1, KN2, blank) theo thứ tự lấy mẫu trên BBLM / ghi chép, ghi rõ là suy luận và đưa vào danh sách hỏi người dùng.
+- **Người ký TBKQ (giám định viên)** theo **người thực hiện** trên BBLM (code `PersonnelInfo` tự tính — đối chiếu lại):
+
+  | Người thực hiện | TBKQ ghi |
+  |---|---|
+  | Toàn | Nguyễn Khánh Toàn |
+  | Nghĩa | Phạm Quốc Nghĩa |
+  | Khác (Phát, Huy, Nam, nhiều người…) | Nguyễn Xuân Nam |
+
+  Không lấy theo chữ ký trên BBLM, không giữ tên của mẫu cũ.
+
+## 14. Trình bày Thiết bị sử dụng và Địa chỉ khách hàng
+
+- **Thiết bị (TBKQ, BCKQ):** chỉ thiết bị của chỉ tiêu **thực sự đo** (mục 8C); VN = EN (mục 6); BCKQ = TBKQ (mục 7).
+  - Mỗi thiết bị một dòng, bắt đầu đúng một `- `; xóa `w:numPr` (tránh `- - `); `left_indent`, `right_indent`, `first_line_indent`, `hanging` = 0 cm (mọi dòng `- ` thẳng hàng). Dấu `;` cuối mỗi dòng, `.` ở dòng cuối.
+  - (Quy tắc cũ "thiết bị để `………` tô vàng, không lấy từ BBLM" **đã bãi bỏ**.)
+  - **Một máy một tên** (người dùng yêu cầu 05/11/2026): mỗi máy chỉ có **một** tên VN và **một** tên EN, dùng như nhau ở mọi loại hồ sơ (tủ, phòng sạch, khí nén), mọi tài liệu (TBKQ VN/EN, BCKQ, Excel) — không đặt tên theo chỉ tiêu (vd TSI 8375 đo cả lưu lượng lẫn chênh áp vẫn một tên). Tên VN **thống nhất bắt đầu bằng `Thiết bị`** (`Thiết bị đo …`, `Thiết bị tạo …`, `Thiết bị đếm hạt …`), không dùng `Máy …` (người dùng chốt 05/11/2026); riêng vật tư / bộ lấy mẫu không phải máy ghi theo tên vật tư (vd `oil_kit`: `Giấy lọc thủy tinh Pall life Sciences, ống than hoạt tính ORBO®` — người dùng chốt 15/11/2026). Nguồn duy nhất: `Core/Tools/equipment_names.py` (`EQUIPMENT`); trong code gọi `eq("<mã máy>")` (dict: `as_dict(...)`), **không gõ tay tên máy**. `Equipment(...)` tự quy tên cũ về tên chuẩn (`normalize_equipment`), `final-check` báo `[Equipment Name]` khi DOCX còn tên lệch. Thêm máy / đổi cách gọi → sửa bảng `EQUIPMENT` rồi bảng dưới. Xem danh mục: `python Core/Tools/equipment_names.py`.
+
+  | Mã | Tên VN | Tên EN | Dùng cho |
+  |---|---|---|---|
+  | `kanomax_6501` | Thiết bị đo tốc độ gió Kanomax Climomaster 6501, Japan | Air velocity meter Kanomax Climomaster 6501, Japan | inflow (PP2), downflow, vận tốc mặt tủ hút |
+  | `tsi_8380` | Thiết bị đo lưu lượng TSI 8380, USA | Air volume meter TSI 8380, USA | inflow DIM (mặc định BSC) |
+  | `tsi_8375` | Thiết bị đo lưu lượng và chênh áp TSI 8375, USA | Air volume and differential pressure meter TSI 8375, USA | inflow DIM (khi người dùng xác nhận), chênh áp, lưu lượng phòng sạch |
+  | `testo_420` | Thiết bị đo lưu lượng và chênh áp Testo 420, Germany | Air volume and differential pressure meter Testo 420, Germany | lưu lượng HEPA, chênh áp phòng sạch |
+  | `ati_6d_2i` | Thiết bị tạo sol khí ATI aerosol generator, model 6D và quang kế aerosol photometer, model 2i, USA | Aerosol generator ATI 6D and aerosol photometer ATI 2i, USA | rò rỉ HEPA |
+  | `ati_6d` | Thiết bị tạo sol khí ATI aerosol generator, model 6D, USA | Aerosol generator ATI 6D, USA | thử khói tủ hút (không có quang kế) |
+  | `smoke` | Thiết bị tạo khói khí dung (Smoke pencil / Aerosol generator) | Smoke generator (Smoke pencil / Aerosol generator) | hình thái dòng khí |
+  | `testo_440` | Thiết bị đo độ rọi Testo 440, Germany | Digital luxmeter Testo 440, Germany | độ rọi / độ sáng (cả khi quy trình ghi Testo 540) |
+  | `rion_nl53` | Thiết bị đo độ ồn Rion NL-53, Japan | Sound level meter Rion NL-53, Japan | độ ồn |
+  | `extech_sdl470` | Thiết bị đo cường độ bức xạ UVC Extech SDL470, USA | UVC light meter Extech SDL470, USA | UVC |
+  | `aerotrak_9350` | Thiết bị đếm hạt TSI AeroTrak 9350, USA | Airborne particle counter TSI AeroTrak 9350, USA | hạt ≥ 0,3 µm (tủ, ISO 7–9, GMP C, D) |
+  | `aerotrak_9350_hpd3` | Thiết bị đếm hạt TSI AeroTrak 9350 và phụ kiện HPD III, USA | Airborne particle counter TSI AeroTrak 9350 with HPD III accessory, USA | hạt khí nén ≥ 0,3 µm |
+  | `lasair_iii_110` | Thiết bị đếm hạt PMS Lasair III 110, USA | Airborne particle counter PMS Lasair III 110, USA | hạt đến 0,1 µm (ISO 1–6, GMP A, B) |
+  | `lasair_iii_110_hpd2` | Thiết bị đếm hạt PMS Lasair III 110 và phụ kiện HPD II, USA | Airborne particle counter PMS Lasair III 110 with HPD II accessory, USA | hạt khí nén đến 0,1 µm |
+  | `testo_625` | Thiết bị đo nhiệt độ, độ ẩm Testo 625, Germany | Thermohygrometer Testo 625, Germany | nhiệt độ, độ ẩm |
+  | `buck_b30120` | Thiết bị lấy mẫu vi sinh trong không khí Buck – Bio Culture B30120, USA | Microbial air sampler Buck – Bio Culture B30120, USA | vi sinh không khí |
+  | `cs_dp510` | Thiết bị đo nhiệt độ điểm sương CS Instruments DP510, Germany | Dew point meter CS Instruments DP510, Germany | điểm sương khí nén |
+  | `cs_ds400` | Thiết bị đo điểm sương và hàm lượng dầu CS Instruments DS 400, Germany | Dew point and oil vapor measuring system CS Instruments DS 400, Germany | điểm sương + dầu khí nén |
+  | `oil_kit` | Giấy lọc thủy tinh Pall life Sciences, ống than hoạt tính ORBO® | Glass fiber filter Pall life Sciences, carbon activated tube ORBO® | lấy mẫu tổng dầu khí nén (dầu hạt + dầu hơi) — người dùng chốt 15/11/2026; tên cũ `Dụng cụ lấy mẫu tổng dầu (…)` tự quy về tên này |
+  | `sas_pinocchio` | Thiết bị lấy mẫu vi sinh khí nén SAS Pinocchio Super II, Italy | Compressed air microbial sampler SAS Pinocchio Super II, Italy | vi sinh khí nén |
+
+  Chưa có trong danh mục (chưa hồ sơ nào dùng): máy đo rung RION (quy trình ghi VM-85, thư viện hiệu chuẩn có VM-83, VM-54) — dùng tới thì thêm vào `EQUIPMENT` trước. Vật tư không phải máy (vd tăm bông + BPW của 137058) ghi thẳng, không qua danh mục. Danh mục MTLĐ: `GEMINI.md` mục 4 (Project).
+- **Căn cứ áp dụng/ đánh giá (Table 0 TBKQ) — trích dẫn đầy đủ tên tiêu chuẩn** (người dùng chốt 01/11/2026): `<mã> - <tên nguyên bản>`, tên giữ nguyên tiếng Anh ở cả VN và EN, vd `EN 12469:2000 - Biotechnology - Performance criteria for microbiological safety cabinets`, `ISO 14644-1:2015 - Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration`, `ASHRAE 110 - Methods of Testing Performance of Laboratory Fume Hoods`, `SEFA 1-2010 - Laboratory Fume Hoods - Recommended Practices`, `NSF/ANSI 49 - Biosafety Cabinetry: Design, Construction, Performance, and Field Certification`, `ISO 8573-1:2010 - Compressed air — Part 1: Contaminants and purity classes`. Từ 2 mục: mỗi mục 1 dòng `- …;`, dòng cuối `.`, bỏ gạch đầu dòng tự động của ô (không `- - `). Code tự mở rộng khi dựng: `Core/Tools/standards.py` (`STANDARD_TITLES` — thêm tiêu chuẩn mới ở đây, `cite_standards()`), gọi từ `tag_context.cover_context` và `elements`. Mục đã có tên đầy đủ (vd căn cứ phòng sạch) giữ nguyên. **Không** áp cho tem tủ (ô nhỏ, giữ `EN 12469:2000`, `ASHRAE 110, SEFA 1`) và chú thích ⁽¹⁾ dưới bảng kết quả (giữ mã ngắn). Trang bìa phải nằm trọn 1 trang: `tag_context.shrink_cover_break` thu dòng trống trước khối chữ ký còn 6pt, đoạn ngắt section 1pt, và khi Căn cứ từ 2 tiêu chuẩn thì khoảng cách đoạn trong ô Table 0 3pt → 1,5pt, từ 4 mục → 0pt (khoảng ký 3 cm giữ nguyên); kiểm tra PDF VN = EN cùng số trang (132488/1 từng tràn bìa sang trang 2).
+- **Địa chỉ khách hàng:** chuẩn hóa theo `GEMINI.md` mục 8 — mở rộng viết tắt (`KCN` → `Khu công nghiệp`, `TP.HCM` → `Thành phố Hồ Chí Minh`…), bỏ `, Việt Nam` ở cuối, viết hoa/thường đơn vị hành chính đúng quy tắc, **địa chỉ 2 cấp** (`phường/xã …, tỉnh/Thành phố …`), không tự chèn cấp quận/huyện. Chuẩn hóa là định dạng; còn **nội dung lệch giữa các nguồn → báo người dùng** (mục 0).
+
+## 15. Nguyên tắc QA rút từ hồ sơ 132809 (người dùng chốt 04–05/11/2026, áp dụng mọi hồ sơ)
+
+- **Không ghi gọn** (người dùng chốt 06/11/2026, hồ sơ 136247 — áp dụng mọi hồ sơ, mọi tài liệu): tên đơn vị, địa chỉ và **Địa điểm giám định** ghi **đủ như BBLM** (mục 5 BBLM "Địa điểm thực hiện") / PYC — không lược bỏ phần BBLM có ghi, không viết tắt.
+  - Vd BBLM "Phòng Vi sinh - Công ty Cổ phần Phân bón Bình Điền - Khu công nghiệp …" → giữ nguyên, **không** rút thành "Phòng Vi sinh - Khu công nghiệp …"; BBLM viết tay "Phòng thí nghiệm tại Chi nhánh Công ty TNHH NGK Swire Coca-Cola VN tại Tây Ninh" → "Phòng thí nghiệm tại Chi nhánh Công ty TNHH Nước giải khát Swire Coca-Cola Việt Nam tại tỉnh Tây Ninh" (chỉ mở rộng viết tắt, không bớt ý). EN dịch đủ tương ứng.
+  - Viết tắt phải mở rộng: NGK, Cty, CP (Công ty CP), CN (Chi nhánh), PTN, QLCL, KCN, KCX, CCN, KDC, KCNC, BV, TP.HCM, VN… Giữ **TNHH** (loại hình doanh nghiệp in trên GCN ĐKDN).
+  - Code: `Core/Tools/no_abbrev.py` — `Dossier.__post_init__` tự gọi `expand_abbrev` cho tên KH, địa chỉ, địa điểm tiếng Việt; `final-check` báo `[Abbreviation]`, `[Location Short]` (mục 4). Thêm viết tắt mới → bảng `ABBREV_VN`. Code không đọc được chữ viết tay BBLM → AI vẫn phải tự đối chiếu Địa điểm với BBLM trước khi dựng.
+  - Bìa dài thêm vì ghi đủ → dùng `shrink_cover_break(compact=True / 2)` (mục 14), **không** rút gọn chữ để vừa trang.
+- **Gom câu hỏi một lần:** sau lần dựng đầu, liệt kê mọi điểm cần người dùng quyết (lệch nguồn, chữ viết tay chưa chắc, ký hiệu, nhãn sơ đồ…), bỏ những điểm đã có quy tắc/mặc định (ngày ban hành mục 2, thiết bị mục 14), rồi hỏi **gộp một lần**; có đủ trả lời mới dựng lại.
+- **Cỡ chữ (mục 3, 7) — kiểm tự động bằng `final-check`:**
+  - TBKQ: đoạn văn, Table 0 (kể cả dòng thời gian), **bảng kết quả và bảng thông tin khu vực 13pt**; bảng `Ghi chú:`/`Note:` **11pt in nghiêng** (09/11/2026); BCKQ mọi chữ 13pt.
+  - Đo cỡ **hiệu lực** (run không ghi `sz` thì lấy theo style/docDefaults) — nhìn rPr của run là chưa đủ. Template TBKQ phòng sạch gốc lẫn 12 / 12,5 / 11pt: đã chuẩn hóa trong `build_tag_templates.normalize_table_font_sizes`; template khác bị `[Font Size]` thì sửa ở bộ dựng template (gọi hàm này), không vá từng hồ sơ.
+  - **Template TBKQ khí nén** (07/11/2026): đã chuẩn hóa 13/10pt, Ghi chú sát bảng, **thụt lề âm trong ô bảng về 0** (`clear_negative_cell_indents` — form gốc dùng thụt âm -56 … -207 twips nên lên 13pt chữ lấn viền ô), chia lại cột bảng điểm sương (cột vị trí ~20 % để giờ đo 1 dòng), tổng dầu, hạt d > 0,5 µm (`fit_dewpoint_table`). Áp **thẳng lên template hiện tại** (bản EN có sửa tay E46, `_goc_truoc_TAG` còn lỗi → **không dựng lại `--only khi_nen`** từ bản gốc). Thử trên 133266: VN = EN 4 trang, ngắt trùng nhau.
+- **Câu kết luận (sau `Đánh giá:`) chỉ `keepLines`, không `keepNext`** (mục 3): `keepNext` ở câu kết luận kéo cả tiêu đề + bảng mục sau → không vừa trang thì Word đẩy luôn `Đánh giá:` sang trang mới, tách khỏi bảng. Đã sửa gốc 07/11/2026 ở `tag_context.format_assessments` (mọi TBKQ dựng từ template TAG: phòng sạch, khí nén…) và `docx_patcher` (đoạn “Kết quả …” chỉ coi là tiêu đề khi không kết thúc bằng dấu chấm). Hồ sơ dựng trước ngày này dựng lại có thể ngắt trang khác → soát lại PDF.
+- **Bảng nhiều cột hẹp ở 13pt** (vd bụi 6 kênh d ≥ 0,1 … 5 µm): tiêu đề cột xuống 2 dòng (`d ≥` / `0,1µm`), chia lại độ rộng (2 cột đầu ~17 %, cột số liệu chia đều), lề ô 0,1 cm — không để chữ tràn viền ô, không gãy giữa từ (EN `Measuremen t`). Code mẫu `build_tag_templates.fit_bui6_table`. Phát hiện bằng soát PDF.
+- **Chiều cao hàng:** hàng dữ liệu 1 dòng ~440 twips (`hRule="atLeast"`), không giữ chiều cao ép của form gốc (bảng nhiệt ẩm, chênh áp từng 1247 – 1361 twips) — `[Row Too Tall]`.
+- **Bảng Ghi chú sát bảng kết quả:** đoạn trống ngăn giữa hai bảng giữ lại (xóa thì Word gộp 2 bảng) nhưng thu về `line=20 exact`, `before/after = 0` (`build_tag_templates.tighten_note_gaps`) — `[Note Gap]`.
+- **Ngắt trang:** bảng kết quả ngắn (≤ 10 hàng) giữ trọn một trang cùng tiêu đề (keepNext mọi hàng trừ hàng cuối); bảng dài giữ tiêu đề + 4 – 5 hàng đầu. Sau mỗi thay đổi bố cục, so **vị trí ngắt trang VN và EN** (tiêu đề mục ở từng trang) — phải trùng (mục 9); bảng ảnh/sơ đồ không keepNext cả khối (gây nửa trang trắng).
+- **Soát PDF bằng mắt** (xuất ảnh trang ~110 dpi): trang bìa 1 trang; chữ tràn viền/gãy từ; bảng bị chẻ; Ghi chú sát bảng; VN = EN số trang và chỗ ngắt.
+- **Nhiều đợt hiện trường** (vd 29/10 nhiệt ẩm - ồn - chênh áp, 04/11 bụi):
+  - TBKQ Table 0: liệt kê các ngày `Từ ngày <d1> và <d2>` / `From <d1> and <d2>` (từ 3 ngày `<d1>, <d2>, và <d3>` — mục 2; thay cách ghi cũ "đến ngày"). BCKQ: từng đợt `Ngày <d1> từ hh:mm đến hh:mm; ngày <d2> từ … đến …` **theo BBLM từng đợt**; chưa có BBLM thì tạm lấy giờ máy đo, ghi vào "Cần người dùng quyết", có BBLM thì sửa lại.
+  - BBLM đợt sau người dùng có thể tự đặt file riêng `TBKQ\Edoc\<6 số> - BBLM - <n>.pdf` → **file của người dùng**: giữ nguyên, không ghép, không đổi tên; đối chiếu số mẫu/chỉ tiêu/người thực hiện với dữ liệu đã dùng.
+  - UpChungThu báo `Date: CHECK (P1 2 lần)` khi thời gian giám định kết thúc đúng ngày ban hành → báo động giả, ghi rõ trong báo cáo.
+- **Phòng sạch nhiều trạng thái:** mục bụi tách `9.2 Kết quả đo nồng độ hạt bụi` → `9.2.1 … ở trạng thái nghỉ` → `9.2.2 … ở trạng thái hoạt động` (mỗi trạng thái đủ các phòng); ISO 5 không có giới hạn d ≥ 5 µm (ISO 14644-1:2015 Bảng 1) → ô mức ghi `-` kèm ghi chú riêng.
+- **Hiệu chính theo giấy hiệu chuẩn ngoài khoảng hiệu chuẩn** (vd độ ẩm đọc > điểm cao nhất): trừ đúng sai số của **điểm biên gần nhất**, **không ngoại suy**; Excel dùng `=C-$C$<điểm biên>`.
+- **Sơ đồ vị trí:** nhãn (PA1, PA2, số điểm…) phải khớp phiếu ghi chép; lệch → báo người dùng, theo quyết định thì sửa nhãn trên sơ đồ gõ lại.
+- **Tên khách hàng:** có Giấy chứng nhận ĐKDN thì tên VN/EN theo đúng GCN (vd `Gene Solutions Lab Limited Liability Company`, không tự đổi thành `… Company Limited`), viết hoa chữ đầu như các hồ sơ khác. Người dùng gõ khác GCN (vd `Labs`) → giữ theo GCN và hỏi lại.
+- **Tên tiếng Anh khách hàng** (người dùng chốt 07/11/2026): theo thứ tự (1) GCN ĐKDN nếu có (dòng trên); (2) **tên quốc tế đăng ký theo mã số thuế** — `python Core/Tools/tax_helper.py --mst <MST>` (dòng "Tên quốc tế (EN)"; `lookup_tax_code()` trả `name_en`, có cache `Core/Tools/tax_cache.json`), MST lấy từ PYC / GCN; (3) không có tên quốc tế hoặc không tra được → **AI tự dịch**, nêu trong báo cáo cuối. Tên tra được thường viết hoa toàn bộ → viết hoa chữ đầu như các hồ sơ khác; tên tra theo MST khác tên PYC / BBLM → mục 0 (hỏi). Áp cả khi chỉ dựng TBKQ VN (tên EN vẫn dùng cho tem / Excel).
+- **Khách bổ sung PYC đổi tên** (vd liên danh — 138143, người dùng chốt 05/11/2026): TBKQ VN/EN ghi tên mới; BCKQ + Excel giữ tên theo BBLM, ô "Đơn vị yêu cầu" BCKQ thêm dòng nghiêng `(Khách hàng bổ sung Phiếu yêu cầu & nhận thẩm định/ giám định với tên mới "…"; TBKQ ghi theo tên mới.)` (không ghi ngày PYC bổ sung — theo bản người dùng sửa trên Z), mục "Các bất thường" đánh `[X] Có`.
+- **Địa điểm giám định (Table 0 mục 5) phòng sạch:** `Phòng sạch của <tên KH> - <địa chỉ nơi thực hiện theo BBLM, 2 cấp>` / `Cleanroom of <tên EN> - <địa chỉ EN>`; địa chỉ pháp lý (mục 1) theo PYC/GCN. Kiểm tra bìa vẫn 1 trang.
+- **Chép lên Z:** robocopy `ERROR 32` = file đang mở trên Z (thường PDF) → báo người dùng đóng, chép lại riêng file đó; trước khi chép lại vẫn so thời gian sửa (mục 0).
+
+## 16. Context tách file: khóa hồ sơ, nhật ký theo hồ sơ / theo phiên, lưu trữ (người dùng yêu cầu 05/11 và 12/11/2026)
+
+Trước 12/11/2026 mọi phiên cùng sửa một file `PROJECT_CONTEXT.md` (117 KB, đầu phiên phải đọc hết) → hai phiên chạy song song ghi đè nhau. Nay **mỗi file chỉ một phiên ghi**, đầu phiên chỉ đọc bản tóm tắt (~9 KB) do công cụ in ra. Công cụ: `Core/Tools/context.py` (lệnh cũ `context_archive.py don | dong | mo | kiem-tra` chuyển tiếp sang đây).
+
+| Thứ | Ở đâu | Ai được ghi |
+|---|---|---|
+| Một hồ sơ đang mở: `Trạng thái`, `Bước tiếp`, `Cần người dùng quyết`, quyết định đã chốt, nhật ký | `Context/HoSo/<6 số>.md` | Chỉ phiên đang giữ khóa hồ sơ đó |
+| Việc hệ thống của một phiên (sửa Core, template, AGENTS, công cụ) | `Context/Phien/<yyyymmdd-HHMM>-<chủ đề>.md` | Chỉ phiên tạo ra file |
+| Một lỗi / rủi ro `E<n>` hoặc một việc hệ thống `V<n>` đang mở | `Context/Viec/<ID>.md` | Phiên đang xử lý việc đó |
+| Khóa | `Context/_khoa/<tên>.lock` | Chỉ qua lệnh `khoa` / `tra` |
+| Lưu trữ nguyên văn phần đã xong | `ContextLuuTru/` (`HoSo/<6 số>.md`, `LoiDaSua.md`, `NhatKy/<yyyy-mm>.md`) | Chỉ qua lệnh `don` / `dong` |
+
+- **Đầu phiên:** `python Core/Tools/context.py dau-phien` — lưu trữ phần đã xong rồi in tóm tắt và **nhãn phiên gợi ý** (dạng `<máy>-<HHMM>-<4 ký tự>`, dùng cho `--ai` suốt phiên). `xem` = chỉ in, không ghi; `xem --day-du` không cắt dòng; `so` = sổ mọi hồ sơ (đang mở + lưu trữ).
+- **Trước khi làm một hồ sơ — khóa:** `khoa <6 số> --ai <nhãn>`. `[KHÓA BẬN]` → dừng, báo người dùng (người dùng xác nhận phiên kia đã tắt thì `--ep`). Khóa quá **12 giờ** không gia hạn coi là khóa cũ, phiên khác được nhận lại (có in cảnh báo); phiên làm lâu chạy lại `khoa` để gia hạn. Hồ sơ mới: `moi <6 số> --khach "…" --doi-tuong "…" --ai <nhãn>` (tạo file + khóa). Rồi đọc `Context/HoSo/<6 số>.md` — **chỉ** file của hồ sơ đang làm.
+- **Ghi lại việc đã làm trên hồ sơ** (sửa thẳng file hồ sơ, không cần lệnh): 3 dòng đầu `- **Trạng thái:**` (có ngày `dd/mm/yyyy`), `- **Bước tiếp:**`, `- **Cần người dùng quyết:**` (hết thì ghi `không`) + thêm dòng **trên cùng** bảng Nhật ký `| dd/mm/yyyy | Claude Code | <việc>; file: …; QA: … |`. Quyết định của người dùng ghi nguyên lời kèm ngày. Giữ đúng dạng `- **Khóa:** giá trị` (công cụ đọc các dòng này để in tóm tắt). Xong: `tra <6 số> --ai <nhãn>`.
+- **Sửa code chung / quy tắc:** `phien "<chủ đề>" --ai <nhãn>` → ghi dòng `Tóm tắt` + bảng nhật ký vào file phiên vừa tạo; không sửa file phiên của phiên khác. Việc chỉ thuộc một hồ sơ thì ghi ở file hồ sơ, không ghi ở file phiên. Điểm còn dở của một phiên phải chuyển thành `Bước tiếp` của hồ sơ hoặc một việc `V<n>` — file phiên chỉ là nhật ký, sau 7 ngày tự lưu trữ.
+- **Lỗi / việc hệ thống mới:** `viec "<tiêu đề>" [--loi --muc Thấp|Trung bình|Cao] --ai <nhãn>` — công cụ tự cấp ID kế tiếp (`E<n>` lỗi, `V<n>` việc), hai phiên không lấy trùng; **không dùng lại ID cũ**, lỗi tái phát thì mở ID mới, dẫn chiếu ID cũ. Sửa xong: dòng `Trạng thái` ghi `Fixed (dd/mm/yyyy, AI)` / `Done (dd/mm/yyyy, AI)`; còn phần dở cần nhớ thì thêm `[giữ]` (hoặc tách phần dở thành ID mới).
+- **Lưu trữ tự động** (`don --ghi`, chạy sẵn trong `dau-phien`; không `--ghi` = chạy thử) — chép **nguyên văn** (không tóm tắt, không mất chữ), không chép tay, không sửa tay file lưu trữ:
+
+  | Thứ chuyển | Khi nào | Đến |
+  |---|---|---|
+  | Cả file hồ sơ | Hồ sơ **không đụng tới ≥ 7 ngày → tự xem là xong** (người dùng chốt 05/11/2026), kể cả hồ sơ còn chờ KQTN, và không đang bị khóa. "Đụng tới" = ngày muộn nhất của: ngày trong dòng `Trạng thái` và cột Ngày của nhật ký; khi các ngày đó đã cũ ≥ 7 ngày mới xét thêm giờ sửa file trong `Input\<6 số>\` và trong ThucHien/TBKQ/pdf của thư mục hồ sơ trên Z (người dùng sửa tay trên Z cũng tính). Đóng sớm: `dong <6 số> --ghi` | `ContextLuuTru/HoSo/<6 số>.md` (đã có thì nối thêm khối `## Lưu trữ dd/mm/yyyy`) |
+  | File lỗi `E<n>` có `Trạng thái` bắt đầu `Fixed (` | Mỗi lần `don` (trừ `Fixed một phần`, `Fixed trong code`, có `[giữ]`) | `ContextLuuTru/LoiDaSua.md` |
+  | File việc `V<n>` có `Trạng thái` bắt đầu `Done (` (không kèm "chưa", "chờ") | Mỗi lần `don` | `ContextLuuTru/NhatKy/<yyyy-mm>.md` |
+  | File phiên | Cũ hơn 7 ngày | `ContextLuuTru/NhatKy/<yyyy-mm>.md` |
+
+- **Làm lại hồ sơ đã lưu trữ** (người dùng sửa, khách đổi thông tin, KQTN về, cấp lại): `mo <6 số> --ai <nhãn>` → tạo lại `Context/HoSo/<6 số>.md` (trỏ tới file lưu trữ) + khóa; **đọc file lưu trữ trước** (quyết định cũ của người dùng nằm ở đó), làm và ghi nhật ký như thường; 7 ngày sau `don` nối phần mới vào file lưu trữ.
+- **Không đọc `ContextLuuTru/` đầu phiên.** Thư mục Z dùng khi xét ngày lấy từ `LAMKQ_Z_ROOT` (mặc định `Z:\9.NV2 - MOI TRUONG\1.Ho So Moi Truong\2026`, có xét `0.VIMCERTS078`, `0.1.Tân Hiệp`); Z không truy cập được thì bỏ qua (`--khong-xet-file` để không xét file).
+- **File dùng chung không có khóa riêng** (`Core/`, template, `AGENTS.md`): trước khi sửa kiểm tra giờ sửa file — mới hơn lần đọc thì đọc lại; sửa từng chỗ bằng thay chuỗi, không ghi đè cả file từ bản đã đọc trước đó. Sửa lớn một file Core (đổi cấu trúc, chữ ký hàm) thì khóa theo tên file: `khoa <tên file không đuôi> --ai <nhãn>`. `PROJECT_CONTEXT.md` (mục 5–8) chỉ là tài liệu tĩnh, hiếm khi sửa.
+- **An toàn ghi:** file mới tạo bằng `O_EXCL` (hai phiên cùng tạo một tên thì một phiên thất bại, không ghi đè); file lưu trữ ghi qua file tạm + `os.replace`; hai phiên không `don` cùng lúc (`_khoa/_don.lock`). Tách từ file cũ 12/11/2026: 154 dòng bảng của mục 1, 2, 3, 4, 5E đã kiểm đếm có mặt nguyên văn; bản gốc `ContextLuuTru/PROJECT_CONTEXT_truoc_khi_tach_20261112.md`.
+- Quy tắc rút ra từ hồ sơ phải nằm trong file này (AGENTS) trước khi đóng hồ sơ — lưu trữ chỉ là lịch sử.

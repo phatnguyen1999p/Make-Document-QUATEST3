@@ -1,0 +1,8 @@
+{
+  "name": "lamkq",
+  "version": "0.1.0",
+  "description": "Quy trinh lam ho so Lam KQ: hook dau phien (context.py dau-phien, tro cong cu CongCu), chan lenh nguy hiem tren o Z, skill lam ho so / chep Z / setup may moi.",
+  "author": {
+    "name": "QUATEST 3 - NV2 Moi truong"
+  }
+}

@@ -1,0 +1,1310 @@
+====================================================================================================
+FOLDER: New From 2026
+====================================================================================================
+
+### FILE: TBKQ - en - 1 - phong sach - Q326D108033.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='No: Q326D108033/1/E – Date: 14/09/2026', ftr='Notes : This certificate is valid for the above declared commodities'
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='Appendix | INSPECTION CERTIFICATE | No: Q326D108033/1/E – Date: 14/09/2026', ftr='Page 2/3'
+
+[TABLE #0 (14x8) style='Normal Table']:
+  R00:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01: Client || <H-MERGE> || : || Nextern Vietnam Limited Liability Company || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Address || <H-MERGE> || : || Factory C1B-D5, lot C-1B-CN, DE5 street,      My Phuoc 3 industrial park, Thoi Hoa ward,     Ho Chi Minh City || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R03: Inspection request documentation || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Inspection application no. : || Q326D108033 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || dated on || 03/09/2026
+  R05: Inspection request content || <H-MERGE> || : || Cleanroom environmental monitoring || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Inspection time || <H-MERGE> || : || From 03/09/2026 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Inspection address || <H-MERGE> || : || Factory C1B-D5, lot C-1B-CN, DE5 street,      My Phuoc 3 industrial park, Thoi Hoa ward,     Ho Chi Minh City || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Inspection procedure || <H-MERGE> || : || QUATEST3 3030:2025, N2.TC.PS.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Equipment used || <H-MERGE> || : || Portable particle counter PMS Lasair III 110, USA || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Applicable standard/ Evaluation criteria || <H-MERGE> || : || ISO 14644-1:2015 Cleanrooms and associated controlled environments - Part 1: Classification of air cleanliness by particle concentration || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Inspection result || <H-MERGE> || : || See the attached Appendix || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13: INSPECTOR \n  \n Nguyen Xuan Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || FOR DIRECTOR \n VICE DIRECTOR \n  \n Le Dang Huyen || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Performance content
+[P (Normal)]: Measurement area was indicated by Nextern Vietnam Limited Liability Company:
+[P (Normal)]: “Manufacturing room”; “Air lock”; “Gowning room"
+[P (Normal)]: Cleanroom occupancy state: “Operational”
+
+[TABLE #1 (4x4) style='Normal Table']:
+  R00: Measurement location || Area (1) || Class (1) || Number of monitoring point
+  R01: Manufacturing room || 139.6 m2 || ISO 8 || Particle concentration : 21 points
+  R02: Air lock || 4.08 m2 || ISO 8 || Particle concentration : 02 points
+  R03: Gowning room || 27.6 m2 || ISO 8 || Particle concentration : 08 points
+
+[TABLE #2 (1x2) style='Normal Table']:
+  R00: Note: || (1) … The cleanroom specifications provided by the representative of Nextern Vietnam 	Limited Liability Company. \n Number of particle-concentration measurement point is determined according to table A.1,      ISO 14644-1:2015
+[P (Normal)]: Photos of the measurement process:
+
+[TABLE #3 (1x2) style='Normal Table']:
+  R00:  || 
+[P (Normal)]: Layout of monitoring points:
+
+[TABLE #4 (1x1) style='Table Grid']:
+  R00: 
+[P (Normal) [NUM]]: Measurement result of particle concentration
+
+[TABLE #5 (24x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point (2) || Airborne particle concentration, particles/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point (2) || Particle size \n d ≥ 0.5 m || Particle size \n d ≥ 1 m || Particle size \n d ≥ 5 m
+  R02: <V-MERGE:restart>Manufacturing room || 1 || 5 368 || 2 331 || 71
+  R03: <V-MERGE:restart>Manufacturing room || 2 || 4 344 || 1 625 || 71
+  R04: <V-MERGE:restart>Manufacturing room || 3 || 1 731 || 459 || 0
+  R05: <V-MERGE:restart>Manufacturing room || 4 || 2 154 || 954 || 35
+  R06: <V-MERGE:restart>Manufacturing room || 5 || 1 942 || 812 || 35
+  R07: <V-MERGE:restart>Manufacturing room || 6 || 1 695 || 671 || 0
+  R08: <V-MERGE:restart>Manufacturing room || 7 || 1 624 || 565 || 0
+  R09: <V-MERGE:restart>Manufacturing room || 8 || 2 013 || 1 059 || 35
+  R10: <V-MERGE:restart>Manufacturing room || 9 || 4 132 || 1 872 || 0
+  R11: <V-MERGE:restart>Manufacturing room || 10 || 2 295 || 848 || 71
+  R12: <V-MERGE:restart>Manufacturing room || 11 || 2 613 || 1 095 || 0
+  R13: <V-MERGE:restart>Manufacturing room || 12 || 1 483 || 706 || 35
+  R14: <V-MERGE:restart>Manufacturing room || 13 || 1 024 || 600 || 35
+  R15: <V-MERGE:restart>Manufacturing room || 14 || 1 271 || 353 || 35
+  R16: <V-MERGE:restart>Manufacturing room || 15 || 1 307 || 600 || 35
+  R17: <V-MERGE:restart>Manufacturing room || 16 || 1 201 || 388 || 35
+  R18: <V-MERGE:restart>Manufacturing room || 17 || 1 271 || 530 || 0
+  R19: <V-MERGE:restart>Manufacturing room || 18 || 600 || 177 || 0
+  R20: <V-MERGE:restart>Manufacturing room || 19 || 671 || 353 || 0
+  R21: <V-MERGE:restart>Manufacturing room || 20 || 2 366 || 742 || 35
+  R22: <V-MERGE:restart>Manufacturing room || 21 || 565 || 141 || 0
+  R23: The maximum permissible limit for ISO Class 8 cleanroom  specified in ISO 14644 – 1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #6 (1x2) style='Normal Table']:
+  R00: Note: || (2) … See measuring points in the diagram on page 1. \n The performance field is accredited to ISO 17020 - VIAS 004
+[P (Body Text Indent)]: Assessment:
+[P (Normal)]: The measurement result of airborne particle concentration in “Manufacturing room” complied with the specified limit for ISO Class 8 cleanroom according to ISO 14644-1:2015.
+
+[TABLE #7 (13x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point (2) || Airborne particle concentration, particles/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point (2) || Particle size \n d ≥ 0.5 m || Particle size \n d ≥ 1 m || Particle size \n d ≥ 5 m
+  R02: <V-MERGE:restart>Air lock || 1 || 4 662 || 2 013 || 141
+  R03: <V-MERGE:restart>Air lock || 2 || 4 414 || 1 766 || 106
+  R04: <V-MERGE:restart>Gowning room || 1 || 6 462 || 3 037 || 71
+  R05: <V-MERGE:restart>Gowning room || 2 || 5 473 || 1 766 || 106
+  R06: <V-MERGE:restart>Gowning room || 3 || 7 239 || 2 896 || 141
+  R07: <V-MERGE:restart>Gowning room || 4 || 3 602 || 1 695 || 318
+  R08: <V-MERGE:restart>Gowning room || 5 || 15 715 || 6 463 || 247
+  R09: <V-MERGE:restart>Gowning room || 6 || 4 943 || 2 119 || 106
+  R10: <V-MERGE:restart>Gowning room || 7 || 5 368 || 2 295 || 353
+  R11: <V-MERGE:restart>Gowning room || 8 || 4 873 || 1 730 || 71
+  R12: The maximum permissible limit for ISO Class 8 cleanroom  specified in ISO 14644 – 1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #8 (1x2) style='Normal Table']:
+  R00: Note: || (2) … See measuring points in the diagram on page 1. \n The performance field is accredited to ISO 17020 - VIAS 004
+[P (Body Text Indent)]: Assessment:
+[P (Normal)]: The measurement result of airborne particle concentration in “Air lock”, “Gowning room” complied with the specified limit for ISO Class 8 cleanroom according to ISO 14644-1:2015.
+
+### FILE: TBKQ - en - 2 - khi nen - Q326D108033.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='No: Q326D108033/2/E – Date: 14/09/2026', ftr='Notes : This certificate is valid for the above declared commodities'
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='Appendix | INSPECTION CERTIFICATE | No: Q326D108033/2/E – Date: 14/09/2026', ftr='Page 2/3'
+
+[TABLE #0 (16x8) style='Normal Table']:
+  R00:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01: Client || <H-MERGE> || : || Nextern Vietnam Limited Liability Company || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Address || <H-MERGE> || : || Factory C1B-D5, lot C-1B-CN, DE5 street,      My Phuoc 3 industrial park, Thoi Hoa ward,     Ho Chi Minh City || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R03: Inspection request documentation || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Inspection application no. : || Q326D108033 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || dated on || 03/09/2026
+  R05: Inspection request content || <H-MERGE> || : || Compressed air quality inspection || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Inspection time || <H-MERGE> || : || From 03/09/2026 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Inspection address || <H-MERGE> || : || Factory C1B-D5, lot C-1B-CN, DE5 street,      My Phuoc 3 industrial park, Thoi Hoa ward,     Ho Chi Minh City || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Inspection procedure || <H-MERGE> || : || QUATEST3 3030:2025, N2.TC.KN.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Equipment used || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Glass fiber filter Pall life Sciences, carbon activated tube ORBO®; \n Airborne particle counter PMS Lasair III 110 and accessory PMS HPD II-100, USA; \n Dewpoint meter CS Instrument GmbH DP510 and pressure meter CS16, Germany. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Applicable standard/ Evaluation criteria || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12: ISO 8573 - 1:2010 Compressed air - Part 1: Contaminants and purity classes; \n Requirements for compressed air provided by Nextern Vietnam Limited Liability Company. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13: Inspection result || <H-MERGE> || : || See the attached Appendix || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R14:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R15: INSPECTOR \n  \n Nguyen Xuan Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || FOR DIRECTOR \n VICE DIRECTOR \n  \n Le Dang Huyen || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Performance content
+[P (Normal)]: The number of performance location was indicated by Nextern Vietnam Limited Liability Company	: 01 location
+[P (Normal)]: Status of compressed air system	: In operation
+[P (Normal)]: Status of the factory	: In operation
+[P (Normal)]: Description of compressed air system at the performance time:
+[P (Normal)]: Tecbell air compressor TW-15A/8EPM → Air receiver → Tecbell filter TB-007G-III (C) → Tecbell air dryer TB-026AH → Tecbell filter TB-007G-III (H) → Tecbell filter              TB-007G-III (TR) → Tecbell air dryer J-2509041 → Tecbell filter TB-007G-III (A) → Tecbell filter TB-007G-III (T) → Point of use
+
+[TABLE #1 (2x3) style='Normal Table']:
+  R00: Performance location/ Description || Code of location || Parameter
+  R01: Pneumatic pipeline in manufacturing room || KN || Total oil content; \n Pressure dew point; \n Concentration of particle sizes (0.1- 5.0) µm.
+
+[TABLE #2 (1x2) style='Table Grid']:
+  R00: Note: || Name, description of measurement/ sampling location and parameters were supplied by representative of company.
+[P (Normal)]: Photo of performance location:
+[P (Normal) [NUM]]: Inspection result
+[P (Normal)]: 9.2.1 Total oil content
+
+[TABLE #3 (3x3) style='Normal Table']:
+  R00: Location || Total oil content, mg/m3 || Purity class (1)
+  R01: KN || < 0.01 || Class 1
+  R02: Requirement (2) || < 1 || Class 3
+
+[TABLE #4 (5x2) style='Normal Table']:
+  R00: Note: || 
+  R01: (1) … || Purity class of compressed air are identified in ISO 8573 – 1:2010.
+  R02: (2) … || The requirement provided by Nextern Vietnam Limited Liability Company.
+  R03: ● || Total oil content including oil aerosol and oil vapor in compressed air at sampling location converted to reference conditions of absolute pressure of 1 bar and temperature of 20 oC according to ISO 8573-1:2010.
+  R04: ● || The performance field is accredited to ISO 17020 - VIAS 004.
+[P (Normal)]: Assessment:
+[P (Normal)]: The test result of total oil content in compressed air at the location mentioned above complied with the corresponding requirement provided by Nextern Vietnam Limited Liability Company.
+[P (Normal)]: 9.2.2 Pressure dew point
+
+[TABLE #5 (4x7) style='Normal Table']:
+  R00: <V-MERGE:restart>Location  \n (Measurement time) || Measurement condition || <H-MERGE> || Result || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Purity class \n (1)
+  R01: <V-MERGE:restart>Location  \n (Measurement time) || Temperature,  \n oC || Pressure, \n bar || Dewpoint T1, \n oC || Dewpoint T2, \n oC || Water content, \n mg/m3 || <V-MERGE:restart>Purity class \n (1)
+  R02: KN \n (14:23 – 15:07) || 21.8 || 7.3 || - 41.9 || - 42.2 || 76 || Class 2
+  R03: Requirement (2) || - || - || - || - || < 1 200 || -
+
+[TABLE #6 (6x2) style='Normal Table']:
+  R00: Note: || 
+  R01: (1) … || Purity class of compressed air are identified in ISO 8573 – 1:2010.
+  R02: (2) … || The requirement provided by Nextern Vietnam Limited Liability Company.
+  R03: T1 … || Dewpoint of compressed air at measurement conditions.
+  R04: T2 … || Dewpoint of compressed air converted to reference conditions of pressure of 7 bar and temperature of 20 oC according to ISO 8573-3:1999.
+  R05: ● || The performance field is accredited to ISO 17020 - VIAS 004.
+[P (Normal)]: Assessment:
+[P (Normal)]: The test result of water content in compressed air at the location mentioned above complied with the corresponding requirement provided by Nextern Vietnam Limited Liability Company.
+[P (Normal)]: 9.2.3 Concentration of particles
+
+[TABLE #7 (4x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Location || Concentration of particles. particles/m3 || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Purity class (1)
+  R01: <V-MERGE:restart>Location || Particle size \n 0.1 µm  d ≤ 0.5 µm || Particle size \n 0.5 µm  d ≤ 1.0 µm || Particle size \n 1.0 µm  d ≤ 5.0 µm || <V-MERGE:restart>Purity class (1)
+  R02: <V-MERGE:restart>KN || 70 388 || 921 || 222 || <V-MERGE:restart>Not classified \n (3)
+  R03: <V-MERGE:restart>KN || Concentration of particle size d > 5.0 µm: 1 particles/m3 || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Not classified \n (3)
+
+[TABLE #8 (5x2) style='Normal Table']:
+  R00: Note: || 
+  R01: (1) ... || Purity class of compressed air are identified in ISO 8573 – 1:2010.
+  R02: (3) ... || Not classified because of the existence of particle size d > 5.0 µm.
+  R03: ● || Particle concentration in compressed air at measurement location converted to reference conditions of absolute pressure of 1 bar and temperature of 20 oC according to ISO 8573-1: 2010.
+  R04: ● || The performance field is accredited to ISO 17020 - VIAS 004.
+
+[TABLE #9 (3x2) style='Normal Table']:
+  R00: Location || Concentration of particle size d > 0.5 µm, particles/m3
+  R01: KN || 1 144
+  R02: Requirement (3) || < 27 615
+
+[TABLE #10 (4x2) style='Normal Table']:
+  R00: Note: || 
+  R01: (2) … || The requirement provided by Nextern Vietnam Limited Liability Company.
+  R02: ● || Concentration of particles with a size greater than 0.5 µm in compressed air provided as requested by Nextern Vietnam Limited Liability Company.
+  R03: ● || The performance field is accredited to ISO 17020 - VIAS 004.
+[P (Normal)]: Assessment:
+[P (Normal)]: The measurement result of concentration of particle size d > 0.5 µm in compressed air at the location mentioned above complied with the corresponding requirement provided by Nextern Vietnam Limited Liability Company.
+
+### FILE: TBKQ - viet - 1 - phong sach - Q326D108033.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='Số: Q326D108033/1 - Ngày 14/09/2026', ftr='Ghi chú: Kết quả giám định này chỉ có giá trị đối với các đối tượng giám định nêu trên.'
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='Phụ lục | CHỨNG THƯ GIÁM ĐỊNH | Số: Q326D108033/1 - Ngày 14/09/2026', ftr='Trang 2/3'
+
+[TABLE #0 (14x8) style='Normal Table']:
+  R00:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01: Đơn vị yêu cầu giám định || : || Công ty TNHH Nextern Việt Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Địa chỉ || : || Nhà xưởng C1B-D5, lô C-1B-CN, đường DE5, khu công nghiệp Mỹ Phước 3, phường Thới Hoà, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R03: Văn bản yêu cầu giám định || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Giấy yêu cầu và nhận giám định số: || <H-MERGE> || <H-MERGE> || Q326D108033 || <H-MERGE> || <H-MERGE> || ngày || 03/09/2026
+  R05: Nội dung yêu cầu giám định || : || Quan trắc chất lượng phòng sạch || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Thời gian giám định || : || Từ 03/09/2026 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Địa điểm giám định || : || Nhà xưởng C1B-D5, lô C-1B-CN, đường DE5, khu công nghiệp Mỹ Phước 3, phường Thới Hoà, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Quy trình thực hiện || : || QUATEST3 3030:2025, N2.TC.PS.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Thiết bị sử dụng || : || Thiết bị đo nồng độ hạt bụi PMS Lasair III 110, USA || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Căn cứ áp dụng/ đánh giá || : || ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Kết quả giám định || : || Xem Phụ lục đính kèm || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13: GIÁM ĐỊNH VIÊN  \n  \n Nguyễn Xuân Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || KT. GIÁM ĐỐC \n PHÓ GIÁM ĐỐC \n  \n Lê Đăng Huyền || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Nội dung thực hiện
+[P (Normal)]: Khu vực thực hiện theo sự chỉ định của Công ty TNHH Nextern Việt Nam:
+[P (Normal)]: “Phòng sản xuất”; “Air lock”; “Phòng thay đồ”
+[P (Normal)]: Trạng thái phòng sạch	: “Trạng thái hoạt động”
+
+[TABLE #1 (4x4) style='Normal Table']:
+  R00: Khu vực thực hiện || Diện tích (1) || Cấp sạch (1) || Số lượng vị trí quan trắc
+  R01: Phòng sản xuất || 139,6 m2 || ISO 8 || Nồng độ hạt bụi 	: 21 vị trí
+  R02: Air lock || 4,08 m2 || ISO 8 || Nồng độ hạt bụi 	: 02 vị trí
+  R03: Phòng thay đồ || 27,6 m2 || ISO 8 || Nồng độ hạt bụi 	: 08 vị trí
+
+[TABLE #2 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (1) …	Thông số kỹ thuật phòng sạch do đại diện Công ty TNHH Nextern Việt Nam	cung cấp. \n Số lượng vị trí đo nồng độ hạt bụi được xác định theo bảng A1, ISO 14644-1:2015.
+[P (Normal)]: Hình ảnh quá trình thực hiện:
+
+[TABLE #3 (1x2) style='Normal Table']:
+  R00:  || 
+[P (Normal)]: Sơ đồ các vị trí quan trắc:
+
+[TABLE #4 (1x1) style='Table Grid']:
+  R00: 
+[P (Normal) [NUM]]: Kết quả đo nồng độ hạt bụi
+
+[TABLE #5 (24x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Nồng độ hạt bụi trong không khí, hạt/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Kích thước hạt bụi d ≥ 0,5 m || Kích thước hạt bụi d ≥ 1 m || Kích thước hạt bụi d ≥ 5 m
+  R02: <V-MERGE:restart>Phòng \n sản xuất || 1 || 5 368 || 2 331 || 71
+  R03: <V-MERGE:restart>Phòng \n sản xuất || 2 || 4 344 || 1 625 || 71
+  R04: <V-MERGE:restart>Phòng \n sản xuất || 3 || 1 731 || 459 || 0
+  R05: <V-MERGE:restart>Phòng \n sản xuất || 4 || 2 154 || 954 || 35
+  R06: <V-MERGE:restart>Phòng \n sản xuất || 5 || 1 942 || 812 || 35
+  R07: <V-MERGE:restart>Phòng \n sản xuất || 6 || 1 695 || 671 || 0
+  R08: <V-MERGE:restart>Phòng \n sản xuất || 7 || 1 624 || 565 || 0
+  R09: <V-MERGE:restart>Phòng \n sản xuất || 8 || 2 013 || 1 059 || 35
+  R10: <V-MERGE:restart>Phòng \n sản xuất || 9 || 4 132 || 1 872 || 0
+  R11: <V-MERGE:restart>Phòng \n sản xuất || 10 || 2 295 || 848 || 71
+  R12: <V-MERGE:restart>Phòng \n sản xuất || 11 || 2 613 || 1 095 || 0
+  R13: <V-MERGE:restart>Phòng \n sản xuất || 12 || 1 483 || 706 || 35
+  R14: <V-MERGE:restart>Phòng \n sản xuất || 13 || 1 024 || 600 || 35
+  R15: <V-MERGE:restart>Phòng \n sản xuất || 14 || 1 271 || 353 || 35
+  R16: <V-MERGE:restart>Phòng \n sản xuất || 15 || 1 307 || 600 || 35
+  R17: <V-MERGE:restart>Phòng \n sản xuất || 16 || 1 201 || 388 || 35
+  R18: <V-MERGE:restart>Phòng \n sản xuất || 17 || 1 271 || 530 || 0
+  R19: <V-MERGE:restart>Phòng \n sản xuất || 18 || 600 || 177 || 0
+  R20: <V-MERGE:restart>Phòng \n sản xuất || 19 || 671 || 353 || 0
+  R21: <V-MERGE:restart>Phòng \n sản xuất || 20 || 2 366 || 742 || 35
+  R22: <V-MERGE:restart>Phòng \n sản xuất || 21 || 565 || 141 || 0
+  R23: Giới hạn tối đa cho phép đối \n với phòng sạch cấp ISO 8 quy định tại ISO 14644-1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #6 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 1. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo nồng độ hạt bụi trong không khí tại “Phòng sản xuất” phù hợp với mức quy định đối với khu vực cấp sạch ISO 8  theo ISO 14644-1:2015.
+
+[TABLE #7 (13x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Nồng độ hạt bụi trong không khí, hạt/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Kích thước hạt bụi d ≥ 0,5 m || Kích thước hạt bụi d ≥ 1 m || Kích thước hạt bụi d ≥ 5 m
+  R02: <V-MERGE:restart>Air lock || 1 || 4 662 || 2 013 || 141
+  R03: <V-MERGE:restart>Air lock || 2 || 4 414 || 1 766 || 106
+  R04: <V-MERGE:restart>Phòng \n thay đồ || 1 || 6 462 || 3 037 || 71
+  R05: <V-MERGE:restart>Phòng \n thay đồ || 2 || 5 473 || 1 766 || 106
+  R06: <V-MERGE:restart>Phòng \n thay đồ || 3 || 7 239 || 2 896 || 141
+  R07: <V-MERGE:restart>Phòng \n thay đồ || 4 || 3 602 || 1 695 || 318
+  R08: <V-MERGE:restart>Phòng \n thay đồ || 5 || 15 715 || 6 463 || 247
+  R09: <V-MERGE:restart>Phòng \n thay đồ || 6 || 4 943 || 2 119 || 106
+  R10: <V-MERGE:restart>Phòng \n thay đồ || 7 || 5 368 || 2 295 || 353
+  R11: <V-MERGE:restart>Phòng \n thay đồ || 8 || 4 873 || 1 730 || 71
+  R12: Giới hạn tối đa cho phép đối \n với phòng sạch cấp ISO 8 quy định tại ISO 14644-1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #8 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 1. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo nồng độ hạt bụi trong không khí tại “Air lock”; “Phòng thay đồ” phù hợp với mức quy định đối với khu vực cấp sạch ISO 8  theo ISO 14644-1:2015.
+
+### FILE: TBKQ - vn - 2 - khi nen - Q326D108033.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='Số: Q326D108033/2 - Ngày 14/09/2026', ftr='Ghi chú: Kết quả giám định này chỉ có giá trị đối với các đối tượng giám định nêu trên.'
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='Phụ lục | CHỨNG THƯ GIÁM ĐỊNH | Số: Q326D108033/2 - Ngày 14/09/2026', ftr='Trang 2/3'
+
+[TABLE #0 (16x8) style='Normal Table']:
+  R00:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01: Đơn vị yêu cầu giám định || : || Công ty TNHH Nextern Việt Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Địa chỉ || : || Nhà xưởng C1B-D5, lô C-1B-CN, đường DE5, khu công nghiệp Mỹ Phước 3, phường Thới Hoà, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R03: Văn bản yêu cầu giám định || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Giấy yêu cầu và nhận giám định số: || <H-MERGE> || <H-MERGE> || Q326D108033 || <H-MERGE> || <H-MERGE> || ngày || 03/09/2026
+  R05: Nội dung yêu cầu giám định || : || Giám định chất lượng khí nén || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Thời gian giám định || : || Từ 03/09/2026 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Địa điểm giám định || : || Nhà xưởng C1B-D5, lô C-1B-CN, đường DE5, khu công nghiệp Mỹ Phước 3, phường Thới Hoà, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Quy trình thực hiện || : || QUATEST3 3030:2025, N2.TC.KN.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Thiết bị sử dụng || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Giấy lọc thủy tinh Pall life Sciences, ống than hoạt tính ORBO®; \n Máy đo nồng độ hạt bụi PMS Lasair III 110 và phụ kiện PMS HPD II-100, USA; \n Máy đo nhiệt độ điểm sương CS Instrument DP510 và đầu đo áp suất CS 16, Germany. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Căn cứ áp dụng/ đánh giá || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12: ISO 8573 - 1:2010 Compressed air - Part 1: Contaminants and purity classes; \n Mức yêu cầu đối với khí nén cung cấp bởi Công ty TNHH Nextern Việt Nam. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13: Kết quả giám định || : || Xem Phụ lục đính kèm || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R14:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R15: GIÁM ĐỊNH VIÊN  \n  \n Nguyễn Xuân Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || KT. GIÁM ĐỐC \n PHÓ GIÁM ĐỐC \n  \n Lê Đăng Huyền || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Nội dung thực hiện
+[P (Normal)]: Số lượng vị trí thực hiện theo chỉ định của Công ty TNHH Nextern Việt Nam: 01 vị trí
+[P (Normal)]: Trạng thái hệ thống khí nén	: Đang hoạt động
+[P (Normal)]: Trạng thái nhà xưởng	: Đang hoạt động
+[P (Normal)]: Mô tả hệ thống khí nén tại thời điểm thực hiện:
+[P (Normal)]: Máy nén khí Tecbell TW-15A/8EPM  Bình chứa  Lọc Tecbell TB-007G-III (C)                Máy sấy khí Tecbell TB-026AH  Lọc Tecbell TB-007G-III (H)  Lọc Tecbell             TB-007G-III (TR)  Máy sấy khí Tecbell J-2509041  Lọc Tecbell TB-007G-III (A)  Lọc Tecbell TB-007G-III (T)  Điểm sử dụng
+
+[TABLE #1 (2x3) style='Normal Table']:
+  R00: Tên gọi vị trí thực hiện/ Mô tả || Ký hiệu vị trí || Chỉ tiêu thực hiện
+  R01: Đường ống khí nén tại \n phòng sản xuất || KN || Hàm lượng tổng dầu; \n Nhiệt độ điểm sương; \n Nồng độ hạt bụi có kích thước (0,1-5,0) µm.
+
+[TABLE #2 (1x2) style='Table Grid']:
+  R00: Ghi chú: || Tên gọi vị trí thực hiện/ mô tả do đại diện công ty cung cấp, chỉ tiêu thực hiện tại mỗi vị trí theo yêu cầu của công ty.
+[P (Normal)]: Hình ảnh vị trí thực hiện:
+[P (Normal) [NUM]]: Kết quả giám định
+[P (List Paragraph) [NUM]]: Hàm lượng tổng dầu
+
+[TABLE #3 (3x3) style='Normal Table']:
+  R00: Vị trí thực hiện || Hàm lượng tổng dầu, mg/m3 || Phân loại chất lượng (1)
+  R01: KN || < 0,01 || Class 1
+  R02: Mức yêu cầu (2) || < 1 || Class 3
+
+[TABLE #4 (5x2) style='Normal Table']:
+  R00: Ghi chú: || 
+  R01: (1) … || Phân loại chất lượng theo ISO 8573-1 :2010.
+  R02: (2) … || Mức yêu cầu được cung cấp bởi Công ty TNHH Nextern Việt Nam.
+  R03: ● || Hàm lượng tổng dầu bao gồm dầu ở dạng hạt và dầu ở dạng khí có trong khí nén tại vị trí     lấy mẫu được quy về điều kiện áp suất tuyệt đối 1 bar, nhiệt độ 20 oC theo tiêu chuẩn ISO 8573-1: 2010.
+  R04: ● || Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo hàm lượng tổng dầu trong khí nén tại vị trí nêu trên phù hợp với mức yêu cầu tương ứng được cung cấp bởi Công ty TNHH Nextern Việt Nam.
+[P (List Paragraph) [NUM]]: Nhiệt độ điểm sương
+
+[TABLE #5 (4x7) style='Normal Table']:
+  R00: <V-MERGE:restart>Vị trí thực hiện  \n (Thời gian đo) || Điều kiện đo || <H-MERGE> || Kết quả đo || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Phân loại chất lượng (1)
+  R01: <V-MERGE:restart>Vị trí thực hiện  \n (Thời gian đo) || Nhiệt độ \n khí nén, \n oC || Áp suất \n khí nén, \n  bar || Nhiệt độ điểm sương T1, \n oC || Nhiệt độ điểm sương T2, \n oC || Hàm lượng nước,  \n mg/m3 || <V-MERGE:restart>Phân loại chất lượng (1)
+  R02: KN \n (14:23 – 15:07) || 21,8 || 7,3 || - 41,9 || - 42,2 || 76 || Class 2
+  R03: Mức yêu cầu (2) || - || - || - || - || < 1 200 || -
+
+[TABLE #6 (6x2) style='Normal Table']:
+  R00: Ghi chú: || 
+  R01: (1) … || Phân loại chất lượng theo ISO 8573-1 :2010.
+  R02: (2) … || Mức yêu cầu được cung cấp bởi Công ty TNHH Nextern Việt Nam.
+  R03: T1 … || Nhiệt độ điểm sương tại điều kiện đo.
+  R04: T2 … || Nhiệt độ điểm sương quy về điều kiện áp suất khí nén 7 bar, nhiệt độ khí nén 20 oC theo tiêu chuẩn ISO 8573-3:1999.
+  R05: ● || Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo hàm lượng nước trong khí nén tại vị trí nêu trên phù hợp với mức yêu cầu tương ứng được cung cấp bởi Công ty TNHH Nextern Việt Nam.
+[P (List Paragraph) [NUM]]: Nồng độ hạt bụi
+
+[TABLE #7 (4x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Vị trí thực hiện || Nồng độ hạt trong khí nén, hạt/m3 || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Phân loại  \n chất lượng \n (1)
+  R01: <V-MERGE:restart>Vị trí thực hiện || Hạt có kích thước \n 0,1 µm  d ≤ 0,5 µm || Hạt có kích thước \n 0,5 µm  d ≤ 1,0 µm || Hạt có kích thước \n 1,0 µm  d ≤ 5,0 µm || <V-MERGE:restart>Phân loại  \n chất lượng \n (1)
+  R02: <V-MERGE:restart>KN || 70 388 || 921 || 222 || <V-MERGE:restart>Không \n phân loại \n (3)
+  R03: <V-MERGE:restart>KN || Nồng độ hạt bụi có kích thước d > 5,0 µm: 1 hạt/m3 || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Không \n phân loại \n (3)
+
+[TABLE #8 (5x2) style='Normal Table']:
+  R00: Ghi chú: || 
+  R01: (1) ... || Phân loại chất lượng theo ISO 8573-1 :2010.
+  R02: (3) ... || Không phân loại do xuất hiện hạt bụi kích thước d > 5,0 µm.
+  R03: ● || Nồng độ hạt trong khí nén tại vị trí lấy mẫu được quy về điều kiện áp suất tuyệt đối 1 bar,              nhiệt độ 20 oC theo tiêu chuẩn ISO 8573-1: 2010.
+  R04: ● || Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+
+[TABLE #9 (3x2) style='Normal Table']:
+  R00: Vị trí thực hiện || Nồng độ hạt bụi có kích thước d > 0,5 µm, hạt/m3
+  R01: KN || 1 144
+  R02: Mức yêu cầu (2) || < 27 615
+
+[TABLE #10 (4x2) style='Normal Table']:
+  R00: Ghi chú: || 
+  R01: (2) ... || Mức yêu cầu được cung cấp bởi Công ty TNHH Nextern Việt Nam.
+  R02: ● || Nồng độ hạt có kích thước d > 0,5 µm trong khí nén được cung cấp theo yêu cầu của đại diện Công ty TNHH Nextern Việt Nam.
+  R03: ● || Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo nồng độ hạt bụi có kích thước d > 0,5 µm trong khí nén tại vị trí nêu trên phù hợp với mức yêu cầu tương ứng được cung cấp bởi Công ty TNHH Nextern Việt Nam.
+====================================================================================================
+FOLDER: Old Form 2025
+====================================================================================================
+
+### FILE: 985 - TBKQ - eng - 1 - phong sach - đợt 1.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='INSPECTION RESULT', ftr=''
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='INSPECTION RESULT', ftr=''
+  Section 2: orient=LANDSCAPE (1), page_w=297.0mm, page_h=210.0mm, hdr='INSPECTION RESULT', ftr=''
+  Section 3: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='INSPECTION RESULT', ftr=''
+
+[TABLE #0 (18x10) style='Normal Table']:
+  R00: TECHNICAL INSPECTION REPORT || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01:  || <H-MERGE> ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Request & registration for inspection || <H-MERGE> || : || 00985 || /N2.25/ || <H-MERGE> || <H-MERGE> || DG || Date: || 30/10/2025
+  R03: Client || <H-MERGE> || : || INTECH Saigon Engineering Joint Stock Company || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Address || <H-MERGE> || : || No. 274, Dong Den street, Bay Hien ward, Ho Chi Minh city || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R05: Request || <H-MERGE> || : || Cleanroom environmental monitoring || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Location of performance || <H-MERGE> || : || Nextern Vietnam Limited Liability Company, factory C1B-D5, lot C-1B-CN, DE5 street, My Phuoc 3 Industrial Park, Thoi Hoa ward, Ho Chi Minh city || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Time of performance || <H-MERGE> || : || From October 30, 2025 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Equipment used || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Portable particle counter TSI AeroTrak 9350 (ID: N2-MT32/2), USA; \n HEPA leakage test ATI 2i (ID: N2-MT02/1) and Aerosol generator ATI 6D            (ID: N2-MT02/2), USA. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Implementation procedure || <H-MERGE> || : || QUATEST3 3030:2025, N2.TC.PS.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Applicable standards/ Evaluation criteria || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12: ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration; \n ISO 14644-3:2019 Cleanrooms and associated controlled environments — Part 3: Test methods; || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13: Inspection results || <H-MERGE> || : || See from page 2/6 to page 6/6 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R14:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R15: Notice: || This Technical Inspection Report shall not be quoted or reproduced in part without the written authorization of Quality Assurance and Testing Center 3. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R16:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R17: INSPECTOR \n  \n Nguyen Xuan Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || FOR DIRECTOR \n VICE DIRECTOR \n  \n Le Dang Huyen || <H-MERGE> || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Performance content
+[P (Normal)]: Measurement area was indicated by INTECH Saigon Engineering Joint Stock Company:
+[P (Normal)]: " Manufacturing room; Airlock; Gowning room"
+[P (Normal)]: Occupancy state: “At rest”
+[P (Normal)]: The room areas were provided by the representative of INTECH Saigon Engineering JSC. The number of measurement points was determined according to Table A.1 specified in ISO 14644-1:2015, detailed as follows:
+
+[TABLE #1 (4x4) style='Normal Table']:
+  R00: Measurement location || Area \n (1) || ISO Class (1) || Number of measuring point
+  R01: Manufacturing room || 139.6 m2 || 8 || Measuring particle concentration : 21 points \n Measuring HEPA filter leakage   : 12 points
+  R02: Airlock || 4.08 m2 || 8 || Measuring particle concentration : 02 points \n Measuring HEPA filter leakage   : 01 point
+  R03: Gowning room || 27.6 m2 || 8 || Measuring particle concentration : 08 points \n Measuring HEPA filter leakage   : 02 points
+
+[TABLE #2 (1x2) style='Normal Table']:
+  R00: Note: || (1) … The room area and cleanroom class provided by the representative of INTECH Saigon 	Engineering JSC.
+[P (Normal)]: Photos of the measurement process:
+
+[TABLE #3 (1x2) style='Normal Table']:
+  R00:  || 
+[P (Normal)]: Layout of measuring points:
+
+[TABLE #4 (2x2) style='Table Grid']:
+  R00:  || 
+  R01: Particle-concentration measuring point || HEPA filter leakage measuring point
+[P (Normal) [NUM]]: Measuring result of particle concentration
+
+[TABLE #5 (24x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Airborne particle concentration, particles/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Particle size \n d ≥ 0.5 m || Particle size \n d ≥ 1 m || Particle size \n d ≥ 5 m
+  R02: <V-MERGE:restart>Manufacturing room || 1 || 2 200 || 1 420 || 280
+  R03: <V-MERGE:restart>Manufacturing room || 2 || 2 820 || 1 680 || 140
+  R04: <V-MERGE:restart>Manufacturing room || 3 || 1 040 || 780 || 120
+  R05: <V-MERGE:restart>Manufacturing room || 4 || 820 || 580 || 80
+  R06: <V-MERGE:restart>Manufacturing room || 5 || 1 140 || 660 || 20
+  R07: <V-MERGE:restart>Manufacturing room || 6 || 960 || 640 || 40
+  R08: <V-MERGE:restart>Manufacturing room || 7 || 900 || 480 || 80
+  R09: <V-MERGE:restart>Manufacturing room || 8 || 1 240 || 640 || 60
+  R10: <V-MERGE:restart>Manufacturing room || 9 || 980 || 460 || 120
+  R11: <V-MERGE:restart>Manufacturing room || 10 || 2 400 || 1 380 || 20
+  R12: <V-MERGE:restart>Manufacturing room || 11 || 2 300 || 1 220 || 80
+  R13: <V-MERGE:restart>Manufacturing room || 12 || 820 || 520 || 40
+  R14: <V-MERGE:restart>Manufacturing room || 13 || 1 440 || 760 || 100
+  R15: <V-MERGE:restart>Manufacturing room || 14 || 1 280 || 560 || 100
+  R16: <V-MERGE:restart>Manufacturing room || 15 || 1 860 || 1 000 || 40
+  R17: <V-MERGE:restart>Manufacturing room || 16 || 1 580 || 860 || 20
+  R18: <V-MERGE:restart>Manufacturing room || 17 || 3 160 || 2 260 || 260
+  R19: <V-MERGE:restart>Manufacturing room || 18 || 3 200 || 1 860 || 100
+  R20: <V-MERGE:restart>Manufacturing room || 19 || 1 980 || 1 220 || 80
+  R21: <V-MERGE:restart>Manufacturing room || 20 || 1 200 || 660 || 20
+  R22: <V-MERGE:restart>Manufacturing room || 21 || 2 420 || 1 180 || 40
+  R23: The maximum permissible limit for cleanroom ISO class 8 is specified in \n ISO 14644 – 1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #6 (1x2) style='Normal Table']:
+  R00: Note: || (2) … See measuring points in the diagram on page 3. \n The performance field is accredited to ISO 17020 - VIAS 004
+[P (Body Text Indent)]: Assessment:
+[P (Normal)]: The measurement result of airborne particle concentration in “Manufacturing room” complied with the specification for ISO Class 8 cleanroom in ISO 14644-1:2015.
+
+[TABLE #7 (13x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Airborne particle concentration, particles/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Particle size \n d ≥ 0.5 m || Particle size \n d ≥ 1 m || Particle size \n d ≥ 5 m
+  R02: <V-MERGE:restart>Airlock || 1 || 10 100 || 5 180 || 160
+  R03: <V-MERGE:restart>Airlock || 2 || 10 240 || 5 540 || 420
+  R04: <V-MERGE:restart>Gowning room || 1 || 2 360 || 1 380 || 120
+  R05: <V-MERGE:restart>Gowning room || 2 || 4 240 || 2 480 || 160
+  R06: <V-MERGE:restart>Gowning room || 3 || 7 160 || 4 300 || 220
+  R07: <V-MERGE:restart>Gowning room || 4 || 8 100 || 4 720 || 320
+  R08: <V-MERGE:restart>Gowning room || 5 || 6 580 || 3 620 || 160
+  R09: <V-MERGE:restart>Gowning room || 6 || 5 040 || 2 900 || 180
+  R10: <V-MERGE:restart>Gowning room || 7 || 4 980 || 2 980 || 160
+  R11: <V-MERGE:restart>Gowning room || 8 || 4 540 || 2 420 || 100
+  R12: The maximum permissible limit for cleanroom ISO class 8 is specified in \n ISO 14644 – 1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #8 (1x2) style='Normal Table']:
+  R00: Note: || (2) … See measuring points in the diagram on page 3. \n The performance field is accredited to ISO 17020 - VIAS 004
+[P (Body Text Indent)]: Assessment:
+[P (Normal)]: The measurement result of airborne particle concentration in “Airlock”, “Gowning room” complied with the specification for ISO Class 8 cleanroom in ISO 14644-1:2015.
+[P (List Paragraph) [NUM]]: Measurement result of HEPA filter leakage
+
+[TABLE #9 (5x3) style='Normal Table']:
+  R00: Measurement room || Measurement point \n (2) || HEPA filter leakage, %
+  R01: <V-MERGE:restart>Gowning room || 1 || < 0.0001
+  R02: <V-MERGE:restart>Gowning room || 2 || 0.0061
+  R03: Airlock || 1 || 0.001
+  R04: Permissible limit specified in \n ISO 14644 – 3:2019 || <H-MERGE> || ≤ 0.01
+
+[TABLE #10 (1x2) style='Normal Table']:
+  R00: Note: || (2)… See measuring points in the diagram on page 3. \n The performance field is accredited to ISO 17020 - VIAS 004.
+[P (Normal)]: Assessment:
+[P (Normal)]: The measurement result of HEPA filter leakage in “Gowning room”, “Airlock” complied with the corresponding permissible limit specified in ISO 14644 – 3:2019.
+
+[TABLE #11 (14x3) style='Normal Table']:
+  R00: Measurement room || Measurement point \n (2) || HEPA filter leakage, %
+  R01: <V-MERGE:restart>Manufacturing room || 1 || 0.0005
+  R02: <V-MERGE:restart>Manufacturing room || 2 || 0.0014
+  R03: <V-MERGE:restart>Manufacturing room || 3 || 0.0014
+  R04: <V-MERGE:restart>Manufacturing room || 4 || 0.0002
+  R05: <V-MERGE:restart>Manufacturing room || 5 || < 0.0001
+  R06: <V-MERGE:restart>Manufacturing room || 6 || < 0.0001
+  R07: <V-MERGE:restart>Manufacturing room || 7 || 0.0003
+  R08: <V-MERGE:restart>Manufacturing room || 8 || < 0.0001
+  R09: <V-MERGE:restart>Manufacturing room || 9 || 0.0004
+  R10: <V-MERGE:restart>Manufacturing room || 10 || 0.0013
+  R11: <V-MERGE:restart>Manufacturing room || 11 || 0.0013
+  R12: <V-MERGE:restart>Manufacturing room || 12 || 0.0006
+  R13: Permissible limit specified in \n ISO 14644 – 3:2019 || <H-MERGE> || ≤ 0.01
+
+[TABLE #12 (1x2) style='Normal Table']:
+  R00: Note: || (2)… See measuring points in the diagram on page 3. \n The performance field is accredited to ISO 17020 - VIAS 004.
+[P (Normal)]: Assessment:
+[P (Normal)]: The measurement result of HEPA filter leakage in “Manufacturing room” complied with the corresponding permissible limit specified in ISO 14644 – 3:2019.
+
+### FILE: 985 - TBKQ - eng - 2 - phong sach - đợt 2.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='INSPECTION RESULT', ftr=''
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='INSPECTION RESULT', ftr=''
+  Section 2: orient=LANDSCAPE (1), page_w=297.0mm, page_h=210.0mm, hdr='INSPECTION RESULT', ftr=''
+  Section 3: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='INSPECTION RESULT', ftr=''
+
+[TABLE #0 (18x10) style='Normal Table']:
+  R00: TECHNICAL INSPECTION REPORT || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01:  || <H-MERGE> ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Request & registration for inspection || <H-MERGE> || : || 00985 || /N2.25/ || <H-MERGE> || <H-MERGE> || DG || Date: || 30/10/2025
+  R03: Client || <H-MERGE> || : || INTECH Saigon Engineering Joint Stock Company || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Address || <H-MERGE> || : || No. 274, Dong Den street, Bay Hien ward, Ho Chi  Minh city || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R05: Request || <H-MERGE> || : || Cleanroom environmental monitoring || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Location of performance || <H-MERGE> || : || Nextern Vietnam Limited Liability Company, factory C1B-D5, lot C-1B-CN, DE5 street, My Phuoc 3 Industrial Park, Thoi Hoa ward, Ho Chi Minh city || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Time of performance || <H-MERGE> || : || From November 03, 2025 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Equipment used || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Portable particle counter TSI AeroTrak 9350 (ID: N2-MT32/2), USA; \n Thermohygrometer Testo 625 (ID: N2-MT33/1), Germany. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Implementation procedure || <H-MERGE> || : || QUATEST3 3030:2025, N2.TC.PS.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Applicable standards/ Evaluation criteria || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12: ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration; \n Permissible limit provided by the representative of  INTECH Saigon Engineering Joint Stock Company. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13: Inspection results || <H-MERGE> || : || See from page 2/5 to page 5/5 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R14:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R15: Notice: || This Technical Inspection Report shall not be quoted or reproduced in part without the written authorization of Quality Assurance and Testing Center 3. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R16:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R17: INSPECTOR \n  \n Nguyen Xuan Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || FOR DIRECTOR \n VICE DIRECTOR \n  \n Le Dang Huyen || <H-MERGE> || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Performance content
+[P (Normal)]: Measurement area was indicated by INTECH Saigon Engineering Joint Stock Company:
+[P (Normal)]: " Manufacturing room; Airlock; Gowning room"
+[P (Normal)]: Occupancy state: “At rest”
+[P (Normal)]: The room areas were provided by the representative of INTECH Saigon Engineering JSC. The number of measurement points was determined according to Table A.1 specified in ISO 14644-1:2015, detailed as follows:
+
+[TABLE #1 (4x4) style='Normal Table']:
+  R00: Measurement location || Area \n (1) || ISO Class (1) || Number of measuring point
+  R01: Manufacturing room || 139.6 m2 || 8 || Measuring particle concentration : 21 points \n Measuring temperature-humidity : 01 point
+  R02: Airlock || 4.08 m2 || 8 || Measuring particle concentration : 02 points \n Measuring temperature-humidity : 01 point
+  R03: Gowning room || 27.6 m2 || 8 || Measuring particle concentration : 08 points \n Measuring temperature-humidity : 01 point
+
+[TABLE #2 (1x2) style='Normal Table']:
+  R00: Note: || (1) … The room area and cleanroom class provided by the representative of INTECH Saigon 	Engineering JSC.
+[P (Normal)]: Photos of the measurement process:
+
+[TABLE #3 (1x2) style='Normal Table']:
+  R00:  || 
+[P (Normal)]: Layout of measuring points:
+
+[TABLE #4 (2x2) style='Table Grid']:
+  R00:  || 
+  R01: Particle-concentration measuring point || Temperature-humidity measuring point
+[P (Normal) [NUM]]: Measuring result of particle concentration
+
+[TABLE #5 (24x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Airborne particle concentration, particles/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Particle size \n d ≥ 0.5 m || Particle size \n d ≥ 1 m || Particle size \n d ≥ 5 m
+  R02: <V-MERGE:restart>Manufacturing room || 1 || 3 040 || 1 620 || 180
+  R03: <V-MERGE:restart>Manufacturing room || 2 || 2 000 || 880 || 120
+  R04: <V-MERGE:restart>Manufacturing room || 3 || 1 580 || 640 || 80
+  R05: <V-MERGE:restart>Manufacturing room || 4 || 940 || 640 || 80
+  R06: <V-MERGE:restart>Manufacturing room || 5 || 1 540 || 660 || 60
+  R07: <V-MERGE:restart>Manufacturing room || 6 || 540 || 360 || 60
+  R08: <V-MERGE:restart>Manufacturing room || 7 || 200 || 140 || 20
+  R09: <V-MERGE:restart>Manufacturing room || 8 || 420 || 260 || 60
+  R10: <V-MERGE:restart>Manufacturing room || 9 || 6 240 || 2 920 || 200
+  R11: <V-MERGE:restart>Manufacturing room || 10 || 880 || 420 || 60
+  R12: <V-MERGE:restart>Manufacturing room || 11 || 420 || 240 || 60
+  R13: <V-MERGE:restart>Manufacturing room || 12 || 720 || 400 || 40
+  R14: <V-MERGE:restart>Manufacturing room || 13 || 960 || 500 || 40
+  R15: <V-MERGE:restart>Manufacturing room || 14 || 740 || 400 || 60
+  R16: <V-MERGE:restart>Manufacturing room || 15 || 920 || 500 || 100
+  R17: <V-MERGE:restart>Manufacturing room || 16 || 1 200 || 640 || 100
+  R18: <V-MERGE:restart>Manufacturing room || 17 || 560 || 280 || 60
+  R19: <V-MERGE:restart>Manufacturing room || 18 || 360 || 200 || 40
+  R20: <V-MERGE:restart>Manufacturing room || 19 || 1 000 || 580 || 60
+  R21: <V-MERGE:restart>Manufacturing room || 20 || 200 || 120 || 0
+  R22: <V-MERGE:restart>Manufacturing room || 21 || 420 || 240 || 0
+  R23: The maximum permissible limit for cleanroom ISO class 8 is specified in \n ISO 14644 – 1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #6 (1x2) style='Normal Table']:
+  R00: Note: || (2) … See measuring points in the diagram on page 3. \n The performance field is accredited to ISO 17020 - VIAS 004
+[P (Body Text Indent)]: Assessment:
+[P (Normal)]: The measurement result of airborne particle concentration in “Manufacturing room” complied with the specification for ISO Class 8 cleanroom in ISO 14644-1:2015.
+
+[TABLE #7 (13x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Airborne particle concentration, particles/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Particle size \n d ≥ 0.5 m || Particle size \n d ≥ 1 m || Particle size \n d ≥ 5 m
+  R02: <V-MERGE:restart>Airlock || 1 || 5 660 || 3 120 || 260
+  R03: <V-MERGE:restart>Airlock || 2 || 1 280 || 880 || 240
+  R04: <V-MERGE:restart>Gowning room || 1 || 3 880 || 2 420 || 440
+  R05: <V-MERGE:restart>Gowning room || 2 || 1 280 || 1 000 || 200
+  R06: <V-MERGE:restart>Gowning room || 3 || 10 220 || 5 260 || 320
+  R07: <V-MERGE:restart>Gowning room || 4 || 5 980 || 3 460 || 320
+  R08: <V-MERGE:restart>Gowning room || 5 || 2 820 || 1 500 || 140
+  R09: <V-MERGE:restart>Gowning room || 6 || 2 020 || 1 000 || 100
+  R10: <V-MERGE:restart>Gowning room || 7 || 2 960 || 1 840 || 340
+  R11: <V-MERGE:restart>Gowning room || 8 || 2 640 || 1 480 || 220
+  R12: The maximum permissible limit for cleanroom ISO class 8 is specified in \n ISO 14644 – 1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #8 (1x2) style='Normal Table']:
+  R00: Note: || (2) … See measuring points in the diagram on page 3. \n The performance field is accredited to ISO 17020 - VIAS 004
+[P (Body Text Indent)]: Assessment:
+[P (Normal)]: The measurement result of airborne particle concentration in “Airlock”; “Gowning room” complied with the specification for ISO Class 8 cleanroom in ISO 14644-1:2015.
+[P (List Paragraph) [NUM]]: Measurement result of temperature – humidity
+
+[TABLE #9 (5x4) style='Normal Table']:
+  R00: Measurement room || Measurement point \n (2) || Temperature, oC || Humidity, %RH
+  R01: Manufacturing room || NA1 || 22.6 || 44.8
+  R02: Airlock || NA2 || 23.1 || 43.9
+  R03: Gowning room || NA3 || 23.0 || 43.9
+  R04: Permissible limit provided by INTECH Saigon Engineering Joint Stock Company || <H-MERGE> || 19 - 29 || ≤ 70
+
+[TABLE #10 (1x2) style='Normal Table']:
+  R00: Note: || (2)… See measuring points in the diagram on page 3. \n The performance field is accredited to ISO 17020 - VIAS 004.
+[P (Normal)]: Assessment:
+[P (Normal)]: The measurement results of temperature - humidity in “Manufacturing room”,        “Airlock”, “Gowning room” complied with the corresponding permissible limit provided by INTECH Saigon Engineering Joint Stock Company.
+
+### FILE: 985 - TBKQ - eng - 3 - phong sach - đợt 3.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='INSPECTION RESULT', ftr=''
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='INSPECTION RESULT', ftr=''
+  Section 2: orient=LANDSCAPE (1), page_w=297.0mm, page_h=210.0mm, hdr='INSPECTION RESULT', ftr=''
+  Section 3: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='INSPECTION RESULT', ftr=''
+
+[TABLE #0 (18x10) style='Normal Table']:
+  R00: TECHNICAL INSPECTION REPORT || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01:  || <H-MERGE> ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Request & registration for inspection || <H-MERGE> || : || 00985 || /N2.25/ || <H-MERGE> || <H-MERGE> || DG || Date: || 30/10/2025
+  R03: Client || <H-MERGE> || : || INTECH Saigon Engineering Joint Stock Company || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Address || <H-MERGE> || : || No. 274, Dong Den street, Bay Hien ward, Ho Chi Minh city || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R05: Request || <H-MERGE> || : || Cleanroom environmental monitoring || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Location of performance || <H-MERGE> || : || Nextern Vietnam Limited Liability Company, factory C1B-D5, lot C-1B-CN, DE5 street, My Phuoc 3 Industrial Park, Thoi Hoa ward, Ho Chi Minh city || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Time of performance || <H-MERGE> || : || From November 07, 2025 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Equipment used || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Portable particle counter TSI AeroTrak 9350 (ID: N2-MT32/2), USA; \n Airflow-pressure differential meter TSI AccuBalance 8380 (ID: N2-MT03), USA. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Implementation procedure || <H-MERGE> || : || QUATEST3 3030:2025, N2.TC.PS.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Applicable standards/ Evaluation criteria || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12: ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration; \n Permissible limit provided by the representative of  INTECH Saigon Engineering Joint Stock Company. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13: Inspection results || <H-MERGE> || : || See from page 2/6 to page 6/6 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R14:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R15: Notice: || This Technical Inspection Report shall not be quoted or reproduced in part without the written authorization of Quality Assurance and Testing Center 3. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R16:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R17: INSPECTOR \n  \n Nguyen Xuan Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || FOR DIRECTOR \n VICE DIRECTOR \n  \n Le Dang Huyen || <H-MERGE> || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Performance content
+[P (Normal)]: Measurement area was indicated by INTECH Saigon Engineering Joint Stock Company:
+[P (Normal)]: " Manufacturing room; Airlock; Gowning room"
+[P (Normal)]: Occupancy state: “Operational”
+[P (Normal)]: The room areas were provided by the representative of INTECH Saigon Engineering JSC. The number of measurement points was determined according to Table A.1 specified in ISO 14644-1:2015, detailed as follows:
+
+[TABLE #1 (4x4) style='Normal Table']:
+  R00: Measurement location || Area \n (1) || ISO Class (1) || Number of measuring point
+  R01: Manufacturing room || 139.6 m2 || 8 || Measuring particle concentration : 21 points \n Measuring pressure differential    : 01 point \n Measuring airflow rate	        : 12 points
+  R02: Airlock || 4.08 m2 || 8 || Measuring particle concentration : 02 points \n Measuring pressure differential    : 01 point \n Measuring airflow rate	        : 01 point
+  R03: Gowning room || 27.6 m2 || 8 || Measuring particle concentration : 08 points \n Measuring pressure differential    : 01 point \n Measuring airflow rate	        : 02 points
+
+[TABLE #2 (1x2) style='Normal Table']:
+  R00: Note: || (1) … The room area and cleanroom class provided by the representative of INTECH Saigon 	Engineering JSC.
+[P (Normal)]: Photos of the measurement process:
+
+[TABLE #3 (2x2) style='Normal Table']:
+  R00:  || 
+  R01:  || <H-MERGE>
+[P (Normal)]: Layout of measuring points:
+
+[TABLE #4 (2x3) style='Table Grid']:
+  R00:  ||  || 
+  R01: Particle-concentration measuring point || Pressure differential measuring point || Airflow-rate measuring point
+[P (Normal) [NUM]]: Measuring result of particle concentration
+
+[TABLE #5 (24x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Airborne particle concentration, particles/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Particle size \n d ≥ 0.5 m || Particle size \n d ≥ 1 m || Particle size \n d ≥ 5 m
+  R02: <V-MERGE:restart>Manufacturing room || 1 || 33 160 || 21 240 || 2 220
+  R03: <V-MERGE:restart>Manufacturing room || 2 || 19 680 || 12 380 || 1 280
+  R04: <V-MERGE:restart>Manufacturing room || 3 || 8 660 || 5 500 || 600
+  R05: <V-MERGE:restart>Manufacturing room || 4 || 3 360 || 2 120 || 260
+  R06: <V-MERGE:restart>Manufacturing room || 5 || 3 940 || 2 400 || 200
+  R07: <V-MERGE:restart>Manufacturing room || 6 || 6 200 || 3 880 || 340
+  R08: <V-MERGE:restart>Manufacturing room || 7 || 9 320 || 6 260 || 740
+  R09: <V-MERGE:restart>Manufacturing room || 8 || 5 620 || 3 420 || 320
+  R10: <V-MERGE:restart>Manufacturing room || 9 || 5 580 || 3 400 || 280
+  R11: <V-MERGE:restart>Manufacturing room || 10 || 6 200 || 4 300 || 620
+  R12: <V-MERGE:restart>Manufacturing room || 11 || 7 100 || 4 540 || 460
+  R13: <V-MERGE:restart>Manufacturing room || 12 || 9 520 || 6 700 || 860
+  R14: <V-MERGE:restart>Manufacturing room || 13 || 17 460 || 12 220 || 1 460
+  R15: <V-MERGE:restart>Manufacturing room || 14 || 27 560 || 19 800 || 2 300
+  R16: <V-MERGE:restart>Manufacturing room || 15 || 21 240 || 15 480 || 2 620
+  R17: <V-MERGE:restart>Manufacturing room || 16 || 35 960 || 24 200 || 2 480
+  R18: <V-MERGE:restart>Manufacturing room || 17 || 19 980 || 13 880 || 1 300
+  R19: <V-MERGE:restart>Manufacturing room || 18 || 11 220 || 7 420 || 720
+  R20: <V-MERGE:restart>Manufacturing room || 19 || 6 780 || 3 840 || 380
+  R21: <V-MERGE:restart>Manufacturing room || 20 || 6 300 || 3 900 || 580
+  R22: <V-MERGE:restart>Manufacturing room || 21 || 8 220 || 5 060 || 760
+  R23: The maximum permissible limit for cleanroom ISO class 8 is specified in \n ISO 14644 – 1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #6 (1x2) style='Normal Table']:
+  R00: Note: || (2) … See measuring points in the diagram on page 3. \n The performance field is accredited to ISO 17020 - VIAS 004
+[P (Body Text Indent)]: Assessment:
+[P (Normal)]: The measurement result of airborne particle concentration in “Manufacturing room” complied with the specification for ISO Class 8 cleanroom in ISO 14644-1:2015.
+
+[TABLE #7 (13x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Airborne particle concentration, particles/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Measurement room || <V-MERGE:restart>Measurement point \n (2) || Particle size \n d ≥ 0.5 m || Particle size \n d ≥ 1 m || Particle size \n d ≥ 5 m
+  R02: <V-MERGE:restart>Airlock || 1 || 21 240 || 12 300 || 800
+  R03: <V-MERGE:restart>Airlock || 2 || 13 560 || 8 660 || 900
+  R04: <V-MERGE:restart>Gowning room || 1 || 42 000 || 23 220 || 3 260
+  R05: <V-MERGE:restart>Gowning room || 2 || 28 960 || 16 640 || 2 220
+  R06: <V-MERGE:restart>Gowning room || 3 || 32 300 || 20 000 || 2 160
+  R07: <V-MERGE:restart>Gowning room || 4 || 45 420 || 28 120 || 2 940
+  R08: <V-MERGE:restart>Gowning room || 5 || 16 400 || 10 200 || 1 200
+  R09: <V-MERGE:restart>Gowning room || 6 || 21 560 || 13 300 || 1 560
+  R10: <V-MERGE:restart>Gowning room || 7 || 10 200 || 6 320 || 780
+  R11: <V-MERGE:restart>Gowning room || 8 || 10 000 || 6 060 || 700
+  R12: The maximum permissible limit for cleanroom ISO class 8 is specified in \n ISO 14644 – 1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #8 (1x2) style='Normal Table']:
+  R00: Note: || (2) … See measuring points in the diagram on page 3. \n The performance field is accredited to ISO 17020 - VIAS 004
+[P (Body Text Indent)]: Assessment:
+[P (Normal)]: The measurement result of airborne particle concentration in “Airlock”; “Gowning room” complied with the specification for ISO Class 8 cleanroom in ISO 14644-1:2015.
+[P (List Paragraph) [NUM]]: Measurement result of pressure differentials between areas
+
+[TABLE #9 (5x5) style='Normal Table']:
+  R00: Area 1 ||  || Area 2 || Measuring point \n (2) || Pressure differential, \n Pa
+  R01: Manufacturing room ||  || Environment || PA1 || 23.6
+  R02: Gowning room ||  || Environment || PA2 || 24.8
+  R03: Airlock ||  || Environment || PA4 || 23.7
+  R04: Permissible limit provided by INTECH Saigon Engineering \n Joint Stock Company || <H-MERGE> || <H-MERGE> || <H-MERGE> || 20 – 25
+
+[TABLE #10 (1x2) style='Normal Table']:
+  R00: Note: || (2)… See measuring points in the diagram on page 3. \n The performance field is accredited to ISO 17020 - VIAS 004.
+[P (Normal)]: Assessment:
+[P (Normal)]: The measurement result of pressure differentials in the “Manufacturing room”,       “Airlock”, “Gowning room” relative to the environment complied with the corresponding permissible limit provided by INTECH Saigon Engineering Joint Stock Company.
+[P (List Paragraph) [NUM]]: Measurement result of airflow rate supply through HEPA filter
+
+[TABLE #11 (17x6) style='Normal Table']:
+  R00: Measurement room || Measurement point (2) || Airflow rate, \n m3/h || Total airflow, m3/h || Room volume (3), m3 || Air changes per hour, \n ACH
+  R01: <V-MERGE:restart>Manufacturing room || 1 || 980 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R02: <V-MERGE:restart>Manufacturing room || 2 || 941 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R03: <V-MERGE:restart>Manufacturing room || 3 || 893 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R04: <V-MERGE:restart>Manufacturing room || 4 || 970 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R05: <V-MERGE:restart>Manufacturing room || 5 || 896 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R06: <V-MERGE:restart>Manufacturing room || 6 || 877 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R07: <V-MERGE:restart>Manufacturing room || 7 || 865 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R08: <V-MERGE:restart>Manufacturing room || 8 || 888 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R09: <V-MERGE:restart>Manufacturing room || 9 || 881 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R10: <V-MERGE:restart>Manufacturing room || 10 || 931 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R11: <V-MERGE:restart>Manufacturing room || 11 || 911 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R12: <V-MERGE:restart>Manufacturing room || 12 || 904 || <V-MERGE:restart>10937 || <V-MERGE:restart>383.9 || <V-MERGE:restart>28.5
+  R13: Airlock || 1 || 494 || 494 || 11.2 || 44.0
+  R14: <V-MERGE:restart>Gowning room || 1 || 970 || <V-MERGE:restart>1 961 || <V-MERGE:restart>75.9 || <V-MERGE:restart>25.8
+  R15: <V-MERGE:restart>Gowning room || 2 || 991 || <V-MERGE:restart>1 961 || <V-MERGE:restart>75.9 || <V-MERGE:restart>25.8
+  R16: Permissible limit provided by INTECH Saigon Engineering \n Joint Stock Company || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || ≥ 25
+
+[TABLE #12 (1x2) style='Normal Table']:
+  R00: Note: || (2)… See measurement points in the diagram on page 3. \n (3)… Room volume provided by the representative of Intech Saigon Engineering JSC \n The performance field is accredited to ISO 17020 - VIAS 004.
+[P (Normal)]: Assessment:
+[P (Normal)]: - The calculation result of air changes per hour in “Manufacturing room”, “Airlock”, and “Gowning room” complied with the corresponding permissible limit provided by INTECH Saigon Engineering Joint Stock Company.
+
+### FILE: 985 - TBKQ - eng - 4 - khi nen.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='INSPECTION RESULT', ftr=''
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='INSPECTION RESULT', ftr=''
+
+[TABLE #0 (17x9) style='Normal Table']:
+  R00: TECHNICAL INSPECTION REPORT || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01:  || <H-MERGE> ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Request & registration for inspection || <H-MERGE> || : || 00985 || /N2.25/ || <H-MERGE> || DG || Date: || 30/10/2025
+  R03: Client || <H-MERGE> || : || INTECH Saigon Engineering Joint Stock Company || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Address || <H-MERGE> || : || No. 274, Dong Den street, Bay Hien ward, Ho Chi Minh city || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R05: Request || <H-MERGE> || : || Sampling and analysing the quality of compressed air || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Location of performance || <H-MERGE> || : || Nextern Vietnam Limited Liability Company, factory C1B-D5, lot C-1B-CN, DE5 street, My Phuoc 3 Industrial Park, Thoi Hoa ward, Ho Chi Minh city || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Time of performance || <H-MERGE> || : || From November 03, 2025 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Equipment used || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Glass fiber filter Pall life Sciences (ID: 21956), carbon activated tube ORBO®      (ID: ORB00759); \n Portable particle counter PMS Lasair III 110 and accessory PMS HPD II-100         (ID: N2-MT11/1), USA; \n Dewpoint meter CS Instrument GmbH DP510 (ID: N2-MT10/1) and pressure meter CS16 (ID: N2-MT10/2), Germany. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Implementation procedure || <H-MERGE> || : || QUATEST3 3030:2025, N2.TC.KN.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Applicable standards / Evaluation criteria || <H-MERGE> || : || ISO 8573 – 1:2010 Compressed air - Part 1: Contaminants and purity classes || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12: Inspection results || <H-MERGE> || : || See from page 2/3 to page 3/3 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R14: Notice: || This Technical Inspection Report shall not be quoted or reproduced in part without the written authorization of QUATEST 3. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R15:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R16: INSPECTOR \n  \n  \n  \n  \n Nguyen Xuan Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || FOR DIRECTOR \n VICE DIRECTOR \n  \n  \n  \n  \n Le Dang Huyen || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Performance content
+[P (Normal)]: The number and location of measuring points were indicated by INTECH Saigon Engineering Joint Stock Company:
+[P (Normal)]: + Number of sampling/ measuring location	: 02
+[P (Normal)]: + Status of compressed air system			: In operation
+[P (Normal)]: + Status of the factory			: Not in operation
+[P (Normal)]: Description of compressed air system at sampling time:
+[P (Normal)]: Tecbell air compressor TW-15A/8EPM → Air receiver → Tecbell filter TB-007G-III (C) → Tecbell air dryer TB-026AH → Tecbell filter TB-007G-III (H) → Tecbell filter              TB-007G-III (TR) → Tecbell air dryer J-2509041 → Tecbell filter TB-007G-III (A) → Tecbell filter TB-007G-III (T) → Point of use
+
+[TABLE #1 (3x3) style='Normal Table']:
+  R00: Measuring/ sampling points/ Description || Code of location || Parameter
+  R01: Pneumatic pipeline at the source point of the Tecbell air-compressor system || KN1 || <V-MERGE:restart>Total oil content; \n Dew point pressure; \n Concentration of particle sizes (0.1 - 5.0) µm;
+  R02: Pneumatic pipeline in manufacturing room || KN2 || <V-MERGE:restart>Total oil content; \n Dew point pressure; \n Concentration of particle sizes (0.1 - 5.0) µm;
+
+[TABLE #2 (1x2) style='Table Grid']:
+  R00: Note : || Name, description of sampling location and measuring parameters were supplied by representative of company.
+[P (Normal)]: Photo of sampling/ measuring location:
+
+[TABLE #3 (1x2) style='Table Grid']:
+  R00:  || 
+[P (Normal) [NUM]]: Inspection result
+[P (Normal) [NUM]]: Total oil content
+
+[TABLE #4 (3x3) style='Normal Table']:
+  R00: Location || Total oil content, mg/m3 || Purity class (1)
+  R01: KN1 || < 0.01 || Class 1
+  R02: KN2 || < 0.01 || Class 1
+
+[TABLE #5 (1x2) style='Normal Table']:
+  R00: Note: || Total oil content including oil aerosol and oil vapor in compressed air at sampling location converted to reference conditions of absolute pressure of 1 bar and temperature of 20 oC according to ISO 8573-1:2010.  \n (1) … Purity class of compressed air are identified in ISO 8573 – 1.
+[P (Normal) [NUM]]: Pressure dewpoint
+
+[TABLE #6 (4x6) style='Normal Table']:
+  R00: <V-MERGE:restart>Location \n (Measuring time) || Measuring condition || <H-MERGE> || Result || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Location \n (Measuring time) || Temperature,  \n oC || Pressure, \n bar || Dewpoint T1 (2), \n oC || Dewpoint T2 (3), \n  oC || Water \n content (4), \n mg H2O/m3
+  R02: KN1 \n (From 11:45 am to 00:05 pm) || 28.9 || 7.7 || - 43.2 || - 43.9 \n  Class 2 (1) || 7.4
+  R03: KN2 \n (From 00:40 pm to 01:30 pm) || 22.4 || 7.3 || - 41.5 || - 41.8 \n  Class 2 (1) || 9.7
+
+[TABLE #7 (1x2) style='Normal Table']:
+  R00: Note: || (1) … Purity class of compressed air are identified in ISO 8573 – 1 \n (2) … Dewpoint of compressed air at measuring conditions \n (3) … Dewpoint of compressed air converted to reference conditions of pressure of 7 bar and  \n 	temperature of 20 oC according to ISO 8573-3:1999 \n (3) … Water content (water vapor) converted to reference conditions of absolute pressure of 1 bar  \n         and temperature of 20 oC according to ISO 8573-1:2010 (Measuring result provided as   \n         indicated by the representative of INTECH Saigon Company)
+[P (Normal) [NUM]]: Concentration of particles
+
+[TABLE #8 (6x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Location || Concentration of particles, particles/m3 || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Purity class \n (1)
+  R01: <V-MERGE:restart>Location || Particle diameter \n 0.1 µm  d ≤ 0.5 µm || Particle diameter \n 0.5 µm  d ≤ 1.0 µm || Particle diameter \n 1.0 µm  d ≤ 5.0 µm || <V-MERGE:restart>Purity class \n (1)
+  R02: <V-MERGE:restart>KN1 || 158 712 || 53 || 9 || <V-MERGE:restart>Class 2
+  R03: <V-MERGE:restart>KN1 || Concentration of particle size d > 5.0 µm: 0 particles/m3 || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Class 2
+  R04: <V-MERGE:restart>KN2 || 93 619 || 119 || 2 || <V-MERGE:restart>Class 2
+  R05: <V-MERGE:restart>KN2 || Concentration of particle size d > 5.0 µm: 0 particles/m3 || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Class 2
+
+[TABLE #9 (1x2) style='Normal Table']:
+  R00: Note: || Particle concentration in compressed air at measuring location converted to reference conditions of absolute pressure of 1 bar and temperature of 20 oC according to ISO 8573-1: 2010. \n (1) … Purity class of compressed air are identified in ISO 8573 – 1. \n The performance field is accredited to ISO 17020 - VIAS 004.
+
+### FILE: 985 - TBKQ - viet - 1 - phong sach - đợt 1.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+  Section 2: orient=LANDSCAPE (1), page_w=297.0mm, page_h=210.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+  Section 3: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+
+[TABLE #0 (18x10) style='Normal Table']:
+  R00: CHỨNG THƯ  GIÁM ĐỊNH || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01:  || <H-MERGE> ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Phiếu yêu cầu & nhận Thẩm định/ Giám định || <H-MERGE> || : || 00985 || /N2.25/ || <H-MERGE> || DG || <H-MERGE> || Ngày: || 30/10/2025
+  R03: Đơn vị yêu cầu || <H-MERGE> || : || Công ty Cổ phần Kỹ thuật INTECH Sài Gòn || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Địa chỉ || <H-MERGE> || : || Số 274, đường Đồng Đen, phường Bảy Hiền, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R05: Nội dung yêu cầu || <H-MERGE> || : || Quan trắc môi trường phòng sạch || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Địa điểm thực hiện || <H-MERGE> || : || Công ty TNHH Nextern Việt Nam, nhà xưởng C1B-D5,   lô C-1B-CN, đường DE5, khu công nghiệp Mỹ Phước 3, phường Thới Hoà, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Thời gian thực hiện || <H-MERGE> || : || Từ 30/10/2025 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Thiết bị sử dụng || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Thiết bị đo nồng độ hạt bụi TSI AeroTrak 9350  (ID: N2-MT32/2), USA; \n Thiết bị quét rò rỉ lọc HEPA ATI 2i (ID: N2-MT02/1) và ATI 6D (ID: N2-MT02/2), USA. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Quy trình thực hiện || <H-MERGE> || : || QUATEST3 3030:2025, N2.TC.PS.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Căn cứ áp dụng/ đánh giá || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12: ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration; \n ISO 14644-3:2019 Cleanrooms and associated controlled environments — Part 3: Test methods; || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13: Kết quả giám định || <H-MERGE> || : || Xem từ trang 2/6 đến trang 6/6 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R14:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R15: Ghi chú: || Không được trích/ sao một phần Chứng thư giám định này nếu không được sự đồng ý bằng văn bản của Trung tâm Kỹ thuật Tiêu chuẩn Đo lường Chất lượng 3 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R16:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R17: GIÁM ĐỊNH VIÊN \n  \n Nguyễn Xuân Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || <H-MERGE> || KT. GIÁM ĐỐC \n PHÓ GIÁM ĐỐC \n  \n Lê Đăng Huyền || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Nội dung thực hiện
+[P (Normal)]: Khu vực đo được thực hiện theo sự chỉ định của Công ty CP Kỹ thuật INTECH Sài Gòn:
+[P (Normal)]: “Phòng sản xuất; Airlock; Phòng thay đồ”;
+[P (Normal)]: Trạng thái nhà xưởng: “Trạng thái nghỉ”
+[P (Normal)]: Diện tích các phòng sạch do đại diện Công ty CP Kỹ thuật INTECH Sài Gòn cung cấp. Số lượng vị trí đo được xác định theo hướng dẫn tại Bảng A1 của ISO 14644-1: 2015, cụ thể như sau:
+
+[TABLE #1 (4x4) style='Normal Table']:
+  R00: Khu vực thực hiện || Diện tích (1) || Cấp sạch ISO (1) || Số lượng vị trí đo
+  R01: Phòng sản xuất || 139,6 m2 || 8 || Đo nồng độ hạt bụi 	     : 21 vị trí \n Đo độ rò rỉ lọc HEPA   : 12 vị trí
+  R02: Airlock || 4,08 m2 || 8 || Đo nồng độ hạt bụi 	     : 02 vị trí \n Đo độ rò rỉ lọc HEPA   : 01 vị trí
+  R03: Phòng thay đồ || 27,6 m2 || 8 || Đo nồng độ hạt bụi 	     : 08 vị trí \n Đo độ rò rỉ lọc HEPA   : 02 vị trí
+
+[TABLE #2 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (1) …	Số liệu diện tích và cấp sạch yêu cầu do đại diện Công ty CP Kỹ thuật INTECH Sài 	Gòn cung cấp.
+[P (Normal)]: Hình ảnh quá trình thực hiện:
+
+[TABLE #3 (1x2) style='Normal Table']:
+  R00:  || 
+[P (Normal)]: Sơ đồ các vị trí đo:
+
+[TABLE #4 (2x2) style='Table Grid']:
+  R00:  || 
+  R01: Vị trí đo nồng độ hạt bụi || Vị trí đo độ rò rỉ lọc HEPA
+[P (Normal) [NUM]]: Kết quả đo nồng độ hạt bụi
+
+[TABLE #5 (24x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Nồng độ hạt bụi trong không khí, hạt/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Kích thước hạt bụi d ≥ 0,5 m || Kích thước hạt bụi d ≥ 1 m || Kích thước hạt bụi d ≥ 5 m
+  R02: <V-MERGE:restart>Phòng sản xuất || 1 || 2 200 || 1 420 || 280
+  R03: <V-MERGE:restart>Phòng sản xuất || 2 || 2 820 || 1 680 || 140
+  R04: <V-MERGE:restart>Phòng sản xuất || 3 || 1 040 || 780 || 120
+  R05: <V-MERGE:restart>Phòng sản xuất || 4 || 820 || 580 || 80
+  R06: <V-MERGE:restart>Phòng sản xuất || 5 || 1 140 || 660 || 20
+  R07: <V-MERGE:restart>Phòng sản xuất || 6 || 960 || 640 || 40
+  R08: <V-MERGE:restart>Phòng sản xuất || 7 || 900 || 480 || 80
+  R09: <V-MERGE:restart>Phòng sản xuất || 8 || 1 240 || 640 || 60
+  R10: <V-MERGE:restart>Phòng sản xuất || 9 || 980 || 460 || 120
+  R11: <V-MERGE:restart>Phòng sản xuất || 10 || 2 400 || 1 380 || 20
+  R12: <V-MERGE:restart>Phòng sản xuất || 11 || 2 300 || 1 220 || 80
+  R13: <V-MERGE:restart>Phòng sản xuất || 12 || 820 || 520 || 40
+  R14: <V-MERGE:restart>Phòng sản xuất || 13 || 1 440 || 760 || 100
+  R15: <V-MERGE:restart>Phòng sản xuất || 14 || 1 280 || 560 || 100
+  R16: <V-MERGE:restart>Phòng sản xuất || 15 || 1 860 || 1 000 || 40
+  R17: <V-MERGE:restart>Phòng sản xuất || 16 || 1 580 || 860 || 20
+  R18: <V-MERGE:restart>Phòng sản xuất || 17 || 3 160 || 2 260 || 260
+  R19: <V-MERGE:restart>Phòng sản xuất || 18 || 3 200 || 1 860 || 100
+  R20: <V-MERGE:restart>Phòng sản xuất || 19 || 1 980 || 1 220 || 80
+  R21: <V-MERGE:restart>Phòng sản xuất || 20 || 1 200 || 660 || 20
+  R22: <V-MERGE:restart>Phòng sản xuất || 21 || 2 420 || 1 180 || 40
+  R23: Giới hạn tối đa cho phép đối với phòng sạch cấp ISO 8 tại \n ISO 14644-1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #6 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 3. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo nồng độ hạt bụi trong không khí tại “Phòng sản xuất” phù hợp với mức quy định đối với khu vực cấp sạch ISO 8  theo ISO 14644-1:2015.
+
+[TABLE #7 (13x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Nồng độ hạt bụi trong không khí, hạt/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Kích thước hạt bụi d ≥ 0,5 m || Kích thước hạt bụi d ≥ 1 m || Kích thước hạt bụi d ≥ 5 m
+  R02: <V-MERGE:restart>Airlock || 1 || 10 100 || 5 180 || 160
+  R03: <V-MERGE:restart>Airlock || 2 || 10 240 || 5 540 || 420
+  R04: <V-MERGE:restart>Phòng thay đồ || 1 || 2 360 || 1 380 || 120
+  R05: <V-MERGE:restart>Phòng thay đồ || 2 || 4 240 || 2 480 || 160
+  R06: <V-MERGE:restart>Phòng thay đồ || 3 || 7 160 || 4 300 || 220
+  R07: <V-MERGE:restart>Phòng thay đồ || 4 || 8 100 || 4 720 || 320
+  R08: <V-MERGE:restart>Phòng thay đồ || 5 || 6 580 || 3 620 || 160
+  R09: <V-MERGE:restart>Phòng thay đồ || 6 || 5 040 || 2 900 || 180
+  R10: <V-MERGE:restart>Phòng thay đồ || 7 || 4 980 || 2 980 || 160
+  R11: <V-MERGE:restart>Phòng thay đồ || 8 || 4 540 || 2 420 || 100
+  R12: Giới hạn tối đa cho phép đối với phòng sạch cấp ISO 8 tại \n ISO 14644-1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #8 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 3. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo nồng độ hạt bụi trong không khí tại “Airlock”, “Phòng thay đồ” phù hợp với mức quy định đối với khu vực cấp sạch ISO 8  theo ISO 14644-1:2015.
+[P (Normal) [NUM]]: Kết quả đo độ rò rỉ lọc HEPA
+
+[TABLE #9 (5x3) style='Normal Table']:
+  R00: Khu vực đo || Vị trí đo (2) || Độ rò rỉ lọc HEPA, %
+  R01: <V-MERGE:restart>Phòng thay đồ || 1 || < 0,0001
+  R02: <V-MERGE:restart>Phòng thay đồ || 2 || 0,0061
+  R03: Airlock || 1 || 0,001
+  R04: Mức quy định nêu tại ISO 14644-3:2019 || <H-MERGE> || ≤ 0,01
+
+[TABLE #10 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 3. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo độ rò rỉ lọc HEPA tại “Phòng thay đồ”, “Airlock” phù hợp với mức quy định tương ứng nêu tại ISO 14644-3:2019.
+
+[TABLE #11 (14x3) style='Normal Table']:
+  R00: Khu vực đo || Vị trí đo (2) || Độ rò rỉ lọc HEPA, %
+  R01: <V-MERGE:restart>Phòng sản xuất || 1 || 0,0005
+  R02: <V-MERGE:restart>Phòng sản xuất || 2 || 0,0014
+  R03: <V-MERGE:restart>Phòng sản xuất || 3 || 0,0014
+  R04: <V-MERGE:restart>Phòng sản xuất || 4 || 0,0002
+  R05: <V-MERGE:restart>Phòng sản xuất || 5 || < 0,0001
+  R06: <V-MERGE:restart>Phòng sản xuất || 6 || < 0,0001
+  R07: <V-MERGE:restart>Phòng sản xuất || 7 || 0,0003
+  R08: <V-MERGE:restart>Phòng sản xuất || 8 || < 0,0001
+  R09: <V-MERGE:restart>Phòng sản xuất || 9 || 0,0004
+  R10: <V-MERGE:restart>Phòng sản xuất || 10 || 0,0013
+  R11: <V-MERGE:restart>Phòng sản xuất || 11 || 0,0013
+  R12: <V-MERGE:restart>Phòng sản xuất || 12 || 0,0006
+  R13: Mức quy định nêu tại ISO 14644-3:2019 || <H-MERGE> || ≤ 0,01
+
+[TABLE #12 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 3. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo độ rò rỉ lọc HEPA tại “Phòng sản xuất” phù hợp với mức quy định tương ứng nêu tại ISO 14644-3:2019.
+
+### FILE: 985 - TBKQ - viet - 2 - phong sach - đợt 2.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+  Section 2: orient=LANDSCAPE (1), page_w=297.0mm, page_h=210.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+  Section 3: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+
+[TABLE #0 (18x10) style='Normal Table']:
+  R00: CHỨNG THƯ  GIÁM ĐỊNH || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01:  || <H-MERGE> ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Phiếu yêu cầu & nhận Thẩm định/ Giám định || <H-MERGE> || : || 00985 || /N2.25/ || <H-MERGE> || DG || <H-MERGE> || Ngày: || 30/10/2025
+  R03: Đơn vị yêu cầu || <H-MERGE> || : || Công ty Cổ phần Kỹ thuật INTECH Sài Gòn || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Địa chỉ || <H-MERGE> || : || Số 274, đường Đồng Đen, phường Bảy Hiền, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R05: Nội dung yêu cầu || <H-MERGE> || : || Quan trắc chất lượng phòng sạch || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Địa điểm thực hiện || <H-MERGE> || : || Công ty TNHH Nextern Việt Nam, nhà xưởng C1B-D5,   lô C-1B-CN, đường DE5, khu công nghiệp Mỹ Phước 3, phường Thới Hoà, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Thời gian thực hiện || <H-MERGE> || : || Từ 03/11/2025 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Thiết bị sử dụng || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Thiết bị đo nồng độ hạt bụi TSI AeroTrak 9350 (ID: N2-MT32/2), USA; \n Thiết bị đo nhiệt độ - độ ẩm Testo 625 (ID: N2-MT33/1), Germany. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Quy trình thực hiện || <H-MERGE> || : || QUATEST3 3030:2025, N2.TC.PS.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Căn cứ áp dụng/ đánh giá || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12: ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration; \n Mức quy định được cung cấp bởi đại diện Công ty Cổ phần Kỹ thuật INTECH Sài Gòn. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13: Kết quả giám định || <H-MERGE> || : || Xem từ trang 2/5 đến trang 5/5 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R14:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R15: Ghi chú: || Không được trích/ sao một phần Chứng thư giám định này nếu không được sự đồng ý bằng văn bản của Trung tâm Kỹ thuật Tiêu chuẩn Đo lường Chất lượng 3 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R16:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R17: GIÁM ĐỊNH VIÊN \n  \n Nguyễn Xuân Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || <H-MERGE> || KT. GIÁM ĐỐC \n PHÓ GIÁM ĐỐC \n  \n Lê Đăng Huyền || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Nội dung thực hiện
+[P (Normal)]: Khu vực đo được thực hiện theo sự chỉ định của Công ty CP Kỹ thuật INTECH Sài Gòn:
+[P (Normal)]: “Phòng sản xuất; Airlock; Phòng thay đồ”;
+[P (Normal)]: Trạng thái nhà xưởng	: “Trạng thái nghỉ”
+[P (Normal)]: Diện tích các phòng sạch do đại diện Công ty CP Kỹ thuật INTECH Sài Gòn cung cấp. Số lượng vị trí đo được xác định theo hướng dẫn tại Bảng A1 của ISO 14644-1: 2015, cụ thể như sau:
+
+[TABLE #1 (4x4) style='Normal Table']:
+  R00: Khu vực thực hiện || Diện tích (1) || Cấp sạch ISO (1) || Số lượng vị trí đo
+  R01: Phòng sản xuất || 139,6 m2 || 8 || Đo nồng độ hạt bụi 	: 21 vị trí \n Đo nhiệt độ - độ ẩm : 01 vị trí
+  R02: Airlock || 4,08 m2 || 8 || Đo nồng độ hạt bụi 	: 02 vị trí \n Đo nhiệt độ - độ ẩm : 01 vị trí
+  R03: Phòng thay đồ || 27,6 m2 || 8 || Đo nồng độ hạt bụi 	: 08 vị trí \n Đo nhiệt độ - độ ẩm : 01 vị trí
+
+[TABLE #2 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (1) …	Số liệu diện tích và cấp sạch yêu cầu do đại diện Công ty CP Kỹ thuật INTECH Sài 	Gòn cung cấp.
+[P (Normal)]: Hình ảnh quá trình thực hiện:
+
+[TABLE #3 (1x2) style='Normal Table']:
+  R00:  || 
+[P (Normal)]: Sơ đồ các vị trí đo:
+
+[TABLE #4 (2x2) style='Table Grid']:
+  R00:  || 
+  R01: Vị trí đo nồng độ hạt bụi || Vị trí đo nhiệt độ - độ ẩm
+[P (Normal) [NUM]]: Kết quả đo nồng độ hạt bụi
+
+[TABLE #5 (24x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Nồng độ hạt bụi trong không khí, hạt/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Kích thước hạt bụi d ≥ 0,5 m || Kích thước hạt bụi d ≥ 1 m || Kích thước hạt bụi d ≥ 5 m
+  R02: <V-MERGE:restart>Phòng sản xuất || 1 || 3 040 || 1 620 || 180
+  R03: <V-MERGE:restart>Phòng sản xuất || 2 || 2 000 || 880 || 120
+  R04: <V-MERGE:restart>Phòng sản xuất || 3 || 1 580 || 640 || 80
+  R05: <V-MERGE:restart>Phòng sản xuất || 4 || 940 || 640 || 80
+  R06: <V-MERGE:restart>Phòng sản xuất || 5 || 1 540 || 660 || 60
+  R07: <V-MERGE:restart>Phòng sản xuất || 6 || 540 || 360 || 60
+  R08: <V-MERGE:restart>Phòng sản xuất || 7 || 200 || 140 || 20
+  R09: <V-MERGE:restart>Phòng sản xuất || 8 || 420 || 260 || 60
+  R10: <V-MERGE:restart>Phòng sản xuất || 9 || 6 240 || 2 920 || 200
+  R11: <V-MERGE:restart>Phòng sản xuất || 10 || 880 || 420 || 60
+  R12: <V-MERGE:restart>Phòng sản xuất || 11 || 420 || 240 || 60
+  R13: <V-MERGE:restart>Phòng sản xuất || 12 || 720 || 400 || 40
+  R14: <V-MERGE:restart>Phòng sản xuất || 13 || 960 || 500 || 40
+  R15: <V-MERGE:restart>Phòng sản xuất || 14 || 740 || 400 || 60
+  R16: <V-MERGE:restart>Phòng sản xuất || 15 || 920 || 500 || 100
+  R17: <V-MERGE:restart>Phòng sản xuất || 16 || 1 200 || 640 || 100
+  R18: <V-MERGE:restart>Phòng sản xuất || 17 || 560 || 280 || 60
+  R19: <V-MERGE:restart>Phòng sản xuất || 18 || 360 || 200 || 40
+  R20: <V-MERGE:restart>Phòng sản xuất || 19 || 1 000 || 580 || 60
+  R21: <V-MERGE:restart>Phòng sản xuất || 20 || 200 || 120 || 0
+  R22: <V-MERGE:restart>Phòng sản xuất || 21 || 420 || 240 || 0
+  R23: Giới hạn tối đa cho phép đối với phòng sạch cấp ISO 8 tại \n ISO 14644-1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #6 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 3. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo nồng độ hạt bụi trong không khí tại “Phòng sản xuất” phù hợp với mức quy định đối với khu vực cấp sạch ISO 8  theo ISO 14644-1:2015.
+
+[TABLE #7 (13x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Nồng độ hạt bụi trong không khí, hạt/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Kích thước hạt bụi d ≥ 0,5 m || Kích thước hạt bụi d ≥ 1 m || Kích thước hạt bụi d ≥ 5 m
+  R02: <V-MERGE:restart>Airlock || 1 || 5 660 || 3 120 || 260
+  R03: <V-MERGE:restart>Airlock || 2 || 1 280 || 880 || 240
+  R04: <V-MERGE:restart>Phòng thay đồ || 1 || 3 880 || 2 420 || 440
+  R05: <V-MERGE:restart>Phòng thay đồ || 2 || 1 280 || 1 000 || 200
+  R06: <V-MERGE:restart>Phòng thay đồ || 3 || 10 220 || 5 260 || 320
+  R07: <V-MERGE:restart>Phòng thay đồ || 4 || 5 980 || 3 460 || 320
+  R08: <V-MERGE:restart>Phòng thay đồ || 5 || 2 820 || 1 500 || 140
+  R09: <V-MERGE:restart>Phòng thay đồ || 6 || 2 020 || 1 000 || 100
+  R10: <V-MERGE:restart>Phòng thay đồ || 7 || 2 960 || 1 840 || 340
+  R11: <V-MERGE:restart>Phòng thay đồ || 8 || 2 640 || 1 480 || 220
+  R12: Giới hạn tối đa cho phép đối với phòng sạch cấp ISO 8 tại \n ISO 14644-1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #8 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 3. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo nồng độ hạt bụi trong không khí tại “Airlock”, “Phòng thay đồ” phù hợp với mức quy định đối với khu vực cấp sạch ISO 8  theo ISO 14644-1:2015.
+[P (Normal) [NUM]]: Kết quả đo nhiệt độ - độ ẩm
+
+[TABLE #9 (5x4) style='Normal Table']:
+  R00: Khu vực đo || Vị trí đo (2) || Nhiệt độ, oC || Độ ẩm, %RH
+  R01: Phòng sản xuất || NA1 || 22,6 || 44,8
+  R02: Airlock || NA2 || 23,1 || 43,9
+  R03: Phòng thay đồ || NA3 || 23,0 || 43,9
+  R04: Mức quy định cung cấp bởi Công ty \n Cổ phần Kỹ thuật INTECH Sài Gòn || <H-MERGE> || 19 - 29 || ≤ 70
+
+[TABLE #10 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 3. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo nhiệt độ, độ ẩm tại “Phòng sản xuất”, “Airlock”, “Phòng thay đồ” phù hợp với mức quy định tương ứng được cung cấp bởi Công ty Cổ phần Kỹ thuật INTECH Sài Gòn.
+
+### FILE: 985 - TBKQ - viet - 3 - phong sach - đợt 3.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+  Section 2: orient=LANDSCAPE (1), page_w=297.0mm, page_h=210.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+  Section 3: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+
+[TABLE #0 (18x10) style='Normal Table']:
+  R00: CHỨNG THƯ  GIÁM ĐỊNH || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01:  || <H-MERGE> ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Phiếu yêu cầu & nhận Thẩm định/ Giám định || <H-MERGE> || : || 00985 || /N2.25/ || <H-MERGE> || DG || <H-MERGE> || Ngày: || 30/10/2025
+  R03: Đơn vị yêu cầu || <H-MERGE> || : || Công ty Cổ phần Kỹ thuật INTECH Sài Gòn || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Địa chỉ || <H-MERGE> || : || Số 274, đường Đồng Đen, phường Bảy Hiền, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R05: Nội dung yêu cầu || <H-MERGE> || : || Quan trắc chất lượng phòng sạch || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Địa điểm thực hiện || <H-MERGE> || : || Công ty TNHH Nextern Việt Nam, nhà xưởng C1B-D5,   lô C-1B-CN, đường DE5, khu công nghiệp Mỹ Phước 3, phường Thới Hoà, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Thời gian thực hiện || <H-MERGE> || : || Từ 07/11/2025 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Thiết bị sử dụng || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Thiết bị đo nồng độ hạt bụi TSI AeroTrak 9350 (ID: N2-MT32/2), USA; \n Thiết bị đo lưu lượng gió-chênh lệch áp suất TSI AccuBalance 8380 (ID: N2-MT03), USA. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Quy trình thực hiện || <H-MERGE> || : || QUATEST3 3030:2025, N2.TC.PS.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Căn cứ áp dụng/ đánh giá || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12: ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration; \n Mức tiêu chuẩn được cung cấp bởi đại diện Công ty Cổ phần Kỹ thuật INTECH Sài Gòn. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13: Kết quả giám định || <H-MERGE> || : || Xem từ trang 2/6 đến trang 6/6 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R14:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R15: Ghi chú: || Không được trích/ sao một phần Chứng thư giám định này nếu không được sự đồng ý bằng văn bản của Trung tâm Kỹ thuật Tiêu chuẩn Đo lường Chất lượng 3 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R16:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R17: GIÁM ĐỊNH VIÊN \n  \n Nguyễn Xuân Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || <H-MERGE> || KT. GIÁM ĐỐC \n PHÓ GIÁM ĐỐC \n  \n Lê Đăng Huyền || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Nội dung thực hiện
+[P (Normal)]: Khu vực đo được thực hiện theo sự chỉ định của Công ty CP Kỹ thuật INTECH Sài Gòn:
+[P (Normal)]: “Phòng sản xuất; Airlock; Phòng thay đồ”;
+[P (Normal)]: Trạng thái nhà xưởng	: “Trạng thái hoạt động”
+[P (Normal)]: Diện tích các phòng sạch do đại diện Công ty CP Kỹ thuật INTECH Sài Gòn cung cấp. Số lượng vị trí đo được xác định theo hướng dẫn tại Bảng A1 của ISO 14644-1: 2015, cụ thể như sau:
+
+[TABLE #1 (4x4) style='Normal Table']:
+  R00: Khu vực thực hiện || Diện tích \n (1) || Cấp sạch ISO (1) || Số lượng vị trí đo
+  R01: Phòng sản xuất || 139,6 m2 || 8 || Đo nồng độ hạt bụi 	: 21 vị trí \n Đo chênh áp             : 01 vị trí \n Đo lưu lượng gió      : 12 vị trí
+  R02: Airlock || 4,08 m2 || 8 || Đo nồng độ hạt bụi 	: 02 vị trí \n Đo chênh áp             : 01 vị trí \n Đo lưu lượng gió      : 01 vị trí
+  R03: Phòng thay đồ || 27,6 m2 || 8 || Đo nồng độ hạt bụi 	: 08 vị trí \n Đo chênh áp             : 01 vị trí \n Đo lưu lượng gió      : 02 vị trí
+
+[TABLE #2 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (1) …	Số liệu diện tích và cấp sạch yêu cầu do đại diện Công ty CP Kỹ thuật INTECH Sài 	Gòn cung cấp.
+[P (Normal)]: Hình ảnh quá trình thực hiện:
+
+[TABLE #3 (2x2) style='Normal Table']:
+  R00:  || 
+  R01:  || <H-MERGE>
+[P (Normal)]: Sơ đồ các vị trí đo:
+
+[TABLE #4 (2x3) style='Table Grid']:
+  R00:  ||  || 
+  R01: Vị trí đo nồng độ hạt bụi || Vị trí đo chênh lệnh áp suất || Vị trí đo lưu lượng gió
+[P (Normal) [NUM]]: Kết quả đo nồng độ hạt bụi
+
+[TABLE #5 (24x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Nồng độ hạt bụi trong không khí, hạt/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Kích thước hạt bụi d ≥ 0,5 m || Kích thước hạt bụi d ≥ 1 m || Kích thước hạt bụi d ≥ 5 m
+  R02: <V-MERGE:restart>Phòng sản xuất || 1 || 33 160 || 21 240 || 2 220
+  R03: <V-MERGE:restart>Phòng sản xuất || 2 || 19 680 || 12 380 || 1 280
+  R04: <V-MERGE:restart>Phòng sản xuất || 3 || 8 660 || 5 500 || 600
+  R05: <V-MERGE:restart>Phòng sản xuất || 4 || 3 360 || 2 120 || 260
+  R06: <V-MERGE:restart>Phòng sản xuất || 5 || 3 940 || 2 400 || 200
+  R07: <V-MERGE:restart>Phòng sản xuất || 6 || 6 200 || 3 880 || 340
+  R08: <V-MERGE:restart>Phòng sản xuất || 7 || 9 320 || 6 260 || 740
+  R09: <V-MERGE:restart>Phòng sản xuất || 8 || 5 620 || 3 420 || 320
+  R10: <V-MERGE:restart>Phòng sản xuất || 9 || 5 580 || 3 400 || 280
+  R11: <V-MERGE:restart>Phòng sản xuất || 10 || 6 200 || 4 300 || 620
+  R12: <V-MERGE:restart>Phòng sản xuất || 11 || 7 100 || 4 540 || 460
+  R13: <V-MERGE:restart>Phòng sản xuất || 12 || 9 520 || 6 700 || 860
+  R14: <V-MERGE:restart>Phòng sản xuất || 13 || 17 460 || 12 220 || 1 460
+  R15: <V-MERGE:restart>Phòng sản xuất || 14 || 27 560 || 19 800 || 2 300
+  R16: <V-MERGE:restart>Phòng sản xuất || 15 || 21 240 || 15 480 || 2 620
+  R17: <V-MERGE:restart>Phòng sản xuất || 16 || 35 960 || 24 200 || 2 480
+  R18: <V-MERGE:restart>Phòng sản xuất || 17 || 19 980 || 13 880 || 1 300
+  R19: <V-MERGE:restart>Phòng sản xuất || 18 || 11 220 || 7 420 || 720
+  R20: <V-MERGE:restart>Phòng sản xuất || 19 || 6 780 || 3 840 || 380
+  R21: <V-MERGE:restart>Phòng sản xuất || 20 || 6 300 || 3 900 || 580
+  R22: <V-MERGE:restart>Phòng sản xuất || 21 || 8 220 || 5 060 || 760
+  R23: Giới hạn tối đa cho phép đối với phòng sạch cấp ISO 8 tại \n ISO 14644-1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #6 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 3. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo nồng độ hạt bụi trong không khí tại “Phòng sản xuất” phù hợp với mức quy định đối với khu vực cấp sạch ISO 8  theo ISO 14644-1:2015.
+
+[TABLE #7 (13x5) style='Normal Table']:
+  R00: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Nồng độ hạt bụi trong không khí, hạt/m3 || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Khu vực đo || <V-MERGE:restart>Vị trí đo (2) || Kích thước hạt bụi d ≥ 0,5 m || Kích thước hạt bụi d ≥ 1 m || Kích thước hạt bụi d ≥ 5 m
+  R02: <V-MERGE:restart>Airlock || 1 || 21 240 || 12 300 || 800
+  R03: <V-MERGE:restart>Airlock || 2 || 13 560 || 8 660 || 900
+  R04: <V-MERGE:restart>Phòng thay đồ || 1 || 42 000 || 23 220 || 3 260
+  R05: <V-MERGE:restart>Phòng thay đồ || 2 || 28 960 || 16 640 || 2 220
+  R06: <V-MERGE:restart>Phòng thay đồ || 3 || 32 300 || 20 000 || 2 160
+  R07: <V-MERGE:restart>Phòng thay đồ || 4 || 45 420 || 28 120 || 2 940
+  R08: <V-MERGE:restart>Phòng thay đồ || 5 || 16 400 || 10 200 || 1 200
+  R09: <V-MERGE:restart>Phòng thay đồ || 6 || 21 560 || 13 300 || 1 560
+  R10: <V-MERGE:restart>Phòng thay đồ || 7 || 10 200 || 6 320 || 780
+  R11: <V-MERGE:restart>Phòng thay đồ || 8 || 10 000 || 6 060 || 700
+  R12: Giới hạn tối đa cho phép đối với phòng sạch cấp 8 tại \n ISO 14644-1:2015 || <H-MERGE> || 3 520 000 || 832 000 || 29 300
+
+[TABLE #8 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 3. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo nồng độ hạt bụi trong không khí tại “Airlock”, “Phòng thay đồ” phù hợp với mức quy định đối với khu vực cấp sạch 8  theo ISO 14644-1:2015.
+[P (Normal) [NUM]]: Kết quả đo chênh lệch áp suất giữa hai khu vực
+
+[TABLE #9 (5x5) style='Normal Table']:
+  R00: Khu vực 1 ||  || Khu vực 2 || Vị trí đo (2) || Mức chênh áp, \n Pa
+  R01: Phòng sản xuất ||  || Môi trường || PA1 || 23,6
+  R02: Phòng thay đồ ||  || Môi trường || PA2 || 24,8
+  R03: Airlock ||  || Môi trường || PA3 || 23,7
+  R04: Mức quy định cung cấp bởi công ty \n Cổ phần Kỹ thuật INTECH Sài Gòn || <H-MERGE> || <H-MERGE> || <H-MERGE> || 20 – 25
+
+[TABLE #10 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 3. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: Kết quả đo chênh lệch áp suất tại “Phòng sản xuất”, “Airlock”, “Phòng thay đồ” so với môi trường phù hợp với mức quy định tương ứng được cung cấp bởi Công ty Cổ phần Kỹ thuật INTECH Sài Gòn.
+[P (Normal) [NUM]]: Kết quả đo lưu lượng khí cấp qua lọc HEPA
+
+[TABLE #11 (17x6) style='Normal Table']:
+  R00: Khu vực đo || Vị trí đo (2) || Lưu lượng gió, \n m3/h || Tổng lưu lượng, \n m3/h || Thể tích phòng (3), m3 || Số lần trao  \n đổi khí, \n ACH
+  R01: <V-MERGE:restart>Phòng sản xuất || 1 || 980 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R02: <V-MERGE:restart>Phòng sản xuất || 2 || 941 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R03: <V-MERGE:restart>Phòng sản xuất || 3 || 893 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R04: <V-MERGE:restart>Phòng sản xuất || 4 || 970 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R05: <V-MERGE:restart>Phòng sản xuất || 5 || 896 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R06: <V-MERGE:restart>Phòng sản xuất || 6 || 877 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R07: <V-MERGE:restart>Phòng sản xuất || 7 || 865 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R08: <V-MERGE:restart>Phòng sản xuất || 8 || 888 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R09: <V-MERGE:restart>Phòng sản xuất || 9 || 881 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R10: <V-MERGE:restart>Phòng sản xuất || 10 || 931 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R11: <V-MERGE:restart>Phòng sản xuất || 11 || 911 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R12: <V-MERGE:restart>Phòng sản xuất || 12 || 904 || <V-MERGE:restart>10937 || <V-MERGE:restart>383,9 || <V-MERGE:restart>28,5
+  R13: Airlock || 1 || 494 || 494 || 11,2 || 44,0
+  R14: <V-MERGE:restart>Phòng thay đồ || 1 || 970 || <V-MERGE:restart>1 961 || <V-MERGE:restart>76 || <V-MERGE:restart>25,8
+  R15: <V-MERGE:restart>Phòng thay đồ || 2 || 991 || <V-MERGE:restart>1 961 || <V-MERGE:restart>76 || <V-MERGE:restart>25,8
+  R16: Mức quy định cung cấp bởi công ty \n Cổ phần Kỹ thuật INTECH Sài Gòn || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || ≥ 25
+
+[TABLE #12 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (2) … Vị trí đo xem sơ đồ minh họa tại trang 3. \n (3)…Thể tích phòng được cung cấp bởi đại diện Công ty CP Kỹ thuật INTECH Sài Gòn. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.
+[P (Normal)]: Đánh giá:
+[P (Normal)]: - Kết quả tính toán số lần trao đổi khí tại “Phòng sản xuất”, “Phòng Air Lock” và “Phòng thay đồ” phù hợp với mức quy định tương ứng được cung cấp bởi Công ty Cổ phần Kỹ thuật INTECH Sài Gòn.
+
+### FILE: 985 - TBKQ - viet - 4 - khi nen.docx ###
+  Section 0: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+  Section 1: orient=PORTRAIT (0), page_w=210.0mm, page_h=297.0mm, hdr='KẾT QUẢ GIÁM ĐỊNH', ftr=''
+
+[TABLE #0 (17x10) style='Normal Table']:
+  R00: CHỨNG THƯ GIÁM ĐỊNH || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R01:  || <H-MERGE> ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R02: Phiếu yêu cầu & nhận Thẩm định/ Giám định || <H-MERGE> || : || 00985 || /N2.25/ || <H-MERGE> || DG || <H-MERGE> || Ngày: || 30/10/2025
+  R03: Đơn vị yêu cầu || <H-MERGE> || : || Công ty Cổ phần Kỹ thuật INTECH Sài Gòn || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R04: Địa chỉ || <H-MERGE> || : || Số 274, đường Đồng Đen, phường Bảy Hiền, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R05: Nội dung yêu cầu || <H-MERGE> || : || Lấy mẫu/ phân tích chất lượng khí nén || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R06: Địa điểm thực hiện || <H-MERGE> || : || Công ty TNHH Nextern Việt Nam, nhà xưởng C1B-D5,   lô C-1B-CN, đường DE5, khu công nghiệp Mỹ Phước 3, phường Thới Hoà, Thành phố Hồ Chí Minh || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R07: Thời gian thực hiện || <H-MERGE> || : || Từ 03/11/2025 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R08: Thiết bị sử dụng || <H-MERGE> || : ||  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R09: Giấy lọc thủy tinh Pall life Sciences (ID: 21956), ống than hoạt tính ORBO®                (ID: ORB00759) ; \n Máy đo nồng độ hạt bụi PMS Lasair III 110 và phụ kiện PMS HPD II-100                       (ID: N2-MT11/1), USA; \n Máy đo nhiệt độ điểm sương CS Instrument DP510 (ID: N2-MT10/1) và đầu đo áp suất CS 16 (ID: N2-MT10/2), Germany. || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R10: Quy trình thực hiện || <H-MERGE> || : || QUATEST3 3030:2025, N2.TC.KN.01 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R11: Căn cứ áp dụng/ đánh giá || <H-MERGE> || : || ISO 8573 - 1:2010 Compressed air - Part 1: Contaminants and purity classes || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R12: Kết quả giám định || <H-MERGE> || : || Xem từ trang 2/3 đến trang 3/3 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R13:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R14: Ghi chú: || Không được trích/ sao một phần Chứng thư giám định này nếu không được sự đồng ý bằng văn bản của Trung tâm Kỹ thuật Tiêu chuẩn Đo lường Chất lượng 3 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R15:  || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE>
+  R16: GIÁM ĐỊNH VIÊN \n  \n Nguyễn Xuân Nam || <H-MERGE> || <H-MERGE> || <H-MERGE> || <H-MERGE> ||  || <H-MERGE> || KT. GIÁM ĐỐC \n PHÓ GIÁM ĐỐC \n  \n Lê Đăng Huyền || <H-MERGE> || <H-MERGE>
+[P (Normal) [NUM]]: Nội dung thực hiện
+[P (Normal)]: Số lượng và vị trí thực hiện theo yêu cầu/ chỉ định của Công ty Cổ phần Kỹ thuật INTECH Sài Gòn:
+[P (Normal)]: + Số lượng vị trí lấy mẫu/ đo đạc		: 02
+[P (Normal)]: + Trạng thái hệ thống khí nén		: Đang hoạt động
+[P (Normal)]: + Trạng thái nhà xưởng		: Không hoạt động
+[P (Normal)]: Mô tả hệ thống khí nén tại thời điểm thực hiện:
+[P (Normal)]: Máy nén khí Tecbell TW-15A/8EPM  Bình chứa  Lọc Tecbell TB-007G-III (C)               Máy sấy khí Tecbell TB-026AH  Lọc Tecbell TB-007G-III (H)  Lọc Tecbell             TB-007G-III (TR)  Máy sấy khí Tecbell J-2509041  Lọc Tecbell TB-007G-III (A)  Lọc Tecbell TB-007G-III (T)  Điểm sử dụng
+
+[TABLE #1 (3x3) style='Normal Table']:
+  R00: Tên gọi vị trí đo/lấy mẫu/ Mô tả || Ký hiệu vị trí || Chỉ tiêu thực hiện
+  R01: Đường ống khí nén tại điểm nguồn của hệ thống máy nén khí Tecbell || KN1 || <V-MERGE:restart>Hàm lượng tổng dầu;  \n Nhiệt độ điểm sương; \n Nồng độ hạt bụi có kích thước (0,1-5,0) µm;
+  R02: Đường ống khí nén tại phòng sản xuất || KN2 || <V-MERGE:restart>Hàm lượng tổng dầu;  \n Nhiệt độ điểm sương; \n Nồng độ hạt bụi có kích thước (0,1-5,0) µm;
+
+[TABLE #2 (1x2) style='Table Grid']:
+  R00: Ghi chú: || Tên gọi vị trí lấy mẫu/ mô tả do đại diện công ty cung cấp, chỉ tiêu thực hiện tại mỗi vị trí theo yêu cầu của công ty.
+[P (Normal)]: Hình ảnh vị trí lấy mẫu/ đo đạc:
+
+[TABLE #3 (1x2) style='Table Grid']:
+  R00:  || 
+[P (Normal) [NUM]]: Kết quả giám định
+[P (Normal) [NUM]]: Hàm lượng tổng dầu
+
+[TABLE #4 (3x3) style='Normal Table']:
+  R00: Vị trí thực hiện || Hàm lượng tổng dầu, mg/m3 || Phân loại chất lượng (1)
+  R01: KN1 || < 0,01 || Class 1
+  R02: KN2 || < 0,01 || Class 1
+
+[TABLE #5 (1x2) style='Normal Table']:
+  R00: Ghi chú: || Hàm lượng tổng dầu bao gồm dầu ở dạng hạt và dầu ở dạng khí có trong khí nén tại vị trí lấy mẫu được quy về điều kiện áp suất tuyệt đối 1 bar, nhiệt độ 20 oC theo tiêu chuẩn          ISO 8573-1: 2010.  \n (1) … Phân loại chất lượng theo ISO 8573-1 :2010.
+[P (Normal) [NUM]]: Nhiệt độ điểm sương
+
+[TABLE #6 (4x6) style='Normal Table']:
+  R00: <V-MERGE:restart>Vị trí thực hiện \n (Thời gian đo) || Điều kiện đo || <H-MERGE> || Kết quả đo || <H-MERGE> || <H-MERGE>
+  R01: <V-MERGE:restart>Vị trí thực hiện \n (Thời gian đo) || Nhiệt độ  \n khí nén, \n oC || Áp suất  \n khí nén \n  bar || Nhiệt độ điểm sương T1 (2),  \n oC || Nhiệt độ điểm sương T2 (3), \n  oC || Hàm \n lượng \n nước (4), \n  mg H2O/m3
+  R02: KN1 \n (Từ 11:45 đến 12:05) || 28,9 || 7,7 || - 43,2 || - 43,9 \n  Class 2 (1) || 7,4
+  R03: KN2 \n (Từ 12:40 đến 13:30) || 22,4 || 7,3 || - 41,5 || - 41,8 \n  Class 2 (1) || 9,7
+
+[TABLE #7 (1x2) style='Normal Table']:
+  R00: Ghi chú: || (1) … Phân loại chất lượng theo ISO 8573-1 :2010. \n (2) … Nhiệt độ điểm sương tại điều kiện đo.  \n (3) … Nhiệt độ điểm sương quy về điều kiện áp suất khí nén 7 bar, nhiệt độ khí nén 20 oC    \n          theo tiêu chuẩn ISO 8573-3 : 1999. \n (4) … Hàm lượng nước (hơi nước) quy về điều kiện áp suất tuyệt đối 1 bar, nhiệt độ 20 oC    \n          theo tiêu chuẩn ISO 8573-1: 2010 (Kết quả cấp thêm theo yêu cầu của đại diện Công  \n          ty INTECH Sài Gòn)
+[P (Normal) [NUM]]: Nồng độ hạt bụi
+
+[TABLE #8 (6x6) style='Normal Table']:
+  R00: <V-MERGE:restart>Vị trí  \n thực hiện || Nồng độ hạt trong khí nén, hạt/m3 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Phân loại  \n chất lượng \n (1)
+  R01: <V-MERGE:restart>Vị trí  \n thực hiện || Hạt có kích thước \n 0,1 µm  d ≤ 0,5 µm || Hạt có kích thước \n 0,5 µm  d ≤ 1,0 µm || <H-MERGE> || Hạt có kích thước \n 1,0 µm  d ≤ 5,0 µm || <V-MERGE:restart>Phân loại  \n chất lượng \n (1)
+  R02: <V-MERGE:restart>KN1 || 158 712 || 53 || <H-MERGE> || 9 || <V-MERGE:restart>Class 2
+  R03: <V-MERGE:restart>KN1 || Nồng độ hạt bụi có kích thước d > 5,0 µm: 0 hạt/m3 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Class 2
+  R04: <V-MERGE:restart>KN2 || 93 619 || <H-MERGE> || 119 || 2 || <V-MERGE:restart>Class 2
+  R05: <V-MERGE:restart>KN2 || Nồng độ hạt bụi có kích thước d > 5,0 µm: 0 hạt/m3 || <H-MERGE> || <H-MERGE> || <H-MERGE> || <V-MERGE:restart>Class 2
+
+[TABLE #9 (1x2) style='Normal Table']:
+  R00: Ghi chú: || Nồng độ hạt trong khí nén tại vị trí lấy mẫu được quy về điều kiện áp suất tuyệt đối 1 bar, nhiệt độ 20 oC theo tiêu chuẩn ISO 8573-1: 2010. \n (1) ... Phân loại chất lượng theo ISO 8573-1 :2010. \n Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004.

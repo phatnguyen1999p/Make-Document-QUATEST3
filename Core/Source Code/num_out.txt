@@ -1,0 +1,227 @@
+=== New From 2026 ===
+
+--- TBKQ - en - 1 - phong sach - Q326D108033.docx ---
+  T0.R01 numId=10 ilvl=0 fmt=('%1.', '1'): Client
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection request documentation
+  T0.R04 numId=11 ilvl=0 fmt=('-', '2'): Inspection application no. :
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection request content
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection time
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection address
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection procedure
+  T0.R09 numId=10 ilvl=0 fmt=('%1.', '1'): Equipment used
+  T0.R10 numId=10 ilvl=0 fmt=('%1.', '1'): Applicable standard/ Evaluation criteria
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection result
+  P01 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Performance content
+  P10 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Measurement result of particle concentration
+
+--- TBKQ - en - 2 - khi nen - Q326D108033.docx ---
+  T0.R01 numId=10 ilvl=0 fmt=('%1.', '1'): Client
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection request documentation
+  T0.R04 numId=11 ilvl=0 fmt=('-', '2'): Inspection application no. :
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection request content
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection time
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection address
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection procedure
+  T0.R09 numId=10 ilvl=0 fmt=('%1.', '1'): Equipment used
+  T0.R10 numId=11 ilvl=0 fmt=('-', '2'): Glass fiber filter Pall life Sciences, carbon activated tube ORBO®;
+  T0.R10 numId=11 ilvl=0 fmt=('-', '2'): Airborne particle counter PMS Lasair III 110 and accessory PMS HPD II-100, USA;
+  T0.R10 numId=11 ilvl=0 fmt=('-', '2'): Dewpoint meter CS Instrument GmbH DP510 and pressure meter CS16, Germany.
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Applicable standard/ Evaluation criteria
+  T0.R12 numId=11 ilvl=0 fmt=('-', '2'): ISO 8573 - 1:2010 Compressed air - Part 1: Contaminants and purity classes;
+  T0.R12 numId=11 ilvl=0 fmt=('-', '2'): Requirements for compressed air provided by Nextern Vietnam Limited Liability Company.
+  T0.R13 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection result
+  P01 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Performance content
+  P15 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Inspection result
+
+--- TBKQ - viet - 1 - phong sach - Q326D108033.docx ---
+  T0.R01 numId=10 ilvl=0 fmt=('%1.', '1'): Đơn vị yêu cầu giám định
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Văn bản yêu cầu giám định
+  T0.R04 numId=11 ilvl=0 fmt=('-', '2'): Giấy yêu cầu và nhận giám định số:
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Nội dung yêu cầu giám định
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Thời gian giám định
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Địa điểm giám định
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Quy trình thực hiện
+  T0.R09 numId=10 ilvl=0 fmt=('%1.', '1'): Thiết bị sử dụng
+  T0.R10 numId=10 ilvl=0 fmt=('%1.', '1'): Căn cứ áp dụng/ đánh giá
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Kết quả giám định
+  P01 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Nội dung thực hiện
+  P10 numId=27 ilvl=1 fmt=('%1.%2', '2'): Kết quả đo nồng độ hạt bụi
+
+--- TBKQ - vn - 2 - khi nen - Q326D108033.docx ---
+  T0.R01 numId=10 ilvl=0 fmt=('%1.', '1'): Đơn vị yêu cầu giám định
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Văn bản yêu cầu giám định
+  T0.R04 numId=11 ilvl=0 fmt=('-', '2'): Giấy yêu cầu và nhận giám định số:
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Nội dung yêu cầu giám định
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Thời gian giám định
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Địa điểm giám định
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Quy trình thực hiện
+  T0.R09 numId=10 ilvl=0 fmt=('%1.', '1'): Thiết bị sử dụng
+  T0.R10 numId=11 ilvl=0 fmt=('-', '2'): Giấy lọc thủy tinh Pall life Sciences, ống than hoạt tính ORBO®;
+  T0.R10 numId=11 ilvl=0 fmt=('-', '2'): Máy đo nồng độ hạt bụi PMS Lasair III 110 và phụ kiện PMS HPD II-100, USA;
+  T0.R10 numId=11 ilvl=0 fmt=('-', '2'): Máy đo nhiệt độ điểm sương CS Instrument DP510 và đầu đo áp suất CS 16, Germany.
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Căn cứ áp dụng/ đánh giá
+  T0.R12 numId=11 ilvl=0 fmt=('-', '2'): ISO 8573 - 1:2010 Compressed air - Part 1: Contaminants and purity classes;
+  T0.R12 numId=11 ilvl=0 fmt=('-', '2'): Mức yêu cầu đối với khí nén cung cấp bởi Công ty TNHH Nextern Việt Nam.
+  T0.R13 numId=10 ilvl=0 fmt=('%1.', '1'): Kết quả giám định
+  P01 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Nội dung thực hiện
+  P16 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Kết quả giám định
+  P17 numId=27 ilvl=2 fmt=('%1.%2.%3', '1'): Hàm lượng tổng dầu
+  P22 numId=27 ilvl=2 fmt=('%1.%2.%3', '1'): Nhiệt độ điểm sương
+  P33 numId=27 ilvl=2 fmt=('%1.%2.%3', '1'): Nồng độ hạt bụi
+=== Old Form 2025 ===
+
+--- 985 - TBKQ - eng - 1 - phong sach - đợt 1.docx ---
+  T0.R02 numId=10 ilvl=0 fmt=('%1.', '1'): Request & registration for inspection
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Client
+  T0.R04 numId=10 ilvl=0 fmt=('%1.', '1'): Address
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Request
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Location of performance
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Time of performance
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Equipment used
+  T0.R09 numId=12 ilvl=0 fmt=('-', '1'): Portable particle counter TSI AeroTrak 9350 (ID: N2-MT32/2), USA;
+  T0.R09 numId=12 ilvl=0 fmt=('-', '1'): HEPA leakage test ATI 2i (ID: N2-MT02/1) and Aerosol generator ATI 6D            (ID: N2-MT02/2), USA.
+  T0.R10 numId=10 ilvl=0 fmt=('%1.', '1'): Implementation procedure
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Applicable standards/ Evaluation criteria
+  T0.R12 numId=12 ilvl=0 fmt=('-', '1'): ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration;
+  T0.R12 numId=12 ilvl=0 fmt=('-', '1'): ISO 14644-3:2019 Cleanrooms and associated controlled environments — Part 3: Test methods;
+  T0.R13 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection results
+  P04 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Performance content
+  P14 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Measuring result of particle concentration
+  P21 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Measurement result of HEPA filter leakage
+
+--- 985 - TBKQ - eng - 2 - phong sach - đợt 2.docx ---
+  T0.R02 numId=10 ilvl=0 fmt=('%1.', '1'): Request & registration for inspection
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Client
+  T0.R04 numId=10 ilvl=0 fmt=('%1.', '1'): Address
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Request
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Location of performance
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Time of performance
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Equipment used
+  T0.R09 numId=12 ilvl=0 fmt=('-', '1'): Portable particle counter TSI AeroTrak 9350 (ID: N2-MT32/2), USA;
+  T0.R09 numId=12 ilvl=0 fmt=('-', '1'): Thermohygrometer Testo 625 (ID: N2-MT33/1), Germany.
+  T0.R10 numId=10 ilvl=0 fmt=('%1.', '1'): Implementation procedure
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Applicable standards/ Evaluation criteria
+  T0.R12 numId=12 ilvl=0 fmt=('-', '1'): ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration;
+  T0.R12 numId=12 ilvl=0 fmt=('-', '1'): Permissible limit provided by the representative of  INTECH Saigon Engineering Joint Stock Company.
+  T0.R13 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection results
+  P03 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Performance content
+  P13 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Measuring result of particle concentration
+  P20 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Measurement result of temperature – humidity
+
+--- 985 - TBKQ - eng - 3 - phong sach - đợt 3.docx ---
+  T0.R02 numId=10 ilvl=0 fmt=('%1.', '1'): Request & registration for inspection
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Client
+  T0.R04 numId=10 ilvl=0 fmt=('%1.', '1'): Address
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Request
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Location of performance
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Time of performance
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Equipment used
+  T0.R09 numId=12 ilvl=0 fmt=('-', '1'): Portable particle counter TSI AeroTrak 9350 (ID: N2-MT32/2), USA;
+  T0.R09 numId=12 ilvl=0 fmt=('-', '1'): Airflow-pressure differential meter TSI AccuBalance 8380 (ID: N2-MT03), USA.
+  T0.R10 numId=10 ilvl=0 fmt=('%1.', '1'): Implementation procedure
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Applicable standards/ Evaluation criteria
+  T0.R12 numId=12 ilvl=0 fmt=('-', '1'): ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration;
+  T0.R12 numId=12 ilvl=0 fmt=('-', '1'): Permissible limit provided by the representative of  INTECH Saigon Engineering Joint Stock Company.
+  T0.R13 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection results
+  P03 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Performance content
+  P13 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Measuring result of particle concentration
+  P20 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Measurement result of pressure differentials between areas
+  P25 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Measurement result of airflow rate supply through HEPA filter
+
+--- 985 - TBKQ - eng - 4 - khi nen.docx ---
+  T0.R02 numId=10 ilvl=0 fmt=('%1.', '1'): Request & registration for inspection
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Client
+  T0.R04 numId=10 ilvl=0 fmt=('%1.', '1'): Address
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Request
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Location of performance
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Time of performance
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Equipment used
+  T0.R09 numId=11 ilvl=0 fmt=('-', '2'): Glass fiber filter Pall life Sciences (ID: 21956), carbon activated tube ORBO®      (ID: ORB00759);
+  T0.R09 numId=11 ilvl=0 fmt=('-', '2'): Portable particle counter PMS Lasair III 110 and accessory PMS HPD II-100         (ID: N2-MT11/1), USA;
+  T0.R09 numId=11 ilvl=0 fmt=('-', '2'): Dewpoint meter CS Instrument GmbH DP510 (ID: N2-MT10/1) and pressure meter CS16 (ID: N2-MT10/2), Germany.
+  T0.R10 numId=10 ilvl=0 fmt=('%1.', '1'): Implementation procedure
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Applicable standards / Evaluation criteria
+  T0.R12 numId=10 ilvl=0 fmt=('%1.', '1'): Inspection results
+  P00 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Performance content
+  P14 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Inspection result
+  P15 numId=10 ilvl=2 fmt=('%1.%2.%3.', '1'): Total oil content
+  P17 numId=10 ilvl=2 fmt=('%1.%2.%3.', '1'): Pressure dewpoint
+  P19 numId=10 ilvl=2 fmt=('%1.%2.%3.', '1'): Concentration of particles
+
+--- 985 - TBKQ - viet - 1 - phong sach - đợt 1.docx ---
+  T0.R02 numId=10 ilvl=0 fmt=('%1.', '1'): Phiếu yêu cầu & nhận Thẩm định/ Giám định
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Đơn vị yêu cầu
+  T0.R04 numId=10 ilvl=0 fmt=('%1.', '1'): Địa chỉ
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Nội dung yêu cầu
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Địa điểm thực hiện
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Thời gian thực hiện
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Thiết bị sử dụng
+  T0.R09 numId=15 ilvl=0 fmt=('-', '1'): Thiết bị đo nồng độ hạt bụi TSI AeroTrak 9350  (ID: N2-MT32/2), USA;
+  T0.R09 numId=15 ilvl=0 fmt=('-', '1'): Thiết bị quét rò rỉ lọc HEPA ATI 2i (ID: N2-MT02/1) và ATI 6D (ID: N2-MT02/2), USA.
+  T0.R10 numId=10 ilvl=0 fmt=('%1.', '1'): Quy trình thực hiện
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Căn cứ áp dụng/ đánh giá
+  T0.R12 numId=15 ilvl=0 fmt=('-', '1'): ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration;
+  T0.R12 numId=15 ilvl=0 fmt=('-', '1'): ISO 14644-3:2019 Cleanrooms and associated controlled environments — Part 3: Test methods;
+  T0.R13 numId=10 ilvl=0 fmt=('%1.', '1'): Kết quả giám định
+  P03 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Nội dung thực hiện
+  P14 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Kết quả đo nồng độ hạt bụi
+  P21 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Kết quả đo độ rò rỉ lọc HEPA
+
+--- 985 - TBKQ - viet - 2 - phong sach - đợt 2.docx ---
+  T0.R02 numId=10 ilvl=0 fmt=('%1.', '1'): Phiếu yêu cầu & nhận Thẩm định/ Giám định
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Đơn vị yêu cầu
+  T0.R04 numId=10 ilvl=0 fmt=('%1.', '1'): Địa chỉ
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Nội dung yêu cầu
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Địa điểm thực hiện
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Thời gian thực hiện
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Thiết bị sử dụng
+  T0.R09 numId=15 ilvl=0 fmt=('-', '1'): Thiết bị đo nồng độ hạt bụi TSI AeroTrak 9350 (ID: N2-MT32/2), USA;
+  T0.R09 numId=15 ilvl=0 fmt=('-', '1'): Thiết bị đo nhiệt độ - độ ẩm Testo 625 (ID: N2-MT33/1), Germany.
+  T0.R10 numId=10 ilvl=0 fmt=('%1.', '1'): Quy trình thực hiện
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Căn cứ áp dụng/ đánh giá
+  T0.R12 numId=15 ilvl=0 fmt=('-', '1'): ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration;
+  T0.R12 numId=15 ilvl=0 fmt=('-', '1'): Mức quy định được cung cấp bởi đại diện Công ty Cổ phần Kỹ thuật INTECH Sài Gòn.
+  T0.R13 numId=10 ilvl=0 fmt=('%1.', '1'): Kết quả giám định
+  P03 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Nội dung thực hiện
+  P14 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Kết quả đo nồng độ hạt bụi
+  P21 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Kết quả đo nhiệt độ - độ ẩm
+
+--- 985 - TBKQ - viet - 3 - phong sach - đợt 3.docx ---
+  T0.R02 numId=10 ilvl=0 fmt=('%1.', '1'): Phiếu yêu cầu & nhận Thẩm định/ Giám định
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Đơn vị yêu cầu
+  T0.R04 numId=10 ilvl=0 fmt=('%1.', '1'): Địa chỉ
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Nội dung yêu cầu
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Địa điểm thực hiện
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Thời gian thực hiện
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Thiết bị sử dụng
+  T0.R09 numId=15 ilvl=0 fmt=('-', '1'): Thiết bị đo nồng độ hạt bụi TSI AeroTrak 9350 (ID: N2-MT32/2), USA;
+  T0.R09 numId=15 ilvl=0 fmt=('-', '1'): Thiết bị đo lưu lượng gió-chênh lệch áp suất TSI AccuBalance 8380 (ID: N2-MT03), USA.
+  T0.R10 numId=10 ilvl=0 fmt=('%1.', '1'): Quy trình thực hiện
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Căn cứ áp dụng/ đánh giá
+  T0.R12 numId=15 ilvl=0 fmt=('-', '1'): ISO 14644-1:2015 Cleanrooms and associated controlled environments — Part 1: Classification of air cleanliness by particle concentration;
+  T0.R12 numId=15 ilvl=0 fmt=('-', '1'): Mức tiêu chuẩn được cung cấp bởi đại diện Công ty Cổ phần Kỹ thuật INTECH Sài Gòn.
+  T0.R13 numId=10 ilvl=0 fmt=('%1.', '1'): Kết quả giám định
+  P03 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Nội dung thực hiện
+  P14 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Kết quả đo nồng độ hạt bụi
+  P21 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Kết quả đo chênh lệch áp suất giữa hai khu vực
+  P26 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Kết quả đo lưu lượng khí cấp qua lọc HEPA
+
+--- 985 - TBKQ - viet - 4 - khi nen.docx ---
+  T0.R02 numId=10 ilvl=0 fmt=('%1.', '1'): Phiếu yêu cầu & nhận Thẩm định/ Giám định
+  T0.R03 numId=10 ilvl=0 fmt=('%1.', '1'): Đơn vị yêu cầu
+  T0.R04 numId=10 ilvl=0 fmt=('%1.', '1'): Địa chỉ
+  T0.R05 numId=10 ilvl=0 fmt=('%1.', '1'): Nội dung yêu cầu
+  T0.R06 numId=10 ilvl=0 fmt=('%1.', '1'): Địa điểm thực hiện
+  T0.R07 numId=10 ilvl=0 fmt=('%1.', '1'): Thời gian thực hiện
+  T0.R08 numId=10 ilvl=0 fmt=('%1.', '1'): Thiết bị sử dụng
+  T0.R09 numId=11 ilvl=0 fmt=('-', '2'): Giấy lọc thủy tinh Pall life Sciences (ID: 21956), ống than hoạt tính ORBO®                (ID: ORB00759) ;
+  T0.R09 numId=11 ilvl=0 fmt=('-', '2'): Máy đo nồng độ hạt bụi PMS Lasair III 110 và phụ kiện PMS HPD II-100                       (ID: N2-MT11/1), USA;
+  T0.R09 numId=11 ilvl=0 fmt=('-', '2'): Máy đo nhiệt độ điểm sương CS Instrument DP510 (ID: N2-MT10/1) và đầu đo áp suất CS 16 (ID: N2-MT10/2), Germany.
+  T0.R10 numId=10 ilvl=0 fmt=('%1.', '1'): Quy trình thực hiện
+  T0.R11 numId=10 ilvl=0 fmt=('%1.', '1'): Căn cứ áp dụng/ đánh giá
+  T0.R12 numId=10 ilvl=0 fmt=('%1.', '1'): Kết quả giám định
+  P04 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Nội dung thực hiện
+  P18 numId=10 ilvl=1 fmt=('%1.%2.', '1'): Kết quả giám định
+  P19 numId=10 ilvl=2 fmt=('%1.%2.%3.', '1'): Hàm lượng tổng dầu
+  P21 numId=10 ilvl=2 fmt=('%1.%2.%3.', '1'): Nhiệt độ điểm sương
+  P23 numId=10 ilvl=2 fmt=('%1.%2.%3.', '1'): Nồng độ hạt bụi

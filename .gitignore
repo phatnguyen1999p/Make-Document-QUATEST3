@@ -1,0 +1,24 @@
+# Dữ liệu hồ sơ khách hàng — KHÔNG đưa lên GitHub (nguồn thật nằm trên Z)
+/Input/
+
+# Thư mục lớn (> 900 MB) — để một bản chỉ đọc trên Z, mỗi máy chép về / trỏ biến môi trường
+/HieuChuan/
+/MTLD/
+
+# Sinh ra khi build / chạy
+/dist/
+*.egg-info/
+__pycache__/
+*.pyc
+/scratch/
+*_log.txt
+qa_*.txt
+_checkpoint/
+_optimized/
+
+# File tạm của Office
+~$*
+*.tmp
+
+# Khóa phiên — chỉ có nghĩa trên từng máy
+/Context/_khoa/

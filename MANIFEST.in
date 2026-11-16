@@ -1,0 +1,7 @@
+include README.md
+include AGENTS.md
+include pyproject.toml
+include setup.py
+recursive-include Core *
+global-exclude *.pyc
+global-exclude __pycache__
