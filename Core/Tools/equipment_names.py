@@ -120,6 +120,33 @@ EQUIPMENT: dict[str, tuple[str, str, str]] = {
         "Compressed air microbial sampler SAS Pinocchio Super II, Italy",
         r"pinocchio",
     ),
+    # --- Nước (đo nhanh hiện trường) — người dùng chốt 16/11/2026: tên theo danh mục ---
+    "mettler_s2": (
+        "Thiết bị đo pH Mettler Toledo Seven2Go S2, USA",
+        "pH meter Mettler Toledo Seven2Go S2, USA",
+        r"seven\s*2\s*go|mettler",
+    ),
+    "hach_dr900": (
+        "Thiết bị đo clo dư Hach DR900, USA",
+        "Chlorine meter Hach DR900, USA",
+        r"dr\s*900",
+    ),
+    # --- Nước thải / nước dưới đất (đo nhanh hiện trường) — thêm 16/11/2026 theo mẫu 100302, 106141, 106227 ---
+    "hach_dr300": (
+        "Thiết bị đo clo dư Hach DR300, USA",
+        "Chlorine meter Hach DR300, USA",
+        r"dr\s*300",
+    ),
+    "hanna_hi98192": (
+        "Thiết bị đo TDS Hanna HI 98192, USA",
+        "TDS meter Hanna HI 98192, USA",
+        r"hi\s*98192",
+    ),
+    "hanna_hi98190": (
+        "Thiết bị đo pH Hanna HI 98190, USA",
+        "pH meter Hanna HI 98190, USA",
+        r"hi\s*98190",
+    ),
 }
 
 _RX = {k: re.compile(v[2], re.I) for k, v in EQUIPMENT.items()}

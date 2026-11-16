@@ -1,6 +1,6 @@
 ---
 name: lam-ho-so
-description: Quy trình làm một hồ sơ giám định "Làm KQ" (QUATEST 3) — BCKQ, TBKQ VN/EN, phiếu tính toán Excel, tem tủ, PDF. Dùng khi người dùng giao một hồ sơ theo 6 số (vd "làm hồ sơ 139329", "dựng lại 137058", "KQTN về rồi"), hoặc hỏi tiến độ một hồ sơ.
+description: Quy trình làm một hồ sơ giám định "Làm KQ" (QUATEST 3) — BCKQ, TBKQ VN/EN, phiếu tính toán Excel, tem tủ, PDF; gồm cả hồ sơ nước uống, nước sinh hoạt, nước thải, nước dưới đất, bùn thải / chất thải. Dùng khi người dùng giao một hồ sơ theo 6 số (vd "làm hồ sơ 139329", "dựng lại 137058", "KQTN về rồi"), hoặc hỏi tiến độ một hồ sơ.
 ---
 
 # Làm một hồ sơ "Làm KQ"
@@ -30,3 +30,4 @@ Các ý dưới đây trước chỉ nằm trong bộ nhớ Claude của máy N2
 - Không có KQTN → ngày ban hành = ngày hiện tại (`CERT_DATE = date.today()`), tự cập nhật cả khi dựng lại, không hỏi lại (mục 2).
 - Hỏi gộp một lần mọi điểm cần người dùng quyết (mục 15).
 - Khách hàng quen: xem `references/khach-quen.md`.
+- Hồ sơ nước / nước thải / nước dưới đất / bùn thải / chất thải (chưa có handler Core, mẫu `build_nuoc_mau.py`): đọc `references/ho-so-nuoc.md` trước khi dựng.

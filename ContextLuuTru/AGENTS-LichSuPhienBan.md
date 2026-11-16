@@ -2,6 +2,12 @@
 
 > Dòng phiên bản đầu `AGENTS.md` chỉ giữ bản mới nhất (từ 12/11/2026). Mỗi lần tăng phiên bản, dòng cũ chép nguyên văn lên **đầu** danh sách dưới đây. Không đọc đầu phiên.
 
+> **Phiên bản 16/11/2026 10:40** (Claude Code — mục 8C, 14, 2: **hồ sơ nước uống (NU) / nước sinh hoạt (NSH)** — 7 điểm người dùng chốt 16/11/2026 (`QUATEST 3` có dấu cách; tên máy `mettler_s2`, `hach_dr900`; tên chỉ tiêu theo phiếu KQTN; luôn có Đánh giá; clo dư hiện trường < 0,1 → `< 0,1`; `Từ ngày`; header nước `- Ngày: `), form chi tiết `Nước/00 - Form ket qua nuoc (AI hoc).md`). Lịch sử phiên bản trước: `ContextLuuTru/AGENTS-LichSuPhienBan.md`.
+
+> **Phiên bản 16/11/2026 11:20** (Claude Code — mục 3, 8C, 14: nước thải / bùn thải; câu VIMCERTS 078 xét theo thư mục Z `0.VIMCERTS078` — thay ở bản 12:00 bằng cách xét theo quy chuẩn BYT / không BYT; mg/L, "thông số", `Đánh giá:`; máy `hach_dr300`, `hanna_hi98192`, `hanna_hi98190`).
+
+> **Phiên bản 15/11/2026 10:30** (Claude Code — mục 14: **lấy mẫu tổng dầu khí nén ghi `Giấy lọc thủy tinh Pall life Sciences, ống than hoạt tính ORBO®`** (EN `Glass fiber filter Pall life Sciences, carbon activated tube ORBO®`), thay `Dụng cụ lấy mẫu tổng dầu (Regulator, Charcoal tube, Cassette)` — mã `oil_kit`; người dùng chốt 15/11/2026, hồ sơ 096547). Lịch sử phiên bản trước: `ContextLuuTru/AGENTS-LichSuPhienBan.md`.
+
 > **Phiên bản 14/11/2026 15:25** (Claude Code — mục 8C, viện dẫn ở mục 3: **khuôn phụ lục TBKQ vi sinh không khí / bề mặt** theo mẫu Q326D124796 (K Pack) — bảng vị trí 3 cột, bảng kết quả chỉ ghi ký hiệu, thứ tự ghi chú; người dùng yêu cầu 14/11/2026, duyệt trên 137058).
 
 > **Phiên bản 13/11/2026 15:30** (Claude Code — mục 14: thêm máy `sas_pinocchio` (SAS Pinocchio Super II, vi sinh khí nén) vào danh mục tên máy, hồ sơ 134179).

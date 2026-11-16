@@ -35,6 +35,34 @@ A_NS = "http://schemas.openxmlformats.org/drawingml/2006/main"
 # Cau cong nhan bat buoc trong bang 'Ghi chú:' / 'Note:' duoi moi bang ket qua TBKQ (nguoi dung chot 30/10/2026)
 ACCREDIT_VN = "Lĩnh vực thực hiện được công nhận ISO 17020 - VIAS 004"
 ACCREDIT_EN = "The performance field is accredited to ISO 17020 - VIAS 004"
+
+
+def _note_norm(note_text: str) -> str:
+    return re.sub(r"\s+", " ", note_text.lower()).replace("–", "-")   # VIAS viết gạch '–' cũng nhận
+
+
+_BYT_WATER_RE = re.compile(r"nước uống|nước sinh hoạt|nước sạch|nước cấp|drinking water|domestic water|clean water")
+_ENV_WATER_RE = re.compile(r"nước|water|bùn|sludge|chất thải|waste")
+
+
+def is_vimcerts(table0_text: str) -> bool:
+    """Câu công nhận theo QUY CHUẨN (người dùng chốt 16/11/2026, AGENTS mục 3, 8C): mẫu nước dùng QCVN …/BYT
+    (nước uống, nước sinh hoạt, nước sạch, nước cấp) -> VIAS 004; các mẫu nước / bùn / chất thải còn lại
+    (QCVN …/BTNMT, …/BNNMT, mức KH) -> VIMCERTS 078; mọi loại hồ sơ khác (tủ, phòng sạch, khí nén…) -> VIAS 004.
+    ``table0_text``: chữ của bảng bìa (Table 0) — xét dòng 'Nội dung yêu cầu' và 'Căn cứ'."""
+    t = to_nfc(table0_text).lower()
+    if "/byt" in t.replace(" ", ""):
+        return False
+    if _BYT_WATER_RE.search(t):
+        return False
+    m = re.search(r"(nội dung yêu cầu giám định|inspection request content)(.{0,200})", t, re.S)
+    scope = m.group(2) if m else ""
+    return bool(_ENV_WATER_RE.search(scope))
+
+
+VIMCERTS_KEY = "vimcerts 078"
+
+
 # Bang ket qua = dong tieu de co cot ket qua / vi tri do (khong tinh bang thong tin khu vuc, bang anh/so do)
 RESULT_TABLE_RE = re.compile(r"kết quả|result|vị trí đo|measuring point|measurement point")
 
@@ -508,6 +536,10 @@ def check_single_docx(docx_path: str, code: str = None, old_terms: list[str] = N
                     body = root.find(f"{{{W_NS}}}body")
                     body_tbls = body.findall(f"{{{W_NS}}}tbl") if body is not None else []
                     tbl_txt = [to_nfc("".join(t.itertext())).strip() for t in body_tbls]
+                    # Câu công nhận theo quy chuẩn: nước QCVN …/BYT -> VIAS 004; nước / bùn / chất thải còn lại -> VIMCERTS 078
+                    # (người dùng chốt 16/11/2026, AGENTS mục 3, 8C)
+                    vim = is_vimcerts(tbl_txt[0]) if tbl_txt else False
+                    vim_txt = "Parameters are accredited to VIMCERTS 078" if is_en_doc else "Các thông số được chứng nhận VIMCERTS 078"
                     is_note = [t.startswith(("Ghi chú", "Note")) for t in tbl_txt]
                     for t_idx, tbl_el in enumerate(body_tbls):
                         if t_idx == 0 or is_note[t_idx]:
@@ -518,10 +550,27 @@ def check_single_docx(docx_path: str, code: str = None, old_terms: list[str] = N
                         hdr = to_nfc(" ".join("".join(r.itertext()) for r in tbl_rows[:2])).lower()
                         if not RESULT_TABLE_RE.search(hdr):
                             continue
+                        want = vim_txt if vim else accredit
                         if not (t_idx + 1 < len(body_tbls) and is_note[t_idx + 1]):
-                            issues.append(f"[Missing Accreditation Note] Table #{t_idx} (result table) has no 'Ghi chú:/Note:' table right below it (must contain '{accredit}').")
-                        elif acc_norm not in re.sub(r"\s+", " ", tbl_txt[t_idx + 1].lower()):
-                            issues.append(f"[Missing Accreditation Note] Note table under result table #{t_idx} lacks '{accredit}.'")
+                            issues.append(f"[Missing Accreditation Note] Table #{t_idx} (result table) has no 'Ghi chú:/Note:' table right below it (must contain '{want}').")
+                            continue
+                        nt = _note_norm(tbl_txt[t_idx + 1])
+                        has_vias, has_vim = acc_norm in nt, VIMCERTS_KEY in nt
+                        if vim:
+                            if not has_vim:
+                                issues.append(f"[Missing Accreditation Note] Note table under result table #{t_idx}: mẫu nước / bùn / chất thải không theo QCVN …/BYT phải ghi '● {vim_txt}.' ở dòng đầu (AGENTS mục 3, 8C).")
+                            else:
+                                note_rows = body_tbls[t_idx + 1].findall(f"{{{W_NS}}}tr")
+                                first = _note_norm("".join(note_rows[1].itertext())) if len(note_rows) > 1 else ""
+                                if VIMCERTS_KEY not in first:
+                                    issues.append(f"[Accreditation Order] Note table under result table #{t_idx}: câu VIMCERTS 078 phải ở dòng đầu bảng Ghi chú.")
+                            if has_vias:
+                                issues.append(f"[Wrong Accreditation Note] Note table under result table #{t_idx}: hồ sơ VIMCERTS không ghi câu VIAS 004 — chỉ ghi câu VIMCERTS 078.")
+                        else:
+                            if has_vim:
+                                issues.append(f"[Wrong Accreditation Note] Note table under result table #{t_idx}: câu VIMCERTS 078 chỉ dùng cho mẫu nước / bùn / chất thải không theo QCVN …/BYT — hồ sơ này ghi '{accredit}.'")
+                            if not has_vias:
+                                issues.append(f"[Missing Accreditation Note] Note table under result table #{t_idx} lacks '{accredit}.'")
 
                 # Check 2-column / 3-column image tables and image crop (AGENTS.md Section 3)
                 for t_idx, tbl_el in enumerate([] if is_tem else root.findall(f".//{{{W_NS}}}tbl")):
