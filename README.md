@@ -114,3 +114,14 @@ Khi mở một thư mục hồ sơ mới trong workspace (`Input\<6 số>\` — 
 Hồ sơ đặc thù (nhiều báo cáo, phòng sạch) chạy bằng script riêng ở gốc workspace: `build_132488.py` / `chay_132488.bat`, `build_cleanroom_132115.py` + `generate_all_reports.py` / `chay_132115.bat` (xem `AGENTS.md` mục 10).
 
 Kiểm tra QA: `python Core\Tools\qa_check.py final-check <thư mục|file> [--code <mã>]` (phải `[CLEAN]`), `check-pdf <thư mục pdf>`.
+
+## Plugin Claude Code `lamkq` (cài trên máy mới)
+
+Plugin (hook đầu phiên, chặn lệnh nguy hiểm trên Z, skill làm hồ sơ / chép Z / setup máy mới) nằm ở `CongCu/lamkq-marketplace/lamkq`; marketplace khai ở `.claude-plugin/marketplace.json` của repo. Repo Private → máy phải đăng nhập GitHub trước (lần `git clone` đầu).
+
+```
+claude plugin marketplace add phatnguyen1999p/Make-Document-QUATEST3
+claude plugin install lamkq@lamkq-marketplace
+```
+
+Chi tiết: `CongCu/lamkq-marketplace/README.md`.

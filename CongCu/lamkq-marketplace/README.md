@@ -18,12 +18,21 @@ Plugin chỉ đóng gói **hành vi của Claude** (skill, hook). Code dự án 
 
 Cần: Claude Code, Python trên PATH (hoặc biến `LAMKQ_PYTHON`), thư mục dự án `Làm KQ` đã có `CongCu\lamkq-marketplace`.
 
-Chạy trong terminal (dialog `/plugin` không có trong app desktop):
+Chạy trong terminal (dialog `/plugin` không có trong app desktop). Cách 1 — từ GitHub (repo Private, máy đã đăng nhập GitHub; dùng `.claude-plugin/marketplace.json` ở gốc repo):
+
+```
+claude plugin marketplace add phatnguyen1999p/Make-Document-QUATEST3
+claude plugin install lamkq@lamkq-marketplace
+```
+
+Cách 2 — từ thư mục dự án đã có trên máy (máy N2-PHAT cài theo cách này 16/11/2026):
 
 ```
 claude plugin marketplace add "C:\Users\<user>\Desktop\Source\Làm KQ\CongCu\lamkq-marketplace"
 claude plugin install lamkq@lamkq-marketplace
 ```
+
+Hai cách cùng tên marketplace `lamkq-marketplace` → mỗi máy chỉ dùng một cách.
 
 Mở phiên mới trong thư mục dự án → thấy dòng `[lamkq] Công cụ dùng bản trong CongCu:` là hook đã chạy.
 
