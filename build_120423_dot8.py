@@ -35,14 +35,16 @@ Quyết định của người dùng (17/11/2026):
   - Phòng mổ tầng hầm: "Bỏ vị trí 52 (file 636)" -> 9 vị trí 43–51 (= BBLM 51, bảng khối lượng 9).
   - Phòng mổ 10: "Dùng 615–623" (file 614 = zero theo dữ liệu máy; phiếu ghi "zero 615", 616–624).
   - Sơ đồ: vị trí căn đều theo vách (lưới), vi sinh hình thoi xanh lá, ký hiệu đè chữ -> nhãn dẫn mũi tên (17/11/2026).
+  - Vi sinh: "cái phòng mổ tầng trệt là 200L, còn lại lấy mẫu 100L" (Phòng mổ 10: LOD < 5 CFU/m³, còn lại < 10);
+    "ảnh t sẽ chép sau, và chạy chung khi có vi sinh" -> khi có KQTN + ảnh mới dựng lại, chép Z (17/11/2026).
 
 Suy luận của AI (cần người dùng xác nhận):
   (1) Chỉ dựng TBKQ tiếng Việt như đợt 5–7.
-  (2) Vi sinh 100 L/phút × 01 phút như đợt 7 (phiếu đợt 8 để trống) -> LOD < 10 CFU/m³; không có mẫu blank.
+  (2) Không có mẫu blank (phiếu không ghi); lưu lượng Buck 100 L/phút (200 L = 2 phút).
   (3) Phòng mổ tầng hầm không ghi zero -> dùng zero 614 (lần zero gần nhất trước file 627); file 625, 626 không có.
   (4) Tên khu vực theo bảng khối lượng; P. Đệm / hành lang chia theo sơ đồ đánh dấu tay.
   (5) Số phiếu tính toán Q326D120423/8/Bụi, /8/Vi sinh; ngày ban hành = ngày KQTN (chờ).
-  (6) Không có ảnh -> TBKQ / BCKQ không có mục ảnh.
+  (6) Ảnh: tự lấy thư mục Photo* (Use nếu có) trong Input/120423/Dot8 — chép từ Z khi người dùng đưa ảnh lên.
 
 Vi sinh CHƯA có KQTN: điền VI_SINH_CFU_DIA (ký hiệu mẫu 1..19), KQTN_SO, KQTN_NGAY rồi chạy lại.
 
@@ -85,7 +87,21 @@ INPUT_DIR = os.path.join(WORKSPACE, "Input", CODE6, "Dot8")
 LAYOUT_DIR = os.path.join(WORKSPACE, "Input", CODE6, "Layout")
 SCAN = os.path.join(INPUT_DIR, "20261117170142289.pdf")
 RAW_XLSX = os.path.join(INPUT_DIR, "KQ Do", "6ChannelFixed.xlsx")
-PHOTO_DIR = None                 # đợt 8 không có ảnh — suy luận (6)
+def _find_photo_dir():
+    """Ảnh người dùng chép sau (17/11/2026: "ảnh t sẽ chép sau"): thư mục Photo*/photo* trong Input\\120423\\Dot8,
+    có thư mục con Use / USE thì chỉ dùng Use (AGENTS mục 1). Chưa có -> None (không có mục ảnh)."""
+    if not os.path.isdir(INPUT_DIR):
+        return None
+    for d in sorted(os.listdir(INPUT_DIR)):
+        p = os.path.join(INPUT_DIR, d)
+        if os.path.isdir(p) and d.lower().startswith("photo"):
+            use = next((os.path.join(p, u) for u in os.listdir(p) if u.lower() in ("use", "used")
+                        and os.path.isdir(os.path.join(p, u))), None)
+            return use or p
+    return None
+
+
+PHOTO_DIR = _find_photo_dir()
 PLAN_C2 = os.path.join(LAYOUT_DIR, "Mặt bằng Màng Hepa - Nội trú C2, C3.pdf")
 PLAN_PM10 = os.path.join(LAYOUT_DIR, "Mặt bằng Màng Lọc Hepa - Phòng mổ số 10.pdf")
 DIAGRAM_DIR = os.path.join(INPUT_DIR, "TBKQ", "_diagrams")
@@ -96,7 +112,15 @@ KQTN_NGAY = ""
 VI_SINH_CFU_DIA = {i: None for i in range(1, 20)}   # CFU/đĩa theo ký hiệu mẫu 1..19; 0 = "< 1"
 VI_SINH_BLANKS = {}                                  # phiếu không ghi mẫu blank
 VI_SINH_KQ = {}
-VS_FLOW_LPM, VS_MINUTES = 100, 1      # suy luận (2)
+VS_FLOW_LPM = 100                     # Buck B30120 100 L/phút
+# Thể tích lấy mẫu vi sinh (L) — người dùng chốt 17/11/2026: "phòng mổ tầng trệt là 200L, còn lại lấy mẫu 100L"
+VS_VOLUME_DEFAULT = 100
+VS_VOLUME_L = {"Phòng mổ 10 (tầng trệt)": 200}
+
+
+def vs_volume(sample) -> int:
+    room = next((r["vn"] for r in ROOMS for _, s, _ in r["vs"] if s == sample), None)
+    return VS_VOLUME_L.get(room, VS_VOLUME_DEFAULT)
 BLANK_LIST = ", ".join(str(s) for s in VI_SINH_BLANKS)
 N_VS = len(VI_SINH_CFU_DIA)
 
@@ -254,7 +278,7 @@ def dust_ok():
 
 def vs_value(sample):
     """Kết quả CFU/m³ của một ký hiệu mẫu; chưa có -> PLACEHOLDER."""
-    vol_m3 = VS_FLOW_LPM * VS_MINUTES / 1000.0
+    vol_m3 = vs_volume(sample) / 1000.0
     kq = VI_SINH_KQ.get(sample)
     if kq not in (None, ""):
         return kq
@@ -754,8 +778,14 @@ def _fix_misc(doc):
                         h.set(qn("w:val"), "560")
     _replace_in_doc(doc, f"đối với cấp sạch {GRADE} nêu tại", f"đối với khu vực sạch {GMP(GRADE)} nêu tại")
     _replace_in_doc(doc, "WHO TRS 961 (2011) – Phụ lục 6", BASIS_VN)
-    lod = round(1000 / (VS_FLOW_LPM * VS_MINUTES))
-    _replace_in_doc(doc, "“< 10 CFU/m³”", f"“< {lod} CFU/m³”")
+    # LOD theo thể tích lấy mẫu: 100 L -> < 10, 200 L (Phòng mổ 10) -> < 5 CFU/m³
+    vols = sorted({vs_volume(s) for r in ROOMS for _, s, _ in r["vs"]})
+    if len(vols) == 1:
+        new = f"“< {round(1000 / vols[0])} CFU/m³”"
+    else:
+        new = " hoặc ".join(f"“< {round(1000 / v)} CFU/m³” ({v} L)" for v in vols)
+    _replace_in_doc(doc, "“< 10 CFU/m³”", "§LOD§")      # 2 bước: _replace_in_doc bỏ qua khi chuỗi cũ nằm trong mới
+    _replace_in_doc(doc, "§LOD§", new)
 
 
 def _drop_trailing_empty(doc):
@@ -886,7 +916,7 @@ def build_excel() -> str:
         book.put(wv, r, 2, f"{room} - vị trí {n}", align=LEFT)
         book.put(wv, r, 3, sample)
         book.put(wv, r, 4, VS_FLOW_LPM)
-        book.put(wv, r, 5, VS_MINUTES)
+        book.put(wv, r, 5, vs_volume(sample) / VS_FLOW_LPM)
         book.put(wv, r, 6, f"=D{r}*E{r}")
         cfu = VI_SINH_CFU_DIA.get(sample)
         c_ = book.put(wv, r, 7, "< 1" if cfu == 0 else cfu)      # ghi như KQTN (AGENTS mục 13)
