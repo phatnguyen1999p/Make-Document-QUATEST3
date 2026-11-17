@@ -130,6 +130,76 @@ def snap_to_grid(points: list[Point], quad: Quad, counts: list[int] | None = Non
     return [slots[j] for j in asg]
 
 
+Box = tuple[float, float, float, float]          # x0, y0, x1, y1
+
+
+def _hit(a: Box, b: Box, gap: float = 0.0) -> bool:
+    return a[0] - gap < b[2] and b[0] - gap < a[2] and a[1] - gap < b[3] and b[1] - gap < a[3]
+
+
+def _box(x: float, y: float, w: float, h: float) -> Box:
+    return (x - w / 2, y - h / 2, x + w / 2, y + h / 2)
+
+
+def _inside(quad: Quad, p: Point) -> bool:
+    """Điểm nằm trong tứ giác lồi (4 góc theo thứ tự vòng)."""
+    sign = None
+    for a, b in zip(quad, quad[1:] + quad[:1]):
+        c = (b[0] - a[0]) * (p[1] - a[1]) - (b[1] - a[1]) * (p[0] - a[0])
+        if abs(c) < 1e-9:
+            continue
+        if sign is None:
+            sign = c > 0
+        elif (c > 0) != sign:
+            return False
+    return True
+
+
+def add_callouts(markers: list[dict], avoid: list[Box], bounds: Box | None = None,
+                 radii=(150, 200, 260, 330, 420), n_angles: int = 24, gap: float = 10) -> list[str]:
+    """Ký hiệu đè chữ (tên phòng, chữ in sẵn trên mặt bằng — `avoid`) -> giữ nguyên vị trí lưới, đặt nhãn ra chỗ trống
+    gần nhất và dẫn mũi tên vào vị trí (người dùng yêu cầu 17/11/2026: "nếu đè chữ thì thêm label ngoài hình và dẫn
+    mũi tên vào khu vực"). Ghi `m["callout"] = (lx, ly)` cho marker cần dẫn; `drawio_layout` vẽ nhãn ở đó + mũi tên
+    tới (x, y). Chỗ đặt nhãn không đè chữ, không đè ký hiệu / nhãn khác, nằm trong `bounds`. Trả danh sách nhãn đã dẫn."""
+    size = lambda m: (m.get("w", 66), m.get("h", 66))
+    taken = [_box(m["x"], m["y"], *size(m)) for m in markers]
+    done = []
+    for i, m in enumerate(markers):
+        w, h = size(m)
+        if not any(_hit(_box(m["x"], m["y"], w, h), a) for a in avoid):
+            continue
+        best = None
+        region = m.get("region")          # tứ giác phòng: nhãn nằm trong cùng phòng, mũi tên không cắt qua vách
+        for in_room in ((True, False) if region else (False,)):
+            for r in radii:
+                for k in range(n_angles):
+                    ang = 2 * math.pi * k / n_angles
+                    lx, ly = m["x"] + r * math.cos(ang), m["y"] + r * math.sin(ang)
+                    b = _box(lx, ly, w, h)
+                    if bounds and not (bounds[0] <= b[0] and b[2] <= bounds[2] and bounds[1] <= b[1]
+                                       and b[3] <= bounds[3]):
+                        continue
+                    if in_room and not all(_inside(region, c) for c in ((b[0], b[1]), (b[2], b[1]),
+                                                                         (b[2], b[3]), (b[0], b[3]))):
+                        continue
+                    if any(_hit(b, a, gap) for a in avoid) or any(_hit(b, t, gap) for j, t in enumerate(taken)
+                                                                  if j != i):
+                        continue
+                    best = (lx, ly)
+                    break
+                if best:
+                    break
+            if best:
+                break
+        if best is None:
+            print(f"[even_grid] Không tìm được chỗ trống cho nhãn '{m.get('text')}' — giữ tại vị trí, kéo tay trên draw.io")
+            continue
+        m["callout"] = best
+        taken[i] = _box(best[0], best[1], w, h)     # vị trí lưới chỉ còn đầu mũi tên
+        done.append(str(m.get("text")))
+    return done
+
+
 def rect_quad(u0: float, u1: float, v0: float, v1: float, angle_deg: float = 0.0) -> Quad:
     """Tứ giác của hình chữ nhật [u0,u1]×[v0,v1] trong hệ trục xoay `angle_deg` (vách nghiêng xuống bên phải > 0)."""
     c, s = math.cos(math.radians(angle_deg)), math.sin(math.radians(angle_deg))

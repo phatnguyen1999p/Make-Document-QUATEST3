@@ -113,6 +113,15 @@ def _arrow(cid, parent, x0, y0, x1, y1, color, width=5):
         f'</mxGeometry></mxCell>')
 
 
+def _callout_arrow(cid, parent, source_id, x1, y1, color="#000000", width=4):
+    """Mũi tên từ ký hiệu `source_id` (gắn vào ô — kéo nhãn thì mũi tên đi theo) tới điểm (x1, y1)."""
+    return ET.fromstring(
+        f'<mxCell id="{cid}" value="" style="endArrow=block;endFill=1;html=0;strokeColor={color};'
+        f'strokeWidth={width};endSize=10;" edge="1" parent="{parent}" source="{source_id}">'
+        f'<mxGeometry relative="1" as="geometry"><mxPoint x="{x1:.1f}" y="{y1:.1f}" as="targetPoint"/>'
+        f'</mxGeometry></mxCell>')
+
+
 def _item(cid, parent, spec: dict, cx: float, cy: float, text: str = ""):
     """Ký hiệu có tâm (cx, cy). spec: preset + ghi đè (shape text/ellipse/rect/arrow, color, font_size, w, h…)."""
     spec = {**PRESETS.get(spec.get("preset", ""), {}), **spec}
@@ -172,7 +181,13 @@ def build_layout_drawio(drawio_path: str, plan, markers: list[dict], rooms: dict
                                 "rounded=0;html=0;fillColor=none;strokeColor=#000000;strokeWidth=2;"))
         root.append(_layer(LAYER_POINTS, LAYER_LABELS[LAYER_POINTS]))
         for i, m in enumerate(markers, 1):
-            root.append(_item(f"pt{i}", LAYER_POINTS, m, m["x"], m["y"], m.get("text", "")))
+            if m.get("callout"):          # nhãn đặt ra chỗ trống + mũi tên dẫn vào vị trí (even_grid.add_callouts)
+                lx, ly = m["callout"]
+                root.append(_item(f"pt{i}", LAYER_POINTS, m, lx, ly, m.get("text", "")))
+                root.append(_callout_arrow(f"pt{i}a", LAYER_POINTS, f"pt{i}", m["x"], m["y"],
+                                           m.get("stroke", "#000000")))
+            else:
+                root.append(_item(f"pt{i}", LAYER_POINTS, m, m["x"], m["y"], m.get("text", "")))
         root.append(_layer(LAYER_TEXT, LAYER_LABELS[LAYER_TEXT]))
         labels, cols = legend.get(lang, []), legend_cols.get(lang, 1)
         rows = (len(labels) + cols - 1) // cols

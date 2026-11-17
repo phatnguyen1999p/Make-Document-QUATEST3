@@ -255,21 +255,34 @@ def _room_quads():
 def snapped_positions() -> dict:
     """{(phòng, 'dust'|'vs', nhãn): (x, y) trên mặt bằng}: bụi và vi sinh mỗi loại một lưới căn đều theo vách, nhãn gán
     theo chỗ gần sơ đồ viết tay / chỗ đặt tạm nhất. Vi sinh ICU Nội 5 vị trí = 4 góc + 1 trung tâm (2-1-2, người dùng
-    yêu cầu 17/11/2026); phòng khác theo row_counts (ICU Lây 2-2, VIP / Airlock 2 vị trí)."""
-    from Core.Tools.even_grid import snap_to_grid, rect_quad
+    yêu cầu 17/11/2026); phòng khác theo row_counts (ICU Lây 2-2, VIP / Airlock 2 vị trí). Vị trí đè chữ không dời
+    khỏi lưới mà dẫn nhãn ra ngoài bằng mũi tên (build_layouts -> add_callouts)."""
+    from Core.Tools.even_grid import snap_to_grid
     quads, pos = _room_quads(), {}
-    # vi sinh: tránh chữ in sẵn trên mặt bằng / nhãn phòng — VIP 2 hai vị trí cùng hàng (nhãn "VIP 2" ở nửa trên),
-    # Airlock lưới trong phần dưới chữ "AIRLOCK" (v ≥ 660)
-    vs_counts = {"Phòng VIP 2 (cạnh Airlock)": [2]}
-    vs_quads = {"Airlock": rect_quad(555, 762, 660, 970, WALL_ANGLE)}
     for r in ROOMS:
         for key in ("dust", "vs"):
             orig = [to_plan(*xy) for _, _, xy in r[key]]
-            quad = (vs_quads if key == "vs" else {}).get(r["vn"], quads[r["vn"]])
-            counts = vs_counts.get(r["vn"]) if key == "vs" else None
-            for (n, _, _), p in zip(r[key], snap_to_grid(orig, quad, counts)):
+            for (n, _, _), p in zip(r[key], snap_to_grid(orig, quads[r["vn"]])):
                 pos[(r["vn"], key, n)] = p
     return pos
+
+
+# Chữ in sẵn trên mặt bằng (ảnh đã cắt @300 dpi) mà ký hiệu không được đè -> nhãn dẫn mũi tên (add_callouts)
+PLAN_TEXT_BOXES = [
+    (505, 655, 690, 720),        # "AIRLOCK"
+    (1125, 620, 1435, 750),      # "KHU ICU NỘI" + "89.6m2"
+    (2030, 1540, 2275, 1645),    # "KHU ICU LÂY" + "44…"
+]
+
+
+def _text_boxes() -> list:
+    """Hộp chữ phải tránh: chữ in sẵn trên mặt bằng + nhãn phòng code thêm (ROOM_LABELS, cỡ 40 đậm)."""
+    boxes = list(PLAN_TEXT_BOXES)
+    for x, y, t in ROOM_LABELS:
+        cx, cy = to_plan(x, y)
+        w, h = len(t) * 40 * 0.62 + 16, 40 * 1.25 + 6
+        boxes.append((cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2))
+    return boxes
 
 
 GREEN = {"preset": "point", "fill": "#66D95B", "stroke": "#2E7D32", "stroke_width": 3, "color": "#000000",
@@ -281,7 +294,8 @@ DIAMOND = {"shape": "rect", "extra": {"shape": "rhombus"}, "fill": "#66D95B", "s
 
 def build_layouts(overwrite: bool = False) -> list:
     from Core.Tools.drawio_layout import ensure_layout
-    rooms = {lang: [(*to_plan(x, y), t) for x, y, t in ROOM_LABELS] for lang in ("vn", "en")}
+    from Core.Tools.even_grid import add_callouts
+    rooms ={lang: [(*to_plan(x, y), t) for x, y, t in ROOM_LABELS] for lang in ("vn", "en")}
     out = []
     pos = snapped_positions()
     for sub, sym, key, cap_vn, leg_vn, leg_en in (
@@ -289,11 +303,15 @@ def build_layouts(overwrite: bool = False) -> list:
              "Vị trí đo nồng độ hạt bụi (đánh số theo từng khu vực)", "Particle concentration measuring point"),
             ("vi_sinh", DIAMOND, "vs", "Sơ đồ 2: Vị trí lấy mẫu vi sinh vật trong không khí",
              "Vị trí lấy mẫu vi sinh vật trong không khí (đánh số theo từng khu vực)", "Airborne microbial sampling point")):
-        markers = []
+        markers, quads = [], _room_quads()
         for r in ROOMS:
             for item in r[key]:
                 x, y = pos[(r["vn"], key, item[0])]
-                markers.append({**sym, "text": str(item[0]), "x": x, "y": y})
+                markers.append({**sym, "text": str(item[0]), "x": x, "y": y, "region": quads[r["vn"]]})
+        led = add_callouts(markers, _text_boxes(), bounds=(10, 10, CROP[2] - CROP[0] - 10, CROP[3] - CROP[1] - 10),
+                           radii=(110, 150, 200, 260, 330, 420))
+        if led:
+            print(f"[build_120423] Sơ đồ {sub}: nhãn {', '.join(led)} đè chữ -> dẫn mũi tên")
         legend = {"vn": [({**sym, "text": "1"}, leg_vn)], "en": [({**sym, "text": "1"}, leg_en)]}
         rooms_spec = {lang: [(x, y, t) for x, y, t in v] for lang, v in rooms.items()}
         pngs = ensure_layout(os.path.join(DIAGRAM_DIR, sub), _make_plan, markers,
