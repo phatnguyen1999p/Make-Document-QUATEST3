@@ -253,25 +253,30 @@ def _room_quads():
 
 
 def snapped_positions() -> dict:
-    """{(phòng, 'dust'|'vs', nhãn): (x, y) trên mặt bằng}: bụi vào lưới căn đều, nhãn gán theo chỗ gần sơ đồ viết tay
-    nhất; vi sinh đặt tại vị trí bụi (mới) gần chỗ đặt tạm nhất."""
-    from Core.Tools.even_grid import snap_to_grid
+    """{(phòng, 'dust'|'vs', nhãn): (x, y) trên mặt bằng}: bụi và vi sinh mỗi loại một lưới căn đều theo vách, nhãn gán
+    theo chỗ gần sơ đồ viết tay / chỗ đặt tạm nhất. Vi sinh ICU Nội 5 vị trí = 4 góc + 1 trung tâm (2-1-2, người dùng
+    yêu cầu 17/11/2026); phòng khác theo row_counts (ICU Lây 2-2, VIP / Airlock 2 vị trí)."""
+    from Core.Tools.even_grid import snap_to_grid, rect_quad
     quads, pos = _room_quads(), {}
+    # vi sinh: tránh chữ in sẵn trên mặt bằng / nhãn phòng — VIP 2 hai vị trí cùng hàng (nhãn "VIP 2" ở nửa trên),
+    # Airlock lưới trong phần dưới chữ "AIRLOCK" (v ≥ 660)
+    vs_counts = {"Phòng VIP 2 (cạnh Airlock)": [2]}
+    vs_quads = {"Airlock": rect_quad(555, 762, 660, 970, WALL_ANGLE)}
     for r in ROOMS:
-        orig = [to_plan(*xy) for _, _, xy in r["dust"]]
-        new = snap_to_grid(orig, quads[r["vn"]])
-        for (n, _, _), p in zip(r["dust"], new):
-            pos[(r["vn"], "dust", n)] = p
-        for n, _, xy in r["vs"]:
-            o = to_plan(*xy)
-            k = min(range(len(orig)), key=lambda i: (orig[i][0] - o[0]) ** 2 + (orig[i][1] - o[1]) ** 2)
-            pos[(r["vn"], "vs", n)] = new[k]
+        for key in ("dust", "vs"):
+            orig = [to_plan(*xy) for _, _, xy in r[key]]
+            quad = (vs_quads if key == "vs" else {}).get(r["vn"], quads[r["vn"]])
+            counts = vs_counts.get(r["vn"]) if key == "vs" else None
+            for (n, _, _), p in zip(r[key], snap_to_grid(orig, quad, counts)):
+                pos[(r["vn"], key, n)] = p
     return pos
 
 
 GREEN = {"preset": "point", "fill": "#66D95B", "stroke": "#2E7D32", "stroke_width": 3, "color": "#000000",
          "bold": False, "font_size": 40, "w": 66, "h": 66}
-ORANGE = {**GREEN, "fill": "#FFB74D", "stroke": "#E65100"}
+# vị trí lấy mẫu vi sinh: hình thoi đều màu xanh lá cây (người dùng yêu cầu 17/11/2026)
+DIAMOND = {"shape": "rect", "extra": {"shape": "rhombus"}, "fill": "#66D95B", "stroke": "#2E7D32", "stroke_width": 3,
+           "color": "#000000", "bold": False, "font_size": 36, "w": 88, "h": 88}
 
 
 def build_layouts(overwrite: bool = False) -> list:
@@ -282,7 +287,7 @@ def build_layouts(overwrite: bool = False) -> list:
     for sub, sym, key, cap_vn, leg_vn, leg_en in (
             ("bui", GREEN, "dust", "Sơ đồ 1: Vị trí đo nồng độ hạt bụi",
              "Vị trí đo nồng độ hạt bụi (đánh số theo từng khu vực)", "Particle concentration measuring point"),
-            ("vi_sinh", ORANGE, "vs", "Sơ đồ 2: Vị trí lấy mẫu vi sinh vật trong không khí",
+            ("vi_sinh", DIAMOND, "vs", "Sơ đồ 2: Vị trí lấy mẫu vi sinh vật trong không khí",
              "Vị trí lấy mẫu vi sinh vật trong không khí (đánh số theo từng khu vực)", "Airborne microbial sampling point")):
         markers = []
         for r in ROOMS:
