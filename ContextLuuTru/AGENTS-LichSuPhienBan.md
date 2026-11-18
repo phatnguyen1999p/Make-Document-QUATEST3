@@ -2,6 +2,12 @@
 
 > Dòng phiên bản đầu `AGENTS.md` chỉ giữ bản mới nhất (từ 12/11/2026). Mỗi lần tăng phiên bản, dòng cũ chép nguyên văn lên **đầu** danh sách dưới đây. Không đọc đầu phiên.
 
+> **Phiên bản 17/11/2026 17:20** (Claude Code — mục 8C sơ đồ draw.io: vị trí đo phòng sạch **căn đều theo lưới, thẳng theo vách phòng** (10 vị trí → 3-4-3) — `Core/Tools/even_grid.py` (`snap_to_grid`, `row_counts`), mẫu `build_120423.py`; người dùng yêu cầu 17/11/2026).
+
+> **Phiên bản 16/11/2026 18:45** (Claude Code — mục 3: ký hiệu `(1)` … `(9)` đầu dòng bảng Ghi chú in chỉ số trên tự động — hàm chung `tag_context.superscript_note_markers` (trong `style_note_tables` cho TBKQ, trong `BCKQBuilder` cho BCKQ); template phòng sạch để `(1) …` chữ thường, hồ sơ 067460). Lịch sử phiên bản trước: `ContextLuuTru/AGENTS-LichSuPhienBan.md`.
+
+> **Phiên bản 16/11/2026 12:00** (Claude Code — mục 8C, 14, 3: **nước thải / nước dưới đất / bùn thải / chất thải** — mẫu nước không theo `QCVN …/BYT` (nước thải, dưới đất, bùn / chất thải) ghi `● Các thông số được chứng nhận VIMCERTS 078.` (dòng đầu Ghi chú, thay câu VIAS 004; nước BYT và hồ sơ khác vẫn VIAS 004), luôn `mg/L`, dùng "thông số", `Đánh giá:` có dấu hai chấm; thêm máy `hach_dr300`, `hanna_hi98192`, `hanna_hi98190`; người dùng chốt 16/11/2026; form chi tiết `Nước/Nước Thải, Bùn Thải/00 - Form nuoc thai bun thai (AI hoc).md`). Lịch sử phiên bản trước: `ContextLuuTru/AGENTS-LichSuPhienBan.md`.
+
 > **Phiên bản 16/11/2026 10:40** (Claude Code — mục 8C, 14, 2: **hồ sơ nước uống (NU) / nước sinh hoạt (NSH)** — 7 điểm người dùng chốt 16/11/2026 (`QUATEST 3` có dấu cách; tên máy `mettler_s2`, `hach_dr900`; tên chỉ tiêu theo phiếu KQTN; luôn có Đánh giá; clo dư hiện trường < 0,1 → `< 0,1`; `Từ ngày`; header nước `- Ngày: `), form chi tiết `Nước/00 - Form ket qua nuoc (AI hoc).md`). Lịch sử phiên bản trước: `ContextLuuTru/AGENTS-LichSuPhienBan.md`.
 
 > **Phiên bản 16/11/2026 11:20** (Claude Code — mục 3, 8C, 14: nước thải / bùn thải; câu VIMCERTS 078 xét theo thư mục Z `0.VIMCERTS078` — thay ở bản 12:00 bằng cách xét theo quy chuẩn BYT / không BYT; mg/L, "thông số", `Đánh giá:`; máy `hach_dr300`, `hanna_hi98192`, `hanna_hi98190`).
