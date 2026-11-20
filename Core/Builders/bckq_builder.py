@@ -41,6 +41,7 @@ from .tag_context import (
     open_tag_template,
     save_outputs,
     render,
+    superscript_note_markers,
 )
 
 
@@ -530,6 +531,7 @@ class BCKQBuilder:
             for r in tbl.rows:
                 for c in r.cells:
                     _tnr13(c.paragraphs)
+        superscript_note_markers(doc)   # '(1) … Thông số …' của bảng Ghi chú -> '(1)' chỉ số trên (AGENTS mục 3)
         strip_image_crops(doc)
 
         # BCKQ KHÔNG có đường kết thúc (AGENTS.md mục 5)

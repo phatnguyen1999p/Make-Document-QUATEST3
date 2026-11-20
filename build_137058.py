@@ -171,7 +171,8 @@ def result(code: int, idx: int, is_en: bool) -> str:
 # Ngoại lệ AGENTS mục 3 "không crop" — NGƯỜI DÙNG CHO PHÉP 12/11/2026: ảnh 1–6 (C1–C6; C6 thêm sau) chụp khung đứng
 # được crop sang khung ngang 4:3 (thay vì xoay 90°), giữ trọn tay cầm que swab. Giá trị = mép trên vùng cắt (tỉ lệ chiều
 # cao ảnh sau xoay EXIF); vùng cắt rộng hết ảnh, cao = rộng × 3/4 (~56 % ảnh dọc). Đã soát từng ảnh 12/11/2026.
-CROP_LANDSCAPE_TOP = {1: 0.30, 2: 0.27, 3: 0.25, 4: 0.29, 5: 0.22, 6: 0.05}
+# 17/11/2026: người dùng đổi chỗ ảnh 2.jpg ↔ 3.jpg trên Z (C2 ↔ C3) -> mép cắt đi theo nội dung ảnh (2: 0,25; 3: 0,27).
+CROP_LANDSCAPE_TOP = {1: 0.30, 2: 0.25, 3: 0.27, 4: 0.29, 5: 0.22, 6: 0.05}
 
 
 def _optimized(path: str, max_w: int = 1000) -> str:

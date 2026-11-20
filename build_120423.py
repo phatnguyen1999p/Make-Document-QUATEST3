@@ -37,8 +37,10 @@ Suy luận của AI (người dùng đã đồng ý 10/11/2026):
   (5) Số phiếu tính toán theo số chứng thư: Q326D120423/7/Bụi, Q326D120423/7/Vi sinh.
   (6) Địa điểm giám định ghi đúng BBLM mục 5.
 
-Vi sinh CHƯA có KQTN: điền VI_SINH_CFU_DIA (theo ký hiệu mẫu 1..15), VI_SINH_BLANK, KQTN_SO, KQTN_NGAY rồi chạy lại.
-Ngày ban hành TBKQ = ngày KQTN (AGENTS mục 2) -> chưa có thì để "………" tô vàng.
+KQTN vi sinh (về 17/11/2026, Z …\\Đợt 7\\KQTN\\20261117161902377.pdf, 2 bản giống nhau): số 060424/VYTCC ngày 13/11/2026,
+  ngày nhận mẫu 09/11/2026; "Vi sinh không khí 1 … 17" CFU/đĩa. Mẫu n = ký hiệu mẫu n trên phiếu ghi chép; 16 = blank;
+  mẫu 17 ("< 1") không có trên BBLM / phiếu ghi chép -> người dùng chốt 17/11/2026: "Là blank thứ 2".
+Ngày ban hành TBKQ = ngày KQTN 13/11/2026 (AGENTS mục 2).
 
 Chạy:  python build_120423.py          (DOCX + XLSX + Edoc + sơ đồ)
        python build_120423.py --pdf    (thêm PDF qua Word/Excel COM + UpChungThu, chỉ Windows)
@@ -85,13 +87,15 @@ PLAN_PDF = os.path.join(INPUT_DIR, "Layout", "Mặt bằng Màng Hepa - Nội tr
 DIAGRAM_DIR = os.path.join(INPUT_DIR, "TBKQ", "_diagrams")
 
 # --- Vi sinh: chưa có KQTN. Điền khi có kết quả rồi chạy lại ---
-KQTN_SO = ""             # vd "………/VYTCC" (đợt 6: Viện Y tế Công cộng)
-KQTN_NGAY = ""           # dd/mm/yyyy -> cũng là ngày ban hành TBKQ
-VI_SINH_CFU_DIA = {i: None for i in range(1, 16)}   # CFU/đĩa theo KÝ HIỆU MẪU 1..15; None = chưa có
-VI_SINH_BLANK = None     # mẫu 16
+KQTN_SO = "060424/VYTCC"   # phiếu KQTN Viện Y tế Công cộng TP.HCM (Z …\Đợt 7\KQTN\20261117161902377.pdf)
+KQTN_NGAY = "13/11/2026"   # ngày phiếu KQTN -> ngày ban hành TBKQ (AGENTS mục 2); ngày nhận mẫu 09/11/2026
+# CFU/đĩa theo KQTN "Vi sinh không khí n" = ký hiệu mẫu n; 0 = "< 1" (không phát hiện)
+VI_SINH_CFU_DIA = {1: 0, 2: 5, 3: 5, 4: 9, 5: 7, 6: 0, 7: 2, 8: 4, 9: 6, 10: 0, 11: 0, 12: 9, 13: 7, 14: 3, 15: 8}
+# Mẫu blank (CFU/đĩa): 16 theo phiếu ghi chép; 17 không có trên phiếu — người dùng chốt 17/11/2026 "Là blank thứ 2"
+VI_SINH_BLANKS = {16: "< 1", 17: "< 1"}
 VI_SINH_KQ = {}          # hoặc ghi thẳng kết quả CFU/m³ theo KQTN, vd {1: "< 10", 2: 20}
 VS_FLOW_LPM, VS_MINUTES = 100, 1      # phiếu ghi chép: 100 L/phút × 01 phút (đợt 6: 2 phút)
-BLANK_SAMPLE = 16
+BLANK_LIST = ", ".join(str(s) for s in VI_SINH_BLANKS)
 
 CERT_DATE = KQTN_NGAY or PLACEHOLDER
 
@@ -228,25 +232,86 @@ def _make_plan():
     return Image.fromarray(np.rot90(a, 3).copy()).crop(CROP)
 
 
+# Vách trong từng phòng trên ảnh mặt bằng đã cắt (@300 dpi) — vị trí bụi căn đều theo lưới (Core/Tools/even_grid.py,
+# người dùng yêu cầu 17/11/2026). Mặt bằng nghiêng 6° (vách trên ICU Nội: (762,106) -> (1831,219)): hệ trục u/v xoay 6°.
+# ICU Lây hình thang (vách trên gần ngang, vách dưới nghiêng 6°) -> khai 4 góc; mép trái lấy vách phải phòng đồ dịch.
+# ICU Nội lấy mép phải phần trên (u = 1850), bỏ phần lồi ra ~130 px ở nửa dưới (ICU Nội không phải hình chữ nhật).
+WALL_ANGLE = 6.0
+
+
+def _room_quads():
+    from Core.Tools.even_grid import rect_quad
+    return {
+        # vách dưới thật v ≈ 968; lấy 840 (mép trên hộp kỹ thuật PCCC + cửa vào ở góc dưới-trái) để hàng dưới không
+        # rơi vào hộp kỹ thuật
+        "Khu ICU Nội": rect_quad(754, 1850, 26, 840, WALL_ANGLE),
+        "Khu ICU Lây": ((1883, 1199), (2672, 1189), (2653, 1914), (1883, 1839)),
+        "Phòng VIP 1 (cạnh ICU Nội)": rect_quad(89, 542, 29, 471, WALL_ANGLE),
+        "Phòng VIP 2 (cạnh Airlock)": rect_quad(85, 540, 490, 972, WALL_ANGLE),
+        "Airlock": rect_quad(555, 762, 490, 970, WALL_ANGLE),
+    }
+
+
+def snapped_positions() -> dict:
+    """{(phòng, 'dust'|'vs', nhãn): (x, y) trên mặt bằng}: bụi và vi sinh mỗi loại một lưới căn đều theo vách, nhãn gán
+    theo chỗ gần sơ đồ viết tay / chỗ đặt tạm nhất. Vi sinh ICU Nội 5 vị trí = 4 góc + 1 trung tâm (2-1-2, người dùng
+    yêu cầu 17/11/2026); phòng khác theo row_counts (ICU Lây 2-2, VIP / Airlock 2 vị trí). Vị trí đè chữ không dời
+    khỏi lưới mà dẫn nhãn ra ngoài bằng mũi tên (build_layouts -> add_callouts)."""
+    from Core.Tools.even_grid import snap_to_grid
+    quads, pos = _room_quads(), {}
+    for r in ROOMS:
+        for key in ("dust", "vs"):
+            orig = [to_plan(*xy) for _, _, xy in r[key]]
+            for (n, _, _), p in zip(r[key], snap_to_grid(orig, quads[r["vn"]])):
+                pos[(r["vn"], key, n)] = p
+    return pos
+
+
+# Chữ in sẵn trên mặt bằng (ảnh đã cắt @300 dpi) mà ký hiệu không được đè -> nhãn dẫn mũi tên (add_callouts)
+PLAN_TEXT_BOXES = [
+    (505, 655, 690, 720),        # "AIRLOCK"
+    (1125, 620, 1435, 750),      # "KHU ICU NỘI" + "89.6m2"
+    (2030, 1540, 2275, 1645),    # "KHU ICU LÂY" + "44…"
+]
+
+
+def _text_boxes() -> list:
+    """Hộp chữ phải tránh: chữ in sẵn trên mặt bằng + nhãn phòng code thêm (ROOM_LABELS, cỡ 40 đậm)."""
+    boxes = list(PLAN_TEXT_BOXES)
+    for x, y, t in ROOM_LABELS:
+        cx, cy = to_plan(x, y)
+        w, h = len(t) * 40 * 0.62 + 16, 40 * 1.25 + 6
+        boxes.append((cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2))
+    return boxes
+
+
 GREEN = {"preset": "point", "fill": "#66D95B", "stroke": "#2E7D32", "stroke_width": 3, "color": "#000000",
          "bold": False, "font_size": 40, "w": 66, "h": 66}
-ORANGE = {**GREEN, "fill": "#FFB74D", "stroke": "#E65100"}
+# vị trí lấy mẫu vi sinh: hình thoi đều màu xanh lá cây (người dùng yêu cầu 17/11/2026)
+DIAMOND = {"shape": "rect", "extra": {"shape": "rhombus"}, "fill": "#66D95B", "stroke": "#2E7D32", "stroke_width": 3,
+           "color": "#000000", "bold": False, "font_size": 36, "w": 88, "h": 88}
 
 
 def build_layouts(overwrite: bool = False) -> list:
     from Core.Tools.drawio_layout import ensure_layout
-    rooms = {lang: [(*to_plan(x, y), t) for x, y, t in ROOM_LABELS] for lang in ("vn", "en")}
+    from Core.Tools.even_grid import add_callouts
+    rooms ={lang: [(*to_plan(x, y), t) for x, y, t in ROOM_LABELS] for lang in ("vn", "en")}
     out = []
+    pos = snapped_positions()
     for sub, sym, key, cap_vn, leg_vn, leg_en in (
             ("bui", GREEN, "dust", "Sơ đồ 1: Vị trí đo nồng độ hạt bụi",
              "Vị trí đo nồng độ hạt bụi (đánh số theo từng khu vực)", "Particle concentration measuring point"),
-            ("vi_sinh", ORANGE, "vs", "Sơ đồ 2: Vị trí lấy mẫu vi sinh vật trong không khí",
+            ("vi_sinh", DIAMOND, "vs", "Sơ đồ 2: Vị trí lấy mẫu vi sinh vật trong không khí",
              "Vị trí lấy mẫu vi sinh vật trong không khí (đánh số theo từng khu vực)", "Airborne microbial sampling point")):
-        markers = []
+        markers, quads = [], _room_quads()
         for r in ROOMS:
             for item in r[key]:
-                x, y = to_plan(*item[-1])
-                markers.append({**sym, "text": str(item[0]), "x": x, "y": y})
+                x, y = pos[(r["vn"], key, item[0])]
+                markers.append({**sym, "text": str(item[0]), "x": x, "y": y, "region": quads[r["vn"]]})
+        led = add_callouts(markers, _text_boxes(), bounds=(10, 10, CROP[2] - CROP[0] - 10, CROP[3] - CROP[1] - 10),
+                           radii=(110, 150, 200, 260, 330, 420))
+        if led:
+            print(f"[build_120423] Sơ đồ {sub}: nhãn {', '.join(led)} đè chữ -> dẫn mũi tên")
         legend = {"vn": [({**sym, "text": "1"}, leg_vn)], "en": [({**sym, "text": "1"}, leg_en)]}
         rooms_spec = {lang: [(x, y, t) for x, y, t in v] for lang, v in rooms.items()}
         pngs = ensure_layout(os.path.join(DIAGRAM_DIR, sub), _make_plan, markers,
@@ -654,10 +719,10 @@ def bckq_ref_lines(kqtn, vs_date):
                         f"{', '.join(str(s) for _, s, _ in r['vs'])}" for r in ROOMS)
     return [
         f"- Kết quả đo nồng độ hạt bụi: xem tại phiếu Tính toán kết quả nồng độ hạt bụi số {SO_BUI} ngày {SAMPLE_DATE}.",
-        f"- Kết quả lấy mẫu vi sinh vật trong không khí (15 mẫu và 01 mẫu blank): xem tại phiếu Kết quả thử nghiệm "
+        f"- Kết quả lấy mẫu vi sinh vật trong không khí (15 mẫu và {len(VI_SINH_BLANKS):02d} mẫu blank): xem tại phiếu Kết quả thử nghiệm "
         f"số {kqtn} ngày {vs_date} và phiếu Tính toán kết quả vi sinh vật trong không khí số {SO_VI_SINH} "
         f"ngày {vs_date}.",
-        f"- Ký hiệu mẫu vi sinh (phiếu ghi chép) – vị trí trên sơ đồ: {mapping}; mẫu blank: {BLANK_SAMPLE}.",
+        f"- Ký hiệu mẫu vi sinh (phiếu ghi chép) – vị trí trên sơ đồ: {mapping}; mẫu blank: {BLANK_LIST}.",
     ]
 
 
@@ -668,7 +733,8 @@ def build_bckq(d: Dossier) -> str:
     vs_date = KQTN_NGAY or PLACEHOLDER
     ctx["tham_chieu"] = [
         *bckq_ref_lines(KQTN_SO or PLACEHOLDER, vs_date),
-        f"- KQTN của mẫu Blank: {VI_SINH_BLANK if VI_SINH_BLANK is not None else PLACEHOLDER}.",
+        "- KQTN của mẫu Blank: " + "; ".join(
+            f"mẫu {s}: {v if v is not None else PLACEHOLDER} CFU/đĩa" for s, v in VI_SINH_BLANKS.items()) + ".",
     ]
     vs_name = "Vi sinh vật trong không khí (tổng số vi sinh vật hiếu khí)"
     dok, vok = dust_ok(), vs_ok()
@@ -717,16 +783,17 @@ def build_excel() -> str:
         book.put(wv, 1, c, lbl, bold=True)
     wv.row_dimensions[1].height = 45
     items = sorted(((s, r["vn"], n) for r in ROOMS for n, s, _ in r["vs"]))
-    for i, it in enumerate(items + [None]):
+    for i, it in enumerate(items + [("blank", s) for s in VI_SINH_BLANKS]):
         r = 2 + i
         book.put(wv, r, 1, i + 1)
-        if it is None:
+        if it[0] == "blank":
+            bv = VI_SINH_BLANKS[it[1]]
             book.put(wv, r, 2, "Mẫu blank (TS)", align=LEFT)
-            book.put(wv, r, 3, BLANK_SAMPLE)
+            book.put(wv, r, 3, it[1])
             for c in (4, 5, 6, 8, 9, 10):
                 book.put(wv, r, c, "-")
-            c_ = book.put(wv, r, 7, VI_SINH_BLANK)
-            if VI_SINH_BLANK is None:
+            c_ = book.put(wv, r, 7, bv)
+            if bv is None:
                 c_.fill = yellow
             continue
         sample, room, n = it
@@ -736,14 +803,15 @@ def build_excel() -> str:
         book.put(wv, r, 5, VS_MINUTES)
         book.put(wv, r, 6, f"=D{r}*E{r}")
         cfu = VI_SINH_CFU_DIA.get(sample)
-        c_ = book.put(wv, r, 7, cfu)
+        c_ = book.put(wv, r, 7, "< 1" if cfu == 0 else cfu)      # ghi như KQTN (AGENTS mục 13)
         if cfu is None:
             c_.fill = yellow
         kq = VI_SINH_KQ.get(sample)
         if kq not in (None, ""):
             book.put(wv, r, 8, kq)
         else:
-            book.put(wv, r, 8, f'=IF(G{r}="","",IF(G{r}=0,"< "&ROUND(1000/F{r},0),ROUND(G{r}*1000/F{r},0)))', fmt="0")
+            book.put(wv, r, 8, f'=IF(G{r}="","",IF(ISNUMBER(G{r}),ROUND(G{r}*1000/F{r},0),'
+                               f'"< "&ROUND(1000/F{r},0)))', fmt="0")
         book.put(wv, r, 9, f"≤ {VS_LIMIT}")
         book.put(wv, r, 10, f'=IF(H{r}="","",IF(ISNUMBER(H{r}),IF(H{r}<={VS_LIMIT},"Đạt","Không đạt"),"Đạt"))')
 

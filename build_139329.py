@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Hồ sơ Q326D139329 - Công ty Cổ phần Sanofi Việt Nam (10/11/2026) — BSC + tủ cấy (LAF).
+Hồ sơ Q326D139329 - Công ty Cổ phần Opella Healthcare Việt Nam (tên cũ Công ty Cổ phần Sanofi Việt Nam,
+đổi tên hiệu lực 09/11/2026) (10/11/2026) — BSC + tủ cấy (LAF).
 
 2 chứng thư (assign_cert_numbers tự đánh /1, /2):
   /1  Tủ an toàn sinh học cấp 2 LaboGene ApS Mars 900, S/N L.06140002, mã 0264QC00 -> BSCHandler đầy đủ
@@ -84,15 +85,21 @@ START, END = "09:30", "11:30"
 INPUT_DIR = os.path.join(WORKSPACE, "Input", "139329")
 PHOTO_DIR = os.path.join(INPUT_DIR, "Photos")
 
+# 16/11/2026: đổi tên theo Thông báo thay đổi tên công ty (hiệu lực 09/11/2026, cùng pháp nhân, cùng MST)
+#   "Công ty Cổ phần Sanofi Việt Nam" -> "Công ty Cổ phần Opella Healthcare Việt Nam".
+#   18/11/2026: tên EN theo bản tiếng Anh của chính Thông báo (Z TBKQ\Khắc Phục, tr. 4 "New name: Opella Healthcare
+#   Vietnam Shareholding Company") — thay tên suy luận 16/11 "… Joint Stock Company". Người dùng 18/11/2026: "Giữ Shareholding".
+CLIENT_VN = "Công ty Cổ phần Opella Healthcare Việt Nam"
+CLIENT_EN = "Opella Healthcare Vietnam Shareholding Company"
 CLIENT = ClientInfo(
-    name_vn="Công ty Cổ phần Sanofi Việt Nam",
-    name_en="Sanofi Vietnam Joint Stock Company",   # người dùng chốt 10/11/2026 (như chứng thư cũ 045837)
+    name_vn=CLIENT_VN,
+    name_en=CLIENT_EN,
     address_vn="Lô I-8-2, đường D8, Khu công nghệ cao, phường Tăng Nhơn Phú, Thành phố Hồ Chí Minh",
     address_en="Lot I-8-2, D8 Street, Saigon Hi-Tech Park, Tang Nhon Phu Ward, Ho Chi Minh City",
 )
-LOCATION_VN = ("Nhà máy của Công ty Cổ phần Sanofi Việt Nam - Lô I-8-2, đường D8, Khu công nghệ cao,"
+LOCATION_VN = (f"Nhà máy của {CLIENT_VN} - Lô I-8-2, đường D8, Khu công nghệ cao,"
                " phường Tăng Nhơn Phú, Thành phố Hồ Chí Minh")   # BBLM mục 5
-LOCATION_EN = ("Factory of Sanofi Vietnam Joint Stock Company - Lot I-8-2, D8 Street, Saigon Hi-Tech Park,"
+LOCATION_EN = (f"Factory of {CLIENT_EN} - Lot I-8-2, D8 Street, Saigon Hi-Tech Park,"
                " Tang Nhon Phu Ward, Ho Chi Minh City")
 
 PARTICLE_FILE_ZERO = "139329 zero (10:08)"
@@ -380,21 +387,137 @@ def _edoc():
 
 def _compact_cover(path: str, compact):
     import docx
+    from docx.oxml.ns import qn
     doc = docx.Document(path)
-    shrink_cover_break(doc, compact=compact)
+    if compact == "tight":
+        # 16/11/2026: tên Opella dài (Client 2 dòng, địa điểm EN 4 dòng) -> bìa EN /1 tràn kể cả compact=2
+        # (ô bìa đã 1,5pt nên compact=2 không bắt được) -> đưa khoảng trên/dưới các đoạn mục 1–9 về 0.
+        shrink_cover_break(doc, compact=2)
+        for tr in doc.tables[0]._tbl.findall(qn("w:tr"))[:-2]:
+            for sp in tr.iter(qn("w:spacing")):
+                for k in ("w:before", "w:after"):
+                    if sp.get(qn(k)) in ("30", "60"):
+                        sp.set(qn(k), "0")
+    else:
+        shrink_cover_break(doc, compact=compact)
     doc.save(path)
+
+
+def _apply_z_hand_edits(path: str):
+    """Giữ 2 chỉnh tay trên bản Z (lưu bằng Word 13/11/2026 08:59–09:03), để dựng lại không làm mất:
+    - đề mục phụ lục 10.1–10.4 -> 9.1–9.4 (bìa chỉ có 9 mục, mục 9 = Kết quả giám định);
+    - ô mức quy định bụi "≤ 10 200<ngắt dòng>hạt/m³" -> 1 dòng "≤ 10 200 hạt/m³" (bản VN)."""
+    import re
+    import docx
+    from docx.oxml.ns import qn
+    from docx.oxml import OxmlElement
+    doc = docx.Document(path)
+    for p in doc.paragraphs:
+        m = re.match(r"^10\.([1-4])", p.text)
+        if m and p.runs and p.runs[0].text.startswith("10."):
+            p.runs[0].text = "9." + p.runs[0].text[3:]
+    for br in list(doc.element.body.iter(qn("w:br"))):
+        if br.get(qn("w:type")) is not None:
+            continue
+        nxt = br.getnext()
+        if nxt is None:   # <w:r><w:br/></w:r><w:r><w:t>hạt/m³ …</w:t></w:r>
+            nr = br.getparent().getnext()
+            nxt = nr.find(qn("w:t")) if nr is not None and nr.tag == qn("w:r") else None
+        if nxt is not None and nxt.tag == qn("w:t") and (nxt.text or "").startswith("hạt/m³"):
+            prev_r = br.getparent().getprevious() if br.getprevious() is None else br.getparent()
+            for t in (prev_r.iter(qn("w:t")) if prev_r is not None else []):
+                t.text = re.sub(r"(\d) (\d{3})", "\\1\u00a0\\2", t.text or "")   # bản Z: "10 200" khoảng trắng không ngắt
+            sp = OxmlElement("w:t")
+            sp.set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
+            sp.text = " "
+            br.addprevious(sp)
+            br.getparent().remove(br)
+    # bản Z bỏ đoạn trống cuối thân văn bản (sau ảnh phụ lục)
+    last = doc.paragraphs[-1] if doc.paragraphs else None
+    if last is not None and not last.text.strip() and last._p.getnext() is not None \
+            and last._p.getnext().tag == qn("w:sectPr") and last._p.find(".//" + qn("w:drawing")) is None \
+            and last._p.find(".//" + qn("w:sectPr")) is None:
+        last._p.getparent().remove(last._p)
+    doc.save(path)
+
+
+# ---------------------------------------------------------------------------
+# Khắc phục 18/11/2026 — chứng thư thay thế /n/R (xử lý sự không phù hợp do khách đổi tên công ty)
+#   Người dùng 18/11/2026: "làm không phù hợp do đổi tên công ty thành Opella Healthcare", thông báo đổi tên
+#   để sẵn ở Z TBKQ\Khắc Phục. Chứng thư cũ (bản Z TBKQ\*.pdf, người dùng sửa tay): /1, /2 ngày 13/11/2026.
+#   Khuôn theo hồ sơ mẫu 112124 (Z 122266 Khắc Phục\Vi Du Khac Phuc): số "<mã>/n/R", dưới số 1 dòng nghiêng
+#   "(Chứng thư giám định này thay thế Chứng thư giám định số <mã>/n ngày dd/mm/yyyy)".
+OLD_CERT_DATE = "13/11/2026"
+KHAC_PHUC_DIR = os.path.join(INPUT_DIR, "TBKQ", "Khắc Phục")
+
+
+def _patch_revision(src: str, dst: str, n: int, is_en: bool):
+    """Chép TBKQ vừa dựng sang Khắc Phục, đổi số chứng thư -> /n/R (EN /n/E/R) ở mọi header,
+    chèn dòng 'thay thế …' ngay dưới số ở header trang bìa."""
+    import copy
+    import docx
+    from docx.oxml.ns import qn
+    old = f"{CODE}/{n}/E" if is_en else f"{CODE}/{n}"
+    new = old + "/R"
+    doc = docx.Document(src)
+    hdr_parts = []
+    for s in doc.sections:
+        for nm in ("header", "first_page_header", "even_page_header", "footer", "first_page_footer"):
+            hf = getattr(s, nm)
+            if not hf.is_linked_to_previous and hf._element not in [h for h, _ in hdr_parts]:
+                hdr_parts.append((hf._element, s))
+    n_rep = 0
+    for el in [doc.element.body] + [h for h, _ in hdr_parts]:
+        for t in el.iter(qn("w:t")):
+            if t.text and old in t.text and new not in t.text:
+                t.text = t.text.replace(old, new)
+                n_rep += 1
+    if n_rep < 2:
+        raise RuntimeError(f"[KhacPhuc] {os.path.basename(src)}: chỉ đổi được {n_rep} chỗ số chứng thư")
+    # dòng thay thế trong header trang bìa (section 0)
+    hdr0 = doc.sections[0].header._element
+    num_p = next(p for p in hdr0.iter(qn("w:p")) if new in "".join(x.text or "" for x in p.iter(qn("w:t"))))
+    run_tpl = [r for r in num_p.findall(qn("w:r")) if r.find(qn("w:t")) is not None][0]
+    if is_en:
+        text = (f"(This inspection certificate replaces the Inspection certificate "
+                f"No. {CODE}/{n}/E dated {OLD_CERT_DATE})")
+    else:
+        text = (f"(Chứng thư giám định này thay thế Chứng thư giám định "
+                f"số {CODE}/{n} ngày {OLD_CERT_DATE})")
+    p2 = copy.deepcopy(num_p)
+    for r in p2.findall(qn("w:r")):
+        p2.remove(r)
+    r2 = copy.deepcopy(run_tpl)
+    rpr = r2.find(qn("w:rPr"))
+    for tag in ("w:b", "w:bCs", "w:i", "w:iCs"):
+        e = rpr.find(qn(tag))
+        if e is not None:
+            rpr.remove(e)
+    from docx.oxml import OxmlElement
+    i_el = OxmlElement("w:i")
+    rpr.append(i_el)
+    r2.find(qn("w:t")).text = text
+    p2.append(r2)
+    num_p.addnext(p2)
+    doc.save(dst)
+    print(f"[KhacPhuc] {os.path.basename(dst)}: {old} -> {new} ({n_rep} chỗ) + dòng thay thế")
+    return dst
 
 
 # ---------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pdf", action="store_true", help="Xuất PDF (Word/Excel COM) + chèn giấy tiêu đề UpChungThu")
+    ap.add_argument("--khac-phuc", action="store_true",
+                    help="Dựng thêm TBKQ thay thế /n/R vào TBKQ\\Khắc Phục (PDF chỉ cho bản /R)")
     args = ap.parse_args()
 
-    jobs = [(bsc_dossier(), build_excel_bsc, True), (laf_dossier(), build_excel_laf, 2)]
+    # 16/11/2026: tên Opella dài hơn -> bìa EN /1 tràn (chữ ký sang trang 2) với compact=True -> "tight"
+    # 18/11/2026: bản /R (thêm dòng "thay thế…", tên EN "Shareholding") -> bìa EN /2 cũng tràn -> "tight" cả hai
+    jobs = [(bsc_dossier(), build_excel_bsc, "tight"), (laf_dossier(), build_excel_laf, "tight")]
     assign_cert_numbers([d for d, _, _ in jobs])
     _edoc()
-    summary, tems, pdf_docs, xlsxs = [], [], [], []
+    summary, tems, pdf_docs, xlsxs, rev_docs = [], [], [], [], []
     for d, xl_fn, compact in jobs:
         d.ensure_output_directories()
         print(f"\n===== {d.cert_no_vn} =====")
@@ -402,10 +525,20 @@ def main():
         vn, en = h.build_tbkq(is_en=False), h.build_tbkq(is_en=True)
         for p in (vn, en):
             _compact_cover(p, compact)
+            _apply_z_hand_edits(p)
         tems.append(h.build_tem_tu())
         xlsxs.append(xl_fn(d))
         for p in (vn, en):
             summary.append((os.path.basename(p), check_single_docx(p, code=d.code).get("status")))
+        if args.khac_phuc:
+            os.makedirs(KHAC_PHUC_DIR, exist_ok=True)
+            for p, is_en in ((vn, False), (en, True)):
+                b = os.path.basename(p)          # "TBKQ - viet - 1 - BSC - Q326D139329.docx"
+                parts = b.split(" - ")
+                dst = os.path.join(KHAC_PHUC_DIR, " - ".join(parts[:3] + ["R"] + parts[3:]))
+                r = _patch_revision(p, dst, d.sub_no, is_en)
+                summary.append((os.path.basename(r), check_single_docx(r, code=d.code).get("status")))
+                rev_docs.append(r)
         pdf_docs += [vn, en]
     ds = [d for d, _, _ in jobs]
     bckq = BCKQBuilder.build_merged(ds)
@@ -415,7 +548,10 @@ def main():
         for t in tems:
             if t and os.path.isfile(t) and os.path.abspath(t) != os.path.abspath(sheet):
                 os.remove(t)
-    if args.pdf:
+    if args.pdf and args.khac_phuc:
+        from Core.Exporters.pdf_exporter import PDFExporter
+        PDFExporter(ds[0]).export_files(rev_docs)    # chỉ bản /R; bản gốc đã ban hành không xuất lại
+    elif args.pdf:
         from Core.Exporters.pdf_exporter import PDFExporter
         ex = PDFExporter(ds[0])
         ex.export_files(pdf_docs + [bckq, sheet])

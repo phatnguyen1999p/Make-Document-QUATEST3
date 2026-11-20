@@ -20,12 +20,24 @@ Quyết định của người dùng (12/11/2026):
     chép về Input/134792/KQTN) -> điền vi sinh, ngày ban hành = 12/11/2026 (AGENTS mục 2, 13).
   - "Giữ như vậy" (12/11/2026): KQTN .01 - .06 = VT1 - VT6 theo thứ tự trên sơ đồ phiếu ghi chép, .07 = blank
     (phiếu KQTN không ghi ký hiệu mẫu). Kết quả: VT1 - VT5 < 1, VT6 6,0 × 10¹ CFU/đĩa, blank < 1 CFU/đĩa.
+Quyết định của người dùng (16/11/2026):
+  - "Có thay đổi KQ vi sinh trên Z, mẫu số 6": KQTN VSTN26028703.06 cấp lại trên Z (Edoc, 16/11/2026 17:19),
+    vẫn ngày 12/11/2026 -> VT6 = < 1 CFU/đĩa. Bản mới cả 7 phiếu chép về Input/134792/KQTN/Z_20261116
+    (.01 - .05, .07 kết quả không đổi). Ngày ban hành giữ 12/11/2026.
+  - "sửa quy trình về N2.TC.LAF.01": Quy trình thực hiện = QUATEST 3 3030:2025, N2.TC.LAF.01
+    (thay N2.TC.BSC.02 theo BBLM) — TBKQ VN/EN, BCKQ, Excel.
+  - "CAG-003:2022, IEST-RP-CC002.4, và ISO 14644-1:2015 căn cứ áp dụng đánh giá là theo 3 tiêu chuẩn này":
+    Căn cứ TBKQ VN/EN, BCKQ, tem (thay EN 12469:2000); limit_basis = IEST-RP-CC002.4.
+  - "Giữ như vậy" (16/11/2026) cho 2 điểm dưới (trước là suy luận của AI):
+  - Excel: nhãn "Mức quy định EN 12469" -> IEST-RP-CC002.4, mức tham khảo theo IEST như 139329/2
+    (downflow 0,40 - 0,50 m/s, lux ≥ 540, ồn ≤ 70 dBA); ô đánh giá vẫn "-" (không đánh giá).
+  - Tem: căn cứ "IEST-RP-CC002.4; ISO 14644-1:2015" (bỏ CAG-003 — chỉ tiêu hình thái dòng khí không làm,
+    ô tem không đủ chỗ 3 dòng; như tem 139329/2).
     Ngày yêu cầu cấp KQTN 11/11/2026 (PYC trống ngày dự kiến trả KQ -> ngày lấy mẫu + 8, AGENTS mục 13);
     KQTN 12/11/2026 = 7 ngày làm việc từ ngày gửi mẫu -> trễ hạn "không" (người dùng 12/11/2026: "Không đánh
     trễ kết quả thử nghiệm dưới 10 ngày làm việc" — trước đó ghi "có"). Ngày gửi mẫu = ngày nhận mẫu trên KQTN 03/11/2026.
 Suy luận của AI (cần người dùng xác nhận):
   - Giờ thực hiện 09:30 - 11:30 theo BBLM.
-  - Quy trình theo BBLM: QUATEST 3 3030:2025, N2.TC.BSC.02 (bỏ EN 12469:2000 - đã ở Căn cứ).
   - HEPA lọc cấp: 2 lần quét ATI 2i (0,0054 % và 0,0059 %) -> lấy 0,0059 % như phiếu ghi chép.
 
 Số liệu đọc từ phiếu ghi chép (Input/134792/20261103140954604.pdf tr. 3-6) và phiếu in nhiệt
@@ -74,6 +86,11 @@ NGAY_YC_KQTN = "11/11/2026"  # PYC trống ngày dự kiến trả KQ -> ngày l
 NGAY_NHAN_KQTN = "12/11/2026"
 MICRO_BLANK = "< 1"
 CERT_DATE = KQTN_NGAY or PLACEHOLDER
+# Căn cứ áp dụng/ đánh giá (người dùng 16/11/2026): CAG-003:2022, IEST-RP-CC002.4, ISO 14644-1:2015
+LAF_BASIS = "IEST-RP-CC002.4"
+STD = "CAG-003:2022; IEST-RP-CC002.4; ISO 14644-1:2015"
+# Mức IEST-RP-CC002.4 ghi tham khảo trong Excel (như 139329/2, người dùng chốt 10/11/2026); không đánh giá
+LAF_DF_RANGE, LAF_LUX_MIN, LAF_NOISE_MAX = (0.40, 0.50), 540, 70
 START, END = "09:30", "11:30"
 INPUT_DIR = os.path.join(WORKSPACE, "Input", "134792")
 PHOTO_DIR = os.path.join(INPUT_DIR, "Photo", "Use")
@@ -113,7 +130,8 @@ HEPA_DF = 0.0059                          # ATI 2i: 0,0054 % và 0,0059 %, nồn
 PARTICLE = [1, 0, 0, 0]                   # AeroTrak sample 530 (zero 529), 1000 L, cộng dồn d ≥ 0,3 / 0,5 / 1,0 / 5,0 µm
 MICRO_POINTS = ["VT1", "VT2", "VT3", "VT4", "VT5", "VT6"]
 # Kết quả vi sinh theo KQTN (CFU/đĩa), ghi như KQTN (AGENTS mục 13); None -> "………" tô vàng
-MICRO_RESULTS = {"VT1": "< 1", "VT2": "< 1", "VT3": "< 1", "VT4": "< 1", "VT5": "< 1", "VT6": "6,0 × 10¹"}
+MICRO_RESULTS = {"VT1": "< 1", "VT2": "< 1", "VT3": "< 1", "VT4": "< 1", "VT5": "< 1", "VT6": "< 1"}
+# VT6 trước đây 6,0 × 10¹ — KQTN .06 cấp lại trên Z 16/11/2026 ra < 1 (người dùng báo 16/11/2026)
 # Vị trí lấy mẫu trên sơ đồ phiếu (x: trái -> phải, y: cửa -> vách trong), tỉ lệ 0..1
 MICRO_XY = {"VT1": (0.18, 0.78), "VT2": (0.18, 0.28), "VT3": (0.40, 0.56),
             "VT4": (0.60, 0.53), "VT5": (0.80, 0.78), "VT6": (0.80, 0.18)}
@@ -183,6 +201,10 @@ def dossier() -> Dossier:
             "brand": "pH Scientific", "model": "N/A", "serial": "N/A", "device_id": "QC-EQ-052",
             "seal_item_name": "“Tủ cấy vi sinh”",
         },
+        "limit_basis": LAF_BASIS,
+        # tem: ô nhỏ, 3 dòng tiêu chuẩn đẩy "-Particle count" ra ngoài khung -> như tem 139329/2
+        # (CAG-003 là mức hình thái dòng khí, chỉ tiêu này không làm)
+        "seal_standard": "IEST-RP-CC002.4;\nISO 14644-1:2015",
         "inflow": {"skip": True},
         "downflow": {"readings": DOWNFLOW, "avg": round(df_avg, 2), "tolerance_pct": 20,
                      "width_mm": DF_WIDTH, "depth_mm": DF_DEPTH},
@@ -240,15 +262,15 @@ def dossier() -> Dossier:
         dossier_type="bsc",
         has_assessment=False,
         scope_vn="Giám định tủ cấy", scope_en="Inspection of Clean bench",
-        procedure_vn="QUATEST 3 3030:2025, N2.TC.BSC.02", procedure_en="QUATEST 3 3030:2025, N2.TC.BSC.02",
-        standards_vn="EN 12469:2000; ISO 14644-1:2015", standards_en="EN 12469:2000; ISO 14644-1:2015",
-        basis_vn="EN 12469:2000; ISO 14644-1:2015", basis_en="EN 12469:2000; ISO 14644-1:2015",
+        # Người dùng 16/11/2026: "sửa quy trình về N2.TC.LAF.01" (trước đây BSC.02 theo BBLM)
+        procedure_vn="QUATEST 3 3030:2025, N2.TC.LAF.01", procedure_en="QUATEST 3 3030:2025, N2.TC.LAF.01",
+        standards_vn=STD, standards_en=STD, basis_vn=STD, basis_en=STD,
         equipments=EQUIPMENTS,
         locations=[MonitoringLocation(name_vn="Tủ cấy vi sinh pH Scientific (QC-EQ-052)",
                                       name_en="Clean bench pH Scientific (QC-EQ-052)")],
         photos=_photos(),
         results_data=rd,
-        assessment={"basis_vn": "EN 12469:2000; ISO 14644-1:2015",
+        assessment={"basis_vn": STD,
                     "phu_hop_vn": [], "khong_phu_hop_vn": [], "khong_danh_gia_vn": khong_dg},
     )
 
@@ -400,6 +422,18 @@ def build_excel(d: Dossier) -> str:
     for ref in ("J46", "J48", "J62", "J76", "H83", "D136"):
         ws[ref] = "-"
     ws["A79"] = None
+    # Căn cứ IEST-RP-CC002.4 (người dùng 16/11/2026): nhãn + mức tham khảo theo IEST (như 139329/2)
+    from openpyxl.styles import Alignment
+    for ref in ("F44", "F60", "F74"):
+        ws[ref] = f"Mức quy định {LAF_BASIS}"
+        ws[ref].alignment = Alignment(horizontal="center", vertical="center", shrink_to_fit=True)
+    ws["F82"] = f"Mức quy định tại {LAF_BASIS}"
+    ws["F29"] = "Mức quy định"                                   # inflow: không thực hiện
+    ws["H99"] = "Mức quy định tham chiếu tại CAG-003:2022"       # hình thái dòng khí: không thực hiện (AGENTS 8C)
+    ws["F46"], ws["H46"] = LAF_DF_RANGE
+    ws["F46"].number_format = ws["H46"].number_format = "0.00"
+    ws["F62"] = LAF_LUX_MIN
+    ws["H76"] = LAF_NOISE_MAX
     # 5. HEPA: chỉ có lọc khí cấp
     ws["D87"], ws["F87"], ws["H87"] = "-", "-", "-"
     # 6. Hình thái dòng khí: không thực hiện
@@ -414,6 +448,12 @@ def build_excel(d: Dossier) -> str:
                 for cell in row:
                     if isinstance(cell.value, str) and cell.value.strip() in ("Đạt", "Pass", "Không đạt", "Fail"):
                         cell.value = "-"
+                    elif isinstance(cell.value, str) and "N2.TC.BSC." in cell.value:   # quy trình in sẵn của form
+                        cell.value = d.procedure_vn
+                    elif isinstance(cell.value, str) and cell.value.strip() == "EN 12469:2000":   # căn cứ in sẵn
+                        cell.value = STD
+                    elif isinstance(cell.value, str) and "EN 12469" in cell.value:   # ghi chú mức
+                        cell.value = cell.value.replace("EN 12469:2000", LAF_BASIS).replace("EN 12469", LAF_BASIS)
     wb.save(out)
     _recalc(out)
     print(f"[134792] Excel -> {out}")

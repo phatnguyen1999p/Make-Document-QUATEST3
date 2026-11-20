@@ -379,7 +379,8 @@ class CleanroomCalcBook:
         ws.row_dimensions[1].height = 32
         idx = {key: c for c, (_, key, _) in enumerate(cols, 1) if key}
         c_lim, c_ev = len(cols) - 1, len(cols)
-        for hide in ("Location", "Device Status", "Flow Status"):
+        # Ẩn cột máy không dùng (người dùng yêu cầu 18/11/2026: thêm Laser Status, Temp, Humidity, Velocity)
+        for hide in ("Location", "Device Status", "Flow Status", "Laser Status", "Temp", "Humidity", "Velocity"):
             ws.column_dimensions[L(idx[hide])].hidden = True
         r = 2
         for g in groups:

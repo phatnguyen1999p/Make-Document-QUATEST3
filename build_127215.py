@@ -37,7 +37,8 @@ Suy luận của AI (người dùng đã đồng ý 10/11/2026):
   (4) Vi sinh: VS1 = P4 (mẫu 5), VS2 = P3 (mẫu 4), VS3 = P2 (mẫu 2), VS4 = P1 (mẫu 1), VS5 = Pass box (mẫu 3);
       lấy mẫu 100 L/phút × 2 phút như 2025 (phiếu để trống).
   (5) Tên EN "Asia Shine Joint Stock Company" theo TBKQ 2025 (chưa có MST để tra tên quốc tế).
-  (6) Địa chỉ theo BBLM (336 Nguyễn Trọng Tuyển; hồ sơ 2025 ghi 388); địa điểm chuẩn hóa 2 cấp "xã Cần Giuộc,
+  (6) Địa chỉ: BBLM ghi 336, hồ sơ 2025 ghi 388 → người dùng chốt 20/11/2026: "127215 có địa chỉ là
+      338 Nguyễn Trọng Tuyển"; địa điểm chuẩn hóa 2 cấp "xã Cần Giuộc,
       tỉnh Tây Ninh" như TBKQ 2025.
 
 Vi sinh CHƯA có KQTN: điền VI_SINH_CFU_DIA (theo ký hiệu mẫu 1..5), VI_SINH_BLANK, KQTN_SO, KQTN_NGAY rồi chạy lại.
@@ -86,11 +87,13 @@ PHOTO_DIR = os.path.join(INPUT_DIR, "Photos-1-001 (5)", "Use")   # người dùn
 LAYOUT = os.path.join(INPUT_DIR, "Layout.png")
 
 # --- Vi sinh: chưa có KQTN. Điền khi có kết quả rồi chạy lại ---
-KQTN_SO = ""             # vd "MTTN26/xxxx"
-KQTN_NGAY = ""           # dd/mm/yyyy -> cũng là ngày ban hành TBKQ
-# Số khuẩn lạc CFU/đĩa theo KQTN, theo KÝ HIỆU MẪU trên phiếu ghi chép (mẫu 1..5); None = chưa có.
-VI_SINH_CFU_DIA = {1: None, 2: None, 3: None, 4: None, 5: None}
-VI_SINH_BLANK = None      # mẫu 6
+# KQTN về 18/11/2026 (Z …\TBKQ\Edoc\KQ-Q326D127215-VSTN26027752.01…06.pdf; nhận mẫu 10/11, thử 10–16/11/2026).
+# Phiếu .0n = ký hiệu mẫu n trên phiếu ghi chép (.06 = blank) — người dùng xác nhận 18/11/2026: "bạn sắp xếp đúng rồi".
+KQTN_SO = "VSTN26027752.01 - .06"
+KQTN_NGAY = "18/11/2026"   # ngày phiếu KQTN -> ngày ban hành TBKQ (AGENTS mục 2)
+# Số khuẩn lạc CFU/đĩa theo KQTN, theo KÝ HIỆU MẪU trên phiếu ghi chép (mẫu 1..5); 0 = "< 1" (KPH).
+VI_SINH_CFU_DIA = {1: 0, 2: 2, 3: 2, 4: 0, 5: 0}
+VI_SINH_BLANK = "< 1"     # mẫu 6
 # Hoặc ghi thẳng kết quả CFU/m³ theo KQTN (ưu tiên hơn CFU/đĩa), vd {1: "< 5", 2: 10}
 VI_SINH_KQ = {}
 VS_FLOW_LPM, VS_MINUTES = 100, 2          # suy luận (4): như hồ sơ 2025 — phiếu để trống
@@ -101,8 +104,8 @@ CERT_DATE = KQTN_NGAY or PLACEHOLDER
 CLIENT = ClientInfo(
     name_vn="Công ty Cổ phần Ánh Sáng Châu Á",
     name_en="Asia Shine Joint Stock Company",
-    address_vn="336 Nguyễn Trọng Tuyển, phường Tân Sơn Hòa, Thành phố Hồ Chí Minh",
-    address_en="336 Nguyen Trong Tuyen Street, Tan Son Hoa Ward, Ho Chi Minh City",
+    address_vn="338 Nguyễn Trọng Tuyển, phường Tân Sơn Hòa, Thành phố Hồ Chí Minh",
+    address_en="338 Nguyen Trong Tuyen Street, Tan Son Hoa Ward, Ho Chi Minh City",
 )
 SITE_VN = "Khu C, Lô 3D-1, đường số 10, Khu công nghiệp Long Hậu, xã Cần Giuộc, tỉnh Tây Ninh"
 SITE_EN = "Area C, Lot 3D-1, Road No. 10, Long Hau Industrial Park, Can Giuoc Commune, Tay Ninh Province"
@@ -743,14 +746,15 @@ def build_excel() -> str:
         book.put(wv, r, 5, VS_MINUTES)
         book.put(wv, r, 6, f"=D{r}*E{r}")
         cfu = VI_SINH_CFU_DIA.get(sample)
-        c_ = book.put(wv, r, 7, cfu)
+        # KQTN KPH -> ghi "< 1" như phiếu KQTN, không ghi 0 (người dùng yêu cầu 18/11/2026)
+        c_ = book.put(wv, r, 7, "< 1" if cfu == 0 else cfu)
         if cfu is None:
             c_.fill = yellow
         kq = VI_SINH_KQ.get(sample)
         if kq not in (None, ""):
             book.put(wv, r, 8, kq)
         else:
-            book.put(wv, r, 8, f'=IF(G{r}="","",IF(G{r}=0,"< "&ROUND(1000/F{r},0),ROUND(G{r}*1000/F{r},0)))', fmt="0")
+            book.put(wv, r, 8, f'=IF(G{r}="","",IF(ISNUMBER(G{r}),ROUND(G{r}*1000/F{r},0),"< "&ROUND(1000/F{r},0)))', fmt="0")
         lim = GRADE_VS[grade]
         book.put(wv, r, 9, f"≤ {lim}")
         book.put(wv, r, 10, f'=IF(H{r}="","",IF(ISNUMBER(H{r}),IF(H{r}<={lim},"Đạt","Không đạt"),"Đạt"))')
