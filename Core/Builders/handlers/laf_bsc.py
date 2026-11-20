@@ -331,16 +331,11 @@ class LAFBSCHandler:
 
         if numbered_photos:
             import math
-            if len(numbered_photos) >= 5:
-                num_cols = 3
-                num_rows = 2
-                img_w = PHOTO_WIDTH_3COL  # 4.8 cm (4 - 5 cm, strictly no crop)
-                cap_sz = 11
-            else:
-                num_cols = 2
-                num_rows = math.ceil(len(numbered_photos) / num_cols)
-                img_w = PHOTO_WIDTH_2COL  # 7.5 cm (7 - 8 cm, strictly no crop)
-                cap_sz = 13  # Font size 13 italic for captions per AGENTS.md Section 3
+            # lưới 2 cột cho mọi bảng ảnh (người dùng chốt 20/11/2026, AGENTS mục 3)
+            num_cols = 2
+            num_rows = math.ceil(len(numbered_photos) / num_cols)
+            img_w = PHOTO_WIDTH_2COL  # 7.5 cm (7 - 8 cm, strictly no crop)
+            cap_sz = 13  # Font size 13 italic for captions per AGENTS.md Section 3
 
             t_photo = doc.add_table(rows=num_rows, cols=num_cols)
             t_photo.alignment = WD_TABLE_ALIGNMENT.CENTER

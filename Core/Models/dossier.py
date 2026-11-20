@@ -240,6 +240,11 @@ class Dossier:
         if self.client is not None:
             self.client.name_vn = expand_abbrev(self.client.name_vn)
             self.client.address_vn = expand_abbrev(self.client.address_vn)
+        # Địa chỉ tiếng Anh viết thường street / ward / province / city, trừ 5 thành phố (AGENTS mục 14)
+        from Core.Tools.no_abbrev import normalize_address_en
+        self.location_desc_en = normalize_address_en(self.location_desc_en)
+        if self.client is not None:
+            self.client.address_en = normalize_address_en(self.client.address_en)
 
         if not self.input_dir:
             self.input_dir = os.path.join(os.getcwd(), "Input")
