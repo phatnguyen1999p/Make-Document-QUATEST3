@@ -149,6 +149,8 @@ class PersonnelInfo:
                 self.reporter = f"{name_cap} + Minh"
             elif "nghĩa" in exec_lower or "nghia" in exec_lower:
                 self.reporter = f"{name_cap} + Minh"
+            elif name_cap.lower() == "minh":            # không lặp Minh (AGENTS mục 7)
+                self.reporter = "Minh + Nam"
             else:
                 self.reporter = f"{name_cap} + Minh + Nam"
 

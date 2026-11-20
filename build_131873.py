@@ -1,299 +1,203 @@
 # -*- coding: utf-8 -*-
-"""
-Q326D131873 — Công ty Cổ phần Công nghệ PPJ-HNC — lấy mẫu và giám định bùn thải (QCVN 07:2025/BNNMT).
+r"""
+Q326D131873 — Công ty Cổ phần Công nghệ PPJ-HNC — bùn thải, 03 ngày lấy mẫu (B1 29/10, B2 30/10, B3 31/10/2026),
+01 chứng thư (mã trần) + BCKQ. CHƯA CÓ KQTN -> bản khung, kết quả "………" tô vàng.
 
-Nguồn (Input\\131873, chép từ Z ...\\2026\\0.VIMCERTS078\\Q326D131873 - CONG NGHE PPJ-HNC - BUN):
-- `0.  BBGDHT .pdf` (6 trang): BBLM /1 (29/10/2026, 2 trang), /2 (30/10/2026, 2 trang), /3 (31/10/2026, 2 trang).
-  Mỗi ngày 1 mẫu gộp từ 3 lần lấy (máy ép / bao chứa / bao chứa): B1 16:00–16:30 niêm phong KT372818;
-  B2 11:15–11:45 KT372819; B3 07:45–08:15 KT372820. Người thực hiện Phạm Quốc Nghĩa; chứng kiến: đại diện công ty
-  (chữ ký "Mai Thị Thân"); ghi tay: "Đại diện công ty vận hành máy ép bùn từ hệ thống xử lý nước thải của công ty".
-  Quy trình `QUATEST3 3030:2025, N2.TC.B.01`; thiết bị `-`; PYC số Q326D131873 ngày 16/10/2026.
-- `0.  BAO GIA  .pdf` (3 trang): báo giá QONV26016234 ngày 15/10/2026 — chỉ tiêu QCVN 07:2025/BNNMT: pH, độ ẩm;
-  ngâm chiết Cd, Ni, Ba, Co, Hg, As, Pb, Se, Phenol, Benzen, Clo benzen; hàm lượng tuyệt đối tổng xyanua; theo yêu cầu
-  KH: hàm lượng tuyệt đối và ngâm chiết của Crom VI, Tổng dầu; 01 mẫu × 3 ngày = 03 mẫu; chứng thư tiếng Việt.
-- Ảnh `THUC HIEN\\D131873 - PHOTO\\PHOTO BAO CAO`: `MAU B1/B2/B3` (niêm phong), `03 VI TRI - 29-10/30-10/31-10`.
-- `1. tinh toan chat thai.xlsx`, `2. BCKQ.docx`, `3. TBKQ.docx`: mẫu của hồ sơ Q326D112119 (Tân Đức) — chỉ tham khảo khuôn.
-- CHƯA CÓ phiếu KQTN, chưa có PYC, phiếu ghi chép trong scan.
+Nguồn (chép từ Z `0.VIMCERTS078\Q326D131873 - CONG NGHE PPJ-HNC - BUN` về Input\131873, chỉ đọc):
+  - `0.  BBGDHT .pdf` (6 trang = 3 BBLM số Q326D131873/1, /2, /3): PYC Q326D131873 ngày 16/10/2026; "CÔNG TY CỔ PHẦN CÔNG
+    NGHỆ PPJ-HNC", "Cụm Công nghiệp Tam Quan, phường Tam Quan, tỉnh Gia Lai"; "Lấy mẫu và phân tích bùn thải"; địa điểm:
+    nhà máy của Công ty tại địa chỉ trên; thiết bị "-"; QUATEST3 3030:2025, N2.TC.B.01; nhà máy hoạt động sản xuất;
+    "Bùn thải sau khi ép từ máy ép bùn", mỗi ngày 03 mẫu đơn (1 máy ép + 2 bao chứa) trộn đều gộp 01 mẫu:
+      B1 29/10/2026 16:00 – 16:30 (16:00 máy ép, 16:15 bao chứa, 16:30 bao chứa), niêm phong KT372818;
+      B2 30/10/2026 11:15 – 11:45 (11:15, 11:30, 11:45), KT372819;
+      B3 31/10/2026 07:45 – 08:15 (07:45, 08:00, 08:15), KT372820;
+    ghi chú: đại diện Công ty vận hành máy ép bùn để lấy mẫu; trang 2: "Hệ thống xử lý nước thải của Công ty"; đại diện
+    KH ký "Mai Thị Thân" (báo giá: người liên hệ Mai Thân); người thực hiện Phạm Quốc Nghĩa.
+  - `0.  BAO GIA  .pdf` (QONV26016234, 15/10/2026): chỉ tiêu theo QCVN 07:2025/BNNMT — pH, độ ẩm; ngâm chiết Cd, Ni, Ba,
+    Co, Hg, As, Pb, Se, phenol, benzen, clo benzen; hàm lượng tuyệt đối tổng xyanua; theo yêu cầu KH: hàm lượng tuyệt đối
+    và ngâm chiết Crom VI, tổng dầu; 01 mẫu x 3 ngày = 03 mẫu; chứng thư tiếng Việt.
+  - `3. TBKQ  .docx`, `2. BCKQ  .docx`, `1. tinh toan chat thai  .xlsx`: khung chép từ hồ sơ Q326D112119 (Tân Đức) —
+    phương pháp, ngưỡng QCVN 07:2025 lấy từ đây.
+  - Ảnh `0.  03 VI TRI - 29-10/30-10/31-10  .jpg`, `0.  MAU B1/B2/B3  .jpg`.
 
-Quyết định của người dùng (17/11/2026):
-1. "Tách 3 chứng thư trước, có gì sửa sau" -> /1 B1 (29/10), /2 B2 (30/10), /3 B3 (31/10); BCKQ gộp 1 file (mã trần).
-2. Ngưỡng clo benzen, xyanua (≥ 590 theo 107520; mẫu 112119 ghi ≥ 15) -> "highlight chỗ đó" (tô vàng, HL_TEXTS).
-3. Crom (VI), tổng dầu (ngưỡng `-`, "không đánh giá", phương pháp `………`) -> "giữ nguyên highlight chỗ đó".
-4. Phương pháp theo 112119 -> "oke". 5. Độ ẩm không đưa vào TBKQ -> "oke".
-6. Người chứng kiến: "Mai Thị Thân".
-7. Ngày gửi mẫu, ngày yêu cầu cấp KQTN (chưa có PYC / KQTN) -> "để trống, highlight lên".
+Quyết định của người dùng (17/11/2026): "chỉ làm 1 bộ KQ chứng thư thôi chứ không tách ra làm 3 … thể hiện 03 ngày lấy
+mẫu, mỗi ngày 01 mẫu B1-B2-B3/ kèm số niêm. Kết quả gồm 03 cột KQTN + 01 cột tính trung bình + 01 cột ngưỡng QC
+07:2025; 02 chỉ tiêu Crom VI + tổng dầu tách riêng thành 01 bảng - vì không thuộc QC 07:2025".
+
+Quyết định của người dùng (17/11/2026, lần 2):
+  - Chưa có KQTN -> để trống. Trung bình (để trống tới khi có KQTN): ngày '< LOD' tính 0, cộng các ngày có số chia 3;
+    nhỏ hơn LOD ghi '< LOD', lớn hơn ghi trị số (hàm `trung_binh`). Đánh giá: so giá trị trung bình với ngưỡng.
+  - Ngưỡng: "File ngưỡng có trong thư mục, kiếm nó và áp vào … thiếu thì tô vàng và để trống". Trên máy / Z không có
+    file QCVN 07:2025 (chỉ QCVN 07:2009 trên Z `TIÊU CHUẨN VIỆT NAM. Tong hop cac quy chuan moi truong`) -> AI lấy
+    ngưỡng theo các chứng thư QCVN 07:2025 đã làm năm 2026 (017976, 020756, 069814, 107520…): clo benzen ≥ 100, selen
+    > 1; tổng xyanua ≥ 590 (khớp QCVN 07:2009 bảng 3; khung 112119 ghi ≥ 15 là sai).
+  - Bảng Crom VI + tổng dầu: thêm câu VIMCERTS 078, tô vàng. Người chứng kiến: Mai Thị Thân (đúng).
+  - Phương pháp (17/11/2026, lần 3): "phần phương pháp trong TBKQ hãy để trống chung với kết quả, sau này có Kết quả
+    rồi thì dựa theo phương pháp và kết quả để thay thế" -> cột phương pháp "………" tô vàng (hàm `meth`, điền `METHODS`
+    theo phiếu KQTN khi về); phương pháp trong LEACH / ABSOLUTE / EXTRA chỉ để tham khảo.
+
+  - Bản TBKQ người dùng sửa tay trên Z (17/11/2026 18:02) — "Giữ sửa của tôi" (18/11/2026): bảng Ghi chú 9.2.3 câu
+    VIMCERTS cùng dòng "Ghi chú:", bỏ dòng "●", bảng 5103 pct (hàm `user_note_923`).
 
 Suy luận của AI (cần người dùng xác nhận):
-1. Chỉ dựng TBKQ tiếng Việt (báo giá: chi phí chứng thư tiếng Việt; không có PYC mục 15).
+  1. (bỏ — phương pháp để trống tới khi có KQTN, xem quyết định lần 3)
+  2. Bảng Crom VI + tổng dầu: 03 cột KQTN + cột trung bình, không cột ngưỡng, không đánh giá.
 
-Chạy:  python build_131873.py          (DOCX + XLSX + Edoc, QA)
-       python build_131873.py --pdf    (thêm PDF + giấy tiêu đề UpChungThu)
+Chạy:  python build_131873.py [--pdf]
 """
-
-import os
-import sys
 import argparse
 import datetime
-
-sys.stdout.reconfigure(encoding="utf-8")
-WORKSPACE = os.path.dirname(os.path.abspath(__file__))
-if WORKSPACE not in sys.path:
-    sys.path.insert(0, WORKSPACE)
-os.environ["QUATEST3_NETWORK_ROOT"] = r"C:\__khong_dong_bo_Z__"
-
+import os
+import nuoc_common as N
+from nuoc_common import WORKSPACE, PLACEHOLDER as P
+import build_nuoc_mau as M
+from build_nuoc_mau import Body, cell_text, note_table, fix_cover, appendix_protos, make_head, _keep, _keep_rows
 from docx import Document
-from docx.enum.text import WD_COLOR_INDEX
 from docx.oxml.ns import qn
-
-from Core.Models import Dossier, ClientInfo, PersonnelInfo
-from Core.Builders.bckq_builder import BCKQBuilder
 from Core.Builders.handlers.cleanroom import CleanroomHandler
-from Core.Builders.tag_context import PLACEHOLDER as P, merge_same_vertical, style_note_tables, appendix_total_field
+from Core.Builders.tag_context import merge_same_vertical, style_note_tables, appendix_total_field
 from Core.Styling.elements import add_document_ending_line
 from Core.Styling.tables import set_table_autofit_window, insert_image_to_cell, add_cant_split
-from Core.Tools.qa_check import check_single_docx
-from Core.Tools.kqtn_late import tre_han_text
-from build_nuoc_mau import (Body, cell_text, note_table, fix_cover, appendix_protos, make_head, sub_head, _keep,
-                            _keep_rows, _num, _ptext)
 
-CODE6 = "131873"
-CODE = f"Q326D{CODE6}"
-REG_DATE = "16/10/2026"
-DAYS = ["29/10/2026", "30/10/2026", "31/10/2026"]
-TIMES = [("16:00", "16:30"), ("11:15", "11:45"), ("07:45", "08:15")]
-SAMPLES = ["B1", "B2", "B3"]
-SEALS = ["KT372818", "KT372819", "KT372820"]
-
-# KQTN — điền khi có phiếu (None = chưa có -> ………)
-KQTN_SO = None          # vd "MTTN26xxxxxx"
-KQTN_NGAY = None        # dd/mm/yyyy
-SEND_DATE = None        # "Ngày nhận mẫu" trên phiếu KQTN
-REQ_DATE = None         # "Ngày dự kiến trả kết quả" trên PYC
-CERT_DATE = KQTN_NGAY or P
-
-CLIENT = ClientInfo(
-    name_vn="Công ty Cổ phần Công nghệ PPJ-HNC",
-    name_en="PPJ-HNC Technology Joint Stock Company",
-    address_vn="Cụm công nghiệp Tam Quan, phường Tam Quan, tỉnh Gia Lai",
-    address_en="Tam Quan Industrial Cluster, Tam Quan ward, Gia Lai province",
-)
-SITE_VN = "Nhà máy của Công ty Cổ phần Công nghệ PPJ-HNC, Cụm công nghiệp Tam Quan, phường Tam Quan, tỉnh Gia Lai"
-WITNESS = "Đại diện Công ty Cổ phần Công nghệ PPJ-HNC\n(chị Mai Thị Thân)"
-VI_TRI = "Bùn thải sau khi ép từ máy ép bùn của hệ thống xử lý nước thải"
-CHI_TIEU = ("Tính chất nguy hại: tính kiềm/ tính axit (pH);\n"
-            "Thành phần nguy hại theo nồng độ ngâm chiết: cadimi, nicken, bari, coban, thủy ngân, asen, chì, selen, "
+IN = os.path.join(WORKSPACE, "Input", "131873")
+CLIENT = "Công ty Cổ phần Công nghệ PPJ-HNC"
+ADDR = "Cụm Công nghiệp Tam Quan, phường Tam Quan, tỉnh Gia Lai"
+STD = "QCVN 07:2025/BNNMT - Quy chuẩn kỹ thuật quốc gia về ngưỡng chất thải nguy hại"
+QC = "QCVN 07:2025/BNNMT"
+WITNESS = f"Đại diện {CLIENT}\n(chị Mai Thị Thân)"
+SAMPLES = [  # ký hiệu, ngày, khung giờ, số niêm phong, ảnh vị trí, ảnh mẫu
+    ("B1", "29/10/2026", "16:00 – 16:30", "KT372818", "0.  03 VI TRI - 29-10  .jpg", "0.  MAU B1  .jpg"),
+    ("B2", "30/10/2026", "11:15 – 11:45", "KT372819", "0.  03 VI TRI - 30-10  .jpg", "0.  MAU B2  .jpg"),
+    ("B3", "31/10/2026", "07:45 – 08:15", "KT372820", "0.  03 VI TRI - 31-10  .jpg", "0.  MAU B3  .jpg"),
+]
+VI_TRI = ("Bùn thải sau khi ép từ máy ép bùn của hệ thống xử lý nước thải (mỗi mẫu trộn đều từ 03 mẫu đơn: 01 mẫu tại "
+          "máy ép bùn, 02 mẫu tại bao chứa bùn)")
+CHI_TIEU = ("- Tính chất nguy hại: tính kiềm/ tính axit (pH);\n"
+            "- Thành phần nguy hại theo nồng độ ngâm chiết: cadimi, niken, bari, coban, thủy ngân, asen, chì, selen, "
             "phenol, benzen, clo benzen;\n"
-            "Thành phần nguy hại theo hàm lượng tuyệt đối: tổng xyanua;\n"
-            "Theo yêu cầu khách hàng: crom (VI), tổng dầu (nồng độ ngâm chiết và hàm lượng tuyệt đối).")
-
-M_METAL = "US EPA 1311 & US EPA 200.7"
-# kết quả theo mẫu B1, B2, B3 — None -> ………
-PH = ([None, None, None], "pH ≥ 12,5 hoặc\npH ≤ 2,0")
-LEACH = [  # (tên, phương pháp, [B1, B2, B3], ngưỡng mg/L)
-    ("Cadimi (Cd)", M_METAL, [None] * 3, "≥ 1,0"),
-    ("Nicken (Ni)", M_METAL, [None] * 3, "≥ 70"),
-    ("Bari (Ba)", M_METAL, [None] * 3, "≥ 100"),
-    ("Coban (Co)", M_METAL, [None] * 3, "≥ 80"),
-    ("Thủy ngân (Hg)", "US EPA 1311 & SMEWW 3112B:2023", [None] * 3, "≥ 0,2"),
-    ("Asen (As)", M_METAL, [None] * 3, "≥ 5,0"),
-    ("Chì (Pb)", M_METAL, [None] * 3, "≥ 5,0"),
-    ("Selen (Se)", M_METAL, [None] * 3, "> 1"),
-    ("Phenol", "US EPA 1311 & US EPA 3510C & US EPA 3650B & US EPA 8041A", [None] * 3, "≥ 1 000"),
-    ("Benzen", "US EPA 1311 & US EPA 5021A", [None] * 3, "≥ 0,5"),
-    ("Clo benzen", P, [None] * 3, P),
-    ("Crom (VI) ^(3)", P, [None] * 3, "-"),
-    ("Tổng dầu ^(3)", P, [None] * 3, "-"),
+            "- Thành phần nguy hại theo hàm lượng tuyệt đối: tổng xyanua;\n"
+            "- Crom VI, tổng dầu (nồng độ ngâm chiết và hàm lượng tuyệt đối) theo yêu cầu khách hàng.")
+ICP = "US EPA 1311 & US EPA 200.7"
+LEACH = [  # (tên, phương pháp, ngưỡng CTNH mg/L, tô vàng ngưỡng?)
+    ("Cadimi (Cd)", ICP, "≥ 1,0", False), ("Niken (Ni)", ICP, "≥ 70", False), ("Bari (Ba)", ICP, "≥ 100", False),
+    ("Coban (Co)", ICP, "≥ 80", False), ("Thủy ngân (Hg)", "US EPA 1311 & SMEWW 3112B:2023", "≥ 0,2", False),
+    ("Asen (As)", ICP, "≥ 5,0", False), ("Chì (Pb)", ICP, "≥ 5,0", False), ("Selen (Se)", ICP, "> 1", False),
+    ("Phenol", "US EPA 1311 & US EPA 3510C & US EPA 3650B & US EPA 8041A", "≥ 1 000", False),
+    ("Benzen", "US EPA 1311 & US EPA 5021A", "≥ 0,5", False),
+    ("Clo benzen", "US EPA 1311 & US EPA 5021A", "≥ 100", False),     # theo 069814, 107520 (QCVN 07:2025)
 ]
-ABS = [  # kết quả đã quy đổi mẫu rắn khô (ppm) — lấy từ phiếu Excel
-    ("Tổng xyanua (CN⁻)", "US EPA 9013A & US EPA 9010C & US EPA 9014", [None] * 3, "≥ 590"),
-    ("Crom (VI) ^(5)", P, [None] * 3, "-"),
-    ("Tổng dầu ^(5)", P, [None] * 3, "-"),
+# tổng xyanua ≥ 590 ppm: QCVN 07:2009 bảng 3 + 017976, 069814, 069820, 070191 (khung 112119 ghi ≥ 15 — bỏ)
+ABSOLUTE = [("Tổng xyanua (CN⁻)", "US EPA 9013A & US EPA 9010C & US EPA 9014", "≥ 590", False)]
+EXTRA = [  # Crom VI, tổng dầu — theo yêu cầu khách hàng (không thuộc QCVN 07:2025); phương pháp ngâm chiết theo 005526
+    ("Crom VI (Cr⁶⁺) – nồng độ ngâm chiết", "mg/L", "US EPA 1311 & SMEWW 3500-Cr B:2023"),
+    ("Crom VI (Cr⁶⁺) – hàm lượng tuyệt đối", "ppm", P),
+    ("Tổng dầu – nồng độ ngâm chiết", "mg/L", "US EPA 1311 & SMEWW 5520B:2023"),
+    ("Tổng dầu – hàm lượng tuyệt đối", "ppm", P),
 ]
-MOISTURE = [None, None, None]
-CUSTOMER_NOTE = "Chỉ tiêu thực hiện theo yêu cầu của khách hàng, không có ngưỡng tại QCVN 07:2025/BNNMT."
-
-INPUT_DIR = os.path.join(WORKSPACE, "Input", CODE6)
-PHOTO_DIR = os.path.join(INPUT_DIR, "THUC HIEN", "D131873 - PHOTO", "PHOTO BAO CAO")
-SEAL_PHOTOS = [os.path.join(PHOTO_DIR, f"MAU {s}  .jpg") for s in SAMPLES]
-LOC_PHOTOS = [os.path.join(PHOTO_DIR, f"03 VI TRI - {d[:5].replace('/', '-')}  .jpg") for d in DAYS]
+# Kết quả KQTN (chưa có — để trống): {tên chỉ tiêu: [B1, B2, B3]}, vd {"Cadimi (Cd)": ["< 0,01", "0,02", "< 0,01"]}
+RESULTS = {}
 
 
-def v(x):
-    return P if x is None else x
+def trung_binh(vals):
+    """Trung bình 3 ngày (người dùng chốt 17/11/2026): giá trị '< LOD' tính là 0, cộng các ngày có số rồi chia 3;
+    trung bình nhỏ hơn LOD -> ghi '< LOD', lớn hơn -> ghi trị số đó. Cả 3 ngày '< LOD' -> '< LOD'.
+    Chưa đủ 3 kết quả -> '………'."""
+    if len(vals) != 3 or any(not v or P in v for v in vals):
+        return P
+    lods, nums, dec = [], [], 0
+    for v in vals:
+        s = v.replace(" ", "").replace(" ", "")
+        if s.startswith("<"):
+            lods.append(float(s[1:].replace(",", ".")))
+        else:
+            nums.append(float(s.replace(",", ".")))
+            dec = max(dec, len(s.split(",")[1]) if "," in s else 0)
+    lod = max(lods) if lods else None
+    avg = sum(nums) / 3
+    if lod is not None and avg < lod:
+        return "< " + (f"{lod:g}".replace(".", ","))
+    return f"{avg:.{dec}f}".replace(".", ",")
 
 
-def make_cert_dossiers():
-    """3 chứng thư /1 /2 /3 — mỗi chứng thư 1 mẫu, 1 ngày (người dùng chốt 17/11/2026)."""
-    from Core.Models import assign_cert_numbers
-    ds = []
-    for k, (day, (a, e)) in enumerate(zip(DAYS, TIMES)):
-        d = make_dossier()
-        d.sample_date, d.inspection_dates = day, []
-        d.sample_time_vn, d.sample_time_en = f"Ngày {day} từ {a} đến {e}", f"From {day}"
-        d.sub_no, d.is_multi_cert = None, True
-        ds.append(d)
-    return assign_cert_numbers(ds)
+def user_note_923(nt):
+    """Bảng Ghi chú 9.2.3 theo bản người dùng sửa tay trên Z (17/11/2026 18:02, người dùng "Giữ sửa của tôi" 18/11/2026):
+    câu VIMCERTS đưa lên cùng dòng "Ghi chú:", bỏ dòng "●"; bảng rộng 5103 pct, lưới cột 970 / 8578."""
+    trs = nt.findall(qn("w:tr"))
+    vim_tc = trs[1].findall(qn("w:tc"))[1]
+    head_tc = trs[0].findall(qn("w:tc"))[1]
+    for p in head_tc.findall(qn("w:p")):
+        head_tc.remove(p)
+    for p in vim_tc.findall(qn("w:p")):
+        head_tc.append(p)
+    nt.remove(trs[1])
+    pr = nt.find(qn("w:tblPr"))
+    w = pr.find(qn("w:tblW"))
+    if w is not None:
+        w.set(qn("w:w"), "5103")
+        w.set(qn("w:type"), "pct")
+    for g, val in zip(nt.find(qn("w:tblGrid")), ("970", "8578")):
+        g.set(qn("w:w"), val)
 
 
-def make_dossier():
-    time_vn = "; ".join(f"{'Ngày' if i == 0 else 'ngày'} {d} từ {a} đến {b}" for i, (d, (a, b)) in enumerate(zip(DAYS, TIMES)))
-    return Dossier(
-        code=CODE, cert_date=CERT_DATE, sample_date=DAYS[0], reg_date=REG_DATE,
-        sample_time_vn=time_vn, sample_time_en=f"From {DAYS[0]}", inspection_dates=list(DAYS),
-        sub_no=None, is_multi_cert=False, dossier_type="cleanroom",
-        scope_vn="Lấy mẫu và giám định chất lượng bùn thải", scope_en="Sampling and quality inspection of sludge",
-        location_desc_vn=SITE_VN, location_desc_en=SITE_VN,
-        procedure_vn="QUATEST 3 3030:2025, N2.TC.B.01", procedure_en="QUATEST 3 3030:2025, N2.TC.B.01",
-        standards_vn="QCVN 07:2025/BNNMT - Quy chuẩn kỹ thuật quốc gia về ngưỡng chất thải nguy hại",
-        standards_en="QCVN 07:2025/BNNMT - Quy chuẩn kỹ thuật quốc gia về ngưỡng chất thải nguy hại",
-        client=CLIENT, personnel=PersonnelInfo(executor="Nghĩa"),
-        equipments=[], locations=[], photos=[], results_data={},
-        input_dir=INPUT_DIR, output_dir="", network_dir="",
-    )
+def meth(name, known):
+    """Phương pháp: chưa có KQTN -> '………' tô vàng cùng kết quả (người dùng chốt 17/11/2026: "phần phương pháp trong
+    TBKQ hãy để trống chung với kết quả, sau này có kết quả rồi thì dựa theo phương pháp và kết quả để thay thế").
+    ``known`` (phương pháp theo hồ sơ cũ) chỉ để tham khảo — khi có KQTN ghi theo phiếu vào ``METHODS``."""
+    return METHODS.get(name, P)
 
 
-# ---------------------------------------------------------------------------
-def photo_row(body, paths, width_cm=4.8):
-    t = body.doc.add_table(rows=1, cols=len(paths))
-    body.emit(t._tbl)
-    set_table_autofit_window(t)
-    for c, p in zip(t.rows[0].cells, paths):
-        insert_image_to_cell(c, p, width=__import__("docx.shared", fromlist=["Cm"]).Cm(width_cm))
-    add_cant_split(t.rows[0])
+METHODS = {}   # phương pháp theo phiếu KQTN khi về: {tên chỉ tiêu: phương pháp}
+
+
+def res(name):
+    r = RESULTS.get(name, [P, P, P])
+    return list(r) + [trung_binh(r)]
+
+CONFIG = dict(
+    code6="131873", loai="bun thai", kind="bt",
+    cert_date=datetime.date.today().strftime("%d/%m/%Y"),   # chưa KQTN -> ngày dựng (AGENTS mục 2)
+    client_vn=CLIENT, address_vn=ADDR, reg_date="16/10/2026",
+    dates=[s[1] for s in SAMPLES],
+    time_bckq="; ".join(f"Ngày {d} từ {t.replace(' – ', ' đến ')}" for _k, d, t, *_ in SAMPLES),
+    site_vn=f"Nhà máy của {CLIENT}, {ADDR}",
+    scope_vn="Lấy mẫu và giám định chất lượng bùn thải", procedure="QUATEST 3 3030:2025, N2.TC.B.01",
+    equip=[], executor="Nghĩa", witness_vn="chị Mai Thị Thân – đại diện " + CLIENT, req_date=P,
+    samples=[dict(ky_hieu=k, vi_tri=VI_TRI, time=f"{d}\n{t}", seal=s, chi_tieu=CHI_TIEU,
+                  photo=os.path.join(IN, ph)) for k, d, t, s, ph, _m in SAMPLES],
+)
+
+
+def hl_cell(cell):
+    for r_el in cell._tc.iter(qn("w:r")):
+        N._set_hl(r_el)
+
+
+def result_table(b, first_cols, widths, rows, last_head=None):
+    """Bảng 2 dòng tiêu đề: first_cols | Kết quả (B1, B2, B3) | Trung bình | [last_head]."""
+    ncol = len(first_cols) + 4 + (1 if last_head else 0)
+    t = b.table(2 + len(rows), ncol, widths, header_rows=2)
+    k = len(first_cols)
+    for j, h in enumerate(first_cols):
+        t.cell(0, j).merge(t.cell(1, j))
+        cell_text(t.cell(0, j), h)
+    t.cell(0, k).merge(t.cell(0, k + 2))
+    cell_text(t.cell(0, k), "Kết quả")
+    for j, (key, *_r) in enumerate(SAMPLES):
+        cell_text(t.cell(1, k + j), key)
+    t.cell(0, k + 3).merge(t.cell(1, k + 3))
+    cell_text(t.cell(0, k + 3), "Trung bình")
+    if last_head:
+        t.cell(0, k + 4).merge(t.cell(1, k + 4))
+        cell_text(t.cell(0, k + 4), last_head)
+    for i, vals in enumerate(rows, start=2):
+        for j, v in enumerate(vals):
+            cell_text(t.cell(i, j), v, align="left" if j == (1 if first_cols[0] == "STT" else 0) else "center")
     return t
 
 
-def sample_table(body, lead, rows, unit_head, limit_head, widths, samples=SAMPLES):
-    """Bảng: lead cột | Kết quả (1 mẫu: 1 dòng tiêu đề; nhiều mẫu: dòng 2 ghi ký hiệu) | ngưỡng.
-    rows = [(cells_before…, [kết quả theo samples], ngưỡng)]."""
-    nl, ns = len(lead), len(samples)
-    ncol = nl + ns + 1
-    hr = 1 if ns == 1 else 2
-    t = body.table(hr + len(rows), ncol, widths, header_rows=hr)
-    for j, h in enumerate(lead):
-        cell_text(t.rows[0].cells[j], h)
-    cell_text(t.rows[0].cells[nl], unit_head)
-    if ns > 1:
-        for k, s in enumerate(samples):
-            cell_text(t.rows[1].cells[nl + k], s)
-    cell_text(t.rows[0].cells[ncol - 1], limit_head)
-    for i, row in enumerate(rows, start=hr):
-        *before, res, lim = row
-        c = t.rows[i].cells
-        for j, x in enumerate(before):
-            cell_text(c[j], x, align="left" if j == nl - 2 and nl > 2 or (nl == 2 and j == 0) else "center")
-        for k, r in enumerate(res):
-            op, val = _num(r or "")
-            _, lv = _num((lim or "").lstrip("≥> "))
-            hi = r is not None and val is not None and lv is not None and op != "<" and val >= lv
-            cell_text(c[nl + k], v(r), bold=hi)
-        cell_text(c[ncol - 1], lim)
-        if lim in HL_TEXTS:                      # ngưỡng chưa chắc -> tô vàng (người dùng 17/11/2026)
-            highlight_cell(c[ncol - 1])
-    if ns > 1:                                   # gộp tiêu đề
-        t.rows[0].cells[nl].merge(t.rows[0].cells[nl + ns - 1])
-        for j in list(range(nl)) + [ncol - 1]:
-            m = t.rows[0].cells[j].merge(t.rows[1].cells[j])
-            for p in m.paragraphs[1:]:
-                if not p.text.strip():
-                    p._p.getparent().remove(p._p)
-    for j in range(1, nl):                       # gộp dọc ô trùng chữ, trừ ô chưa có (………)
-        r = hr
-        while r < len(t.rows):
-            txt = t.rows[r].cells[j].text.strip()
-            e = r
-            while e + 1 < len(t.rows) and t.rows[e + 1].cells[j].text.strip() == txt and txt != P:
-                e += 1
-            if e > r:
-                merge_same_vertical(t, j, r, e)
-            r = e + 1
-    trs = t._tbl.findall(qn("w:tr"))
-    _keep_rows(t._tbl, trs[:6])
-    _keep_rows(t._tbl, trs[-2:])
-    return t
-
-
-HL_TEXTS = {"≥ 590"}   # xyanua: hồ sơ 107520 ghi ≥ 590, mẫu 112119 ghi ≥ 15 — chờ người dùng xác nhận
-
-
-def highlight_cell(cell):
-    for r in cell._tc.iter(qn("w:r")):
-        rpr = r.find(qn("w:rPr"))
-        if rpr is None:
-            rpr = r.makeelement(qn("w:rPr"), {})
-            r.insert(0, rpr)
-        if rpr.find(qn("w:highlight")) is None:
-            rpr.append(rpr.makeelement(qn("w:highlight"), {qn("w:val"): "yellow"}))
-
-
-def is_hi(res, lim):
-    out = []
-    for r in res:
-        op, val = _num(r or "")
-        _, lv = _num((lim or "").lstrip("≥> "))
-        out.append(None if r is None or lv is None else (op != "<" and val is not None and val >= lv))
-    return out
-
-
-def eval_block(rows):
-    """-> (cao hơn, thấp hơn, không đánh giá) dạng chữ; chưa có KQTN -> ………"""
-    base = lambda n: (lambda s: s[:1].lower() + s[1:])(n.split(" ^(")[0])
-    noeval = [base(n) for n, _m, _r, lim in rows if lim == "-"]
-    ev = [(base(n), is_hi(r, lim)) for n, _m, r, lim in rows if lim != "-"]
-    if any(x is None for _n, h in ev for x in h):
-        return P, P, ", ".join(noeval)
-    hi = [n for n, h in ev if any(h)]
-    return (", ".join(hi) or "-", "Tất cả các chỉ tiêu" if not hi else "các chỉ tiêu còn lại"), None, ", ".join(noeval)
-
-
-def highlight_placeholders(doc):
-    parts = [doc.element.body] + [s.header._element for s in doc.sections] + [s.footer._element for s in doc.sections]
-    for root in parts:
-        for r in root.iter(qn("w:r")):
-            t = "".join(x.text or "" for x in r.iter(qn("w:t")))
-            if P in t:
-                rpr = r.find(qn("w:rPr"))
-                if rpr is None:
-                    rpr = r.makeelement(qn("w:rPr"), {})
-                    r.insert(0, rpr)
-                if rpr.find(qn("w:highlight")) is None:
-                    h = rpr.makeelement(qn("w:highlight"), {qn("w:val"): "yellow"})
-                    rpr.append(h)
-
-
-def assessment_lines(b, intro, rows, tab=7.5, last=False):
-    b.para(intro, keep_next=True)
-    res = eval_block(rows)
-    if res[0] == P:
-        hi, lo = P, P
-    else:
-        hi, lo = res[0]
-    noeval = res[2]
-    lines = [("cao hơn mức quy định", hi), ("thấp hơn mức quy định", lo)]
-    if noeval:
-        lines.append(("không đánh giá", noeval))
-    for k, (key, val) in enumerate(lines):
-        q = b.para(parts=[("+ Chỉ tiêu ", False, False), (key, True, True), ("\t: " + val, False, False)],
-                   indent_cm=0.75, tab_cm=tab, keep_next=not (last and k == len(lines) - 1))
-        _keep(q._p, lines=True)
-
-
-def ph_sentence(vals):
-    if any(x is None for x in vals):
-        return f"Độ pH {P} ngưỡng nguy hại tương ứng nêu tại QCVN 07:2025/BNNMT."
-    ok = all(2.0 < _num(x)[1] < 12.5 for x in vals)
-    return "Độ pH " + ("không vượt" if ok else "vượt") + " ngưỡng nguy hại tương ứng nêu tại QCVN 07:2025/BNNMT."
-
-
-def pick(rows, k):
-    """Kết quả của riêng mẫu k: (tên, phương pháp, [kết quả], ngưỡng)."""
-    return [(n, m, [r[k]], lim) for n, m, r, lim in rows]
-
-
-# ---------------------------------------------------------------------------
-def build_tbkq(d, k):
-    """Chứng thư /k+1: mẫu SAMPLES[k], ngày DAYS[k] (người dùng chốt 17/11/2026: tách 3 chứng thư)."""
-    s, (a, e), seal = SAMPLES[k], TIMES[k], SEALS[k]
+def build_tbkq(cfg):
+    d = N.make_dossier(cfg, dict(standard_vn=STD), sub_no=None, multi=False)
+    d.ensure_output_directories()
     src = CleanroomHandler(d).build_tbkq(is_en=False)
     doc = Document(src)
     fix_cover(doc, False, header_colon=False)
@@ -302,242 +206,156 @@ def build_tbkq(d, k):
     head = make_head(b, head_proto)
 
     head("Nội dung thực hiện")
-    b.para(f"- Vị trí lấy mẫu và chỉ tiêu thử nghiệm theo yêu cầu của {CLIENT.name_vn}, cụ thể như sau:", keep_next=True)
-    t = b.table(2, 3, [26, 14, 60])
-    for j, h in enumerate(["Vị trí lấy mẫu", "Ký hiệu mẫu", "Chỉ tiêu thử nghiệm"]):
+    b.para(f"- Vị trí lấy mẫu và chỉ tiêu thử nghiệm theo yêu cầu của {CLIENT}, cụ thể như sau:", keep_next=True)
+    t = b.table(4, 4, [30, 12, 16, 42])
+    for j, h in enumerate(["Vị trí lấy mẫu", "Ký hiệu mẫu", "Ngày lấy mẫu", "Chỉ tiêu thử nghiệm"]):
         cell_text(t.rows[0].cells[j], h)
-    cell_text(t.rows[1].cells[0], VI_TRI)
-    cell_text(t.rows[1].cells[1], s)
-    cell_text(t.rows[1].cells[2], CHI_TIEU, align="left")
-    _keep_rows(t._tbl, t._tbl.findall(qn("w:tr"))[:1])
+    for i, (k, dd, *_r) in enumerate(SAMPLES, start=1):
+        cell_text(t.cell(i, 1), k)
+        cell_text(t.cell(i, 2), dd)
+    t.cell(1, 0).merge(t.cell(3, 0))
+    cell_text(t.cell(1, 0), VI_TRI)
+    t.cell(1, 3).merge(t.cell(3, 3))
+    cell_text(t.cell(1, 3), CHI_TIEU, align="left")
+    _keep_rows(t._tbl, t._tbl.findall(qn("w:tr"))[:-1])
 
     b.para("- Thông tin về quá trình lấy mẫu và hình ảnh mẫu niêm phong:", keep_next=True, space_before=6)
-    t = b.table(2, 4, [38, 16, 24, 22])
-    for j, h in enumerate(["Người chứng kiến", "Ký hiệu mẫu", "Thời điểm lấy mẫu", "Số niêm phong"]):
+    t = b.table(4, 4, [36, 14, 26, 24])
+    for j, h in enumerate(["Người chứng kiến", "Ký hiệu mẫu", "Thời gian lấy mẫu", "Số niêm phong"]):
         cell_text(t.rows[0].cells[j], h)
-    for j, x in enumerate([WITNESS, s, f"{a} – {e}", seal]):
-        cell_text(t.rows[1].cells[j], x)
-    _keep_rows(t._tbl, t._tbl.findall(qn("w:tr")))
-    b.photo(SEAL_PHOTOS[k])
-    b.para("- Hình ảnh vị trí lấy mẫu:", keep_next=True, space_before=6)
-    b.photo(LOC_PHOTOS[k])
+    for i, (k, dd, tt, seal, *_r) in enumerate(SAMPLES, start=1):
+        cell_text(t.cell(i, 1), k)
+        cell_text(t.cell(i, 2), f"{dd}\n{tt}")
+        cell_text(t.cell(i, 3), seal)
+    t.cell(1, 0).merge(t.cell(3, 0))
+    cell_text(t.cell(1, 0), WITNESS)
+    _keep_rows(t._tbl, t._tbl.findall(qn("w:tr"))[:-1])
+
+    b.para("- Hình ảnh vị trí lấy mẫu và mẫu niêm phong:", keep_next=True, space_before=6)
+    photos = [os.path.join(IN, s[4]) for s in SAMPLES] + [os.path.join(IN, s[5]) for s in SAMPLES]
+    pt = doc.add_table(rows=2, cols=3)
+    b.emit(pt._tbl)
+    set_table_autofit_window(pt)
+    for n, ph in enumerate(photos):
+        insert_image_to_cell(pt.rows[n // 3].cells[n % 3], ph, width=M.Cm(4.8))
+    for r in pt.rows:
+        add_cant_split(r)
 
     head("Kết quả giám định")
     vim = ("●", "Các thông số được chứng nhận VIMCERTS 078.")
-    sub_head(b, "9.2.1. Tính chất nguy hại")
-    sample_table(b, ["Tính chất nguy hại", "Phương pháp"],
-                 [("Tính kiềm/ tính axit (pH)", "US EPA 9045D", [PH[0][k]], PH[1])],
-                 "Kết quả", "Ngưỡng CTNH ^(1)", [32, 22, 16, 30], samples=[s])
-    nt = note_table(b, note_proto, [vim, ("(1)", "Ngưỡng chất thải nguy hại tại QCVN 07:2025/BNNMT, bảng 1.")])
+    # 9.2.1
+    M.sub_head(b, "9.2.1. Tính chất nguy hại")
+    t = result_table(b, ["Tính chất nguy hại", "Phương pháp"], [22, 15, 12, 12, 12, 12, 15],
+                     [["Tính kiềm/ tính axit (pH)", meth("pH", "US EPA 9045D")] + res("pH") + ["pH ≥ 12,5 hoặc\npH ≤ 2,0"]],
+                     last_head="Ngưỡng CTNH ^(1)")
+    _keep_rows(t._tbl, t._tbl.findall(qn("w:tr")))
+    nt = note_table(b, note_proto, [vim, ("(1)", f"Ngưỡng chất thải nguy hại tại {QC}, bảng 1.")])
     _keep_rows(nt, nt.findall(qn("w:tr"))[:-1])
 
-    def comp(title, rows, unit, mark, note, cust_mark):
-        sub_head(b, title)
-        sample_table(b, ["STT", "Thành phần nguy hại", "Phương pháp"],
-                     [(str(i), n, m.replace(" & ", " &\n"), r, lim) for i, (n, m, r, lim) in enumerate(rows, 1)],
-                     f"Kết quả, {unit}", f"Ngưỡng CTNH ^({mark}), {unit}", [8, 28, 30, 16, 18], samples=[s])
-        nt = note_table(b, note_proto, [vim, (f"({mark})", note), (f"({cust_mark})", CUSTOMER_NOTE)])
+    def comp(title, rows, unit, mark, note):
+        M.sub_head(b, title)
+        data = [[str(i), n, meth(n, m)] + res(n) + [thr] for i, (n, m, thr, _h) in enumerate(rows, 1)]
+        t = result_table(b, ["STT", "Thành phần nguy hại", "Phương pháp"], [6, 18, 26, 10, 10, 10, 9, 11], data,
+                         last_head=f"Ngưỡng CTNH ^({mark}), {unit}")
+        cell_text(t.cell(0, 3), f"Kết quả, {unit}")
+        if not all(r[2] == P for r in data):        # cột phương pháp còn trống: không gộp dọc (tách trang được)
+            merge_same_vertical(t, 2, 2)
+        for i, (_n, m, _t, hl) in enumerate(rows, start=2):
+            if hl:
+                hl_cell(t.cell(i, 7))
+            if m == P:
+                hl_cell(t.cell(i, 2))
+        trs = t._tbl.findall(qn("w:tr"))
+        _keep_rows(t._tbl, trs[:5])
+        _keep_rows(t._tbl, trs[-2:])
+        nt = note_table(b, note_proto, [vim, (f"({mark})", note)])
+        if mark == 3:
+            user_note_923(nt)
         _keep_rows(nt, nt.findall(qn("w:tr"))[:-1])
 
-    leach, absr = pick(LEACH, k), pick(ABS, k)
-    comp("9.2.2. Nồng độ ngâm chiết của các thành phần nguy hại", leach, "mg/L", 2,
-         "Ngưỡng chất thải nguy hại tính theo nồng độ ngâm chiết tại QCVN 07:2025/BNNMT, bảng 2.", 3)
-    comp("9.2.3. Hàm lượng tuyệt đối của các thành phần nguy hại", absr, "ppm", 4,
-         "Ngưỡng chất thải nguy hại tính theo hàm lượng tuyệt đối tại QCVN 07:2025/BNNMT, bảng 3.", 5)
+    comp("9.2.2. Nồng độ ngâm chiết của các thành phần nguy hại", LEACH, "mg/L", 2,
+         f"Ngưỡng chất thải nguy hại tính theo nồng độ ngâm chiết tại {QC}, bảng 2.")
+    comp("9.2.3. Hàm lượng tuyệt đối của các thành phần nguy hại", ABSOLUTE, "ppm", 3,
+         f"Ngưỡng chất thải nguy hại tính theo hàm lượng tuyệt đối tại {QC}, bảng 3.")
+
+    # 9.2.4 Crom VI, tổng dầu — theo yêu cầu khách hàng
+    M.sub_head(b, "9.2.4. Crom VI và tổng dầu (theo yêu cầu khách hàng)")
+    data = [[str(i), n, u, meth(n, m)] + res(n) for i, (n, u, m) in enumerate(EXTRA, 1)]
+    t = result_table(b, ["STT", "Chỉ tiêu", "Đơn vị", "Phương pháp"], [6, 26, 9, 23, 9, 9, 9, 9], data)
+    trs = t._tbl.findall(qn("w:tr"))
+    _keep_rows(t._tbl, trs[:-1])
+    nt = note_table(b, note_proto, [vim, ("●", f"Chỉ tiêu thực hiện theo yêu cầu khách hàng, không thuộc {QC}; "
+                                               "không đánh giá.")])
+    for r_el in nt.findall(qn("w:tr"))[1].iter(qn("w:r")):   # VIMCERTS cho Crom VI, dầu: người dùng "thêm vào và
+        N._set_hl(r_el)                                     # tô vàng" (17/11/2026)
+    _keep_rows(nt, nt.findall(qn("w:tr")))         # Ghi chú đi liền phần Đánh giá (không để Đánh giá lẻ trang)
 
     b.para("Đánh giá:", bold=True, keep_next=True, space_before=6)
-    b.para(ph_sentence([PH[0][k]]), keep_next=True)
-    assessment_lines(b, "So sánh kết quả thử nghiệm nồng độ ngâm chiết của các thành phần nguy hại với các ngưỡng nguy "
-                        "hại tương ứng nêu tại QCVN 07:2025/BNNMT:", leach)
-    assessment_lines(b, "So sánh kết quả thử nghiệm hàm lượng tuyệt đối của các thành phần nguy hại với các ngưỡng nguy "
-                        "hại tương ứng nêu tại QCVN 07:2025/BNNMT:", absr, last=True)
+    b.para(f"So sánh giá trị trung bình kết quả thử nghiệm của 03 mẫu (B1, B2, B3) với các ngưỡng chất thải nguy hại "
+           f"tương ứng nêu tại {QC}:", keep_next=True)
+    for k, key in enumerate(("cao hơn mức quy định", "thấp hơn mức quy định")):
+        q = b.para(parts=[("+ Chỉ tiêu ", False, False), (key, True, True), ("\t: " + P, False, False)],
+                   indent_cm=0.75, tab_cm=7.5, keep_next=k == 0)
+        _keep(q._p, lines=True)
+
     style_note_tables(doc)
+    N._highlight_ph(doc)
     add_document_ending_line(doc)
     appendix_total_field(doc)
-    highlight_placeholders(doc)
-    dst = os.path.join(os.path.dirname(src), f"TBKQ - viet - {k + 1} - bun thai - {CODE}.docx")
+    dst = os.path.join(os.path.dirname(src), f"TBKQ - viet - bun thai - {d.code}.docx")
     doc.save(dst)
     if os.path.abspath(src) != os.path.abspath(dst):
         os.remove(src)
-    print(f"[131873] TBKQ /{k + 1} -> {dst}")
+    print(f"[131873] TBKQ -> {os.path.relpath(dst, WORKSPACE)}")
     return dst
 
 
-# ---------------------------------------------------------------------------
-def build_bckq(d):
-    out = BCKQBuilder(d).build(out_name=f"BCKQ - 1 - bun thai - {CODE}.docx")
-    doc = Document(out)
-    for row in doc.tables[0].rows:
-        for c in row.cells:
-            for p in c.paragraphs:
-                for r in p.runs:
-                    if P in r.text and "thiết bị" in row.cells[0].text.lower():
-                        r.text = r.text.replace(P, "-")
-    body_el = doc.element.body
-    kids = list(body_el.iterchildren())
-    h1 = next(el for el in kids if el.tag == qn("w:p") and _ptext(el).strip().startswith("Nội dung thực hiện"))
-    h2 = next(el for el in kids if el.tag == qn("w:p") and _ptext(el).strip().startswith("Kết quả đo đạc"))
-    gdv = next(el for el in kids if el.tag == qn("w:p") and _ptext(el).strip().startswith("Báo cáo của GĐV"))
-    text_proto = __import__("copy").deepcopy(h1.getnext())
-    i1, i2, ig = kids.index(h1), kids.index(h2), kids.index(gdv)
-    for el in kids[i1 + 1:i2] + kids[i2 + 1:ig]:
-        body_el.remove(el)
-    b = Body(doc, text_proto)
-    b.anchor = h2
-    b.para(f"- Vị trí lấy mẫu và chỉ tiêu thử nghiệm được chỉ định bởi đại diện {CLIENT.name_vn}, cụ thể như sau:",
+def bckq_site_block(cfg, samples, all_rows, b, doc):
+    """Mục 4.5 BCKQ: bảng vị trí 3 ngày + niêm phong + ảnh."""
+    b.para(f"- Vị trí lấy mẫu và chỉ tiêu thử nghiệm được chỉ định bởi {cfg['witness_vn']}, cụ thể như sau:",
            keep_next=True)
-    t = b.table(4, 3, [26, 14, 60])
-    for j, h in enumerate(["Vị trí thực hiện", "Kí hiệu mẫu", "Chỉ tiêu thử nghiệm"]):
+    t = b.table(4, 5, [27, 10, 17, 14, 32])
+    for j, h in enumerate(["Vị trí thực hiện", "Kí hiệu mẫu", "Thời gian lấy mẫu", "Số niêm phong", "Chỉ tiêu thử nghiệm"]):
         cell_text(t.rows[0].cells[j], h)
-    for i, s in enumerate(SAMPLES, start=1):
-        cell_text(t.rows[i].cells[0], VI_TRI)
-        cell_text(t.rows[i].cells[1], s)
-        cell_text(t.rows[i].cells[2], CHI_TIEU.replace("pH);", "pH), độ ẩm;"), align="left")
-    merge_same_vertical(t, 0, 1)
-    merge_same_vertical(t, 2, 1)
-    b.para("- Mỗi mẫu được gộp từ 03 lần lấy mẫu trong ngày (01 lần tại máy ép bùn, 02 lần tại bao chứa), trộn đều "
-           "thành 01 mẫu.", space_before=6)
-    b.para("- Thông tin về quá trình lấy mẫu niêm phong:", keep_next=True, space_before=6)
-    t = b.table(4, 4, [38, 16, 24, 22])
-    for j, h in enumerate(["Người chứng kiến", "Ký hiệu mẫu", "Thời điểm lấy mẫu", "Số niêm phong"]):
-        cell_text(t.rows[0].cells[j], h)
-    for i, (s, dd, (a, e), seal) in enumerate(zip(SAMPLES, DAYS, TIMES, SEALS), start=1):
-        for j, x in enumerate([WITNESS, s, f"{a} – {e}\n{dd}", seal]):
-            cell_text(t.rows[i].cells[j], x)
-    merge_same_vertical(t, 0, 1)
-    photo_row(b, SEAL_PHOTOS)
-    b.para("- Hình ảnh vị trí lấy mẫu:", keep_next=True, space_before=6)
-    photo_row(b, LOC_PHOTOS)
-
-    b.anchor = gdv
-    _keep(h2)
-    b.para(f"- KQTN tính chất nguy hại, nồng độ ngâm chiết và hàm lượng tuyệt đối của mẫu chất thải B1, B2, B3: xem tại "
-           f"phiếu KQTN số {v(KQTN_SO)} ngày {v(KQTN_NGAY)};")
-    b.para(f"- Tính toán hàm lượng tuyệt đối của chỉ tiêu phân tích theo mẫu rắn khô: xem tại phiếu Tính toán hàm "
-           f"lượng tuyệt đối theo mẫu rắn khô số {CODE} ngày {v(KQTN_NGAY)}.")
-    b.para("Đánh giá:", bold=True, keep_next=True, space_before=6)
-    b.para(ph_sentence(PH[0]), keep_next=True)
-    assessment_lines(b, "So sánh kết quả thử nghiệm các thành phần nguy hại theo nồng độ ngâm chiết của chất thải với "
-                        "các ngưỡng nguy hại tương ứng nêu tại QCVN 07:2025/BNNMT:", LEACH)
-    assessment_lines(b, "So sánh kết quả thử nghiệm các thành phần nguy hại theo hàm lượng tuyệt đối của chất thải với "
-                        "các ngưỡng nguy hại tương ứng nêu tại QCVN 07:2025/BNNMT:", ABS, last=True)
-    b.para("Gửi mẫu thử nghiệm:", bold=True, keep_next=True, space_before=6)
-    for line in (f"Phiếu KQTN số {v(KQTN_SO)} ngày {v(KQTN_NGAY)}", f"Ngày gửi mẫu\t: {v(SEND_DATE)}",
-                 f"Ngày yêu cầu cấp KQTN\t: {v(REQ_DATE)}", f"Ngày nhận KQTN\t: {v(KQTN_NGAY)}"):
-        b.para(line, keep_next=True, tab_cm=5.5)
-    b.para(f"KQTN có trễ hạn so với yêu cầu của GĐV hay không? {tre_han_text(KQTN_NGAY, SEND_DATE, REQ_DATE, P)}")
-    for p in doc.paragraphs:
-        if p.text.strip().startswith(("Báo cáo của GĐV", "Gửi mẫu thử nghiệm")):
-            p.paragraph_format.keep_with_next = True
-    highlight_placeholders(doc)
-    doc.save(out)
-    print(f"[131873] BCKQ -> {out}")
-    return out
+    for i, (k, dd, tt, seal, *_r) in enumerate(SAMPLES, start=1):
+        cell_text(t.cell(i, 1), k)
+        cell_text(t.cell(i, 2), f"{dd}\n{tt}")
+        cell_text(t.cell(i, 3), seal)
+    t.cell(1, 0).merge(t.cell(3, 0))
+    cell_text(t.cell(1, 0), VI_TRI, align="left")
+    t.cell(1, 4).merge(t.cell(3, 4))
+    cell_text(t.cell(1, 4), CHI_TIEU, align="left")
+    b.para("- Thời gian lấy 03 mẫu đơn của từng mẫu gộp: B1 16:00 (máy ép), 16:15, 16:30 (bao chứa); B2 11:15, 11:30, "
+           "11:45; B3 07:45, 08:00, 08:15. Đại diện Công ty vận hành máy ép bùn để lấy mẫu.", space_before=6)
+    b.para("- Hình ảnh vị trí lấy mẫu và mẫu niêm phong:", keep_next=True, space_before=6)
+    photos = [os.path.join(IN, s[4]) for s in SAMPLES] + [os.path.join(IN, s[5]) for s in SAMPLES]
+    pt = doc.add_table(rows=2, cols=3)
+    b.emit(pt._tbl)
+    set_table_autofit_window(pt)
+    for n, ph in enumerate(photos):
+        insert_image_to_cell(pt.rows[n // 3].cells[n % 3], ph, width=M.Cm(4.8))
+    for r in pt.rows:
+        add_cant_split(r)
 
 
-# ---------------------------------------------------------------------------
-def build_excel(d):
-    from openpyxl import Workbook
-    from openpyxl.styles import Font, Alignment, Border, Side, PatternFill
-    from Core.Tools.excel_borders import thin_outside_borders
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "Tinh toan"
-    f = Font(name="Times New Roman", size=12)
-    fb = Font(name="Times New Roman", size=12, bold=True)
-    yellow = PatternFill("solid", fgColor="FFFF00")
-    ws["A1"], ws["F1"] = f"Số: {CODE}", f"Ngày {v(KQTN_NGAY)}"
-    ws["A3"] = "TÍNH TOÁN QUY ĐỔI HÀM LƯỢNG TUYỆT ĐỐI THEO MẪU RẮN KHÔ"
-    ws.merge_cells("A3:F3")
-    for j, h in enumerate(["Kí hiệu mẫu", "Chỉ tiêu", "Kết quả, mg/kg", "Độ ẩm, %", "Hàm lượng chất rắn khô, %",
-                           "Kết quả quy đổi về khối lượng khô, mg/kg"], start=1):
-        ws.cell(5, j, h)
-    items = [n.split(" ^(")[0] for n, *_ in ABS]
-    r = 6
-    thin = Side(style="thin")
-    for k, s in enumerate(SAMPLES):
-        r0 = r
-        for i, name in enumerate(items):
-            ws.cell(r, 2, name)
-            res = ABS[i][2][k]
-            if res is None:
-                ws.cell(r, 3, P).fill = yellow
-            elif res.strip().startswith("<"):
-                ws.cell(r, 3, res)
-            else:
-                ws.cell(r, 3, float(res.replace(",", ".")))
-            if i == 0:
-                m = MOISTURE[k]
-                c = ws.cell(r, 4, float(m.replace(",", ".")) if m else None)
-                if not m:
-                    c.fill = yellow
-            else:
-                ws.cell(r, 4, f'=IF(ISNUMBER($D${r0}),$D${r0},"")')
-            ws.cell(r, 5, f'=IF(ISNUMBER(D{r}),100-D{r},"")')
-            ws.cell(r, 6, f'=IF(AND(ISNUMBER(C{r}),ISNUMBER(E{r})),ROUND(C{r}*100/E{r},2),C{r})')
-            for col in (4, 5):
-                ws.cell(r, col).number_format = "0.0"
-            r += 1
-        ws.cell(r0, 1, s)
-        ws.merge_cells(start_row=r0, start_column=1, end_row=r - 1, end_column=1)
-    for row in ws.iter_rows(min_row=5, max_row=r - 1, max_col=6):
-        for c in row:
-            c.font = fb if c.row == 5 else f
-            c.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
-            c.border = Border(left=thin, right=thin, top=thin, bottom=thin)
-    ws["A1"].font = ws["F1"].font = f
-    ws["A3"].font = Font(name="Times New Roman", size=13, bold=True)
-    ws["A3"].alignment = Alignment(horizontal="center")
-    for col, w in zip("ABCDEF", (14, 18, 14, 11, 16, 22)):
-        ws.column_dimensions[col].width = w
-    ws.row_dimensions[5].height = 48
-    thin_outside_borders(wb)
-    ws.sheet_properties.pageSetUpPr.fitToPage = True
-    ws.page_setup.fitToWidth = ws.page_setup.fitToHeight = 1
-    out = os.path.join(INPUT_DIR, "ThucHien", f"{CODE} - TinhToanChatThai.xlsx")
-    os.makedirs(os.path.dirname(out), exist_ok=True)
-    wb.save(out)
-    print(f"[131873] Excel -> {out}")
-    return out
-
-
-def build_edoc():
-    import fitz
-    from Core.Tools.scan_splitter import finish_edoc
-    out_dir = os.path.join(INPUT_DIR, "TBKQ", "Edoc")
-    os.makedirs(out_dir, exist_ok=True)
-    for src, name in (("0.  BBGDHT .pdf", "BBLM"), ("0.  BAO GIA  .pdf", "Khac")):
-        doc = fitz.open()
-        doc.insert_pdf(fitz.open(os.path.join(INPUT_DIR, src)))
-        finish_edoc(doc, INPUT_DIR, name)
-        dst = os.path.join(out_dir, f"{CODE6} - {name}.pdf")
-        doc.save(dst)
-        print(f"[131873] Edoc -> {dst} ({doc.page_count} trang)")
-
-
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--pdf", action="store_true")
-    args = ap.parse_args()
-    d = make_dossier()
-    d.ensure_output_directories()
-    build_edoc()
-    certs = make_cert_dossiers()
-    docs = [build_bckq(d)] + [build_tbkq(c, k) for k, c in enumerate(certs)]
-    xls = [build_excel(d)]
-    if args.pdf:
+def run(pdf=False):
+    cfg = CONFIG
+    docs = [build_tbkq(cfg)]
+    N._bckq_site_block = bckq_site_block             # khuôn 4.5 riêng của hồ sơ (3 ngày, niêm phong)
+    docs.insert(0, N.build_bckq(cfg, [[] for _ in cfg["samples"]], [None] * 3, []))
+    if pdf:
         from Core.Exporters.pdf_exporter import PDFExporter
-        PDFExporter(d).export_files(docs[:1])
-        for c, p in zip(certs, docs[1:]):
-            PDFExporter(c).export_files([p])
-        PDFExporter(d).export_excel_files(xls)
+        PDFExporter(N.make_dossier(cfg, None, None, False)).export_files(docs)
     print("\n===== QA =====")
     for p in docs:
-        res = check_single_docx(p, code=d.code)
+        res = N.check_single_docx(p, code=f"Q326D{cfg['code6']}")
         print(f"  {res.get('status')}\t{os.path.relpath(p, WORKSPACE)}")
         for i in res.get("issues", []):
-            print(f"      - {i}")
+            if "……" not in str(i) and "bôi vàng" not in str(i):
+                print(f"      - {i}")
 
 
 if __name__ == "__main__":
-    main()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--pdf", action="store_true")
+    run(ap.parse_args().pdf)

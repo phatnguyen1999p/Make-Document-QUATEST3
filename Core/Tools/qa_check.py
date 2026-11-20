@@ -53,10 +53,11 @@ def is_vimcerts(table0_text: str) -> bool:
     t = to_nfc(table0_text).lower()
     if "/byt" in t.replace(" ", ""):
         return False
-    if _BYT_WATER_RE.search(t):
-        return False
     m = re.search(r"(nội dung yêu cầu giám định|inspection request content)(.{0,200})", t, re.S)
     scope = m.group(2) if m else ""
+    # chỉ xét "Nội dung yêu cầu" (+ "Căn cứ"), không xét cả bảng: tên khách có chữ "Nước sạch" (140604) không phải BYT
+    if _BYT_WATER_RE.search(scope.split("địa điểm")[0].split("location")[0]):
+        return False
     return bool(_ENV_WATER_RE.search(scope))
 
 
