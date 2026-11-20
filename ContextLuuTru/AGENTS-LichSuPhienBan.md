@@ -2,6 +2,8 @@
 
 > Dòng phiên bản đầu `AGENTS.md` chỉ giữ bản mới nhất (từ 12/11/2026). Mỗi lần tăng phiên bản, dòng cũ chép nguyên văn lên **đầu** danh sách dưới đây. Không đọc đầu phiên.
 
+> **Phiên bản 18/11/2026 10:30** (Claude Code — mục 13 vi sinh: KQTN `< 1` ghi `< 1`, không ghi `0` (cả phiếu tính toán); mục 8C phiếu phòng sạch sheet AeroTrak 9350 ẩn thêm Laser Status / Temp / Humidity / Velocity (`cleanroom_calc.dust_aerotrak`); người dùng yêu cầu 18/11/2026, 127215).
+
 > **Phiên bản 17/11/2026 17:20** (Claude Code — mục 8C sơ đồ draw.io: vị trí đo phòng sạch **căn đều theo lưới, thẳng theo vách phòng** (10 vị trí → 3-4-3) — `Core/Tools/even_grid.py` (`snap_to_grid`, `row_counts`), mẫu `build_120423.py`; người dùng yêu cầu 17/11/2026).
 
 > **Phiên bản 16/11/2026 18:45** (Claude Code — mục 3: ký hiệu `(1)` … `(9)` đầu dòng bảng Ghi chú in chỉ số trên tự động — hàm chung `tag_context.superscript_note_markers` (trong `style_note_tables` cho TBKQ, trong `BCKQBuilder` cho BCKQ); template phòng sạch để `(1) …` chữ thường, hồ sơ 067460). Lịch sử phiên bản trước: `ContextLuuTru/AGENTS-LichSuPhienBan.md`.

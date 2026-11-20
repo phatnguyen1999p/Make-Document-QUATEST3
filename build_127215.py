@@ -37,7 +37,8 @@ Suy luận của AI (người dùng đã đồng ý 10/11/2026):
   (4) Vi sinh: VS1 = P4 (mẫu 5), VS2 = P3 (mẫu 4), VS3 = P2 (mẫu 2), VS4 = P1 (mẫu 1), VS5 = Pass box (mẫu 3);
       lấy mẫu 100 L/phút × 2 phút như 2025 (phiếu để trống).
   (5) Tên EN "Asia Shine Joint Stock Company" theo TBKQ 2025 (chưa có MST để tra tên quốc tế).
-  (6) Địa chỉ theo BBLM (336 Nguyễn Trọng Tuyển; hồ sơ 2025 ghi 388); địa điểm chuẩn hóa 2 cấp "xã Cần Giuộc,
+  (6) Địa chỉ: BBLM ghi 336, hồ sơ 2025 ghi 388 → người dùng chốt 20/11/2026: "127215 có địa chỉ là
+      338 Nguyễn Trọng Tuyển"; địa điểm chuẩn hóa 2 cấp "xã Cần Giuộc,
       tỉnh Tây Ninh" như TBKQ 2025.
 
 Vi sinh CHƯA có KQTN: điền VI_SINH_CFU_DIA (theo ký hiệu mẫu 1..5), VI_SINH_BLANK, KQTN_SO, KQTN_NGAY rồi chạy lại.
@@ -103,8 +104,8 @@ CERT_DATE = KQTN_NGAY or PLACEHOLDER
 CLIENT = ClientInfo(
     name_vn="Công ty Cổ phần Ánh Sáng Châu Á",
     name_en="Asia Shine Joint Stock Company",
-    address_vn="336 Nguyễn Trọng Tuyển, phường Tân Sơn Hòa, Thành phố Hồ Chí Minh",
-    address_en="336 Nguyen Trong Tuyen Street, Tan Son Hoa Ward, Ho Chi Minh City",
+    address_vn="338 Nguyễn Trọng Tuyển, phường Tân Sơn Hòa, Thành phố Hồ Chí Minh",
+    address_en="338 Nguyen Trong Tuyen Street, Tan Son Hoa Ward, Ho Chi Minh City",
 )
 SITE_VN = "Khu C, Lô 3D-1, đường số 10, Khu công nghiệp Long Hậu, xã Cần Giuộc, tỉnh Tây Ninh"
 SITE_EN = "Area C, Lot 3D-1, Road No. 10, Long Hau Industrial Park, Can Giuoc Commune, Tay Ninh Province"
