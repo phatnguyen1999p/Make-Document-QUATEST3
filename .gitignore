@@ -22,3 +22,8 @@ _optimized/
 
 # Khóa phiên — chỉ có nghĩa trên từng máy
 /Context/_khoa/
+
+# Hồ sơ mẫu nước (scan, ảnh, chứng thư khách hàng) — chỉ theo dõi các file form .md
+/Nước/**
+!/Nước/**/
+!/Nước/**/*.md
