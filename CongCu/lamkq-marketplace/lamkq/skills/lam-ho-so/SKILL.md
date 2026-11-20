@@ -16,6 +16,7 @@ Nguồn quy tắc duy nhất là `AGENTS.md` ở gốc dự án (ưu tiên cao n
    - Đọc **chỉ** `Context/HoSo/<6 số>.md`.
 3. **Lấy đầu vào** — hồ sơ trên Z: tìm thư mục bằng wildcard 6 số (AGENTS mục 0), chép scan / ảnh / `Data Do` / KQTN về `Input\<6 số>\` (chỉ đọc). Không thấy hoặc trùng nhiều thư mục → hỏi.
 4. **Đọc hồ sơ** (mục 13): BBLM trước, rồi PYC, phiếu ghi chép, nhãn tủ trong ảnh, KQTN. Lệch thông tin khách hàng giữa các nguồn → **không tự sửa**, ghi vào `Cần người dùng quyết`, không áp tiền lệ hồ sơ khác.
+   - **Đối chiếu khách hàng với mã số thuế** (mục 15, bắt buộc trước khi dựng): lấy MST trên PYC / GCN / PO / báo giá, chạy `python Core/Tools/tax_helper.py --mst <MST> --name "<tên trên PYC/BBLM>" --addr "<địa chỉ trên PYC/BBLM>"`. Chỉ khác cách viết → chuẩn hóa; lệch số nhà / tên đường / tên công ty / MST ngừng hoạt động → đưa vào câu hỏi gộp. Địa chỉ MST là trụ sở (mục 1 Table 0), Địa điểm giám định vẫn theo BBLM. Không có MST → hỏi người dùng. Ghi MST + kết quả vào khối Nguồn của script hồ sơ.
 5. **Dựng** — hồ sơ thường: `Dossier` + `DossierRunner` (mục 10); hồ sơ đặc thù: `build_<6 số>.py` theo mẫu gần nhất (docstring 4 khối: Nguồn → Quyết định → Suy luận → Chạy). Luôn `network_dir=""`.
 6. **Gom câu hỏi một lần** (mục 15): sau lần dựng đầu, liệt kê mọi điểm cần người dùng quyết, bỏ điểm đã có quy tắc mặc định (ngày ban hành mục 2, tên máy mục 14), hỏi gộp.
 7. **QA** (mục 4): đóng mọi file của hồ sơ trước khi chạy; `python Core\Tools\qa_check.py final-check <path> --code <mã>` phải `[CLEAN]`; xuất PDF lại sau mỗi lần dựng; soát PDF bằng mắt (bìa 1 trang, VN = EN số trang và chỗ ngắt).
@@ -29,5 +30,6 @@ Các ý dưới đây trước chỉ nằm trong bộ nhớ Claude của máy N2
 
 - Không có KQTN → ngày ban hành = ngày hiện tại (`CERT_DATE = date.today()`), tự cập nhật cả khi dựng lại, không hỏi lại (mục 2).
 - Hỏi gộp một lần mọi điểm cần người dùng quyết (mục 15).
+- KQTN vi sinh ghi `< 1` → mọi nơi ghi `< 1`, không ghi `0`, cả cột CFU/đĩa của phiếu tính toán (mục 13).
 - Khách hàng quen: xem `references/khach-quen.md`.
 - Hồ sơ nước / nước thải / nước dưới đất / bùn thải / chất thải (chưa có handler Core, mẫu `build_nuoc_mau.py`): đọc `references/ho-so-nuoc.md` trước khi dựng.
