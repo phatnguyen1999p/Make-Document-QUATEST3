@@ -20,7 +20,8 @@ file việc / lỗi — phiên đang xử lý việc đó. Không file nào là 
 
 Lệnh:
 
-    python Core/Tools/context.py dau-phien              # dọn (ghi) + in tóm tắt + nhãn phiên gợi ý
+    python Core/Tools/context.py dau-phien              # kiểm tra / tải bản mới + dọn (ghi) + in tóm tắt + nhãn phiên
+    python Core/Tools/context.py cap-nhat               # chỉ kiểm tra phiên bản, tải bản mới khi an toàn (cap_nhat.py)
     python Core/Tools/context.py xem                    # chỉ in tóm tắt, không ghi gì
     python Core/Tools/context.py khoa 137058 --ai <nhãn> [--ghi-chu "..."]   # giữ / gia hạn khóa
     python Core/Tools/context.py tra  137058 --ai <nhãn>                     # trả khóa
@@ -917,7 +918,9 @@ def main(argv=None) -> int:
         sys.stdout.reconfigure(encoding="utf-8")
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("dau-phien", help="Dọn (ghi) rồi in tóm tắt")
+    dp = sub.add_parser("dau-phien", help="Kiểm tra / tải bản mới, dọn (ghi) rồi in tóm tắt")
+    dp.add_argument("--khong-cap-nhat", action="store_true", help="Bỏ bước kiểm tra phiên bản / git (đã chạy)")
+    sub.add_parser("cap-nhat", help="Kiểm tra phiên bản, tải bản mới nhất từ git khi an toàn")
     x = sub.add_parser("xem", help="In tóm tắt, không ghi gì")
     x.add_argument("--day-du", action="store_true", help="Không cắt ngắn dòng")
     for name in ("khoa", "tra"):
@@ -958,6 +961,22 @@ def main(argv=None) -> int:
         c.add_argument("--ngay-ho-so", type=int, default=DOSSIER_IDLE_DAYS)
         c.add_argument("--khong-xet-file", action="store_true", help="Không xét giờ sửa file Input / Z")
     a = p.parse_args(argv)
+
+    # Đầu phiên: kiểm tra phiên bản + tải bản mới nhất (người dùng yêu cầu 20/11/2026) — không cần Z
+    if a.cmd == "cap-nhat" or (a.cmd == "dau-phien" and not a.khong_cap_nhat):
+        try:
+            from Core.Tools.cap_nhat import kiem_tra
+        except ImportError:
+            sys.path.insert(0, ROOT)
+            from Core.Tools.cap_nhat import kiem_tra
+        pulled = kiem_tra()
+        if a.cmd == "cap-nhat":
+            return 0
+        if pulled:  # code vừa đổi → chạy phần còn lại bằng bản mới
+            print()
+            import subprocess
+            return subprocess.call([sys.executable, os.path.abspath(__file__), "dau-phien", "--khong-cap-nhat"])
+        print()
 
     if not os.environ.get("LAMKQ_CONTEXT_DIR") and not os.path.isdir(Z_ROOT):
         print(f"[LỖI] Không truy cập được Z ({Z_ROOT}) — context, khóa hồ sơ nằm trên Z nên KHÔNG làm hồ sơ "
