@@ -205,7 +205,7 @@ def build_context(d: Dossier, is_en: bool) -> dict:
 
     photos = [p for p in (d.photos or []) if os.path.isfile(p.get("path", "") if isinstance(p, dict) else str(p))]
     ctx["co_anh"] = bool(photos)
-    ctx["bang_anh"] = photo_grid(photos, is_en)
+    ctx["bang_anh"] = photo_grid(photos, is_en, single_point=True)  # 1 kết quả 1 điểm đo: tối đa 2 cột (AGENTS mục 3)
     many = n > 1
     at_loc = ("at the locations mentioned above" if many else "at the location mentioned above") if is_en else \
              ("tại các vị trí nêu trên" if many else "tại vị trí nêu trên")

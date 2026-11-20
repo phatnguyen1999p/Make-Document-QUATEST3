@@ -283,19 +283,33 @@ def _grid_items(items, is_en: bool):
     return out
 
 
+def grid_cols(n: int, cols: Optional[int] = None, single_point: bool = False) -> int:
+    """Số cột bảng ảnh (AGENTS mục 3, người dùng chốt 20/11/2026):
+    - 1 ảnh -> 1 cột (căn giữa trang);
+    - hồ sơ 1 kết quả 1 điểm đo (`single_point=True`: mẫu nước, khí nén) -> tối đa 2 cột, kể cả 3 ảnh;
+    - hồ sơ còn lại (phòng sạch, môi trường lao động — nhiều điểm đo; tủ): mặc định lưới 2 cột, đúng 3 ảnh -> 1 hàng
+      3 cột (067460); được thu gọn bằng lưới 3 cột khi truyền `cols=3` (`results_data["photo_cols"]`)."""
+    if n <= 1:
+        return 1
+    if cols is not None and int(cols) == 1:
+        return 1
+    if single_point:
+        return 2
+    if cols is not None and int(cols) >= 3:
+        return min(3, n)
+    return 3 if n == 3 else 2
+
+
 def _build_grid(doc, anchor_p, ctx, items, is_en: bool, cols: Optional[int], optimize: bool,
-                single_width_cm: float, captions: bool = True, width_cm: Optional[float] = None):
+                single_width_cm: float, captions: bool = True, width_cm: Optional[float] = None,
+                single_point: bool = False):
     entries = _grid_items(items, is_en)
     if not captions:
         entries = [(path, "") for path, _ in entries]
     if not entries:
         return []
     n = len(entries)
-    if cols is None:
-        cols = 2 if n >= 2 else 1
-    # Bảng ảnh dùng lưới 2 cột (người dùng chốt 20/11/2026, AGENTS mục 3); đúng 3 ảnh -> 1 hàng 3 cột
-    # (người dùng chốt 20/11/2026, 067460: "nếu 3 hình thì vẫn để 3 cột")
-    cols = 3 if n == 3 and int(cols) != 1 else min(int(cols), 2)
+    cols = grid_cols(n, cols, single_point)
     if cols == 3:
         width = PHOTO_WIDTH_3COL
     elif cols == 2:
@@ -333,15 +347,16 @@ def _build_grid(doc, anchor_p, ctx, items, is_en: bool, cols: Optional[int], opt
 
 
 def photo_grid(items, is_en: bool, cols: Optional[int] = None, optimize: bool = False,
-               single_width_cm: float = 13.0, captions: bool = True, width_cm: Optional[float] = None) -> TagBlock:
+               single_width_cm: float = 13.0, captions: bool = True, width_cm: Optional[float] = None,
+               single_point: bool = False) -> TagBlock:
     """
-    TAG khối lưới ảnh: 1 ảnh -> 1 cột 13 cm; đúng 3 ảnh -> 1 hàng 3 cột 4–5 cm; còn lại -> lưới 2 cột 7,5 cm
-    (người dùng chốt 20/11/2026; `cols=3` với số ảnh khác 3 quy về 2).
+    TAG khối lưới ảnh: 1 ảnh -> 1 cột 13 cm, căn giữa; còn lại lưới 2 cột 7,5 cm; lưới 3 cột 4–5 cm chỉ cho hồ sơ
+    nhiều điểm đo (đúng 3 ảnh, hoặc `cols=3`) — `single_point=True` (nước, khí nén) tối đa 2 cột (`grid_cols`).
     Đặt {{ bang_anh }} riêng một đoạn trong template; không có ảnh -> đoạn bị xóa.
     `captions=False`: ảnh hiện trường không chú thích (người dùng chốt 06/11/2026, AGENTS mục 3);
     sơ đồ giữ chú thích.
     """
-    return TagBlock(_build_grid, items, is_en, cols, optimize, single_width_cm, captions, width_cm)
+    return TagBlock(_build_grid, items, is_en, cols, optimize, single_width_cm, captions, width_cm, single_point)
 
 
 INTRO_PREFIXES = ("Hình ảnh", "Sơ đồ", "Photos", "Photo of", "Layout", "Diagram")
