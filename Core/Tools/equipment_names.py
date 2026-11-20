@@ -147,6 +147,16 @@ EQUIPMENT: dict[str, tuple[str, str, str]] = {
         "pH meter Hanna HI 98190, USA",
         r"hi\s*98190",
     ),
+    "hanna_hi9142": (                     # 140604 (16/11/2026): DO nước mặt đo hiện trường
+        "Thiết bị đo oxy hòa tan Hanna HI 9142, USA",
+        "Dissolved oxygen meter Hanna HI 9142, USA",
+        r"hi\s*9142\b",
+    ),
+    "hanna_hi93703": (                    # 141523 (16/11/2026): độ đục nước sinh hoạt đo hiện trường
+        "Thiết bị đo độ đục Hanna HI 93703, USA",
+        "Turbidity meter Hanna HI 93703, USA",
+        r"hi\s*93703",
+    ),
 }
 
 _RX = {k: re.compile(v[2], re.I) for k, v in EQUIPMENT.items()}

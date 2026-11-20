@@ -630,6 +630,7 @@ def build_khi_nen(lang: str):
     tighten_note_gaps(doc)
     normalize_table_font_sizes(doc)
     clear_negative_cell_indents(doc)
+    drop_water_column(doc)
     fit_dewpoint_table(doc, lang)
     use_sectionpages(doc)
     out = dst("TBKQ - en - khi nen.docx" if is_en else "TBKQ - vn - khi nen.docx")
@@ -802,7 +803,37 @@ def set_table_col_pct(tbl, pct: list):
 
 
 # Bảng điểm sương khí nén ở 13pt: cột 'Vị trí thực hiện (Thời gian đo)' ~20 % để '(15:08 – 15:21)' nằm 1 dòng
-DEWPOINT_COL_PCT = {"vn": [1020, 593, 576, 745, 713, 727, 626], "en": [1020, 823, 682, 640, 606, 608, 621]}
+# 18/11/2026: bỏ cột "Hàm lượng nước, mg/m³" (không có trong KQTN — người dùng chốt, hồ sơ 128967) -> 6 cột
+DEWPOINT_COL_PCT = {"vn": [1000, 680, 680, 960, 960, 720], "en": [1100, 900, 780, 760, 740, 720]}
+
+
+def drop_water_column(doc):
+    """Bỏ cột "Hàm lượng nước, mg/m³" / "Water content" của bảng điểm sương khí nén (AGENTS mục 13: không thêm chỉ tiêu
+    không có trong KQTN — người dùng chốt 18/11/2026, 128967). Cột phân loại vẫn là {{ r.v[5] }}."""
+    for tbl in doc.element.body.iterchildren(qn("w:tbl")):
+        trs = tbl.findall(_TR)
+        if len(trs) < 2:
+            continue
+        head = "".join(t.text or "" for t in trs[1].iter(qn("w:t")))
+        if "Hàm lượng nước" not in head and "Water content" not in head:
+            continue
+        col = 5
+        gcols = tbl.find(qn("w:tblGrid")).findall(qn("w:gridCol"))
+        tbl.find(qn("w:tblGrid")).remove(gcols[col])
+        for tr in trs:
+            pos = 0
+            for tc in tr.findall(_TC):
+                pr = tc.find(qn("w:tcPr"))
+                gs = pr.find(qn("w:gridSpan")) if pr is not None else None
+                span = int(gs.get(qn("w:val"))) if gs is not None else 1
+                if pos <= col < pos + span:
+                    if span == 1:
+                        tr.remove(tc)
+                    elif span == 2:
+                        pr.remove(gs)
+                    else:
+                        gs.set(qn("w:val"), str(span - 1))
+                pos += span
 
 
 # Bảng tổng dầu: cột 1 ~20 % để 'Requirement ⁽²⁾' / 'Mức yêu cầu ⁽²⁾' nằm 1 dòng ở 13pt
@@ -1361,7 +1392,7 @@ def tag_bckq_tail(doc):
         ("Nguyên nhân trễ hạn:", "Nguyên nhân trễ hạn: {{ nn_tre_han }}", {}),
         ("Các bất thường trong quá trình giám định:", "Các bất thường trong quá trình giám định: {{ bat_thuong }}", {}),
         ("Ngày báo cáo:", "{{ tab_bc }}Ngày báo cáo: {{ ngay_bc }}", {"italic": True}),
-        ("báo cáo:", "{{ tab_bc }}Người báo cáo: {{ nguoi_bc }}", {"bold": True}),
+        ("báo cáo:", "{{ tab_bc }}Người báo cáo: {{ nguoi_bc }}", {}),   # không in đậm (người dùng 16/11/2026)
     ]
     start = find_p(doc, "Báo cáo của GĐV", contains=True)
     for key, text, fmt in pairs:
