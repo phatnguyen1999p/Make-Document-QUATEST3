@@ -20,8 +20,12 @@ _optimized/
 ~$*
 *.tmp
 
-# Khóa phiên — chỉ có nghĩa trên từng máy
-/Context/_khoa/
+# Context (trạng thái hồ sơ, khóa, nhật ký) nằm trên Z từ 20/11/2026 — thư mục ẩn `Claude - Work`
+# (AGENTS mục 16), nhiều máy chạy song song dùng chung. Bản cũ trong workspace không còn dùng.
+/Context/
+/ContextLuuTru/
+# Bộ nhớ đệm tra mã số thuế — mỗi máy tự sinh
+/Core/Tools/tax_cache.json
 
 # Hồ sơ mẫu nước (scan, ảnh, chứng thư khách hàng) — chỉ theo dõi các file form .md
 /Nước/**

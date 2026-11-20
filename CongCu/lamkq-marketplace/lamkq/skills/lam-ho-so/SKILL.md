@@ -9,11 +9,11 @@ Nguồn quy tắc duy nhất là `AGENTS.md` ở gốc dự án (ưu tiên cao n
 
 ## Thứ tự
 
-1. **Đầu phiên** — hook của plugin đã chạy `python Core/Tools/context.py dau-phien` và in **nhãn phiên** (`<máy>-<HHMM>-<4 ký tự>`). Không thấy bản tóm tắt trong ngữ cảnh thì tự chạy lệnh đó. Không đọc `ContextLuuTru/`.
+1. **Đầu phiên** — hook của plugin đã chạy `python Core/Tools/context.py dau-phien` và in **nhãn phiên** (`<máy>-<HHMM>-<4 ký tự>`). Không thấy bản tóm tắt trong ngữ cảnh thì tự chạy lệnh đó. Không đọc file lưu trữ. Context, khóa nằm trên Z (AGENTS mục 16) — hook báo `[LỖI] Không truy cập được Z` thì dừng, báo người dùng.
 2. **Khóa hồ sơ** (AGENTS mục 0, 16): `python Core/Tools/context.py khoa <6 số> --ai <nhãn>`.
    - `[KHÓA BẬN]` → dừng, báo người dùng; không dựng, không chép Z.
    - Hồ sơ mới: `moi <6 số> --khach "…" --doi-tuong "…" --ai <nhãn>`. Hồ sơ đã lưu trữ: `mo <6 số> --ai <nhãn>` rồi đọc file lưu trữ nó trỏ tới.
-   - Đọc **chỉ** `Context/HoSo/<6 số>.md`.
+   - Đọc **chỉ** file context của hồ sơ: `<thư mục hồ sơ trên Z>\Claude - Work\<6 số>.md` (`context.py duong-dan <6 số>` in đường dẫn). Khóa nằm trên Z nên máy khác đang làm cũng báo `[KHÓA BẬN]`.
 3. **Lấy đầu vào** — hồ sơ trên Z: tìm thư mục bằng wildcard 6 số (AGENTS mục 0), chép scan / ảnh / `Data Do` / KQTN về `Input\<6 số>\` (chỉ đọc). Không thấy hoặc trùng nhiều thư mục → hỏi.
 4. **Đọc hồ sơ** (mục 13): BBLM trước, rồi PYC, phiếu ghi chép, nhãn tủ trong ảnh, KQTN. Lệch thông tin khách hàng giữa các nguồn → **không tự sửa**, ghi vào `Cần người dùng quyết`, không áp tiền lệ hồ sơ khác.
    - **Đối chiếu khách hàng với mã số thuế** (mục 15, bắt buộc trước khi dựng): lấy MST trên PYC / GCN / PO / báo giá, chạy `python Core/Tools/tax_helper.py --mst <MST> --name "<tên trên PYC/BBLM>" --addr "<địa chỉ trên PYC/BBLM>"`. Chỉ khác cách viết → chuẩn hóa; lệch số nhà / tên đường / tên công ty / MST ngừng hoạt động → đưa vào câu hỏi gộp. Địa chỉ MST là trụ sở (mục 1 Table 0), Địa điểm giám định vẫn theo BBLM. Không có MST → hỏi người dùng. Ghi MST + kết quả vào khối Nguồn của script hồ sơ.
@@ -21,7 +21,7 @@ Nguồn quy tắc duy nhất là `AGENTS.md` ở gốc dự án (ưu tiên cao n
 6. **Gom câu hỏi một lần** (mục 15): sau lần dựng đầu, liệt kê mọi điểm cần người dùng quyết, bỏ điểm đã có quy tắc mặc định (ngày ban hành mục 2, tên máy mục 14), hỏi gộp.
 7. **QA** (mục 4): đóng mọi file của hồ sơ trước khi chạy; `python Core\Tools\qa_check.py final-check <path> --code <mã>` phải `[CLEAN]`; xuất PDF lại sau mỗi lần dựng; soát PDF bằng mắt (bìa 1 trang, VN = EN số trang và chỗ ngắt).
 8. **Chép lên Z** → dùng skill `chep-z`.
-9. **Ghi lại và trả khóa** (mục 16): sửa 3 dòng đầu `Trạng thái` / `Bước tiếp` / `Cần người dùng quyết` + dòng trên cùng bảng Nhật ký của `Context/HoSo/<6 số>.md`; rồi `context.py tra <6 số> --ai <nhãn>`.
+9. **Ghi lại và trả khóa** (mục 16): sửa 3 dòng đầu `Trạng thái` / `Bước tiếp` / `Cần người dùng quyết` + dòng trên cùng bảng Nhật ký của file context hồ sơ trên Z; rồi `context.py tra <6 số> --ai <nhãn>`.
 10. **Báo cáo cuối**: file đã tạo/sửa (đã lên Z chưa), ô còn trống, điểm cần người dùng xác nhận.
 
 ## Ghi nhớ đi theo plugin

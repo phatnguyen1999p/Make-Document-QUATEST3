@@ -56,7 +56,11 @@ Mọi máy dùng bản UpChungThu và AutoAddImage chép kèm trong `CongCu\`, k
 
 ## 7. Lưu ý khi nhiều máy cùng làm
 
-Khóa hồ sơ (`Context/_khoa/`) và sổ `ai_files.json` hiện nằm trên từng máy → hai máy không thấy khóa / sổ của nhau. Cho đến khi xong việc V9 (`Context/Viec/V9.md`): **mỗi hồ sơ chỉ làm trên một máy**, người dùng tự phân công.
+Từ 20/11/2026 context + khóa hồ sơ nằm trên Z (thư mục ẩn `Claude - Work` trong thư mục hồ sơ và ở `Z:\9.NV2 - MOI TRUONG\1.Ho So Moi Truong\2026\Claude - Work`, AGENTS mục 16) → nhiều máy chạy song song được, khóa thấy nhau. Kiểm tra: `python Core/Tools/context.py xem` in dòng `Context dùng chung trên Z: …` (lỗi mã 3 = chưa map ổ Z). Không cần đặt biến môi trường.
+
+**Máy còn `Context/`, `ContextLuuTru/` từ git cũ** (trước khi pull bản bỏ 2 thư mục này khỏi git): chép 2 thư mục ra ngoài (`robocopy Context ..\Context-cu\Context /E`, tương tự `ContextLuuTru`), `git stash --include-untracked` nếu có thay đổi, `git pull`, rồi `python Core/Tools/context.py nhap-z --tu ..\Context-cu` (chạy thử) → thêm `--ghi`. Xung đột vào `…\Claude - Work\_xung_dot\<máy>\` → gộp tay với bản trên Z.
+
+Còn lại: sổ `ai_files.json` vẫn nằm trong `Input\<6 số>\ThucHien\_checkpoint\` của máy đã dựng → máy khác mở lại hồ sơ thấy file trên Z là `[Z EDITED]` (an toàn: không ghi đè, hỏi người dùng).
 
 ## 8. Báo cáo cuối
 

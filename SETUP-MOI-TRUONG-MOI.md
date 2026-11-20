@@ -9,7 +9,7 @@ Mình vừa giải nén dự án "Làm KQ" (bộ công cụ dựng hồ sơ giá
 
 Quy tắc trong lúc setup: không sửa code trong Core/, không xóa file, không ghi gì lên ổ Z:, không chạy build_<6 số>.py thật (chỉ chạy thử ở %TEMP%).
 
-1. Đọc trước: AGENTS.md (quy tắc bất biến, ưu tiên cao nhất), README.md; chạy python Core/Tools/context.py xem (tóm tắt hồ sơ / lỗi đang mở, không ghi gì). KHÔNG đọc ContextLuuTru/.
+1. Đọc trước: AGENTS.md (quy tắc bất biến, ưu tiên cao nhất), README.md; chạy python Core/Tools/context.py xem (tóm tắt hồ sơ / lỗi đang mở, không ghi gì). KHÔNG đọc file lưu trữ. Context nằm trên Z (thư mục ẩn Claude - Work, AGENTS mục 16) — phải map ổ Z trước.
 2. Vị trí thư mục: kiểm tra dự án có nằm ở C:\Users\<user>\Desktop\Source\Làm KQ không. Nếu tên user khác "phat.nt", tìm các chỗ còn cài cứng "phat.nt" trong code đang dùng (bỏ qua Core/Source Code/ — script cũ) và báo lại; không sửa khi chưa hỏi.
 3. Python ≥ 3.9: chạy `pip install -e .` theo pyproject.toml (python-docx, openpyxl, PyMuPDF, lxml, matplotlib, pillow, pywin32, xlrd, PyPDF2, markitdown). Thử import từng gói (docx, openpyxl, fitz, lxml, win32com.client, PIL, matplotlib, xlrd, PyPDF2). pywin32 lỗi thì chạy postinstall. Cài thêm requirements.txt của CongCu\AutoAddImage nếu có gói thiếu.
 4. Phần mềm ngoài, mỗi thứ báo có/thiếu:
