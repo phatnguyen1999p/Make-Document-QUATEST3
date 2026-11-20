@@ -60,7 +60,7 @@ Thêm vào `.claude/settings.json` ở gốc dự án (file này đi theo dự �
 
 ## Giới hạn khi nhiều PC cùng làm (việc V9)
 
-- Khóa hồ sơ `Context/_khoa/` và nhật ký `Context/` nằm trên từng máy → máy khác không thấy khóa.
+- ~~Khóa hồ sơ và nhật ký nằm trên từng máy~~ — đã xong 20/11/2026 (0.4.0): context + khóa trên Z, thư mục ẩn `Claude - Work`.
 - Sổ `ai_files.json` nằm trong `Input\<6 số>\ThucHien\_checkpoint\` của máy đã dựng → máy khác thấy file trên Z là `[Z EDITED]`.
 
-Cho đến khi sửa xong: **mỗi hồ sơ chỉ làm trên một máy**.
+Nhiều máy chạy song song được (khóa chung trên Z); máy khác mở lại hồ sơ có thể gặp `[Z EDITED]` do sổ `ai_files.json` — hỏi người dùng.

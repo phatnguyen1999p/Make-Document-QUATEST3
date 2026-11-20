@@ -38,4 +38,4 @@ Exit 0–3 là thành công. **Cấm `/MIR`, `/PURGE`** (hook `chan_lenh_z` củ
 
 ## Lưu ý nhiều máy
 
-Sổ `ai_files.json` nằm trong `Input\<6 số>\ThucHien\_checkpoint\` của **máy đã dựng**. Máy khác mở lại hồ sơ đó sẽ không có sổ → mọi file trên Z hiện `[Z EDITED]`. Gặp trường hợp này: hỏi người dùng, không ghi đè (việc V9 trong `Context/Viec/`).
+Sổ `ai_files.json` nằm trong `Input\<6 số>\ThucHien\_checkpoint\` của **máy đã dựng**. Máy khác mở lại hồ sơ đó sẽ không có sổ → mọi file trên Z hiện `[Z EDITED]`. Gặp trường hợp này: hỏi người dùng, không ghi đè (việc V9 — `Claude - Work\Viec\V9.md` trên Z).

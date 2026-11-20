@@ -1,13 +1,19 @@
 """Context nhiều phiên không chồng log (AGENTS mục 16) — mỗi file chỉ một phiên ghi.
 
 Trước 12/11/2026 mọi phiên cùng sửa một file PROJECT_CONTEXT.md (117 KB) → hai phiên chạy song song
-ghi đè lên nhau, đầu phiên phải đọc cả file. Nay trạng thái động tách thành file nhỏ:
+ghi đè lên nhau, đầu phiên phải đọc cả file. Nay trạng thái động tách thành file nhỏ. Từ 20/11/2026 context
+nằm trên Z (không còn trong git) để nhiều MÁY chạy song song dùng chung khóa — thư mục `Claude - Work` ẩn:
 
-    Context/HoSo/<6 số>.md       một hồ sơ đang mở: trạng thái, bước tiếp, điểm cần người dùng quyết, nhật ký
-    Context/Viec/<ID>.md         một lỗi (E<n>) hoặc một việc hệ thống (V<n>) đang mở
-    Context/Phien/<ngày-giờ>-<chủ đề>.md   nhật ký hệ thống của MỘT phiên (sửa Core, AGENTS, công cụ)
-    Context/_khoa/<tên>.lock     khóa: hồ sơ đang do phiên nào làm
-    ContextLuuTru/               lưu trữ nguyên văn (HoSo/, LoiDaSua.md, NhatKy/) — không đọc đầu phiên
+    <thư mục hồ sơ Z>\\Claude - Work\\<6 số>.md            hồ sơ đang mở: trạng thái, bước tiếp, cần quyết, nhật ký
+    <thư mục hồ sơ Z>\\Claude - Work\\<6 số>.lock          khóa hồ sơ
+    <thư mục hồ sơ Z>\\Claude - Work\\<6 số> - LuuTru.md   lưu trữ nguyên văn khi hồ sơ xong
+    <Z 2026>\\Claude - Work\\Viec\\<ID>.md                  một lỗi (E<n>) / việc hệ thống (V<n>) đang mở
+    <Z 2026>\\Claude - Work\\Phien\\<ngày-giờ>-<chủ đề>.md  nhật ký hệ thống của MỘT phiên
+    <Z 2026>\\Claude - Work\\_khoa\\<tên>.lock              khóa không thuộc hồ sơ (file Core…), _don.lock
+    <Z 2026>\\Claude - Work\\HoSo\\<6 số>.md                hồ sơ CHƯA có thư mục trên Z (tự chuyển khi có)
+    <Z 2026>\\Claude - Work\\LuuTru\\                       LoiDaSua.md, NhatKy/, lịch sử AGENTS — không đọc đầu phiên
+
+Không vào được Z → mọi lệnh dừng (mã 3). Chép context kiểu cũ lên Z: `nhap-z [--tu <thư mục>] [--ghi]`.
 
 Ai ghi file nào: file hồ sơ — chỉ phiên đang giữ khóa hồ sơ đó; file phiên — chỉ phiên tạo ra nó;
 file việc / lỗi — phiên đang xử lý việc đó. Không file nào là "của chung" nên không có gì để chồng.
@@ -23,6 +29,7 @@ Lệnh:
     python Core/Tools/context.py phien "chủ đề" --ai <nhãn>     # tạo file phiên, in đường dẫn
     python Core/Tools/context.py viec "tiêu đề" [--loi] [--muc Thấp] --ai <nhãn>   # cấp ID V<n> / E<n>
     python Core/Tools/context.py so                     # sổ mọi hồ sơ (đang mở + lưu trữ)
+    python Core/Tools/context.py duong-dan 137058       # đường dẫn file context / lưu trữ / khóa trên Z
     python Core/Tools/context.py don [--ghi]            # lưu trữ phần đã xong (không --ghi = chạy thử)
     python Core/Tools/context.py dong 137058 [--ghi]    # đóng hồ sơ ngay
 
@@ -44,13 +51,18 @@ import time
 import unicodedata
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-# Đổi chỗ để context bằng biến môi trường (vd đặt trên ổ dùng chung cho nhiều máy, hoặc thư mục thử):
-CTX = os.environ.get("LAMKQ_CONTEXT_DIR") or os.path.join(ROOT, "Context")
-HOSO = os.path.join(CTX, "HoSo")
+Z_ROOT = os.environ.get("LAMKQ_Z_ROOT", r"Z:\9.NV2 - MOI TRUONG\1.Ho So Moi Truong\2026")
+Z_SUBDIRS = ("", "0.VIMCERTS078", "0.1.Tân Hiệp")
+WORK = "Claude - Work"     # thư mục ẩn chứa context (người dùng chốt 20/11/2026 — nhiều máy chạy song song)
+# Phần chung (lỗi / việc, phiên, khóa không thuộc hồ sơ, lưu trữ nhật ký) ở `<Z_ROOT>\Claude - Work\`;
+# context + khóa của từng hồ sơ ở `<thư mục hồ sơ trên Z>\Claude - Work\`. Đổi chỗ (thư mục thử) bằng biến môi trường.
+CTX = os.environ.get("LAMKQ_CONTEXT_DIR") or os.path.join(Z_ROOT, WORK)
+HOSO = os.path.join(CTX, "HoSo")          # chỉ hồ sơ CHƯA có thư mục trên Z (tự chuyển khi thư mục xuất hiện)
 VIEC = os.path.join(CTX, "Viec")
 PHIEN = os.path.join(CTX, "Phien")
 KHOA = os.path.join(CTX, "_khoa")
-ARCHIVE = os.environ.get("LAMKQ_CONTEXT_ARCHIVE") or os.path.join(ROOT, "ContextLuuTru")
+ARCHIVE = os.environ.get("LAMKQ_CONTEXT_ARCHIVE") or os.path.join(CTX, "LuuTru")
+DUP_RE = re.compile(r" \(\d+\)$")         # thư mục trùng kiểu `… (1)` trên Z — bỏ qua (AGENTS mục 0)
 
 DATE_RE = re.compile(r"(?<!\d)(\d{1,2})/(\d{1,2})/(\d{4})(?!\d)")
 CODE_RE = re.compile(r"(?<!\d)(?:Q3\d{2}[A-D])?(\d{6})(?!\d)")
@@ -59,8 +71,6 @@ LOCK_STALE_HOURS = 12      # khóa không gia hạn quá ngần này giờ → p
 DOSSIER_IDLE_DAYS = 7      # hồ sơ không đụng tới ≥ 7 ngày → tự xem là xong (người dùng chốt 05/11/2026)
 SESSION_KEEP_DAYS = 7      # file phiên cũ hơn ngần này ngày → lưu trữ
 RECENT_DAYS = 3            # `xem` liệt kê phiên trong ngần này ngày
-Z_ROOT = os.environ.get("LAMKQ_Z_ROOT", r"Z:\9.NV2 - MOI TRUONG\1.Ho So Moi Truong\2026")
-Z_SUBDIRS = ("", "0.VIMCERTS078", "0.1.Tân Hiệp")
 SKIP_DIRS = {"_checkpoint", "_optimized", "__pycache__"}
 LOG_HEADER = ["| Ngày | AI | Nội dung |", "|---|---|---|"]
 DONE_RE = re.compile(r"^(Fixed|Done)\s*\(")
@@ -73,9 +83,36 @@ def read_text(path: str) -> str:
         return f.read()
 
 
+def hide(path: str) -> None:
+    """Đặt thuộc tính Hidden (Windows) cho thư mục `Claude - Work`."""
+    if os.name != "nt":
+        return
+    try:
+        import ctypes
+        k = ctypes.windll.kernel32
+        attrs = k.GetFileAttributesW(path)
+        if attrs != -1 and attrs != 0xFFFFFFFF and not attrs & 2:
+            k.SetFileAttributesW(path, attrs | 2)
+    except Exception:  # noqa: BLE001 — không ẩn được cũng không chặn việc ghi
+        pass
+
+
+def make_dirs(folder: str) -> None:
+    """os.makedirs + ẩn mọi thư mục `Claude - Work` trên đường dẫn."""
+    os.makedirs(folder, exist_ok=True)
+    p = os.path.normpath(folder)
+    while True:
+        if os.path.basename(p) == WORK:
+            hide(p)
+        parent = os.path.dirname(p)
+        if parent == p:
+            break
+        p = parent
+
+
 def write_atomic(path: str, text: str) -> None:
     """Ghi qua file tạm cùng thư mục rồi os.replace — không bao giờ để lại file viết dở."""
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    make_dirs(os.path.dirname(path))
     tmp = f"{path}.{os.getpid()}.{secrets.token_hex(3)}.tmp"
     with open(tmp, "w", encoding="utf-8", newline="\n") as f:
         f.write(text)
@@ -84,7 +121,7 @@ def write_atomic(path: str, text: str) -> None:
 
 def create_new(path: str, text: str) -> None:
     """Tạo file mới; đã có thì FileExistsError (không ghi đè)."""
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    make_dirs(os.path.dirname(path))
     fd = os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
     with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as f:
         f.write(text)
@@ -180,16 +217,104 @@ def suggest_label() -> str:
     return f"{socket.gethostname()}-{dt.datetime.now():%H%M}-{secrets.token_hex(2)}"
 
 
+# ---------------------------------------------------------------- vị trí trên Z
+class ZAmbiguous(Exception):
+    """Nhiều thư mục hồ sơ trên Z khớp một mã 6 số — dừng, hỏi người dùng (AGENTS mục 0)."""
+
+
+_Z_INDEX: list[str] | None = None
+
+
+def z_index() -> list[str]:
+    """Mọi thư mục hồ sơ dưới Z_ROOT (+ 0.VIMCERTS078, 0.1.Tân Hiệp), bỏ thư mục trùng `… (n)`. Đọc một lần."""
+    global _Z_INDEX
+    if _Z_INDEX is None:
+        out = []
+        for sub in Z_SUBDIRS:
+            base = os.path.join(Z_ROOT, sub) if sub else Z_ROOT
+            try:
+                with os.scandir(base) as it:
+                    out += [e.path for e in it if e.is_dir() and e.name != WORK and not DUP_RE.search(e.name)
+                            and CODE_RE.search(e.name)]
+            except OSError:
+                continue
+        _Z_INDEX = out
+    return _Z_INDEX
+
+
+def _z_folders(code: str) -> list[str]:
+    return [f for f in z_index() if re.search(rf"(?<!\d){code}(?!\d)", os.path.basename(f))]
+
+
+_WARNED: set[str] = set()
+
+
+def z_dossier_folder(code: str) -> str | None:
+    """Thư mục hồ sơ trên Z. Nhiều thư mục cùng mã (vd 139329 BSC - LAF + Nước uống) → None: context để ở
+    thư mục chung `<CTX>\\HoSo` (mọi máy chọn giống nhau) và in cảnh báo."""
+    found = _z_folders(code)
+    if len(found) > 1:
+        if code not in _WARNED:
+            _WARNED.add(code)
+            print(f"  [Z trùng] {code}: {len(found)} thư mục trên Z cùng mã — context để ở {HOSO}: "
+                  + "; ".join(os.path.basename(f) for f in found))
+        return None
+    return found[0] if found else None
+
+
+def dossier_dir(code: str) -> str:
+    """`<thư mục hồ sơ Z>\\Claude - Work`; hồ sơ chưa có thư mục trên Z → `<CTX>\\HoSo`."""
+    zf = z_dossier_folder(code)
+    return os.path.join(zf, WORK) if zf else HOSO
+
+
+def _pick(z_path: str, fallback: str) -> str:
+    """File đã có ở đâu thì dùng ở đó; chưa có thì ưu tiên thư mục hồ sơ trên Z."""
+    if os.path.exists(z_path) or not os.path.exists(fallback):
+        return z_path
+    return fallback
+
+
+def scan_work_dirs() -> dict[str, dict[str, str]]:
+    """{mã: {"mo": file context, "luu": file lưu trữ, "khoa": file khóa}} — quét mọi `Claude - Work` của hồ sơ
+    trên Z và thư mục dự phòng `<CTX>\\HoSo`, `<ARCHIVE>\\HoSo`, `<CTX>\\_khoa`."""
+    out: dict[str, dict[str, str]] = {}
+
+    def add(folder: str) -> None:
+        try:
+            with os.scandir(folder) as it:
+                names = [e.name for e in it if e.is_file()]
+        except OSError:
+            return
+        for n in names:
+            m = re.fullmatch(r"(\d{6})(\.md| - LuuTru\.md|\.lock)", n)
+            if m:
+                kind = {".md": "mo", " - LuuTru.md": "luu", ".lock": "khoa"}[m.group(2)]
+                out.setdefault(m.group(1), {}).setdefault(kind, os.path.join(folder, n))
+
+    for f in z_index():
+        add(os.path.join(f, WORK))
+    add(HOSO)
+    add(KHOA)
+    for p in md_files(os.path.join(ARCHIVE, "HoSo")):
+        code = os.path.basename(p)[:-3]
+        if re.fullmatch(r"\d{6}", code):
+            out.setdefault(code, {}).setdefault("luu", p)
+    return out
+
+
 # ---------------------------------------------------------------- khóa
 def lock_path(name: str) -> str:
-    return os.path.join(KHOA, f"{name}.lock")
+    shared = os.path.join(KHOA, f"{name}.lock")
+    if re.fullmatch(r"\d{6}", name):
+        zf = z_dossier_folder(name)
+        if zf:
+            return _pick(os.path.join(zf, WORK, f"{name}.lock"), shared)
+    return shared
 
 
 def read_lock(name: str) -> dict | None:
-    try:
-        return json.loads(read_text(lock_path(name)))
-    except (OSError, ValueError):
-        return None
+    return _read_lock_file(lock_path(name))
 
 
 def lock_age_hours(lock: dict) -> float:
@@ -207,14 +332,26 @@ def lock_text(lock: dict) -> str:
     return f"{lock.get('ai', '?')} (máy {lock.get('may', '?')}, {age:.1f} giờ trước){note}{old}"
 
 
-def all_locks() -> dict[str, dict]:
+def _read_lock_file(path: str) -> dict | None:
+    try:
+        return json.loads(read_text(path))
+    except (OSError, ValueError):
+        return None
+
+
+def all_locks(scan: dict | None = None) -> dict[str, dict]:
     out = {}
     if os.path.isdir(KHOA):
         for n in sorted(os.listdir(KHOA)):
             if n.endswith(".lock") and not n.startswith("_"):
-                lock = read_lock(n[:-5])
+                lock = _read_lock_file(os.path.join(KHOA, n))
                 if lock:
                     out[n[:-5]] = lock
+    for code, f in (scan if scan is not None else scan_work_dirs()).items():
+        if "khoa" in f:
+            lock = _read_lock_file(f["khoa"])
+            if lock:
+                out[code] = lock
     return out
 
 
@@ -267,11 +404,15 @@ def cmd_tra(name: str, ai: str, force: bool = False) -> int:
 
 # ---------------------------------------------------------------- tạo file
 def dossier_path(code: str) -> str:
-    return os.path.join(HOSO, f"{code}.md")
+    fallback = os.path.join(HOSO, f"{code}.md")
+    zf = z_dossier_folder(code)
+    return _pick(os.path.join(zf, WORK, f"{code}.md"), fallback) if zf else fallback
 
 
 def archive_dossier_path(code: str) -> str:
-    return os.path.join(ARCHIVE, "HoSo", f"{code}.md")
+    fallback = os.path.join(ARCHIVE, "HoSo", f"{code}.md")
+    zf = z_dossier_folder(code)
+    return _pick(os.path.join(zf, WORK, f"{code} - LuuTru.md"), fallback) if zf else fallback
 
 
 def dossier_template(code: str, client: str, scope: str, status: str, extra: str = "") -> str:
@@ -403,36 +544,44 @@ def id_key(path: str):
 
 def cmd_xem(full: bool = False) -> int:
     now = dt.datetime.now()
-    locks = all_locks()
+    scan = scan_work_dirs()
+    locks = all_locks(scan)
     w = 100000 if full else 170
     print(f"CONTEXT {now:%d/%m/%Y %H:%M} — máy {socket.gethostname()} — nhãn phiên gợi ý: {suggest_label()}")
-    print("Trước khi làm hồ sơ: `khoa <6 số> --ai <nhãn>` (bận → dừng, báo người dùng), đọc Context/HoSo/<6 số>.md. "
+    print(f"Context dùng chung trên Z: {CTX}")
+    print("Trước khi làm hồ sơ: `khoa <6 số> --ai <nhãn>` (bận → dừng, báo người dùng), đọc file hồ sơ "
+          "(`duong-dan <6 số>` in đường dẫn: <thư mục hồ sơ trên Z>\\Claude - Work\\<6 số>.md). "
           "Xong: cập nhật file hồ sơ đó, `tra <6 số> --ai <nhãn>`. Sửa Core/AGENTS: `phien \"<chủ đề>\" --ai <nhãn>`.")
 
-    files = md_files(HOSO)
-    print(f"\nHỒ SƠ ĐANG MỞ ({len(files)}) — Context/HoSo/<6 số>.md")
+    files = sorted(f["mo"] for f in scan.values() if "mo" in f)
+    files.sort(key=os.path.basename)
+    print(f"\nHỒ SƠ ĐANG MỞ ({len(files)}) — <thư mục hồ sơ trên Z>\\Claude - Work\\<6 số>.md")
     asks = []
     for p in files:
         code = os.path.basename(p)[:-3]
         text = read_text(p)
+        if os.path.dirname(p) == HOSO:
+            code_note = "  (chưa có thư mục trên Z)"
+        else:
+            code_note = ""
         f = fields_of(text)
         lk = f"  [KHÓA: {lock_text(locks[code])}]" if code in locks else ""
         client = re.sub(r"^\S+(?: \([^)]*\))?\s*—\s*", "", title_of(text))
-        print(f"  {code}  {short(client, 60)}{lk}")
+        print(f"  {code}  {short(client, 60)}{lk}{code_note}")
         print(f"          {short(plain(f.get('Trạng thái', '?')), w)}")
         if not blank(f.get("Bước tiếp", "")):
             print(f"          Bước tiếp: {short(plain(f['Bước tiếp']), w)}")
         if not blank(f.get("Cần người dùng quyết", "")):
             asks.append(f"  {code}: {short(plain(f['Cần người dùng quyết']), w + 60)}")
 
-    other = {n: l for n, l in locks.items() if not os.path.exists(dossier_path(n))}
+    other = {n: l for n, l in locks.items() if "mo" not in scan.get(n, {})}
     if other:
         print("\nKHÓA KHÁC")
         for n, l in other.items():
             print(f"  {n}: {lock_text(l)}")
 
     items = sorted(md_files(VIEC), key=id_key)
-    print(f"\nLỖI / VIỆC HỆ THỐNG ĐANG MỞ ({len(items)}) — Context/Viec/<ID>.md")
+    print(f"\nLỖI / VIỆC HỆ THỐNG ĐANG MỞ ({len(items)}) — {VIEC}\\<ID>.md")
     for p in items:
         text = read_text(p)
         f = fields_of(text)
@@ -447,24 +596,34 @@ def cmd_xem(full: bool = False) -> int:
 
     cutoff = now.date() - dt.timedelta(days=RECENT_DAYS)
     recent = [p for p in md_files(PHIEN) if (session_date(p) or dt.date.min) >= cutoff]
-    print(f"\nPHIÊN {RECENT_DAYS} NGÀY GẦN ĐÂY ({len(recent)}) — Context/Phien/")
+    print(f"\nPHIÊN {RECENT_DAYS} NGÀY GẦN ĐÂY ({len(recent)}) — {PHIEN}")
     for p in reversed(recent):
         text = read_text(p)
         summary = fields_of(text).get("Tóm tắt", "")
         print(f"  {os.path.basename(p)}: {short(plain(summary) or title_of(text), w + 60)}")
-    print("\nLưu trữ: ContextLuuTru/ (không đọc đầu phiên). Sổ mọi hồ sơ: `context.py so`.")
+    print(f"\nLưu trữ: `<6 số> - LuuTru.md` trong Claude - Work của hồ sơ, nhật ký chung ở {ARCHIVE} "
+          "(không đọc đầu phiên). Sổ mọi hồ sơ: `context.py so`.")
+    return 0
+
+
+def cmd_duong_dan(code: str) -> int:
+    code = norm_code(code)
+    print(f"Context hồ sơ: {dossier_path(code)}" + ("" if os.path.exists(dossier_path(code)) else "  (chưa có)"))
+    arch = archive_dossier_path(code)
+    if os.path.exists(arch):
+        print(f"Lưu trữ:       {arch}")
+    print(f"Khóa:          {lock_path(code)}")
     return 0
 
 
 def cmd_so() -> int:
     rows = {}
-    for p in md_files(os.path.join(ARCHIVE, "HoSo")):
-        code = os.path.basename(p)[:-3]
-        rows[code] = ("lưu trữ", re.sub(r"^Lưu trữ hồ sơ\s*", "", title_of(read_text(p))))
-    for p in md_files(HOSO):
-        code = os.path.basename(p)[:-3]
-        again = " (mở lại)" if code in rows else ""
-        rows[code] = ("ĐANG MỞ" + again, title_of(read_text(p)))
+    for code, f in scan_work_dirs().items():
+        if "mo" in f:
+            again = " (mở lại)" if "luu" in f else ""
+            rows[code] = ("ĐANG MỞ" + again, title_of(read_text(f["mo"])))
+        elif "luu" in f:
+            rows[code] = ("lưu trữ", re.sub(r"^Lưu trữ hồ sơ\s*", "", title_of(read_text(f["luu"]))))
     for code in sorted(rows):
         print(f"{code}  {rows[code][0]:<18} {short(rows[code][1], 150)}")
     return 0
@@ -489,18 +648,6 @@ def _latest_mtime(folder: str, subdirs=None) -> dt.date | None:
                 if best is None or t > best:
                     best = t
     return dt.date.fromtimestamp(best) if best else None
-
-
-def _z_folders(code: str) -> list[str]:
-    out = []
-    for sub in Z_SUBDIRS:
-        base = os.path.join(Z_ROOT, sub) if sub else Z_ROOT
-        try:
-            out += [os.path.join(base, n) for n in os.listdir(base)
-                    if code in n and os.path.isdir(os.path.join(base, n))]
-        except OSError:
-            continue
-    return out
 
 
 def last_touched(code: str, text: str, use_files: bool, idle_days: int, today: dt.date):
@@ -529,6 +676,20 @@ def append_block(path: str, header: str, block: str) -> bool:
     return True
 
 
+def merge_blocks(src: str, dst: str) -> int:
+    """Nối vào `dst` các khối `## …` / `### …` của `src` mà `dst` chưa có nguyên văn. Trả số khối đã thêm."""
+    parts = re.split(r"\n(?=#{2,3} )", read_text(src).strip("\n"))
+    doc = read_text(dst) if os.path.exists(dst) else parts[0]
+    added = 0
+    for block in parts[1:]:
+        if block.strip() not in doc:
+            doc = doc.rstrip("\n") + "\n\n" + block.strip("\n") + "\n"
+            added += 1
+    if added or not os.path.exists(dst):
+        write_atomic(dst, doc if doc.endswith("\n") else doc + "\n")
+    return added
+
+
 def split_title(text: str) -> tuple[str, str]:
     lines = text.split("\n")
     i = next((k for k, l in enumerate(lines) if l.startswith("# ")), None)
@@ -543,13 +704,43 @@ def archive_dossier(code: str, today: dt.date) -> str:
     dst = archive_dossier_path(code)
     header = "\n".join([
         f"# Lưu trữ hồ sơ {title}", "",
-        f"> Hồ sơ đã xong, chuyển khỏi `Context/HoSo/` (AGENTS mục 16). Chỉ đọc khi người dùng mở lại hồ sơ này "
-        f"(`python Core/Tools/context.py mo {code}`)."])
+        f"> Hồ sơ đã xong, chuyển khỏi file context đang mở (AGENTS mục 16). Chỉ đọc khi người dùng mở lại "
+        f"hồ sơ này (`python Core/Tools/context.py mo {code}`)."])
     append_block(dst, header, f"## Lưu trữ {today:%d/%m/%Y}\n\n{demote(body, 1)}")
     os.remove(src)
     if read_lock(code):
         os.remove(lock_path(code))
     return rel(dst)
+
+
+def relocate_to_z(scan: dict) -> list[tuple[str, callable]]:
+    """Hồ sơ đã ghi ở thư mục dự phòng (chưa có thư mục trên Z) mà nay thư mục Z đã có → chuyển vào Claude - Work."""
+    plan = []
+    for code, f in scan.items():
+        try:
+            zf = z_dossier_folder(code)
+        except ZAmbiguous:
+            continue
+        if not zf:
+            continue
+        work = os.path.join(zf, WORK)
+        for kind, name in (("mo", f"{code}.md"), ("luu", f"{code} - LuuTru.md")):
+            src = f.get(kind)
+            if src and os.path.normcase(os.path.dirname(src)) != os.path.normcase(work):
+                dst = os.path.join(work, name)
+
+                def move(s=src, d=dst, k=kind):
+                    if os.path.exists(d):
+                        if k == "luu":
+                            merge_blocks(s, d)
+                            os.remove(s)
+                            return f"gộp vào {d}"
+                        return f"bỏ qua — đã có {d}"
+                    write_atomic(d, read_text(s))
+                    os.remove(s)
+                    return d
+                plan.append((f"chuyển {code} ({os.path.basename(src)}) vào thư mục hồ sơ trên Z", move))
+    return plan
 
 
 def archive_item(path: str, today: dt.date) -> str:
@@ -584,15 +775,15 @@ def item_done(text: str) -> bool:
 def cmd_don(write: bool, close: list[str] | None = None, idle_days: int = DOSSIER_IDLE_DAYS,
             use_files: bool = True, quiet: bool = False) -> int:
     today = dt.date.today()
-    locks = all_locks()
-    plan = []       # (mô tả, hàm thực hiện)
-
+    scan = scan_work_dirs()
+    locks = all_locks(scan)
     close = [norm_code(c) for c in (close or [])]
+    plan = [] if close else relocate_to_z(scan)       # (mô tả, hàm thực hiện)
     for code in close:
-        if not os.path.exists(dossier_path(code)):
-            print(f"  [Bỏ qua] {code}: không có trong Context/HoSo/")
-    for p in md_files(HOSO):
-        code = os.path.basename(p)[:-3]
+        if "mo" not in scan.get(code, {}):
+            print(f"  [Bỏ qua] {code}: không có file context đang mở")
+    for code in sorted(c for c, f in scan.items() if "mo" in f):
+        p = scan[code]["mo"]
         lk = locks.get(code)
         busy = lk is not None and lock_age_hours(lk) < LOCK_STALE_HOURS
         if code in close:
@@ -646,6 +837,80 @@ def cmd_don(write: bool, close: list[str] | None = None, idle_days: int = DOSSIE
     return 0
 
 
+# ---------------------------------------------------------------- chuyển context cũ (trong git) lên Z
+def cmd_nhap_z(src_root: str, write: bool) -> int:
+    """Chép `Context/` + `ContextLuuTru/` kiểu cũ (trong workspace) lên Z. Không xóa gì ở nguồn.
+
+    File đơn (hồ sơ đang mở, lỗi / việc, phiên, file lưu trữ khác): chưa có trên Z → chép; giống hệt → bỏ qua;
+    khác → chép vào `<CTX>\\_xung_dot\\<máy>\\…` để người / AI gộp tay. File lưu trữ nối thêm (hồ sơ đã lưu
+    trữ, LoiDaSua, NhatKy) → nối các khối `##` / `###` còn thiếu."""
+    ctx_old = os.path.join(src_root, "Context")
+    arc_old = os.path.join(src_root, "ContextLuuTru")
+    if not os.path.isdir(ctx_old) and not os.path.isdir(arc_old):
+        print(f"Không có Context/ hoặc ContextLuuTru/ trong {src_root}")
+        return 1
+    conflict_dir = os.path.join(CTX, "_xung_dot", socket.gethostname())
+    jobs = []           # (nguồn, đích, kiểu: "don" | "noi", tên tương đối)
+
+    def dossier_target(code: str, archived: bool) -> str:
+        try:
+            zf = z_dossier_folder(code)
+        except ZAmbiguous as e:
+            print(f"  [Z trùng] {e} — để ở thư mục dự phòng, hỏi người dùng")
+            zf = None
+        if archived:
+            return os.path.join(zf, WORK, f"{code} - LuuTru.md") if zf else os.path.join(ARCHIVE, "HoSo", f"{code}.md")
+        return os.path.join(zf, WORK, f"{code}.md") if zf else os.path.join(HOSO, f"{code}.md")
+
+    for p in md_files(os.path.join(ctx_old, "HoSo")):
+        code = os.path.basename(p)[:-3]
+        jobs.append((p, dossier_target(code, False), "don", f"Context/HoSo/{code}.md"))
+    for sub, dst_dir in (("Viec", VIEC), ("Phien", PHIEN)):
+        for p in md_files(os.path.join(ctx_old, sub)):
+            jobs.append((p, os.path.join(dst_dir, os.path.basename(p)), "don", f"Context/{sub}/{os.path.basename(p)}"))
+    for dp, _, names in os.walk(arc_old):
+        for n in sorted(names):
+            if not n.endswith(".md"):
+                continue
+            p = os.path.join(dp, n)
+            r = os.path.relpath(p, arc_old).replace("\\", "/")
+            if r.startswith("HoSo/") and re.fullmatch(r"\d{6}\.md", n):
+                jobs.append((p, dossier_target(n[:-3], True), "noi", "ContextLuuTru/" + r))
+            elif r == "LoiDaSua.md" or r.startswith("NhatKy/"):
+                jobs.append((p, os.path.join(ARCHIVE, *r.split("/")), "noi", "ContextLuuTru/" + r))
+            else:
+                jobs.append((p, os.path.join(ARCHIVE, *r.split("/")), "don", "ContextLuuTru/" + r))
+
+    counts = {"chép": 0, "giống": 0, "nối": 0, "xung đột": 0}
+    for src, dst, kind, name in jobs:
+        text = read_text(src)
+        if not os.path.exists(dst):
+            action = "chép"
+        elif read_text(dst) == text:
+            action = "giống"
+        elif kind == "noi":
+            action = "nối"
+        else:
+            action = "xung đột"
+        counts[action] += 1
+        if action == "giống":
+            continue
+        print(f"  [{action}] {name} → {dst if action != 'xung đột' else os.path.join(conflict_dir, *name.split('/'))}")
+        if not write:
+            continue
+        if action == "chép":
+            write_atomic(dst, text)
+        elif action == "nối":
+            merge_blocks(src, dst)
+        else:
+            write_atomic(os.path.join(conflict_dir, *name.split("/")), text)
+    print(("Đã làm" if write else "Chạy thử (thêm --ghi để thực hiện)") + ": "
+          + ", ".join(f"{k} {v}" for k, v in counts.items()))
+    if counts["xung đột"]:
+        print(f"Có xung đột → so từng file trong {conflict_dir} với bản trên Z, gộp tay, rồi xóa thư mục xung đột.")
+    return 0
+
+
 # ---------------------------------------------------------------- CLI
 def main(argv=None) -> int:
     if hasattr(sys.stdout, "reconfigure"):
@@ -679,6 +944,11 @@ def main(argv=None) -> int:
     v.add_argument("--muc", default="Trung bình")
     v.add_argument("--ai", default="Claude Code")
     sub.add_parser("so", help="Sổ mọi hồ sơ")
+    dd = sub.add_parser("duong-dan", help="In đường dẫn file context / lưu trữ / khóa của một hồ sơ")
+    dd.add_argument("ma")
+    nz = sub.add_parser("nhap-z", help="Chép Context/ + ContextLuuTru/ kiểu cũ trong workspace lên Z")
+    nz.add_argument("--tu", default=ROOT, help="Thư mục chứa Context/ và ContextLuuTru/ (mặc định workspace)")
+    nz.add_argument("--ghi", action="store_true")
     for name in ("don", "kiem-tra", "dong"):
         c = sub.add_parser(name)
         if name == "dong":
@@ -689,6 +959,22 @@ def main(argv=None) -> int:
         c.add_argument("--khong-xet-file", action="store_true", help="Không xét giờ sửa file Input / Z")
     a = p.parse_args(argv)
 
+    if not os.environ.get("LAMKQ_CONTEXT_DIR") and not os.path.isdir(Z_ROOT):
+        print(f"[LỖI] Không truy cập được Z ({Z_ROOT}) — context, khóa hồ sơ nằm trên Z nên KHÔNG làm hồ sơ "
+              f"cho tới khi Z kết nối lại (2 máy chạy song song cần khóa chung). Báo người dùng.")
+        return 3
+    try:
+        return _dispatch(a)
+    except ZAmbiguous as e:
+        print(f"[Z trùng] {e}. Dừng, hỏi người dùng thư mục nào đúng (AGENTS mục 0).")
+        return 1
+
+
+def _dispatch(a) -> int:
+    if a.cmd == "duong-dan":
+        return cmd_duong_dan(a.ma)
+    if a.cmd == "nhap-z":
+        return cmd_nhap_z(a.tu, a.ghi)
     if a.cmd == "dau-phien":
         cmd_don(True, quiet=True)
         return cmd_xem()

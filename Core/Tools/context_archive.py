@@ -1,6 +1,6 @@
 """Lệnh cũ — chuyển tiếp sang `Core/Tools/context.py` (AGENTS mục 16).
 
-Từ 12/11/2026 context tách thành file riêng theo hồ sơ / phiên / lỗi trong `Context/`; PROJECT_CONTEXT.md
+Từ 12/11/2026 context tách thành file riêng theo hồ sơ / phiên / lỗi (từ 20/11/2026 trên Z, thư mục ẩn `Claude - Work`); PROJECT_CONTEXT.md
 không còn mục 1–4, 5E để dọn. Các lệnh cũ vẫn gõ được:
 
     python Core/Tools/context_archive.py kiem-tra        -> context.py kiem-tra
@@ -9,7 +9,7 @@ không còn mục 1–4, 5E để dọn. Các lệnh cũ vẫn gõ được:
     python Core/Tools/context_archive.py mo 132809       -> context.py mo 132809
 
 Bản trước khi tách (cắt dòng khỏi PROJECT_CONTEXT.md) không còn dùng; PROJECT_CONTEXT.md gốc lưu ở
-`ContextLuuTru/PROJECT_CONTEXT_truoc_khi_tach_20261112.md`.
+`<Z 2026>\Claude - Work\LuuTru\PROJECT_CONTEXT_truoc_khi_tach_20261112.md`.
 """
 from __future__ import annotations
 

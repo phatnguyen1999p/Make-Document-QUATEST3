@@ -1,7 +1,7 @@
 # PROJECT_CONTEXT — Bản đồ dự án và cách dùng context
 
 > **Dự án:** `quatest3-core` — tự động hóa hồ sơ quan trắc môi trường (phòng sạch, khí nén, BSC, LAF, tủ hút, quan trắc môi trường lao động — QTMTLĐ) của QUATEST 3, Phòng NV2.
-> **File này chỉ còn phần tĩnh** (cách dùng context, bản đồ mã nguồn, ghi nhớ nhanh). Từ 12/11/2026 trạng thái, lỗi, nhật ký, bàn giao **không ghi vào đây nữa** — nằm trong `Context/` (mỗi hồ sơ, mỗi phiên, mỗi lỗi một file) để nhiều phiên chạy song song không ghi đè nhau. Bản gốc trước khi tách: `ContextLuuTru/PROJECT_CONTEXT_truoc_khi_tach_20261112.md`.
+> **File này chỉ còn phần tĩnh** (cách dùng context, bản đồ mã nguồn, ghi nhớ nhanh). Từ 12/11/2026 trạng thái, lỗi, nhật ký, bàn giao **không ghi vào đây nữa** — nằm trên Z, thư mục ẩn `Claude - Work` (mỗi hồ sơ, mỗi phiên, mỗi lỗi một file; từ 20/11/2026 không trong git) để nhiều phiên, nhiều máy chạy song song không ghi đè nhau. Bản gốc trước khi tách: `<Z 2026>\Claude - Work\LuuTru\PROJECT_CONTEXT_truoc_khi_tach_20261112.md`.
 
 ---
 
@@ -17,16 +17,16 @@ Lệnh in: hồ sơ đang mở (trạng thái, bước tiếp, ai đang giữ kh
 
 | Thứ | Ở đâu | Ai được ghi |
 |---|---|---|
-| Một hồ sơ đang mở: trạng thái, bước tiếp, điểm cần người dùng quyết, quyết định đã chốt, nhật ký | `Context/HoSo/<6 số>.md` | Chỉ phiên đang giữ khóa hồ sơ đó |
-| Việc hệ thống của một phiên (sửa Core, AGENTS, công cụ) | `Context/Phien/<ngày-giờ>-<chủ đề>.md` | Chỉ phiên tạo ra file |
-| Một lỗi / rủi ro (`E<n>`) hoặc một việc hệ thống (`V<n>`) đang mở | `Context/Viec/<ID>.md` | Phiên đang xử lý việc đó |
-| Khóa | `Context/_khoa/<tên>.lock` | Chỉ qua lệnh `khoa` / `tra` |
-| Lưu trữ nguyên văn phần đã xong (**không đọc đầu phiên**) | `ContextLuuTru/` | Chỉ qua lệnh `don` / `dong` |
+| Một hồ sơ đang mở: trạng thái, bước tiếp, điểm cần người dùng quyết, quyết định đã chốt, nhật ký | `<thư mục hồ sơ trên Z>\Claude - Work\<6 số>.md` | Chỉ phiên đang giữ khóa hồ sơ đó |
+| Việc hệ thống của một phiên (sửa Core, AGENTS, công cụ) | `<Z 2026>\Claude - Work\Phien\<ngày-giờ>-<chủ đề>.md` | Chỉ phiên tạo ra file |
+| Một lỗi / rủi ro (`E<n>`) hoặc một việc hệ thống (`V<n>`) đang mở | `<Z 2026>\Claude - Work\Viec\<ID>.md` | Phiên đang xử lý việc đó |
+| Khóa | hồ sơ: `<thư mục hồ sơ trên Z>\Claude - Work\<6 số>.lock`; khác: `<Z 2026>\Claude - Work\_khoa\<tên>.lock` | Chỉ qua lệnh `khoa` / `tra` |
+| Lưu trữ nguyên văn phần đã xong (**không đọc đầu phiên**) | `<6 số> - LuuTru.md` trong `Claude - Work` của hồ sơ; chung: `<Z 2026>\Claude - Work\LuuTru\` | Chỉ qua lệnh `don` / `dong` |
 | Quy tắc bất biến | `AGENTS.md` | Chỉ khi người dùng yêu cầu / chốt |
 
 **Quy trình:**
 
-1. **Làm hồ sơ:** `python Core/Tools/context.py khoa <6 số> --ai <nhãn>`. In `[KHÓA BẬN]` → phiên khác đang làm hồ sơ đó: **dừng, báo người dùng**, không dựng, không chép Z. Hồ sơ mới: `moi <6 số> --khach "…" --doi-tuong "…" --ai <nhãn>`. Hồ sơ đã lưu trữ: `mo <6 số> --ai <nhãn>` rồi đọc file lưu trữ nó chỉ ra. Sau đó đọc `Context/HoSo/<6 số>.md` (chỉ file của hồ sơ đang làm).
+1. **Làm hồ sơ:** `python Core/Tools/context.py khoa <6 số> --ai <nhãn>`. In `[KHÓA BẬN]` → phiên khác đang làm hồ sơ đó: **dừng, báo người dùng**, không dựng, không chép Z. Hồ sơ mới: `moi <6 số> --khach "…" --doi-tuong "…" --ai <nhãn>`. Hồ sơ đã lưu trữ: `mo <6 số> --ai <nhãn>` rồi đọc file lưu trữ nó chỉ ra. Sau đó đọc file context hồ sơ (`duong-dan <6 số>` in đường dẫn; chỉ file của hồ sơ đang làm).
 2. **Ghi lại (sửa thẳng file hồ sơ):** cập nhật 3 dòng đầu — `Trạng thái` (có ngày `dd/mm/yyyy`), `Bước tiếp`, `Cần người dùng quyết` (không còn thì ghi `không`) — và thêm một dòng **trên cùng** bảng Nhật ký: `| dd/mm/yyyy | Claude Code | <việc đã làm>; file: …; QA: … |`. Quyết định của người dùng ghi nguyên lời kèm ngày.
 3. **Sửa code chung / quy tắc (Core, template, AGENTS):** `python Core/Tools/context.py phien "<chủ đề>" --ai <nhãn>` → ghi vào file phiên vừa tạo (dòng `Tóm tắt` + bảng nhật ký). Không sửa file phiên của phiên khác.
 4. **Lỗi / việc hệ thống mới:** `python Core/Tools/context.py viec "<tiêu đề>" [--loi --muc Thấp|Trung bình|Cao] --ai <nhãn>` (tự cấp ID, không trùng giữa các phiên). Sửa xong: đổi dòng `Trạng thái` thành `Fixed (dd/mm/yyyy, AI)` / `Done (dd/mm/yyyy, AI)` — lần `don` sau tự lưu trữ; còn phần dở cần nhớ thì thêm `[giữ]`.
@@ -38,7 +38,7 @@ Lệnh in: hồ sơ đang mở (trạng thái, bước tiếp, ai đang giữ kh
 ### Câu lệnh mở đầu phiên (copy và dán)
 
 ```
-Chạy python Core/Tools/context.py dau-phien, rồi làm việc tôi giao. Làm hồ sơ thì khóa hồ sơ trước, xong thì cập nhật Context/HoSo/<6 số>.md và trả khóa.
+Chạy python Core/Tools/context.py dau-phien, rồi làm việc tôi giao. Làm hồ sơ thì khóa hồ sơ trước, xong thì cập nhật file context hồ sơ trên Z (context.py duong-dan <6 số>) và trả khóa.
 ```
 
 ---
