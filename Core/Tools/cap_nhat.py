@@ -12,6 +12,12 @@ Làm gì:
 3. Nhánh khác `main` mà thiếu commit của `origin/main` → cảnh báo (không tự chuyển nhánh / merge).
 4. So dòng "Phiên bản dd/mm/yyyy HH:MM" của AGENTS.md trên máy với `origin/main`.
 Không bao giờ `reset`, `stash`, `checkout` hay ghi đè file người dùng đang sửa.
+
+Kiểm tra lại định kỳ trong phiên (người dùng yêu cầu 20/11/2026: "đầu mỗi ngày hoặc mỗi giờ"): hook
+UserPromptSubmit của plugin lamkq gọi `python Core/Tools/cap_nhat.py --neu-qua 60` mỗi lần người dùng nhắn —
+chỉ chạy khi lần kiểm tra trước (ghi giờ trong `.git/lamkq_cap_nhat.txt`, riêng từng máy) đã quá 60 phút
+(đổi bằng biến môi trường `LAMKQ_CAP_NHAT_PHUT`); chưa tới hạn thì im lặng. Tải về mà AGENTS.md đổi →
+in lệnh xem phần khác nhau để AI đọc lại quy tắc mới ngay trong phiên.
 """
 from __future__ import annotations
 
@@ -19,6 +25,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 MAIN = "origin/main"
@@ -42,11 +49,40 @@ def _agents_version(text: str):
     return (y, mo, d, h, mi), f"{d}/{mo}/{y} {h}:{mi}"
 
 
+def _stamp_path() -> str:
+    code, out, _ = _git("rev-parse", "--git-dir")
+    if code != 0 or not out:
+        return ""
+    return os.path.join(out if os.path.isabs(out) else os.path.join(ROOT, out), "lamkq_cap_nhat.txt")
+
+
+def _ghi_moc() -> None:
+    p = _stamp_path()
+    if p:
+        try:
+            with open(p, "w", encoding="utf-8") as f:
+                f.write(str(int(time.time())))
+        except OSError:
+            pass
+
+
+def da_qua(phut: float) -> bool:
+    """True khi lần kiểm tra trước đã quá `phut` phút (hoặc chưa kiểm tra lần nào trên máy này)."""
+    p = _stamp_path()
+    try:
+        with open(p, encoding="utf-8") as f:
+            last = float(f.read().strip() or 0)
+    except (OSError, ValueError):
+        return True
+    return time.time() - last >= phut * 60
+
+
 def kiem_tra() -> bool:
     """In tình trạng phiên bản; trả True khi vừa tải code mới về (người gọi nên chạy lại bằng code mới)."""
     if _git("rev-parse", "--is-inside-work-tree")[0] != 0:
         print("[Phiên bản] Không phải repo git — bỏ qua kiểm tra bản mới.")
         return False
+    _ghi_moc()
     code, _, err = _git("fetch", "--quiet", "origin", timeout=40)
     if code != 0:
         print(f"[CẢNH BÁO] [Phiên bản] Không tải được thông tin từ origin ({err[:120] or 'lỗi mạng'}) — "
@@ -62,10 +98,14 @@ def kiem_tra() -> bool:
         cnt = _git("rev-list", "--left-right", "--count", f"HEAD...{up}")[1].split()
         ahead, behind = (int(cnt[0]), int(cnt[1])) if len(cnt) == 2 else (0, 0)
         if behind and not ahead and not dirty:
+            old_head = _git("rev-parse", "HEAD")[1]
             code, _, err = _git("merge", "--ff-only", "--quiet", up, timeout=60)
             if code == 0:
                 pulled = True
                 print(f"[Phiên bản] Đã tải bản mới nhất: {behind} commit từ {up} vào nhánh {branch}.")
+                if _git("diff", "--quiet", old_head, "HEAD", "--", "AGENTS.md")[0] != 0:
+                    print(f"[CẢNH BÁO] [Phiên bản] AGENTS.md vừa đổi — đọc lại phần khác nhau trước khi làm tiếp: "
+                          f"`git diff {old_head[:8]} HEAD -- AGENTS.md`.")
             else:
                 print(f"[CẢNH BÁO] [Phiên bản] Tải {behind} commit từ {up} thất bại ({err[:160]}) — báo người dùng.")
         elif behind:
@@ -106,4 +146,13 @@ def kiem_tra() -> bool:
 if __name__ == "__main__":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
+    args = sys.argv[1:]
+    if args[:1] == ["--neu-qua"]:
+        try:
+            phut = float(os.environ.get("LAMKQ_CAP_NHAT_PHUT") or (args[1] if len(args) > 1 else 60))
+        except ValueError:
+            phut = 60
+        if not da_qua(phut):
+            sys.exit(0)
+        print(f"[lamkq] Kiểm tra cập nhật định kỳ (quá {phut:g} phút từ lần trước):")
     kiem_tra()
