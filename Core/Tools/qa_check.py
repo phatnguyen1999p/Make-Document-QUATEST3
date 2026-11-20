@@ -593,6 +593,10 @@ def check_single_docx(docx_path: str, code: str = None, old_terms: list[str] = N
                                 if cx > 0 and (cx < 2448000 or cx > 2952000):
                                     warnings.append(f"[Image Width in 2-Col Grid] Table #{t_idx} image width is {cx_cm:.2f} cm (expected 7 - 8 cm per rule).")
                     elif len(row0_cells) == 3:
+                        # Hồ sơ 1 kết quả 1 điểm đo (khí nén, nước) tối đa 2 cột (AGENTS mục 3, người dùng chốt 20/11/2026)
+                        fname = os.path.basename(str(docx_path)).lower()
+                        if any(k in fname for k in ("khi nen", "nuoc", "nước")) and len(drawings) >= 2:
+                            warnings.append(f"[Photo Grid 3-Col] Table #{t_idx}: hồ sơ 1 điểm đo (khí nén / nước) dùng tối đa 2 cột ảnh.")
                         for drw in drawings:
                             ext = drw.find(f".//{{{WP_NS}}}extent")
                             if ext is not None:

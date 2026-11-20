@@ -667,10 +667,10 @@ class BSCHandler:
         # Quy tắc: Grid 2 cột thì kích thước ngang của ảnh 7 - 8cm (PHOTO_WIDTH_2COL = 7.5cm), tuyệt đối không crop ảnh
         # NO captions per user request: "không cần ghi chú nội dung hình"
         if photo_paths:
-            # lưới 2 cột cho mọi bảng ảnh (người dùng chốt 20/11/2026, AGENTS mục 3)
-            num_cols = 2
+            # lưới 2 cột cho mọi bảng ảnh; đúng 3 ảnh -> 1 hàng 3 cột (người dùng chốt 20/11/2026, AGENTS mục 3)
+            num_cols = 3 if len(photo_paths) == 3 else 2
             num_rows = math.ceil(len(photo_paths) / num_cols)
-            img_w = PHOTO_WIDTH_2COL  # 7.5 cm (7 - 8 cm, strictly no crop)
+            img_w = PHOTO_WIDTH_3COL if num_cols == 3 else PHOTO_WIDTH_2COL  # 4,8 / 7,5 cm, không crop
 
             t_photo = doc.add_table(rows=num_rows, cols=num_cols)
             t_photo.alignment = WD_TABLE_ALIGNMENT.CENTER
