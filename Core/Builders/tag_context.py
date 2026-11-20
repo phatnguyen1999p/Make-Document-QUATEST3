@@ -1212,6 +1212,51 @@ def fix_note_label(p) -> bool:
     return True
 
 
+def superscript_note_markers(doc) -> int:
+    """Ký hiệu ghi chú '(1)' … '(9)' đứng đầu dòng / đầu ô của bảng Ghi chú / Note -> chỉ số trên (AGENTS mục 3).
+    Template phòng sạch (TBKQ VN/EN, BCKQ) để '(1) …' chung một run chữ thường — người dùng báo 16/11/2026 (067460):
+    tách run thành '(n)' (superscript, giữ font / nghiêng) + phần còn lại (' …', câu ghi chú). Dùng cho TBKQ
+    (trong `style_note_tables`) và BCKQ (`BCKQBuilder`, không đổi cỡ chữ). Trả số ký hiệu đã sửa."""
+    import copy
+    import re as _re
+    from docx.oxml import OxmlElement
+    from docx.oxml.ns import qn as _qn
+
+    n = 0
+    for tbl in doc.element.body.iter(_qn("w:tbl")):
+        if not is_note_table(tbl):
+            continue
+        for p in tbl.iter(_qn("w:p")):
+            runs = [r for r in p.findall(_qn("w:r")) if "".join(t.text or "" for t in r.findall(_qn("w:t"))).strip()]
+            if not runs:
+                continue
+            r = runs[0]
+            ts = r.findall(_qn("w:t"))
+            m = _re.match(r"^(\s*)(\(\d\))(.*)$", ts[0].text or "", _re.S) if len(ts) == 1 else None
+            if not m:
+                continue
+            rpr = r.find(_qn("w:rPr"))
+            va = rpr.find(_qn("w:vertAlign")) if rpr is not None else None
+            if va is not None and va.get(_qn("w:val")) == "superscript":
+                continue
+            if m.group(3):
+                rest = copy.deepcopy(r)
+                rest.find(_qn("w:t")).text = m.group(3)
+                rest.find(_qn("w:t")).set(_qn("xml:space"), "preserve")
+                r.addnext(rest)
+            ts[0].text = m.group(1) + m.group(2)
+            ts[0].set(_qn("xml:space"), "preserve")
+            if rpr is None:
+                rpr = OxmlElement("w:rPr")
+                r.insert(0, rpr)
+            if va is None:
+                va = OxmlElement("w:vertAlign")
+                rpr.append(va)
+            va.set(_qn("w:val"), "superscript")
+            n += 1
+    return n
+
+
 def style_note_tables(doc, size_pt: int = NOTE_PT, italic: bool = True) -> int:
     """Toàn bộ bảng Ghi chú / Note (nhãn, câu công nhận, ghi chú ⁽ⁿ⁾) -> `size_pt` + in nghiêng (AGENTS mục 3).
     Giữ chỉ số trên, gạch chân nhãn. Gọi ở bước cuối dựng TBKQ (handler) và sau mọi hậu xử lý thêm ghi chú (script)."""
@@ -1233,6 +1278,7 @@ def style_note_tables(doc, size_pt: int = NOTE_PT, italic: bool = True) -> int:
                 else:
                     el.attrib.pop(_qn("w:val"), None)
 
+    superscript_note_markers(doc)       # '(1) …' của template -> '(1)' chỉ số trên
     n = 0
     for tbl in doc.element.body.iter(_qn("w:tbl")):
         if not is_note_table(tbl):
