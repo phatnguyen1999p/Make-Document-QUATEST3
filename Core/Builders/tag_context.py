@@ -293,8 +293,9 @@ def _build_grid(doc, anchor_p, ctx, items, is_en: bool, cols: Optional[int], opt
     n = len(entries)
     if cols is None:
         cols = 2 if n >= 2 else 1
-    # Bảng ảnh dùng lưới 2 cột (người dùng chốt 20/11/2026, AGENTS mục 3) — không dùng 3 cột nữa
-    cols = min(int(cols), 2)
+    # Bảng ảnh dùng lưới 2 cột (người dùng chốt 20/11/2026, AGENTS mục 3); đúng 3 ảnh -> 1 hàng 3 cột
+    # (người dùng chốt 20/11/2026, 067460: "nếu 3 hình thì vẫn để 3 cột")
+    cols = 3 if n == 3 and int(cols) != 1 else min(int(cols), 2)
     if cols == 3:
         width = PHOTO_WIDTH_3COL
     elif cols == 2:
@@ -334,8 +335,8 @@ def _build_grid(doc, anchor_p, ctx, items, is_en: bool, cols: Optional[int], opt
 def photo_grid(items, is_en: bool, cols: Optional[int] = None, optimize: bool = False,
                single_width_cm: float = 13.0, captions: bool = True, width_cm: Optional[float] = None) -> TagBlock:
     """
-    TAG khối lưới ảnh: 1 ảnh -> 1 cột 13 cm; từ 2 ảnh -> lưới 2 cột 7,5 cm (20/11/2026: không dùng 3 cột,
-    `cols=3` cũng quy về 2).
+    TAG khối lưới ảnh: 1 ảnh -> 1 cột 13 cm; đúng 3 ảnh -> 1 hàng 3 cột 4–5 cm; còn lại -> lưới 2 cột 7,5 cm
+    (người dùng chốt 20/11/2026; `cols=3` với số ảnh khác 3 quy về 2).
     Đặt {{ bang_anh }} riêng một đoạn trong template; không có ảnh -> đoạn bị xóa.
     `captions=False`: ảnh hiện trường không chú thích (người dùng chốt 06/11/2026, AGENTS mục 3);
     sơ đồ giữ chú thích.
