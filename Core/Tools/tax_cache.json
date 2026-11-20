@@ -52,5 +52,32 @@
     "address": "477/21 Phạm Văn Chiêu, Phường An Hội Đông, TP Hồ Chí Minh",
     "status": "NNT đang hoạt động",
     "source": "Tổng cục Thuế (gdt.gov.vn)"
+  },
+  "0106088879": {
+    "tax_code": "0106088879",
+    "name_vn": "CÔNG TY CỔ PHẦN CÔNG NGHIỆP PSI VIỆT NAM",
+    "name_en": "PSI VIET NAM INDUSTRY JOINT STOCK COMPANY",
+    "short_name": "",
+    "address": "Ô 1 A, lô 3, CCN Lai Xá, Xã Hoài Đức, TP Hà Nội",
+    "status": "NNT đang hoạt động",
+    "source": "Tổng cục Thuế (gdt.gov.vn)"
+  },
+  "0103831711": {
+    "tax_code": "0103831711",
+    "name_vn": "CÔNG TY CỔ PHẦN DƯỢC PHẨM PHENIKAA",
+    "name_en": "PHENIKAA PHARMACEUTICALS JOINT STOCK COMPANY",
+    "short_name": "PHENIKAA PHARMA",
+    "address": "Lô đất CN2-10, Khu Công nghiệp Công nghệ cao 2, Khu Công nghệ cao Hòa Lạc, Xã Hòa Lạc, TP Hà Nội",
+    "status": "NNT đang hoạt động",
+    "source": "Tổng cục Thuế (gdt.gov.vn)"
+  },
+  "0304906371": {
+    "tax_code": "0304906371",
+    "name_vn": "CÔNG TY TNHH KỸ THUẬT CƠ ĐIỆN LẠNH QUÍ LONG",
+    "name_en": "QUI LONG REFRIGERATION ELECTRICAL ENGINEERING TECHNOLOGY CO., LTD",
+    "short_name": "QL REETECH CO., LTD",
+    "address": "Số 15 Đường Lam Sơn, Phường Đức Nhuận, TP Hồ Chí Minh",
+    "status": "NNT đang hoạt động",
+    "source": "Tổng cục Thuế (gdt.gov.vn)"
   }
 }

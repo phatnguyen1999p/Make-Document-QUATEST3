@@ -43,6 +43,10 @@ Quyết định của người dùng (11/11/2026):
   - Mỗi LAF là 1 kết quả: /1 buồng LAF phòng vi sinh bao bì, /2 buồng LAF phòng cân nguyên liệu (theo ký hiệu ghi
     chép BBLM 18/06); BCKQ, phiếu tính toán tách theo /1, /2. Bản gộp (mã trần) dựng trước đó bỏ — file đã xóa ở
     Input, code chỉ còn dựng từng buồng (14/11/2026).
+  - (17/11/2026) Sơ đồ vị trí đo tốc độ gió: vị trí đo cân với tấm lọc HEPA (cách đều mép lọc); dựng bằng draw.io để
+    sửa được (trước đó vẽ PIL, không có file .drawio).
+  - (16/11/2026) Dòng "Nồng độ hạt bụi: 01 vị trí (2)" ở bảng 9.1 khó hiểu ("(2)" đọc như ghi chú) -> bỏ số vị trí;
+    ký hiệu "(1)" ở dòng Ghi chú phải in nhỏ (chỉ số trên) — sửa chung trong Core (superscript_note_markers).
   - Thống nhất gọi "vị trí đo" / "vị trí", không dùng "điểm đo". Mục cường độ sáng ghi "Cường độ sáng trung bình",
     không ghi số lượng vị trí.
 
@@ -59,6 +63,9 @@ Suy luận của AI:
 
 Chạy:  python build_067460.py          (DOCX + XLSX + Edoc)
        python build_067460.py --pdf    (thêm PDF qua Word/Excel COM + UpChungThu, chỉ Windows)
+       --tao-lai-so-do                 (dựng lại TBKQ/_diagrams/so_do_vi_tri.drawio từ tọa độ code — bỏ chỉnh tay)
+Sơ đồ 9.3: TBKQ/_diagrams/so_do_vi_tri.drawio — mở bằng draw.io, kéo vị trí đo ở tab so_do_vi_tri_vn, Ctrl+S,
+chạy lại script (file đã có thì code giữ nguyên chỉnh tay).
 Không đồng bộ Z trong code — chép bằng `python Core/Tools/ai_files.py chep 067460 --ghi` (AGENTS mục 0).
 """
 
@@ -230,10 +237,10 @@ def build_dossier() -> Dossier:
         points_summary_vn=["Tốc độ dòng khí qua lọc HEPA: 16 vị trí;",   # cách không ngắt: không tách "vị / trí"
                            "Cường độ sáng trung bình;",
                            "Độ ồn: 01 vị trí;",
-                           f"Nồng độ hạt bụi: 01 vị trí ({pos});",
+                           "Nồng độ hạt bụi: 01 vị trí;",   # bỏ "(2)": dễ đọc nhầm thành ghi chú (16/11/2026)
                            "Độ rò rỉ lọc HEPA: 02 lọc (trái, phải)."],
         points_summary_en=["Downflow velocity: 16 locations;", "Average light intensity;", "Noise level: 01 location;",
-                           f"Particle concentration: 01 location ({pos});",
+                           "Particle concentration: 01 location;",
                            "HEPA filter leakage: 02 filters (left, right)."],
     ) for vn, en, area, pos, _, _ in [AREA]]
 
@@ -328,22 +335,41 @@ EXTRA = [
 ]
 
 
-DF_DIAGRAM = os.path.join(INPUT_DIR, "TBKQ", "_diagrams", "so_do_downflow.png")
+DIAGRAM_DIR = os.path.join(INPUT_DIR, "TBKQ", "_diagrams")
+# Hình học sơ đồ (pixel ảnh nền, nhìn từ trên xuống): khoang làm việc, 2 tấm lọc HEPA, vùng nhãn lọc phía dưới
+DF_W, DF_H = 1200, 960
+DF_BOX = (90, 110, 1110, 770)                # x0, y0, x1, y1 khoang làm việc (vách trong ở trên, cửa ở dưới)
+DF_PAD, DF_LABEL_H = 30, 64                  # lề trong khoang; chiều cao vùng nhãn "Lọc HEPA trái / phải"
 
 
-def draw_downflow_diagram(path: str = DF_DIAGRAM) -> str:
-    """Sơ đồ vị trí 16 điểm đo tốc độ dòng khí cấp qua lọc HEPA (lưới 4 × 4 theo phiếu thông số tủ: vách trong ở trên,
-    cửa ở dưới, lọc HEPA trái cột 1–2, phải cột 3–4; đánh số theo hàng từ vách trong). Chữ Times New Roman (AGENTS 8C)."""
+def _df_filters():
+    """[(x_trái, y_trên, x_phải, y_dưới, nhãn)] của 2 tấm lọc HEPA."""
+    x0, y0, x1, y1 = DF_BOX
+    xm = (x0 + x1) / 2
+    top, bot = y0 + DF_PAD, y1 - DF_PAD - DF_LABEL_H
+    return [(x0 + DF_PAD, top, xm - DF_PAD / 2, bot, "Lọc HEPA trái"),
+            (xm + DF_PAD / 2, top, x1 - DF_PAD, bot, "Lọc HEPA phải")]
+
+
+def df_points():
+    """16 vị trí đo: mỗi tấm lọc lưới 2 cột × 4 hàng **cách đều mép tấm lọc** (tâm ô lưới: lề = nửa bước), người dùng
+    yêu cầu 17/11/2026. Đánh số theo hàng từ vách trong, trái -> phải qua cả 2 tấm lọc (thứ tự ghi trên phiếu)."""
+    (la, lt, lb, lbot, _), (ra, _, rb, _, _) = _df_filters()
+    xs = [la + (lb - la) * (c + 0.5) / 2 for c in range(2)] + [ra + (rb - ra) * (c + 0.5) / 2 for c in range(2)]
+    ys = [lt + (lbot - lt) * (r + 0.5) / 4 for r in range(4)]
+    return [(str(r * 4 + c + 1), xs[c], ys[r]) for r in range(4) for c in range(4)]
+
+
+def _df_plan():
+    """Ảnh nền sơ đồ (lớp khóa trong draw.io): vách, cửa, 2 tấm lọc HEPA, nhãn — không có vị trí đo.
+    Chữ Times New Roman (AGENTS 8C)."""
     from PIL import Image, ImageDraw, ImageFont
-    os.makedirs(os.path.dirname(path), exist_ok=True)
     fdir = os.path.join(os.environ.get("WINDIR", r"C:\Windows"), "Fonts")
     f_bold = ImageFont.truetype(os.path.join(fdir, "timesbd.ttf"), 52)
-    f_num = ImageFont.truetype(os.path.join(fdir, "timesbd.ttf"), 46)
     f_it = ImageFont.truetype(os.path.join(fdir, "timesi.ttf"), 44)
-    W, H = 1200, 960
-    im = Image.new("RGB", (W, H), "white")
+    im = Image.new("RGB", (DF_W, DF_H), "white")
     d = ImageDraw.Draw(im)
-    x0, y0, x1, y1 = 90, 110, 1110, 790             # khoang làm việc (nhìn từ trên xuống)
+    x0, y0, x1, y1 = DF_BOX
 
     def ctext(x, y, s, font, fill="black"):
         b = d.textbbox((0, 0), s, font=font)
@@ -357,27 +383,30 @@ def draw_downflow_diagram(path: str = DF_DIAGRAM) -> str:
         d.line((x, y1, min(x + 20, x1), y1), fill="black", width=4)
     ctext((x0 + x1) / 2, y0 - 55, "Vách trong", f_bold)
     ctext((x0 + x1) / 2, y1 + 50, "Cửa", f_bold)
-    # 2 lọc HEPA (vùng tô nhạt), ranh giới nét đứt
-    xm = (x0 + x1) / 2
-    pad = 30
-    for (a, b), lbl in (((x0 + pad, xm - pad / 2), "Lọc HEPA trái"), ((xm + pad / 2, x1 - pad), "Lọc HEPA phải")):
-        d.rectangle((a, y0 + pad, b, y1 - pad), fill=(232, 240, 250), outline=(90, 120, 170), width=3)
-        ctext((a + b) / 2, y1 - pad - 34, lbl, f_it, fill=(40, 70, 130))
-    for y in range(y0 + 10, y1 - 10, 30):
-        d.line((xm, y, xm, y + 16), fill=(90, 120, 170), width=3)
-    # 16 điểm đo: 4 hàng × 4 cột, đánh số theo hàng từ vách trong, trái -> phải
-    cols = [x0 + (x1 - x0) * k / 8 for k in (1, 3, 5, 7)]
-    rows = [y0 + 20 + (y1 - y0 - 110) * k / 7 for k in (0.5, 2.3, 4.1, 5.9)]
-    n = 0
-    for yy in rows:
-        for xx in cols:
-            n += 1
-            r = 38
-            d.ellipse((xx - r, yy - r, xx + r, yy + r), fill="white", outline=(200, 30, 30), width=5)
-            ctext(xx, yy, str(n), f_num, fill=(200, 30, 30))
-    ctext(W / 2, H - 50, "Mặt phẳng đo cách lưới phân phối khí 30 cm", f_bold)
-    im.save(path, dpi=(200, 200))
-    return path
+    # 2 tấm lọc HEPA (vùng tô nhạt), nhãn ngay dưới mỗi tấm (ngoài tấm lọc, không đè vị trí đo)
+    for a, top, b, bot, lbl in _df_filters():
+        d.rectangle((a, top, b, bot), fill=(232, 240, 250), outline=(90, 120, 170), width=3)
+        ctext((a + b) / 2, bot + DF_LABEL_H / 2 + 4, lbl, f_it, fill=(40, 70, 130))
+    ctext(DF_W / 2, DF_H - 50, "Mặt phẳng đo cách lưới phân phối khí 30 cm", f_bold)
+    return im
+
+
+_DF_REBUILD = False          # --tao-lai-so-do: dựng lại .drawio từ tọa độ code (bỏ chỉnh tay), chỉ lần đầu
+
+
+def draw_downflow_diagram() -> str:
+    """Sơ đồ các vị trí đo tốc độ dòng khí cấp qua lọc HEPA dạng draw.io (người dùng yêu cầu 17/11/2026):
+    TBKQ/_diagrams/so_do_vi_tri.drawio — lớp nền khóa (_df_plan), lớp "Vị trí đo" 16 vòng tròn kéo thả được.
+    File đã có thì giữ chỉnh tay của người dùng (sửa tab _vn, Ctrl+S, chạy lại script) — Core/Tools/drawio_layout.py.
+    Trả PNG tab _vn (chỉ có TBKQ tiếng Việt)."""
+    global _DF_REBUILD
+    from Core.Tools.drawio_layout import ensure_layout
+    markers = [{"preset": "point", "text": t, "x": x, "y": y, "color": "#C81E1E", "stroke": "#C81E1E",
+                "fill": "#FFFFFF", "stroke_width": 5, "w": 76, "h": 76, "font_size": 44}
+               for t, x, y in df_points()]
+    pngs = ensure_layout(DIAGRAM_DIR, _df_plan, markers, overwrite=_DF_REBUILD, frame=False)
+    _DF_REBUILD = False
+    return pngs["vn"]
 
 
 def _set_cell_text(tc, text: str, bold: bool = False):
@@ -796,8 +825,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pdf", action="store_true", help="Xuất PDF (Word/Excel COM) + chèn giấy tiêu đề UpChungThu")
     ap.add_argument("--only", default="", help="Chỉ dựng chứng thư, vd 1 hoặc 1,2")
+    ap.add_argument("--tao-lai-so-do", action="store_true",
+                    help="Dựng lại TBKQ/_diagrams/so_do_vi_tri.drawio từ tọa độ code (bỏ chỉnh tay)")
     args = ap.parse_args()
-    global AREA, CUR_N
+    global AREA, CUR_N, _DF_REBUILD
+    _DF_REBUILD = args.tao_lai_so_do or not os.path.exists(os.path.join(DIAGRAM_DIR, "so_do_vi_tri.drawio"))
     only = {int(x) for x in args.only.split(",") if x.strip()} or set(range(1, len(LAFS) + 1))
     edoc_done = False
     results = []
