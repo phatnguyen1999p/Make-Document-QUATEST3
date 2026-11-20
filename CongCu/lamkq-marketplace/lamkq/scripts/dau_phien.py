@@ -4,7 +4,9 @@ r"""Hook SessionStart của plugin lamkq.
 - Đặt UPCHUNGTHU_PATH, DRAWIO_TOOL_DIR trỏ vào bản trong CongCu\ (người dùng chốt 16/11/2026)
   cho các lệnh Claude chạy trong phiên (qua CLAUDE_ENV_FILE).
 - Chạy `python Core/Tools/context.py dau-phien` (AGENTS.md: bắt buộc đầu phiên) và in kết quả ra stdout
-  → Claude Code đưa vào ngữ cảnh phiên.
+  → Claude Code đưa vào ngữ cảnh phiên. Bước đầu của dau-phien kiểm tra phiên bản và tải bản mới nhất từ git
+  (Core/Tools/cap_nhat.py, người dùng yêu cầu 20/11/2026).
+- So phiên bản plugin đang cài với bản trong repo (CongCu/lamkq-marketplace/lamkq) → nhắc cập nhật plugin.
 Lỗi ở đây không được chặn phiên: luôn thoát 0.
 """
 import json
@@ -42,6 +44,23 @@ def _write_env(root: str) -> list:
     ]
 
 
+def _plugin_version(path: str) -> str:
+    try:
+        with open(os.path.join(path, ".claude-plugin", "plugin.json"), encoding="utf-8") as f:
+            return str(json.load(f).get("version", ""))
+    except (OSError, ValueError):
+        return ""
+
+
+def _check_plugin(root: str) -> list:
+    installed = _plugin_version(os.environ.get("CLAUDE_PLUGIN_ROOT", ""))
+    repo = _plugin_version(os.path.join(root, "CongCu", "lamkq-marketplace", "lamkq"))
+    if not installed or not repo or installed == repo:
+        return [f"[lamkq] Plugin lamkq {installed or '?'} (repo {repo or '?'})."]
+    return [f"[CẢNH BÁO] [Plugin] Plugin lamkq đang cài {installed}, bản trong repo {repo} — nhắc người dùng chạy "
+            "`/plugin marketplace update lamkq-marketplace` rồi cập nhật plugin lamkq, mở lại phiên."]
+
+
 def main() -> int:
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -53,6 +72,7 @@ def main() -> int:
         return 0  # không phải dự án Làm KQ
 
     lines = ["[lamkq] Công cụ dùng bản trong CongCu:"] + ["  " + s for s in _write_env(root)]
+    lines += _check_plugin(root)
 
     py = os.environ.get("LAMKQ_PYTHON") or sys.executable
     env = dict(os.environ, PYTHONIOENCODING="utf-8")
