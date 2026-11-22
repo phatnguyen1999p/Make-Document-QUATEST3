@@ -486,10 +486,10 @@ class FumeHoodHandler:
                 photo_paths.extend(cands[:6])
 
         if photo_paths:
-            # lưới 2 cột cho mọi bảng ảnh (người dùng chốt 20/11/2026, AGENTS mục 3)
-            num_cols_p = 2
+            # lưới 2 cột cho mọi bảng ảnh; đúng 3 ảnh -> 1 hàng 3 cột (người dùng chốt 20/11/2026, AGENTS mục 3)
+            num_cols_p = 3 if len(photo_paths) == 3 else 2
             num_rows_p = math.ceil(len(photo_paths) / num_cols_p)
-            img_w = PHOTO_WIDTH_2COL  # 7.5 cm (7 - 8 cm, strictly no crop)
+            img_w = PHOTO_WIDTH_3COL if num_cols_p == 3 else PHOTO_WIDTH_2COL  # 4,8 / 7,5 cm, không crop
 
             t_photo = doc.add_table(rows=num_rows_p, cols=num_cols_p)
             t_photo.alignment = WD_TABLE_ALIGNMENT.CENTER

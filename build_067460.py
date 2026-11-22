@@ -9,7 +9,9 @@ Nguồn (Input/067460, chép từ Z 11/11/2026 — chỉ đọc):
   - KQDo/20261111161732829.pdf (scan 26 trang):
       tr.1 phiếu kiểm soát công việc; tr.3 PYC Q326D067460 ngày 09/06/2026 (2 LAF: "LAF cân mẫu 1 mặt nhựa"
       W1600×D1600×H2400 mm, "LAF lấy mẫu 1 mặt nhựa" W1200×D1200×H2400 mm; downflow, rò rỉ ULPA, ồn, độ sáng, bụi
-      Class A; chứng thư Tiếng Việt; MST 0304125427); tr.5 bản PYC thứ 2; tr.7–9 báo giá QONV26009397;
+      Class A; chứng thư Tiếng Việt; MST 0304125427 — đối chiếu tax_helper 20/11/2026: EXACT_MATCH tên + địa chỉ
+      477/21 Phạm Văn Chiêu, phường An Hội Đông, TP Hồ Chí Minh, tên quốc tế LAM VIET SCIENTIFIC TECHNOLOGY TRADING
+      COMPANY LIMITED, đang hoạt động); tr.5 bản PYC thứ 2; tr.7–9 báo giá QONV26009397;
       tr.11–12 BBLM 11/11/2026 (BM3030.02): "Quét rò rỉ màng lọc HEPA và đo nồng độ bụi khu vực phòng sạch",
         09:00 – 11:30, AeroTrak 9350 + ATI 6D/2i, QUATEST 3 3030:2025; N2.TC.PS.01; "Buồng LAF tại phòng vi sinh bao bì
         và tại phòng cân nguyên liệu": 04 HEPA, bụi 02 vị trí; người thực hiện Nguyễn Tiến Phát;
@@ -43,6 +45,7 @@ Quyết định của người dùng (11/11/2026):
   - Mỗi LAF là 1 kết quả: /1 buồng LAF phòng vi sinh bao bì, /2 buồng LAF phòng cân nguyên liệu (theo ký hiệu ghi
     chép BBLM 18/06); BCKQ, phiếu tính toán tách theo /1, /2. Bản gộp (mã trần) dựng trước đó bỏ — file đã xóa ở
     Input, code chỉ còn dựng từng buồng (14/11/2026).
+  - (20/11/2026) Dựng lại theo quy tắc mới; ảnh: "nếu 3 hình thì vẫn để 3 cột" (giữ 1 hàng 3 cột).
   - (17/11/2026) Sơ đồ vị trí đo tốc độ gió: vị trí đo cân với tấm lọc HEPA (cách đều mép lọc); dựng bằng draw.io để
     sửa được (trước đó vẽ PIL, không có file .drawio).
   - (16/11/2026) Dòng "Nồng độ hạt bụi: 01 vị trí (2)" ở bảng 9.1 khó hiểu ("(2)" đọc như ghi chú) -> bỏ số vị trí;
@@ -109,12 +112,12 @@ CLIENT = ClientInfo(
     name_vn="Công ty TNHH Thương mại Khoa học Kỹ thuật Lâm Việt",
     name_en="Lam Viet Scientific Technology Trading Company Limited",      # tên quốc tế theo MST 0304125427
     address_vn="477/21 Phạm Văn Chiêu, phường An Hội Đông, Thành phố Hồ Chí Minh",
-    address_en="477/21 Pham Van Chieu Street, An Hoi Dong Ward, Ho Chi Minh City",
+    address_en="477/21 Pham Van Chieu street, An Hoi Dong ward, Ho Chi Minh City",   # AGENTS mục 14 (20/11/2026)
 )
 SITE_VN = ("Nhà máy của Công ty TNHH Thương mại - Sản xuất Việt Thọ - Lô A1, Khu công nghiệp Sông Mây, đường số 4, "
            "xã Bình Minh, Thành phố Đồng Nai")
 SITE_EN = ("Factory of Viet Tho Trading - Manufacturing Company Limited - Lot A1, Song May Industrial Park, Road No. 4, "
-           "Binh Minh Commune, Dong Nai City")
+           "Binh Minh commune, Dong Nai City")
 
 GRADE = "A"
 BASIS_VN, BASIS_EN = "WHO TRS 961 (2011) – Phụ lục 6", "WHO TRS 961 (2011) – Annex 6"
@@ -282,7 +285,7 @@ def build_dossier() -> Dossier:
         equipments=[eq("kanomax_6501"), eq("testo_440"), eq("rion_nl53"), eq("aerotrak_9350"), eq("ati_6d_2i")],
         locations=locations,
         photos=photos, layouts=[],
-        # 3 ảnh / buồng -> 1 hàng 3 cột 5 cm (AGENTS mục 3: lưới 3 cột 4–5 cm) cho 9.1 + 9.2 cùng trang
+        # 3 ảnh / buồng -> 1 hàng 3 cột 5 cm (người dùng chốt 20/11/2026: "nếu 3 hình thì vẫn để 3 cột")
         results_data={"bui_3kenh": bui, "hepa": hepa, "photo_cols": 3, "photo_width_cm": 5.0},
         input_dir=INPUT_DIR, output_dir="", network_dir="",
     )

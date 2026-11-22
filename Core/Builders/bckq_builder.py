@@ -389,7 +389,11 @@ class BCKQBuilder:
         photos = [p for p in (d.photos or []) if os.path.isfile(p.get("path", "") if isinstance(p, dict) else str(p))]
         layouts = [p for p in (d.layouts or []) if os.path.isfile(p.get("path", "") if isinstance(p, dict) else str(p))]
         # Ảnh hiện trường không chú thích (AGENTS mục 3); khí nén giữ nhãn "Vị trí lấy mẫu KN1" (ảnh định danh vị trí)
-        ctx["co_anh"], ctx["bang_anh"] = bool(photos), photo_grid(photos, False, captions=(dtype in ("compressed_air", "khi nen")))
+        # Khí nén / nước (1 kết quả 1 điểm đo) -> tối đa 2 cột; phòng sạch, MTLĐ được lưới 3 cột (AGENTS mục 3)
+        single_pt = dtype in ("compressed_air", "khi nen", "nuoc", "water")
+        ctx["co_anh"], ctx["bang_anh"] = bool(photos), photo_grid(photos, False, captions=(dtype in ("compressed_air", "khi nen")),
+                                                                  cols=None if single_pt else rd.get("photo_cols"),
+                                                                  single_point=single_pt)
         ctx["co_so_do"], ctx["bang_so_do"] = bool(layouts), photo_grid(layouts, False, cols=2 if len(layouts) >= 2 else 1)
 
         if dtype in ("compressed_air", "khi nen"):
