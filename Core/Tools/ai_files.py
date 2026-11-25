@@ -19,6 +19,9 @@ Quy tắc khi chép lên Z (lệnh `chep`):
   - Băm bản Z không có trong sổ        → có người sửa sau AI → KHÔNG ghi đè, in [Z EDITED]
                                          (chép bản Z về Input / hỏi người dùng — mục 0).
   Sau khi chép, băm bản mới được ghi vào sổ.
+  Thư mục đích trên Z: thư mục con có sẵn có chữ "TBKQ" / "ThucHien", "Thuc hien", "Thực hiện"
+  (không phân biệt hoa thường, dấu, khoảng trắng — vd "Q326D145046 - TBKQ", "THUC HIEN -") được
+  dùng thay cho TBKQ / ThucHien; không có thì tạo tên chuẩn (`z_sub`, người dùng chốt 25/11/2026).
 
 Lệnh:
   python Core/Tools/ai_files.py liet-ke <6 số>…          # file AI trong Input + tình trạng trên Z
@@ -149,11 +152,64 @@ def z_folder(code: str, override: str | None = None) -> str | None:
     return main[0]
 
 
+def _fold(s: str) -> str:
+    """Bỏ dấu, viết thường, bỏ khoảng trắng: "Thực hiện" → "thuchien"."""
+    import unicodedata
+    s = unicodedata.normalize("NFD", s.replace("đ", "d").replace("Đ", "D"))
+    return re.sub(r"\s+", "", "".join(c for c in s if not unicodedata.combining(c))).lower()
+
+
+# Thư mục con trên Z do người dùng đặt sẵn với tên khác (người dùng chốt 25/11/2026):
+# tên có chữ "TBKQ" → nơi chép TBKQ; tên có "ThucHien" / "Thuc hien" / "Thực hiện" → nơi chép ThucHien.
+Z_SUB_KEYS = {"ThucHien": "thuchien", "TBKQ": "tbkq", "pdf": None}
+_z_sub_cache: dict[tuple[str, str], str | None] = {}
+
+
+def z_sub(z: str, sub: str) -> str | None:
+    """Tên thư mục con trên Z dùng cho `sub` (ThucHien / TBKQ / pdf).
+
+    Đúng tên chuẩn (không phân biệt hoa thường) → dùng; không có thì một thư mục có chữ khóa
+    (vd "Thuc hien", "Q326D145046 - TBKQ", "THUC HIEN -") → dùng thư mục đó; không có → tên chuẩn
+    (tạo mới). Nhiều thư mục cùng khớp → None (không chép, hỏi người dùng)."""
+    k = (z, sub)
+    if k in _z_sub_cache:
+        return _z_sub_cache[k]
+    try:
+        names = [n for n in os.listdir(z) if os.path.isdir(os.path.join(z, n))]
+    except OSError:
+        names = []
+    exact = [n for n in names if n.lower() == sub.lower()]
+    key = Z_SUB_KEYS.get(sub)
+    loose = [n for n in names if key and key in _fold(n) and not re.search(r" \(\d+\)$", n)]
+    if exact:
+        res = exact[0]
+    elif len(loose) == 1:
+        res = loose[0]
+        print(f"  [Z Folder] {sub} → dùng thư mục có sẵn trên Z: {res}")
+    elif loose:
+        res = None
+        print(f"[CRITICAL WARNING] [Z Folder] {sub}: nhiều thư mục khớp trên Z ({'; '.join(loose)}) "
+              "— không chép phần này, hỏi người dùng.")
+    else:
+        res = sub
+    _z_sub_cache[k] = res
+    return res
+
+
+def z_path(z: str, rel: str) -> str | None:
+    """Đường dẫn trên Z của file `rel` (dạng ThucHien/…, TBKQ/…, pdf/…) theo thư mục con có sẵn."""
+    sub, _, rest = rel.replace("\\", "/").partition("/")
+    real = z_sub(z, sub)
+    return os.path.join(z, real, *rest.split("/")) if real else None
+
+
 def status(code: str, led: dict, rel: str, z: str | None) -> str:
     src = os.path.join(input_dir(code), rel)
     if not z:
         return "?"
-    dst = os.path.join(z, rel)
+    dst = z_path(z, rel)
+    if not dst:
+        return "nhiều thư mục khớp trên Z → hỏi người dùng"
     if not os.path.exists(dst):
         return "Z chưa có"
     dz = sha256(dst)
@@ -180,8 +236,9 @@ def cmd_record(code: str, with_z: bool, z_override: str | None, write: bool) -> 
     added = 0
     for rel in ai_files(code):
         added += record(led, rel, os.path.join(input_dir(code), rel))
-        if z and os.path.exists(os.path.join(z, rel)):
-            added += record(led, rel, os.path.join(z, rel))
+        zp = z_path(z, rel) if z else None
+        if zp and os.path.exists(zp):
+            added += record(led, rel, zp)
     print(f"{code}: thêm {added} bản vào sổ" + ("" if write else " (chạy thử)"))
     if write:
         save(code, led)
@@ -195,9 +252,12 @@ def cmd_copy(code: str, z_override: str | None, write: bool) -> int:
     blocked = copied = 0
     for rel in ai_files(code):
         src = os.path.join(input_dir(code), rel)
-        dst = os.path.join(z, rel)
+        dst = z_path(z, rel)
         ds = sha256(src)
         record(led, rel, src, ds)
+        if not dst:
+            blocked += 1
+            continue
         if os.path.exists(dst):
             dz = sha256(dst)
             if dz == ds:
@@ -206,7 +266,8 @@ def cmd_copy(code: str, z_override: str | None, write: bool) -> int:
                 blocked += 1
                 print(f"  [Z EDITED] {rel} — bản Z không phải bản AI nào trong sổ, không ghi đè")
                 continue
-        print(f"  {'chép' if write else 'sẽ chép'}: {rel}")
+        shown = os.path.relpath(dst, z).replace("\\", "/")
+        print(f"  {'chép' if write else 'sẽ chép'}: {rel}" + ("" if shown == rel else f" → {shown}"))
         if write:
             os.makedirs(os.path.dirname(dst), exist_ok=True)
             try:

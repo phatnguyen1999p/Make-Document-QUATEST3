@@ -377,7 +377,11 @@ def check_z_newer(drawio_path: str) -> list[str]:
         hits = [d for d in glob.glob(os.path.join(z_root, f"*{code6}*")) if os.path.isdir(d)]
         if len(hits) != 1:
             continue
-        z_file = os.path.join(hits[0], "TBKQ", "_diagrams", os.path.basename(drawio_path))
+        try:
+            from Core.Tools.ai_files import z_sub
+        except ImportError:
+            from ai_files import z_sub
+        z_file = os.path.join(hits[0], z_sub(hits[0], "TBKQ") or "TBKQ", "_diagrams", os.path.basename(drawio_path))
         if os.path.isfile(z_file) and os.path.getmtime(z_file) > os.path.getmtime(drawio_path) + 2:
             return [f"[Layout Z Newer] {z_file} mới hơn bản Input — chép về Input\\{code6}\\TBKQ\\_diagrams\\ "
                     f"rồi chạy lại; KHÔNG robocopy lên Z trước khi đồng bộ."]
