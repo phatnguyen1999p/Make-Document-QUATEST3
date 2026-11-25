@@ -662,7 +662,11 @@ def last_touched(code: str, text: str, use_files: bool, idle_days: int, today: d
     if d:
         cands.append((d, "file Input"))
     for zf in _z_folders(code):
-        d = _latest_mtime(zf, ("ThucHien", "TBKQ", "pdf"))
+        try:
+            from ai_files import z_sub  # thư mục con có sẵn trên Z ("Thuc hien", "… - TBKQ")
+        except ImportError:
+            from Core.Tools.ai_files import z_sub
+        d = _latest_mtime(zf, tuple(n for n in (z_sub(zf, s) for s in ("ThucHien", "TBKQ", "pdf")) if n))
         if d:
             cands.append((d, "file Z"))
     return max(cands)

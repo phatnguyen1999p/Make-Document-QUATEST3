@@ -24,6 +24,7 @@ python Core/Tools/ai_files.py chep <6 số> --ghi   # chép thật
 - Bản trên Z **có trong sổ** → ghi đè được (kể cả do phiên / máy khác tạo).
 - `[Z EDITED]` → có người sửa tay sau AI: **không ghi đè**. Chép bản Z về `Input\<6 số>\`, đưa chỉnh sửa vào script hồ sơ, dựng lại, so chữ, rồi mới chép (hoặc hỏi người dùng).
 - `[Z Duplicate]` → có thư mục trùng `… (n)`: báo người dùng, không chép vào đó.
+- **Thư mục con đặt tên khác trên Z** (người dùng chốt 25/11/2026): thư mục hồ sơ đã có thư mục tên chứa `TBKQ` (vd `TBKQ -`, `Q326D145046 - TBKQ`, `tbkq`) → TBKQ chép vào đó; tên chứa `ThucHien` / `Thuc hien` / `Thực hiện` (mọi kiểu hoa thường, dấu) → ThucHien chép vào đó. `ai_files.py` tự nhận (`[Z Folder] … dùng thư mục có sẵn`); nhiều thư mục cùng khớp → `[CRITICAL WARNING] [Z Folder]`, phần đó không chép → hỏi người dùng. Không có thì tạo tên chuẩn.
 - `ERROR 32` / file đang mở → báo người dùng đóng file trên Z rồi chép lại riêng file đó.
 
 ## Dự phòng bằng robocopy
@@ -31,7 +32,7 @@ python Core/Tools/ai_files.py chep <6 số> --ghi   # chép thật
 Chỉ khi `ai_files.py` không dùng được:
 
 ```
-robocopy "Input\<6 số>\<ThucHien|TBKQ|pdf>" "<thư mục hồ sơ trên Z>\<cùng tên>" /E /XD _checkpoint _optimized /XF ~$* /R:1 /W:2
+robocopy "Input\<6 số>\<ThucHien|TBKQ|pdf>" "<thư mục hồ sơ trên Z>\<thư mục TBKQ / Thực hiện có sẵn, không có thì cùng tên>" /E /XD _checkpoint _optimized /XF ~$* /R:1 /W:2
 ```
 
 Exit 0–3 là thành công. **Cấm `/MIR`, `/PURGE`** (hook `chan_lenh_z` của plugin chặn). Trước khi chép so giờ sửa từng file trên Z; chép xong chạy `python Core/Tools/ai_files.py ghi <6 số>` để đưa vào sổ.
